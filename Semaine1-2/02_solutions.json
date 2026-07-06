@@ -1,0 +1,304 @@
+{
+  "solutions": {
+    "sol001": {
+      "id": "sol001",
+      "nom": "VPN pour connexions distantes et Wi-Fi public",
+      "description": "Réseau privé virtuel chiffrant les connexions lors des déplacements ou du télétravail",
+      "type": "Technique",
+      "prerequis": "Connexion internet, équipements compatibles VPN",
+      "benefices": "Protège les données en déplacement, simple à déployer",
+      "difficultes": "Discipline d'utilisation requise",
+      "notes": "Indispensable pour collaborateurs mobiles",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "NordVPN Business",
+        "ExpressVPN",
+        "Solutions VPN d'entreprise (Fortinet, Cisco)"
+      ]
+    },
+    "sol002": {
+      "id": "sol002",
+      "nom": "Certificat SSL/TLS + chiffrement du stockage",
+      "description": "Sécuriser les échanges web et chiffrer les données avant stockage",
+      "type": "Technique",
+      "prerequis": "Hébergement web, accès administrateur",
+      "benefices": "Protection basique et peu coûteuse des échanges web",
+      "difficultes": "Renouvellement du certificat à surveiller",
+      "notes": "Prérequis de base pour tout site web PME",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Let's Encrypt (gratuit)",
+        "Hébergeurs marocains (avec SSL inclus)",
+        "Comodo/Sectigo"
+      ]
+    },
+    "sol003": {
+      "id": "sol003",
+      "nom": "Mise à jour régulière CMS, plugins et infrastructure web",
+      "description": "Maintenir à jour le serveur web, le CMS et les extensions installées",
+      "type": "Technique",
+      "prerequis": "Accès admin du site, hébergeur ou prestataire web",
+      "benefices": "Ferme la majorité des failles connues",
+      "difficultes": "Nécessite suivi régulier et tests après mise à jour",
+      "notes": "Doit être fait en continu, pas une seule fois",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Prestataires web locaux",
+        "Agences de maintenance WordPress/Prestashop"
+      ]
+    },
+    "sol004": {
+      "id": "sol004",
+      "nom": "Politique de mots de passe stricte formalisée",
+      "description": "Règles écrites : 8+ caractères, majuscules/minuscules/chiffres/caractères spéciaux, renouvellement trimestriel, interdiction de réutilisation",
+      "type": "Humain",
+      "prerequis": "Document de politique interne, validation direction",
+      "benefices": "Peu coûteux, réduit fortement les mots de passe faibles",
+      "difficultes": "Résistance initiale des employés",
+      "notes": "Fonctionne mieux combiné avec sol008 (gestionnaire de mots de passe)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Rédaction interne ou consultant RH/IT"
+      ]
+    },
+    "sol005": {
+      "id": "sol005",
+      "nom": "Chiffrement des équipements nomades",
+      "description": "Chiffrer disques et données des ordinateurs/téléphones emportés en mission",
+      "type": "Technique",
+      "prerequis": "Équipements compatibles chiffrement (Bitlocker/FileVault)",
+      "benefices": "Données illisibles en cas de perte/vol du matériel",
+      "difficultes": "Gestion des clés de récupération",
+      "notes": "Complète la politique de mobilité (marquage, mot de passe boot)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Bitlocker",
+        "FileVault",
+        "VeraCrypt (gratuit)"
+      ]
+    },
+    "sol006": {
+      "id": "sol006",
+      "nom": "Verrouillage automatique de session après inactivité",
+      "description": "Configuration système pour verrouiller la session après un délai d'inactivité",
+      "type": "Technique",
+      "prerequis": "Accès à la configuration des postes",
+      "benefices": "Gratuit et immédiat à mettre en place",
+      "difficultes": "Aucune, simple réglage",
+      "notes": "Bonne pratique de base, souvent négligée",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Fonctionnalité native Windows/Mac/Linux"
+      ]
+    },
+    "sol007": {
+      "id": "sol007",
+      "nom": "Charte d'usage d'Internet formalisée",
+      "description": "Document officiel listant les règles à faire/ne pas faire pour l'usage d'Internet en entreprise, signé par les employés",
+      "type": "Humain",
+      "prerequis": "Validation direction, diffusion RH",
+      "benefices": "Cadre clair, base légale en cas de sanction, sensibilisation",
+      "difficultes": "Nécessite adhésion et suivi",
+      "notes": "Doit être accompagnée de sensibilisation régulière (sol003)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Rédaction interne, modèle CMRPI/AUSIM"
+      ]
+    },
+    "sol008": {
+      "id": "sol008",
+      "nom": "Extension navigateur de réputation de site",
+      "description": "Extension informant le degré de danger d'un site visité",
+      "type": "Technique",
+      "prerequis": "Navigateur web standard",
+      "benefices": "Gratuit, protection additionnelle légère",
+      "difficultes": "Ne remplace pas une formation complète",
+      "notes": "Bonne pratique complémentaire, faible coût",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Norton Safe Web",
+        "McAfee WebAdvisor",
+        "Avast Online Security"
+      ]
+    },
+    "sol009": {
+      "id": "sol009",
+      "nom": "Sauvegarde régulière et sécurisée du site web",
+      "description": "Sauvegarder le site web (fichiers + base de données) de façon régulière et automatisée",
+      "type": "Technique",
+      "prerequis": "Accès hébergement, outil de backup",
+      "benefices": "Restauration rapide en cas d'attaque ou d'erreur",
+      "difficultes": "Nécessite de tester régulièrement la restauration",
+      "notes": "Complète sol004 (sauvegarde générale), spécifique au site web",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Plugins de backup CMS",
+        "Hébergeurs avec backup automatique inclus"
+      ]
+    },
+    "sol010": {
+      "id": "sol010",
+      "nom": "Gestion stricte des permissions d'accès",
+      "description": "Appliquer le principe du moindre privilège sur les fichiers, répertoires et comptes",
+      "type": "Technique",
+      "prerequis": "Cartographie des accès existants, administrateur système",
+      "benefices": "Réduit fortement la surface d'attaque interne",
+      "difficultes": "Nécessite audit initial des droits existants",
+      "notes": "Souvent nécessite un audit préalable (sol005)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Outils natifs Windows/Unix (ACL)",
+        "Solutions IAM d'entreprise"
+      ]
+    },
+    "sol011": {
+      "id": "sol011",
+      "nom": "Antivirus avec scan automatique des supports externes",
+      "description": "Antivirus configuré pour scanner systématiquement tout support externe connecté et refuser les connexions non reconnues",
+      "type": "Technique",
+      "prerequis": "Antivirus déjà installé (sol002)",
+      "benefices": "Bloque l'infection via clé USB avant qu'elle ne se propage",
+      "difficultes": "Peut ralentir la connexion de supports légitimes",
+      "notes": "Extension logique de sol002",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Configuration avancée Kaspersky/ESET/Trend Micro"
+      ]
+    },
+    "sol012": {
+      "id": "sol012",
+      "nom": "Logiciel antispam pour la messagerie",
+      "description": "Filtrer et bloquer les emails indésirables ou frauduleux avant qu'ils n'atteignent l'utilisateur",
+      "type": "Technique",
+      "prerequis": "Serveur de messagerie",
+      "benefices": "Réduit fortement le volume de phishing/spam reçu",
+      "difficultes": "Faux positifs occasionnels",
+      "notes": "Complète sol009 (filtrage anti-phishing)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Solutions intégrées Gmail/Outlook",
+        "SpamTitan",
+        "Mailwasher"
+      ]
+    },
+    "sol013": {
+      "id": "sol013",
+      "nom": "Logiciel antispyware",
+      "description": "Détecter et supprimer les logiciels espions collectant des données à l'insu de l'utilisateur",
+      "type": "Technique",
+      "prerequis": "Postes de travail Windows/Mac",
+      "benefices": "Protège la vie privée et les données de navigation",
+      "difficultes": "Faible impact seul, à combiner avec antivirus",
+      "notes": "Complémentaire à sol002",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Malwarebytes",
+        "Spybot Search & Destroy"
+      ]
+    },
+    "sol014": {
+      "id": "sol014",
+      "nom": "Logiciel anti-keylogger",
+      "description": "Détecter et bloquer les programmes qui enregistrent les frappes clavier",
+      "type": "Technique",
+      "prerequis": "Postes de travail",
+      "benefices": "Protection ciblée contre le vol de saisie clavier",
+      "difficultes": "Solution de niche, peu connue des PME",
+      "notes": "Recommandé surtout pour postes traitant des données financières",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Zemana AntiLogger",
+        "SpyShelter"
+      ]
+    },
+    "sol015": {
+      "id": "sol015",
+      "nom": "Vigilance et vérification des emails suspects",
+      "description": "Procédure de vérification systématique de la cohérence expéditeur/contenu avant d'ouvrir une pièce jointe ou de cliquer un lien",
+      "type": "Humain",
+      "prerequis": "Sensibilisation des employés",
+      "benefices": "Gratuit, réduit le risque humain principal",
+      "difficultes": "Dépend de la discipline des employés",
+      "notes": "Complète directement sol003 et sol009",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Procédure interne, formation sol003"
+      ]
+    },
+    "sol016": {
+      "id": "sol016",
+      "nom": "Séparation email professionnel/personnel + mot de passe dédié",
+      "description": "Utiliser des mots de passe distincts pour la messagerie professionnelle, non liés à l'identité, renouvelés régulièrement",
+      "type": "Humain/Technique",
+      "prerequis": "Politique de mots de passe (sol014)",
+      "benefices": "Limite la propagation en cas de compromission d'un compte",
+      "difficultes": "Aucune, question de discipline",
+      "notes": "Combine bien avec sol008 et sol014",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Bonne pratique interne"
+      ]
+    },
+    "sol017": {
+      "id": "sol017",
+      "nom": "Checklist de vérification avant paiement en ligne",
+      "description": "Procédure de contrôle avant tout paiement : cadenas, https, orthographe URL, confirmation SMS, ne jamais transmettre le code carte",
+      "type": "Humain",
+      "prerequis": "Sensibilisation des employés effectuant des achats en ligne",
+      "benefices": "Gratuit, réduit fortement le risque de fraude au paiement",
+      "difficultes": "Aucune",
+      "notes": "Bonne pratique simple à diffuser à tous les employés",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Procédure interne"
+      ]
+    },
+    "sol018": {
+      "id": "sol018",
+      "nom": "Solution centralisée et sécurisée de partage de fichiers",
+      "description": "Remplacer les outils cloud grand public non approuvés par une solution web sécurisée validée par l'IT",
+      "type": "Technique",
+      "prerequis": "Infrastructure cloud ou serveur dédié",
+      "benefices": "Reprend le contrôle IT sur les données partagées",
+      "difficultes": "Résistance au changement des habitudes employés",
+      "notes": "Doit être accompagnée d'une politique claire (sol017)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "SharePoint",
+        "Nextcloud (open-source)",
+        "Google Workspace Business"
+      ]
+    },
+    "sol019": {
+      "id": "sol019",
+      "nom": "Chiffrement pré-cloud + choix contractuel rigoureux du prestataire",
+      "description": "Chiffrer les données avant envoi vers le cloud et choisir un prestataire offrant des garanties contractuelles sur la localisation et la réversibilité",
+      "type": "Technique/Légal",
+      "prerequis": "Expertise juridique et technique",
+      "benefices": "Réduit les risques juridiques et de confidentialité liés au cloud",
+      "difficultes": "Coût de conseil juridique",
+      "notes": "Recommandé avant toute migration cloud majeure",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "Cryptomator",
+        "VeraCrypt",
+        "Cabinets juridiques spécialisés IT"
+      ]
+    },
+    "sol020": {
+      "id": "sol020",
+      "nom": "Mise en conformité loi 09-08 (protection données personnelles)",
+      "description": "Respecter les 6 règles d'or : sécurité des fichiers, confidentialité, droits des personnes, autorisation CNDP, durée de conservation raisonnable, finalité précise",
+      "type": "Légal/Organisationnel",
+      "prerequis": "Cartographie des données personnelles traitées",
+      "benefices": "Conformité légale, évite les amendes CNSPDP",
+      "difficultes": "Processus administratif long (déclaration CNDP)",
+      "notes": "Prioritaire pour Santé, Finance, E-commerce (données clients sensibles)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM",
+      "exemples_outils": [
+        "CNDP (déclaration/autorisation)",
+        "Consultants juridiques RGPD/loi 09-08"
+      ]
+    }
+  }
+}

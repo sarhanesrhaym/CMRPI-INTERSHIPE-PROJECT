@@ -1,0 +1,96 @@
+═══════════════════════════════════════════════════════════════
+RESSOURCES DU PROJET — Système de recommandation IA
+Cyber-résilience des PME marocaines (Projet N°13 - CMRPI)
+═══════════════════════════════════════════════════════════════
+Dernière mise à jour : Jour 1 (à compléter au fil du stage)
+
+───────────────────────────────────────────
+1. LIEN GUIDE CMRPI (base de connaissances)
+───────────────────────────────────────────
+- Guide des bonnes pratiques cybersécurité pour les PME au Maroc
+  (CMRPI / AUSIM)
+  URL : https://ausimaroc.com/guide-des-bonnes-pratiques-cmrpi/
+
+  Sections clés déjà identifiées (sommaire) :
+  1. Risques et menaces de la cybercriminalité
+     1.1 Risque et impact sur les PME (Cybersécurité, Business, Responsabilité)
+     1.2 Essor de la menace (sources de risques, témoignages)
+  2. Gouvernance de la cybersécurité
+     2.1 Gestion de la cybersécurité (politique SI, charte d'usage, sensibilisation)
+     2.2 à 2.5 Normes et standards (ISO 27001, 27002, 27005)
+     2.6 Aspect juridique et conventionnel (lois marocaines, conventions)
+  3. Mesures de protection contre la cybercriminalité
+     3.1 Sécurité du poste de travail et des serveurs
+     3.2 Sécurité WEB (internet, Wi-Fi, sécurité du site)
+     3.3 Diverses facettes de la cybercriminalité (vecteurs d'attaques, phishing, blanchiment)
+     3.4 Sécurité des échanges et transactions électroniques
+     3.5 Sécurité des données (stockage, cloud, mobilité, données personnelles)
+  4. Questionnaire sur la maturité de la sécurité des SI
+  5. Annexes (12 bonnes pratiques, réflexes en cas d'incident, glossaire)
+
+───────────────────────────────────────────
+2. CONTACTS PME MAROCAINES À TESTER
+───────────────────────────────────────────
+(à remplir avec de vrais contacts au fur et à mesure — objectif : 
+au moins 1 PME par secteur pour la phase de tests pilotes S7)
+
+- Secteur E-commerce      : [Nom PME] - [Contact] - [Ville]
+- Secteur Santé            : [Nom PME] - [Contact] - [Ville]
+- Secteur Finance          : [Nom PME] - [Contact] - [Ville]
+- Secteur Généraliste      : [Nom PME] - [Contact] - [Ville]
+- Secteur Industrie        : [Nom PME] - [Contact] - [Ville]
+
+Contacts encadrants du stage :
+- Pr. Mehdia Ajana (Cybersécurité & IA, encadrant principal) — mehdia.ajana@gmail.com
+- Pr. Zakia Errabih (Cybersécurité des PME)
+
+───────────────────────────────────────────
+3. DOCUMENTS CYBERSÉCURITÉ TROUVÉS
+───────────────────────────────────────────
+- Guide bonnes pratiques CMRPI/AUSIM (voir lien ci-dessus)
+- Fiche_13_Système_de_recommandation_IA_pour_le_renforcement_de_la_cyber-résilience_des_PME.pdf
+  (fiche technique officielle du projet : objectifs, missions, technologies, phases, livrables)
+- Extraits déjà consultés du guide (captures d'écran) :
+  • 3.1 Sécurité du poste de travail et des serveurs / rôle de l'antivirus
+  • 3.1.4 Authentification des utilisateurs
+  • 3.1.5 Permissions d'accès
+  • 3.1.6 Sécurité de l'accès à distance (VPN, mobilité)
+  • 3.1.7 Politique de mise à jour des systèmes et logiciels
+  • 3.2.1 Règles d'utilisation de l'internet
+  • 3.2.2 Sécurité des connexions Wi-Fi (LAN/WLAN)
+  • 3.2.3 Sécurité du site (infrastructure logicielle, backup, authentification http)
+  • Données sensibles / SSL / chiffrement
+  • Charte "À faire / À ne pas faire" (usage internet en entreprise)
+
+À rechercher/compléter :
+- Rapports CNSPDP (Commission Nationale de contrôle de la protection des données personnelles)
+- Statistiques cybercriminalité Maroc (DGSSI, ma-CERT)
+- Études de coûts d'incidents cyber pour PME au Maroc
+
+───────────────────────────────────────────
+4. LOIS / RÉGULATIONS MAROCAINES (aspect juridique)
+───────────────────────────────────────────
+(repérées dans le sommaire du guide CMRPI, section 2.6)
+
+- Loi n° 07-03 (relative aux infractions liées aux systèmes de traitement automatisé des données)
+- Loi n° 53-05 (échange électronique de données juridiques)
+- Loi n° 31-08 (protection du consommateur)
+- Loi n° 09-08 (protection des personnes physiques à l'égard du traitement des données
+  à caractère personnel) — équivalent marocain du RGPD, contrôlée par la CNDP/CNSPDP
+- Loi n° 17-97 (propriété industrielle, mentionnée dans le sommaire)
+- Contrat de sous-traitance (clauses cybersécurité)
+- Infogérance et externalisation des SI
+- Convention internationale de cybercriminalité (Budapest)
+- Convention 108 du Conseil de l'Europe
+- Convention de la Ligue Arabe sur la cybercriminalité
+- DNSSI — Directive Nationale de la Sécurité des Systèmes d'Information (Maroc)
+- RGPD (règlement européen, impact extraterritorial sur PME marocaines exportatrices/sous-traitantes)
+
+───────────────────────────────────────────
+NOTES DIVERSES
+───────────────────────────────────────────
+- Le plan S1-2 prévoit un livrable par jour (voir PLAN_DETAILLE_S1-S2_JOUR_PAR_JOUR.docx) :
+  01_risques.json, 02_solutions.json, 03_profils_pme.json,
+  04_matrice_risques_solutions.json, 05_regles_recommandation.json, README.md
+- Objectif final S1-2 : 15-20 risques, 15-20 solutions, 4-5 profils PME,
+  matrice risques-solutions, 3-4 règles de recommandation de base.

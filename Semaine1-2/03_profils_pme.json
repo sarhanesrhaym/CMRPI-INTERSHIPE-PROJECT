@@ -1,0 +1,180 @@
+{
+  "profils_pme": {
+    "pme001": {
+      "id": "pme001",
+      "type_profil": "fictif_representatif",
+      "nom": "AtlasDistrib",
+      "secteur": "Distribution / Commerce",
+      "ville": "Casablanca",
+      "nb_employes": 25,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune équipe dédiée, prestataire externe ponctuel",
+        "outils": [
+          "Logiciel de gestion commerciale",
+          "Messagerie WhatsApp Business pour clients/fournisseurs"
+        ],
+        "backup": "Non systématique"
+      },
+      "donnees_traitees": [
+        "Données clients",
+        "Flux financiers fournisseurs",
+        "RIB entreprise"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009"
+      ],
+      "compliance": "Soumis loi 09-08 (données clients)",
+      "description": "Profil représentatif du secteur Distribution, identifié par les études sectorielles comme particulièrement touché car il manipule des flux financiers importants avec des équipes IT réduites ou inexistantes.",
+      "sources_statistiques": [
+        "Distribution, BTP et cabinets professionnels parmi les secteurs les plus touchés (deadline.ma, 2026)",
+        "Moins de 15% des PME marocaines ont un budget cybersécurité dédié (CGEM, 2025)"
+      ]
+    },
+    "pme002": {
+      "id": "pme002",
+      "type_profil": "fictif_representatif",
+      "nom": "MedCare Rabat",
+      "secteur": "Santé",
+      "ville": "Rabat",
+      "nb_employes": 12,
+      "maturite_it": "Très Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, secrétariat gère l'informatique",
+        "outils": [
+          "Logiciel de gestion de dossiers patients"
+        ],
+        "backup": "Irrégulière, support physique"
+      },
+      "donnees_traitees": [
+        "Dossiers médicaux",
+        "Données personnelles patients",
+        "Données de santé (catégorie sensible)"
+      ],
+      "risques_principaux": [
+        "r009",
+        "r014",
+        "r018",
+        "r020",
+        "r021"
+      ],
+      "compliance": "Loi 09-08 (données de santé = catégorie sensible, obligations renforcées)",
+      "description": "Profil représentatif du secteur Santé, en croissance rapide dans les dépenses cyber (+16,74%/an) car les dossiers médicaux se digitalisent, mais avec une maturité IT généralement très faible dans les petites structures.",
+      "sources_statistiques": [
+        "Santé : croissance des dépenses cyber la plus soutenue, TCAC 16,74%, portée par la digitalisation des dossiers médicaux (Perspectives Med, 2026)",
+        "Phase d'application active de la CNDP depuis février 2025, amendes cumulables jusqu'à 600 000 MAD (deadline.ma, 2026)"
+      ]
+    },
+    "pme003": {
+      "id": "pme003",
+      "type_profil": "fictif_representatif",
+      "nom": "Change Rif Finance",
+      "secteur": "Finance",
+      "ville": "Marrakech",
+      "nb_employes": 18,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "1 administrateur système interne",
+        "outils": [
+          "Logiciel de change propriétaire",
+          "MFA sur postes sensibles"
+        ],
+        "backup": "Quotidienne sur serveur secondaire"
+      },
+      "donnees_traitees": [
+        "Transactions financières",
+        "Identité clients (KYC)",
+        "Coordonnées bancaires"
+      ],
+      "risques_principaux": [
+        "r002",
+        "r016",
+        "r025",
+        "r027",
+        "r031"
+      ],
+      "compliance": "Régulation sectorielle (change), loi 09-08 stricte sur données financières",
+      "description": "Profil représentatif du secteur Finance, qui reste le secteur le plus stable en dépenses cyber (25,1% du marché) mais aussi une cible privilégiée pour la fraude au président (BEC), avec des montants observés de 150 000 à 2 millions MAD.",
+      "sources_statistiques": [
+        "Finance : 25,1% des dépenses cybersécurité, secteur stable (Perspectives Med, 2026)",
+        "Fraude au président (BEC) : montants de 150 000 à 2 millions MAD observés sur le marché marocain (deadline.ma, 2026)"
+      ]
+    },
+    "pme004": {
+      "id": "pme004",
+      "type_profil": "fictif_representatif",
+      "nom": "Textile Souss Essaouira",
+      "secteur": "Industrie",
+      "ville": "Essaouira",
+      "nb_employes": 60,
+      "maturite_it": "Moyenne à Bonne",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "2 personnes (admin systèmes + support utilisateurs)",
+        "outils": [
+          "ERP",
+          "Gestion de production",
+          "Sauvegarde cloud hebdomadaire"
+        ],
+        "backup": "Quotidienne locale + cloud hebdomadaire"
+      },
+      "donnees_traitees": [
+        "Données de production",
+        "Données fournisseurs/export",
+        "Données employés"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r013",
+        "r022",
+        "r029"
+      ],
+      "compliance": "Conformité douane/export",
+      "description": "Profil représentatif de l'Industrie/BTP, secteur identifié comme fortement ciblé du fait de flux financiers importants (paiements fournisseurs, export) combinés à des équipes IT restreintes malgré une infrastructure plus mature.",
+      "sources_statistiques": [
+        "43% des PME victimes d'une cyberattaque grave ne reprennent pas pleinement leur activité sous 6 mois (CMRPI, cité par aivensoft.com, 2026)",
+        "Distribution, BTP et cabinets professionnels parmi les secteurs les plus touchés (deadline.ma, 2026)"
+      ]
+    },
+    "pme005": {
+      "id": "pme005",
+      "type_profil": "fictif_representatif",
+      "nom": "Boulangerie Zahrah",
+      "secteur": "PME Généraliste",
+      "ville": "Fès",
+      "nb_employes": 6,
+      "maturite_it": "Très Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune",
+        "outils": [
+          "Logiciel de caisse basique"
+        ],
+        "backup": "Aucune"
+      },
+      "donnees_traitees": [
+        "Données financières limitées",
+        "Peu de données personnelles"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r017"
+      ],
+      "compliance": "Obligations fiscales de base (facturation numérique)",
+      "description": "Profil représentatif de la très petite entreprise généraliste marocaine : aucune ressource IT dédiée, exposée surtout aux risques de base (malware, perte de données) plutôt qu'à des attaques ciblées sophistiquées.",
+      "sources_statistiques": [
+        "Seulement 23% des PME marocaines avaient initié un processus de digitalisation structuré en 2025 (HCP, cité par clarodigi.com, 2026)",
+        "Moins de 15% des PME marocaines ont un budget cybersécurité dédié (CGEM, 2025)"
+      ]
+    }
+  }
+}
