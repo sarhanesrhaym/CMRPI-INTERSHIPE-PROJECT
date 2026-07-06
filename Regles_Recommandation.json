@@ -6,8 +6,13 @@
       "categorie": "Humain/Organisationnelle",
       "description": "Établir et imposer une politique de mots de passe exigeant une longueur minimale de 8 caractères, une combinaison de majuscules, minuscules, chiffres et caractères spéciaux, un renouvellement trimestriel, et l'interdiction de réutilisation ou de partage.",
       "source_guide": "Chapitre 3.1.4 (Authentification des utilisateurs), Chapitre 3.4.2 (Mot de passe)",
-      "risques_cibles": ["r006"],
-      "solutions_associees": ["sol004", "sol016"],
+      "risques_cibles": [
+        "r006"
+      ],
+      "solutions_associees": [
+        "sol004",
+        "sol016"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Court terme (1 mois)",
       "public_cible": "Tous les employés",
@@ -18,7 +23,12 @@
         "0 mot de passe partagé ou noté sur papier"
       ],
       "exemples_concrets": "Une PME de 25 employés formalise une politique écrite, la communique à tous, et vérifie mensuellement la conformité des mots de passe.",
-      "notes": "Le guide insiste sur le fait que les mots de passe faibles sont la cause racine de nombreux vols d'identifiants. Combiné avec un gestionnaire de mots de passe pour une efficacité renforcée."
+      "notes": "Le guide insiste sur le fait que les mots de passe faibles sont la cause racine de nombreux vols d'identifiants. Combiné avec un gestionnaire de mots de passe pour une efficacité renforcée.",
+      "condition_application": "S'applique à toute PME, quel que soit le secteur ou la taille",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_002": {
       "id": "regle_002",
@@ -26,8 +36,12 @@
       "categorie": "Technique/Organisationnelle",
       "description": "Effectuer des sauvegardes régulières (quotidiennes ou hebdomadaires) des données critiques et du site web sur des supports externes, conservés dans un lieu sécurisé et distinct de l'entreprise.",
       "source_guide": "Chapitre 3.2.3 (Back up et protection), Chapitre 3.5.1 (Stockage, sauvegarde et restauration)",
-      "risques_cibles": ["r009"],
-      "solutions_associees": ["sol009"],
+      "risques_cibles": [
+        "r009"
+      ],
+      "solutions_associees": [
+        "sol009"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Court terme (1 mois)",
       "public_cible": "Responsable IT / Direction",
@@ -38,7 +52,12 @@
         "Copie de sauvegarde stockée hors site"
       ],
       "exemples_concrets": "Une PME de e-commerce sauvegarde quotidiennement sa base de données clients et ses fichiers CMS, et conserve une copie hebdomadaire dans un coffre à la banque.",
-      "notes": "Le guide souligne que la sauvegarde est inestimable en cas d'attaque (ransomware, DDoS) ou d'incident technique."
+      "notes": "Le guide souligne que la sauvegarde est inestimable en cas d'attaque (ransomware, DDoS) ou d'incident technique.",
+      "condition_application": "S'applique à toute PME disposant de données numériques critiques et/ou d'un site web",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_003": {
       "id": "regle_003",
@@ -46,8 +65,13 @@
       "categorie": "Humain/Organisationnelle",
       "description": "Rédiger, diffuser et faire signer à tous les employés une charte définissant les règles d'usage des ressources informatiques, les comportements interdits (navigation sur sites douteux, téléchargements illégaux, désactivation des antivirus), et les bonnes pratiques à adopter.",
       "source_guide": "Chapitre 2.1.2 (Charte d'usage des SI), Chapitre 3.2.1 (Règles d'utilisation de l'internet)",
-      "risques_cibles": ["r007", "r010"],
-      "solutions_associees": ["sol007"],
+      "risques_cibles": [
+        "r007",
+        "r010"
+      ],
+      "solutions_associees": [
+        "sol007"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Court terme (2 mois)",
       "public_cible": "Tous les employés / Direction",
@@ -58,7 +82,12 @@
         "Révision annuelle de la charte"
       ],
       "exemples_concrets": "Une PME de 12 employés rédige une charte de 3 pages, l'explique lors d'une réunion d'équipe, et la fait signer à chaque nouvel embauché.",
-      "notes": "Le guide précise que la charte est un cadre légal en cas de sanction et un outil de sensibilisation essentiel."
+      "notes": "Le guide précise que la charte est un cadre légal en cas de sanction et un outil de sensibilisation essentiel.",
+      "condition_application": "S'applique à toute PME comptant au moins 2 employés utilisant des ressources informatiques",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_004": {
       "id": "regle_004",
@@ -66,8 +95,13 @@
       "categorie": "Technique",
       "description": "Activer les mises à jour automatiques de sécurité pour les systèmes d'exploitation, les CMS, les plugins, et tous les logiciels utilisés, ou télécharger manuellement les correctifs depuis les sites officiels des éditeurs.",
       "source_guide": "Chapitre 3.1.7 (Politique de mise à jour des systèmes d'exploitation et logiciels), Chapitre 3.2.3 (Maintenir une infrastructure logicielle à jour)",
-      "risques_cibles": ["r002", "r003"],
-      "solutions_associees": ["sol003"],
+      "risques_cibles": [
+        "r002",
+        "r003"
+      ],
+      "solutions_associees": [
+        "sol003"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Immédiat",
       "public_cible": "Responsable IT / Prestataire / Employés",
@@ -78,7 +112,12 @@
         "Aucune faille de sécurité critique connue non patchée"
       ],
       "exemples_concrets": "Une PME utilisant WordPress vérifie mensuellement les mises à jour disponibles, les applique sur un environnement de test, puis en production.",
-      "notes": "Le guide indique que les attaquants exploitent les vulnérabilités longtemps après leur correction. Les mises à jour sont la protection la plus efficace et la moins coûteuse."
+      "notes": "Le guide indique que les attaquants exploitent les vulnérabilités longtemps après leur correction. Les mises à jour sont la protection la plus efficace et la moins coûteuse.",
+      "condition_application": "S'applique à toute PME disposant de postes informatiques et/ou d'un site web sous CMS",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_005": {
       "id": "regle_005",
@@ -86,8 +125,13 @@
       "categorie": "Technique",
       "description": "Désactiver la connexion automatique aux réseaux inconnus, privilégier les réseaux sécurisés, et utiliser un VPN (réseau privé virtuel) pour chiffrer les données lors des connexions à distance ou sur des réseaux Wi-Fi publics.",
       "source_guide": "Chapitre 3.1.6 (Sécurité de l'accès à distance), Chapitre 3.2.2 (Sécurité des connections WIFI)",
-      "risques_cibles": ["r001"],
-      "solutions_associees": ["sol001", "sol006"],
+      "risques_cibles": [
+        "r001"
+      ],
+      "solutions_associees": [
+        "sol001",
+        "sol006"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Court terme (1 mois)",
       "public_cible": "Employés nomades / Tous les employés",
@@ -98,7 +142,14 @@
         "Verrouillage automatique de session activé (5 min d'inactivité)"
       ],
       "exemples_concrets": "Une PME équipe ses commerciaux en déplacement d'une solution VPN, et impose l'utilisation du VPN pour toute connexion hors du réseau de l'entreprise.",
-      "notes": "Le guide insiste sur le fait que les réseaux Wi-Fi publics sans mot de passe sont souvent des pièges créés par des cybercriminels."
+      "notes": "Le guide insiste sur le fait que les réseaux Wi-Fi publics sans mot de passe sont souvent des pièges créés par des cybercriminels.",
+      "condition_application": "S'applique aux PME dont des employés se connectent à distance ou en télétravail",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "Finance",
+        "Industrie",
+        "Distribution"
+      ]
     },
     "regle_006": {
       "id": "regle_006",
@@ -106,8 +157,13 @@
       "categorie": "Technique",
       "description": "Activer le chiffrement des disques sur tous les ordinateurs portables, smartphones et tablettes, et chiffrer les données sensibles avant de les stocker sur le cloud ou des supports externes.",
       "source_guide": "Chapitre 3.1.6 (Sécurité de l'accès à distance), Chapitre 3.5.2 (Transfert des données et Cloud computing)",
-      "risques_cibles": ["r004"],
-      "solutions_associees": ["sol005", "sol019"],
+      "risques_cibles": [
+        "r004"
+      ],
+      "solutions_associees": [
+        "sol005",
+        "sol019"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Court terme (2 mois)",
       "public_cible": "Responsable IT / Employés nomades",
@@ -118,7 +174,13 @@
         "Mot de passe de boot configuré sur tous les appareils"
       ],
       "exemples_concrets": "Une PME active BitLocker sur tous ses ordinateurs portables et sensibilise ses employés à ne pas transporter de données non nécessaires lors des missions.",
-      "notes": "Le guide précise qu'en cas de perte ou de vol, le chiffrement rend les données illisibles. Ne pas oublier de marquer les appareils d'un signe distinctif."
+      "notes": "Le guide précise qu'en cas de perte ou de vol, le chiffrement rend les données illisibles. Ne pas oublier de marquer les appareils d'un signe distinctif.",
+      "condition_application": "S'applique aux PME dont les employés utilisent des équipements nomades (laptop, smartphone, tablette)",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "Finance",
+        "Industrie"
+      ]
     },
     "regle_007": {
       "id": "regle_007",
@@ -126,8 +188,14 @@
       "categorie": "Technique",
       "description": "Installer un antivirus sur tous les postes de travail, configurer les mises à jour automatiques, activer le scan systématique des supports externes (clés USB, disques durs) et refuser les connexions de supports non reconnus.",
       "source_guide": "Chapitre 3.1.2 (Les virus, antivirus et firewall), Chapitre 3.3.1 (Mesures de protection)",
-      "risques_cibles": ["r005", "r011", "r012"],
-      "solutions_associees": ["sol011"],
+      "risques_cibles": [
+        "r005",
+        "r011",
+        "r012"
+      ],
+      "solutions_associees": [
+        "sol011"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Immédiat",
       "public_cible": "Tous les postes de travail",
@@ -138,7 +206,12 @@
         "0 infection détectée non bloquée"
       ],
       "exemples_concrets": "Une PME installe un antivirus sur tous ses postes, active le scan automatique des clés USB, et sensibilise les employés à ne jamais brancher de support inconnu.",
-      "notes": "Le guide souligne que les supports USB offerts ou trouvés peuvent contenir des logiciels malveillants."
+      "notes": "Le guide souligne que les supports USB offerts ou trouvés peuvent contenir des logiciels malveillants.",
+      "condition_application": "S'applique à toute PME disposant de postes de travail informatiques",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_008": {
       "id": "regle_008",
@@ -146,8 +219,17 @@
       "categorie": "Humain",
       "description": "Établir un programme de sensibilisation continue : formation de base à l'embauche, rappels réguliers par email ou affichage, exercices pratiques (phishing simulation), et mise à disposition de ressources simples.",
       "source_guide": "Chapitre 2.1.5 (Sensibilisation à la cybersécurité), Chapitre 3.4.1 (Menaces sur le courrier électronique)",
-      "risques_cibles": ["r007", "r010", "r012", "r015"],
-      "solutions_associees": ["sol007", "sol015", "sol008"],
+      "risques_cibles": [
+        "r007",
+        "r010",
+        "r012",
+        "r015"
+      ],
+      "solutions_associees": [
+        "sol007",
+        "sol015",
+        "sol008"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Moyen terme (3 mois)",
       "public_cible": "Tous les employés",
@@ -158,7 +240,12 @@
         "Taux d'ouverture des emails de sensibilisation > 80%"
       ],
       "exemples_concrets": "Une PME organise une session de 2 heures pour tous les employés, puis envoie chaque mois un email de rappel sur un thème spécifique (phishing, mots de passe, Wi-Fi public).",
-      "notes": "Le guide insiste : 'la plupart des vulnérabilités et des attaques récentes exploitent des failles humaines de comportement'. La sensibilisation est primordiale."
+      "notes": "Le guide insiste : 'la plupart des vulnérabilités et des attaques récentes exploitent des failles humaines de comportement'. La sensibilisation est primordiale.",
+      "condition_application": "S'applique à toute PME ; priorité maximale si la maturité IT du profil est Faible ou Très Faible",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_009": {
       "id": "regle_009",
@@ -166,8 +253,16 @@
       "categorie": "Technique",
       "description": "Installer un certificat SSL/TLS, restreindre l'accès aux arborescences privées, chiffrer les données stockées, et maintenir à jour le CMS et les plugins pour prévenir les injections SQL et XSS.",
       "source_guide": "Chapitre 3.2.3 (Sécurité du site)",
-      "risques_cibles": ["r002", "r003", "r017"],
-      "solutions_associees": ["sol002", "sol003", "sol009"],
+      "risques_cibles": [
+        "r002",
+        "r003",
+        "r017"
+      ],
+      "solutions_associees": [
+        "sol002",
+        "sol003",
+        "sol009"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Court terme (1 mois)",
       "public_cible": "Responsable IT / Prestataire web",
@@ -178,7 +273,13 @@
         "Sauvegarde quotidienne automatisée"
       ],
       "exemples_concrets": "Une PME de e-commerce active Let's Encrypt, vérifie ses plugins mensuellement, et sauvegarde sa base de données quotidiennement.",
-      "notes": "Le guide indique que l'injection de code est la cause n°1 des attaques web, et que la sauvegarde est inestimable en cas d'attaque."
+      "notes": "Le guide indique que l'injection de code est la cause n°1 des attaques web, et que la sauvegarde est inestimable en cas d'attaque.",
+      "condition_application": "S'applique aux PME disposant d'un site web (vitrine ou e-commerce)",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "Distribution",
+        "Finance"
+      ]
     },
     "regle_010": {
       "id": "regle_010",
@@ -186,8 +287,13 @@
       "categorie": "Technique/Organisationnelle",
       "description": "Attribuer à chaque utilisateur les droits d'accès strictement nécessaires à ses fonctions, protéger les fichiers sensibles (shadow, registry), et limiter les comptes administrateurs.",
       "source_guide": "Chapitre 3.1.5 (Les permissions d'accès), Chapitre 2.2 (Norme ISO-27002)",
-      "risques_cibles": ["r008", "r003"],
-      "solutions_associees": ["sol010"],
+      "risques_cibles": [
+        "r008",
+        "r003"
+      ],
+      "solutions_associees": [
+        "sol010"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Moyen terme (3 mois)",
       "public_cible": "Administrateur système / DSI",
@@ -198,7 +304,13 @@
         "Fichiers système protégés (shadow activé)"
       ],
       "exemples_concrets": "Une PME audite ses accès, supprime les comptes inactifs, et réduit les droits des utilisateurs au strict nécessaire.",
-      "notes": "Le guide souligne que les installations standard des OS ne sont pas sécurisées par défaut et nécessitent des configurations supplémentaires."
+      "notes": "Le guide souligne que les installations standard des OS ne sont pas sécurisées par défaut et nécessitent des configurations supplémentaires.",
+      "condition_application": "S'applique aux PME disposant d'un réseau local (LAN) avec plusieurs comptes utilisateurs",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "Industrie",
+        "Santé"
+      ]
     },
     "regle_011": {
       "id": "regle_011",
@@ -206,8 +318,13 @@
       "categorie": "Technique/Organisationnelle",
       "description": "Fournir une solution de partage de fichiers sécurisée et centralisée, et interdire l'utilisation de services comme Dropbox, Google Docs ou autres outils non validés par l'IT pour le stockage ou le partage de données professionnelles.",
       "source_guide": "Chapitre 3.4.4 (Envois, réceptions et partage sécurisés)",
-      "risques_cibles": ["r019"],
-      "solutions_associees": ["sol018", "sol007"],
+      "risques_cibles": [
+        "r019"
+      ],
+      "solutions_associees": [
+        "sol018",
+        "sol007"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Moyen terme (3 mois)",
       "public_cible": "Tous les employés / IT",
@@ -218,7 +335,12 @@
         "Politique écrite interdisant ces usages"
       ],
       "exemples_concrets": "Une PME déploie Nextcloud ou SharePoint pour le partage de fichiers, et interdit formellement Dropbox et Google Docs.",
-      "notes": "Le guide cite une étude Axway : près de 50% des entreprises jugent ces outils grand public inadaptés à un usage professionnel."
+      "notes": "Le guide cite une étude Axway : près de 50% des entreprises jugent ces outils grand public inadaptés à un usage professionnel.",
+      "condition_application": "S'applique aux PME dont les employés partagent des fichiers en interne ou avec des tiers",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_012": {
       "id": "regle_012",
@@ -226,8 +348,13 @@
       "categorie": "Humain",
       "description": "Avant tout paiement en ligne, vérifier la présence du cadenas, du HTTPS, l'exactitude de l'URL, privilégier la confirmation par SMS, et ne jamais transmettre le code confidentiel de la carte bancaire.",
       "source_guide": "Chapitre 3.3.4 (Escroquerie sur les moyens de payement)",
-      "risques_cibles": ["r017"],
-      "solutions_associees": ["sol017", "sol002"],
+      "risques_cibles": [
+        "r017"
+      ],
+      "solutions_associees": [
+        "sol017",
+        "sol002"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Immédiat",
       "public_cible": "Tous les employés effectuant des achats en ligne",
@@ -237,7 +364,13 @@
         "0 incident de paiement frauduleux signalé"
       ],
       "exemples_concrets": "Une PME diffuse une affiche dans les bureaux avec la checklist : cadenas, HTTPS, URL correcte, confirmation SMS.",
-      "notes": "Le guide insiste : 'ne jamais transmettre le code confidentiel de votre carte bancaire'."
+      "notes": "Le guide insiste : 'ne jamais transmettre le code confidentiel de votre carte bancaire'.",
+      "condition_application": "S'applique aux PME effectuant des achats ou transactions bancaires en ligne",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "Distribution",
+        "Finance"
+      ]
     },
     "regle_013": {
       "id": "regle_013",
@@ -245,8 +378,12 @@
       "categorie": "Juridique/Organisationnelle",
       "description": "Respecter les 6 règles d'or : sécurité des fichiers, confidentialité, information des personnes, autorisation CNDP, durée de conservation limitée, finalité précise définie.",
       "source_guide": "Chapitre 3.5.4 (Collecte et tri des données personnelles), Chapitre 2.6.4 (Loi n° 09-08)",
-      "risques_cibles": ["r021"],
-      "solutions_associees": ["sol020"],
+      "risques_cibles": [
+        "r021"
+      ],
+      "solutions_associees": [
+        "sol020"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Moyen à Long terme (6 mois)",
       "public_cible": "Direction / DPO / Responsable légal",
@@ -257,7 +394,14 @@
         "Durée de conservation définie pour chaque donnée"
       ],
       "exemples_concrets": "Un cabinet médical déclare ses traitements de données patients à la CNDP, informe ses patients de leurs droits, et fixe une durée de conservation des dossiers.",
-      "notes": "Le guide précise que la non-conformité peut entraîner des sanctions de la CNDP, des atteintes à la réputation et des plaintes des personnes concernées."
+      "notes": "Le guide précise que la non-conformité peut entraîner des sanctions de la CNDP, des atteintes à la réputation et des plaintes des personnes concernées.",
+      "condition_application": "S'applique aux PME collectant des données personnelles (clients, patients, salariés)",
+      "phase": "Phase 3 - Maturité avancée",
+      "secteurs_prioritaires": [
+        "Santé",
+        "Finance",
+        "Distribution"
+      ]
     },
     "regle_014": {
       "id": "regle_014",
@@ -265,8 +409,16 @@
       "categorie": "Humain/Technique",
       "description": "Ne pas ouvrir les emails suspects ni leurs pièces jointes, vérifier la cohérence expéditeur/contenu, utiliser un antispam, et ne jamais répondre à une demande d'informations personnelles par email.",
       "source_guide": "Chapitre 3.4.1 (Menaces sur le courrier électronique)",
-      "risques_cibles": ["r015", "r012", "r010"],
-      "solutions_associees": ["sol015", "sol012", "sol016"],
+      "risques_cibles": [
+        "r015",
+        "r012",
+        "r010"
+      ],
+      "solutions_associees": [
+        "sol015",
+        "sol012",
+        "sol016"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Immédiat",
       "public_cible": "Tous les employés",
@@ -277,7 +429,12 @@
         "0 incident de phishing réussi"
       ],
       "exemples_concrets": "Une PME configure un antispam, sensibilise ses employés à vérifier les expéditeurs, et organise des simulations de phishing.",
-      "notes": "Le guide rappelle que l'identité d'un expéditeur n'est jamais garantie."
+      "notes": "Le guide rappelle que l'identité d'un expéditeur n'est jamais garantie.",
+      "condition_application": "S'applique à toute PME disposant d'une messagerie électronique professionnelle",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_015": {
       "id": "regle_015",
@@ -285,7 +442,9 @@
       "categorie": "Organisationnelle",
       "description": "Désigner un responsable de la sécurité des SI (même à temps partiel), faire valider une politique de sécurité par la direction, intégrer la sécurité dans le budget annuel, et planifier des revues régulières.",
       "source_guide": "Chapitre 2.1.1 (Politique de sécurité des SI), Chapitre 2.1.3 (Gouvernance des SI et aspect organisationnel)",
-      "risques_cibles": ["tous"],
+      "risques_cibles": [
+        "tous"
+      ],
       "solutions_associees": [],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Moyen terme (3 mois)",
@@ -297,7 +456,14 @@
         "Budget cyber alloué annuellement"
       ],
       "exemples_concrets": "Une PME de 50 employés nomme son DSI comme responsable SSI, et la direction alloue 2% du budget IT à la cybersécurité.",
-      "notes": "Le guide insiste : 'la cybersécurité est une responsabilité partagée entre toutes ses composantes, surtout entre les ressources humaines du plus haut responsable au simple agent'."
+      "notes": "Le guide insiste : 'la cybersécurité est une responsabilité partagée entre toutes ses composantes, surtout entre les ressources humaines du plus haut responsable au simple agent'.",
+      "condition_application": "S'applique en priorité aux PME de plus de 10 employés ou traitant des données sensibles",
+      "phase": "Phase 3 - Maturité avancée",
+      "secteurs_prioritaires": [
+        "Santé",
+        "Finance",
+        "Industrie"
+      ]
     },
     "regle_016": {
       "id": "regle_016",
@@ -305,8 +471,16 @@
       "categorie": "Technique/Humain",
       "description": "Avant un déplacement, ne prendre que les données nécessaires, sauvegarder les données, marquer les appareils d'un signe distinctif. Pendant la mission, garder les appareils avec soi, désactiver Wi-Fi et Bluetooth, utiliser un VPN.",
       "source_guide": "Chapitre 3.5.3 (Sécurité des données de la PME vs la Mobilité), Chapitre 3.1.6 (Sécurité de l'accès à distance)",
-      "risques_cibles": ["r001", "r004", "r005"],
-      "solutions_associees": ["sol001", "sol005", "sol006"],
+      "risques_cibles": [
+        "r001",
+        "r004",
+        "r005"
+      ],
+      "solutions_associees": [
+        "sol001",
+        "sol005",
+        "sol006"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Court terme (2 mois)",
       "public_cible": "Employés nomades",
@@ -317,7 +491,13 @@
         "Sensibilisation aux bonnes pratiques de mobilité"
       ],
       "exemples_concrets": "Une PME équipe ses consultants en mission de laptops chiffrés, leur impose l'usage du VPN, et leur fournit une checklist avant départ.",
-      "notes": "Le guide précise : 'N'utilisez que du matériel dédié à la mission, et ne contenant que les données nécessaires'."
+      "notes": "Le guide précise : 'N'utilisez que du matériel dédié à la mission, et ne contenant que les données nécessaires'.",
+      "condition_application": "S'applique aux PME dont des employés voyagent avec du matériel professionnel",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "Finance",
+        "Industrie"
+      ]
     },
     "regle_017": {
       "id": "regle_017",
@@ -325,8 +505,14 @@
       "categorie": "Technique",
       "description": "Configurer les postes de travail pour qu'ils se verrouillent automatiquement après un délai d'inactivité court (5 à 10 minutes), nécessitant un mot de passe pour le déverrouillage.",
       "source_guide": "Chapitre 3.1.1 (Sécurité du poste de travail), Chapitre 3.1.6 (Sécurité de l'accès à distance)",
-      "risques_cibles": ["r001", "r004", "r008"],
-      "solutions_associees": ["sol006"],
+      "risques_cibles": [
+        "r001",
+        "r004",
+        "r008"
+      ],
+      "solutions_associees": [
+        "sol006"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Immédiat",
       "public_cible": "Tous les postes de travail",
@@ -337,7 +523,12 @@
         "0 poste laissé ouvert sans surveillance"
       ],
       "exemples_concrets": "Une PME active le verrouillage automatique via GPO ou politique de groupe sur tous ses postes Windows.",
-      "notes": "Le guide souligne que cette mesure est gratuite et immédiate, mais souvent négligée."
+      "notes": "Le guide souligne que cette mesure est gratuite et immédiate, mais souvent négligée.",
+      "condition_application": "S'applique à toute PME disposant de postes informatiques",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_018": {
       "id": "regle_018",
@@ -345,8 +536,14 @@
       "categorie": "Technique",
       "description": "Installer sur les navigateurs web une extension qui informe sur le niveau de danger d'un site visité, aidant à éviter les sites malveillants.",
       "source_guide": "Chapitre 3.2.1 (Règles d'utilisation de l'internet)",
-      "risques_cibles": ["r007", "r010", "r012"],
-      "solutions_associees": ["sol008"],
+      "risques_cibles": [
+        "r007",
+        "r010",
+        "r012"
+      ],
+      "solutions_associees": [
+        "sol008"
+      ],
       "priorite": "Moyenne",
       "delai_mise_en_oeuvre": "Court terme (1 mois)",
       "public_cible": "Tous les employés",
@@ -356,7 +553,12 @@
         "Utilisation active par les employés"
       ],
       "exemples_concrets": "Une PME installe Norton Safe Web ou McAfee WebAdvisor sur tous ses postes de travail.",
-      "notes": "Le guide précise que cette mesure est complémentaire à la formation, pas un substitut."
+      "notes": "Le guide précise que cette mesure est complémentaire à la formation, pas un substitut.",
+      "condition_application": "S'applique à toute PME dont les employés naviguent sur Internet dans le cadre professionnel",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_019": {
       "id": "regle_019",
@@ -364,7 +566,9 @@
       "categorie": "Organisationnelle",
       "description": "Établir des procédures claires en cas d'incident : déconnecter la machine du réseau, prévenir la hiérarchie et le responsable SSI, faire une copie du disque, déposer plainte, et restaurer le système à partir d'une sauvegarde saine.",
       "source_guide": "Annexe 5.2 (Les bonnes réflexes en cas d'incident)",
-      "risques_cibles": ["tous"],
+      "risques_cibles": [
+        "tous"
+      ],
       "solutions_associees": [],
       "priorite": "Moyenne",
       "delai_mise_en_oeuvre": "Moyen terme (4 mois)",
@@ -376,7 +580,12 @@
         "Temps moyen de réponse mesuré"
       ],
       "exemples_concrets": "Une PME rédige une procédure en 2 pages, la diffuse à tous, et organise un exercice de simulation une fois par an.",
-      "notes": "Le guide liste les bons réflexes : déconnecter la machine, prévenir la hiérarchie, faire une copie physique du disque, déposer plainte."
+      "notes": "Le guide liste les bons réflexes : déconnecter la machine, prévenir la hiérarchie, faire une copie physique du disque, déposer plainte.",
+      "condition_application": "S'applique en priorité aux PME de maturité IT moyenne à avancée, disposant de ressources humaines dédiées, même partielles",
+      "phase": "Phase 3 - Maturité avancée",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_020": {
       "id": "regle_020",
@@ -384,7 +593,9 @@
       "categorie": "Organisationnelle",
       "description": "Faire le recensement des biens de l'entreprise (matériels, logiciels, données), évaluer les risques, et établir un plan d'action avec les mesures de sécurité prioritaires. Mettre à jour ce plan annuellement.",
       "source_guide": "Chapitre 2.1.1 (Politique de sécurité des SI), Chapitre 2.5 (Norme ISO-27005)",
-      "risques_cibles": ["tous"],
+      "risques_cibles": [
+        "tous"
+      ],
       "solutions_associees": [],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Moyen terme (6 mois)",
@@ -396,7 +607,12 @@
         "Budget de sécurité intégré"
       ],
       "exemples_concrets": "Une PME réalise un audit de sécurité avec un prestataire, identifie les actifs critiques, et établit un plan d'action sur 12 mois.",
-      "notes": "Le guide précise : 'Une grande partie des mesures peuvent être gratuites ou avec des coûts bas'."
+      "notes": "Le guide précise : 'Une grande partie des mesures peuvent être gratuites ou avec des coûts bas'.",
+      "condition_application": "S'applique en priorité aux PME de plus de 15 employés ou disposant d'un budget cybersécurité",
+      "phase": "Phase 3 - Maturité avancée",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_021": {
       "id": "regle_021",
@@ -404,8 +620,14 @@
       "categorie": "Juridique/Organisationnelle",
       "description": "Suivre les évolutions légales : loi 07-03 (infractions STAD), loi 53-05 (échange électronique), loi 31-08 (protection consommateurs), loi 09-08 (données personnelles), loi 17-97 (propriété industrielle), et les conventions internationales ratifiées.",
       "source_guide": "Chapitre 2.6 (Aspect juridique et conventionnel)",
-      "risques_cibles": ["r016", "r021"],
-      "solutions_associees": ["sol020", "sol019"],
+      "risques_cibles": [
+        "r016",
+        "r021"
+      ],
+      "solutions_associees": [
+        "sol020",
+        "sol019"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Moyen à Long terme (6 mois)",
       "public_cible": "Direction / Juriste / DPO",
@@ -416,7 +638,14 @@
         "DPO désigné si nécessaire"
       ],
       "exemples_concrets": "Une PME de e-commerce vérifie sa conformité à la loi 09-08 et à la loi 31-08, et adapte ses formulaires de collecte de données en conséquence.",
-      "notes": "Le guide mentionne également le RGPD qui peut impacter les PME traitant des données de citoyens européens."
+      "notes": "Le guide mentionne également le RGPD qui peut impacter les PME traitant des données de citoyens européens.",
+      "condition_application": "S'applique aux PME manipulant des paiements alternatifs/cryptomonnaies, ou collectant des données personnelles",
+      "phase": "Phase 3 - Maturité avancée",
+      "secteurs_prioritaires": [
+        "Finance",
+        "Santé",
+        "Distribution"
+      ]
     },
     "regle_022": {
       "id": "regle_022",
@@ -424,8 +653,12 @@
       "categorie": "Technique/Légal",
       "description": "Avant d'envoyer des données vers le cloud, les chiffrer avec un logiciel de chiffrement. Choisir un prestataire offrant des garanties contractuelles sur la localisation des données et la réversibilité. Faire rédiger un contrat personnalisé.",
       "source_guide": "Chapitre 3.5.2 (Transfert des données et Cloud computing/virtualisation)",
-      "risques_cibles": ["r020"],
-      "solutions_associees": ["sol019"],
+      "risques_cibles": [
+        "r020"
+      ],
+      "solutions_associees": [
+        "sol019"
+      ],
       "priorite": "Haute",
       "delai_mise_en_oeuvre": "Avant toute migration cloud",
       "public_cible": "Direction / IT",
@@ -436,7 +669,12 @@
         "Plan de réversibilité défini"
       ],
       "exemples_concrets": "Une PME utilise Cryptomator pour chiffrer ses fichiers avant de les mettre sur un cloud public, et fait réviser son contrat par un avocat spécialisé.",
-      "notes": "Le guide identifie 4 risques du cloud : confidentialité, juridique, disponibilité/intégrité, irréversibilité des contrats."
+      "notes": "Le guide identifie 4 risques du cloud : confidentialité, juridique, disponibilité/intégrité, irréversibilité des contrats.",
+      "condition_application": "S'applique aux PME utilisant ou prévoyant d'utiliser des services cloud pour leurs données",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
     },
     "regle_023": {
       "id": "regle_023",
@@ -444,4 +682,91 @@
       "categorie": "Humain/Technique",
       "description": "Utiliser des comptes, mots de passe et équipements distincts pour les usages professionnels et personnels. Ne pas utiliser la messagerie professionnelle pour des usages personnels, et vice versa.",
       "source_guide": "Annexe 5.1 (Les 12 bonnes pratiques de base), Chapitre 3.4.1 (Menaces sur le courrier électronique)",
-     
+      "risques_cibles": [
+        "r006",
+        "r015"
+      ],
+      "solutions_associees": [
+        "sol016"
+      ],
+      "priorite": "Moyenne",
+      "delai_mise_en_oeuvre": "Court terme (1 mois)",
+      "public_cible": "Tous les employés",
+      "cout_estime": "Nul",
+      "indicateurs_conformite": [
+        "0 usage de la messagerie professionnelle à des fins personnelles constaté",
+        "Mots de passe distincts vérifiés entre comptes pro et perso"
+      ],
+      "exemples_concrets": "Une PME rappelle dans sa charte que l'email professionnel ne doit servir qu'aux échanges liés au travail, avec un mot de passe propre non réutilisé ailleurs.",
+      "notes": "Règle complétée lors de la relecture : le fichier original fourni était tronqué à ce niveau (contenu manquant après le nom de la règle).",
+      "condition_application": "S'applique à toute PME, quel que soit le secteur",
+      "phase": "Phase 1 - Urgence (quick win)",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
+    },
+    "regle_024": {
+      "id": "regle_024",
+      "nom": "Installer un logiciel anti-keylogger sur les postes sensibles",
+      "categorie": "Technique",
+      "description": "Déployer un logiciel anti-keylogger sur les postes traitant des données financières ou des identifiants sensibles, afin de détecter et bloquer les programmes qui enregistrent les frappes clavier.",
+      "source_guide": "Chapitre 3.3.1 (Vecteurs d'attaques cybercriminelles - définition Keylogger)",
+      "risques_cibles": [
+        "r013"
+      ],
+      "solutions_associees": [
+        "sol014"
+      ],
+      "priorite": "Moyenne",
+      "delai_mise_en_oeuvre": "Court terme (1 mois)",
+      "public_cible": "Postes traitant des données financières ou des identifiants sensibles",
+      "cout_estime": "Faible",
+      "indicateurs_conformite": [
+        "Logiciel anti-keylogger installé sur 100% des postes sensibles identifiés",
+        "0 keylogger détecté lors des scans"
+      ],
+      "exemples_concrets": "Une PME de change installe un anti-keylogger sur les postes de ses caissiers manipulant des transactions.",
+      "notes": "Règle ajoutée lors de la relecture : le risque r013 (keylogger) disposait déjà d'une solution dédiée (sol014) mais n'était couvert par aucune règle de recommandation.",
+      "condition_application": "S'applique aux postes traitant des données financières, bancaires ou des identifiants critiques",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "Finance",
+        "Distribution"
+      ]
+    },
+    "regle_025": {
+      "id": "regle_025",
+      "nom": "Installer un logiciel antispyware sur les postes de travail",
+      "categorie": "Technique",
+      "description": "Déployer un logiciel antispyware sur l'ensemble des postes de travail pour détecter et supprimer les logiciels espions collectant des données de navigation ou des informations personnelles à l'insu de l'utilisateur.",
+      "source_guide": "Chapitre 3.3.1 (Vecteurs d'attaques cybercriminelles - définition Spyware)",
+      "risques_cibles": [
+        "r014"
+      ],
+      "solutions_associees": [
+        "sol013"
+      ],
+      "priorite": "Basse",
+      "delai_mise_en_oeuvre": "Court terme (1 mois)",
+      "public_cible": "Tous les postes de travail",
+      "cout_estime": "Faible",
+      "indicateurs_conformite": [
+        "Logiciel antispyware installé sur 100% des postes",
+        "Scan antispyware programmé au moins une fois par semaine"
+      ],
+      "exemples_concrets": "Une PME installe Malwarebytes en complément de son antivirus principal sur tous les postes.",
+      "notes": "Règle ajoutée lors de la relecture : le risque r014 (spyware) disposait déjà d'une solution dédiée (sol013) mais n'était couvert par aucune règle de recommandation.",
+      "condition_application": "S'applique à toute PME disposant de postes de travail connectés à Internet",
+      "phase": "Phase 2 - Structuration",
+      "secteurs_prioritaires": [
+        "tous"
+      ]
+    }
+  },
+  "meta": {
+    "angles_morts_assumes": {
+      "r016": "Blanchiment via monnaies virtuelles - aucune solution technique dédiée identifiée dans le guide CMRPI consulté. Une vraie réponse nécessiterait une procédure KYC/AML et un conseil juridique spécialisé, hors périmètre du guide.",
+      "r018": "Extorsion numérique par DDoS avec demande de rançon - le guide définit le risque mais ne détaille pas de mesure technique dédiée (anti-DDoS, WAF) dans les extraits consultés. Seule couverture partielle via la sauvegarde (aide à la reprise, ne prévient pas l'attaque)."
+    }
+  }
+}
