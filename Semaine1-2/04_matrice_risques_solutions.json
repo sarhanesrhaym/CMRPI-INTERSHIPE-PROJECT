@@ -1,0 +1,304 @@
+{
+  "matrice_risques_solutions": {
+    "r001": {
+      "risque_nom": "Connexion via réseau Wi-Fi public/non sécurisé",
+      "solutions": [
+        {
+          "solution_id": "sol001",
+          "solution_nom": "VPN",
+          "efficacite": "Élevée",
+          "justification": "Chiffre la connexion de bout en bout, neutralise l'interception même sur réseau public"
+        },
+        {
+          "solution_id": "sol006",
+          "solution_nom": "Verrouillage automatique de session",
+          "efficacite": "Faible",
+          "justification": "Réduit l'exposition si l'appareil est laissé sans surveillance, mais n'empêche pas l'interception réseau"
+        }
+      ]
+    },
+    "r002": {
+      "risque_nom": "Injection de code sur le site web (SQL injection, XSS)",
+      "solutions": [
+        {
+          "solution_id": "sol003",
+          "solution_nom": "Mise à jour régulière CMS/plugins",
+          "efficacite": "Élevée",
+          "justification": "Ferme les failles connues exploitées par ce type d'attaque"
+        },
+        {
+          "solution_id": "sol002",
+          "solution_nom": "Certificat SSL/TLS + chiffrement stockage",
+          "efficacite": "Moyenne",
+          "justification": "Sécurise le transport des données mais n'empêche pas l'injection elle-même"
+        }
+      ]
+    },
+    "r003": {
+      "risque_nom": "Mauvaise configuration de sécurité (serveur, CMS, plugins)",
+      "solutions": [
+        {
+          "solution_id": "sol003",
+          "solution_nom": "Mise à jour régulière CMS/plugins",
+          "efficacite": "Élevée",
+          "justification": "Corrige directement les paramétrages par défaut et versions vulnérables"
+        },
+        {
+          "solution_id": "sol010",
+          "solution_nom": "Gestion stricte des permissions d'accès",
+          "efficacite": "Moyenne",
+          "justification": "Limite l'impact d'une mauvaise configuration en restreignant les accès"
+        }
+      ]
+    },
+    "r004": {
+      "risque_nom": "Perte ou vol de matériel nomade",
+      "solutions": [
+        {
+          "solution_id": "sol005",
+          "solution_nom": "Chiffrement des équipements nomades",
+          "efficacite": "Élevée",
+          "justification": "Rend les données illisibles même si l'appareil est perdu/volé"
+        },
+        {
+          "solution_id": "sol001",
+          "solution_nom": "VPN",
+          "efficacite": "Faible",
+          "justification": "Protège la connexion mais pas les données déjà stockées sur l'appareil"
+        }
+      ]
+    },
+    "r005": {
+      "risque_nom": "Compromission via périphérique USB non fiable",
+      "solutions": [
+        {
+          "solution_id": "sol011",
+          "solution_nom": "Antivirus avec scan automatique des supports externes",
+          "efficacite": "Élevée",
+          "justification": "Détecte le logiciel malveillant avant exécution lors du branchement"
+        }
+      ]
+    },
+    "r006": {
+      "risque_nom": "Mot de passe faible, partagé ou jamais renouvelé",
+      "solutions": [
+        {
+          "solution_id": "sol004",
+          "solution_nom": "Politique de mots de passe stricte",
+          "efficacite": "Élevée",
+          "justification": "Impose directement la complexité et le renouvellement, cause racine du risque"
+        },
+        {
+          "solution_id": "sol016",
+          "solution_nom": "Séparation email pro/perso + mot de passe dédié",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation en cas de compromission d'un compte"
+        }
+      ]
+    },
+    "r007": {
+      "risque_nom": "Non-respect de la charte d'usage d'Internet",
+      "solutions": [
+        {
+          "solution_id": "sol007",
+          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "efficacite": "Élevée",
+          "justification": "Cadre directement le comportement attendu et sert de base disciplinaire"
+        },
+        {
+          "solution_id": "sol008",
+          "solution_nom": "Extension navigateur de réputation de site",
+          "efficacite": "Faible",
+          "justification": "Aide ponctuellement mais ne remplace pas la sensibilisation"
+        }
+      ]
+    },
+    "r008": {
+      "risque_nom": "Accès non protégé aux fichiers systèmes sensibles",
+      "solutions": [
+        {
+          "solution_id": "sol010",
+          "solution_nom": "Gestion stricte des permissions d'accès",
+          "efficacite": "Élevée",
+          "justification": "Applique le moindre privilège directement sur les fichiers sensibles"
+        },
+        {
+          "solution_id": "sol006",
+          "solution_nom": "Verrouillage automatique de session",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la fenêtre d'exposition en cas d'absence de l'utilisateur"
+        }
+      ]
+    },
+    "r009": {
+      "risque_nom": "Absence de sauvegarde du site web de l'entreprise",
+      "solutions": [
+        {
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "efficacite": "Élevée",
+          "justification": "Réponse directe et complète à ce risque"
+        }
+      ]
+    },
+    "r010": {
+      "risque_nom": "Divulgation d'informations sensibles sur Internet par un collaborateur",
+      "solutions": [
+        {
+          "solution_id": "sol007",
+          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "efficacite": "Moyenne",
+          "justification": "Sensibilise et formalise les règles de communication externe"
+        },
+        {
+          "solution_id": "sol015",
+          "solution_nom": "Vigilance et vérification des emails suspects",
+          "efficacite": "Faible",
+          "justification": "Concerne surtout le canal email, pas les forums/réseaux sociaux"
+        }
+      ]
+    },
+    "r011": {
+      "risque_nom": "Ver informatique (worm)",
+      "solutions": [
+        {
+          "solution_id": "sol011",
+          "solution_nom": "Antivirus avec scan automatique des supports externes",
+          "efficacite": "Élevée",
+          "justification": "Détecte et bloque la propagation avant infection du réseau"
+        }
+      ]
+    },
+    "r012": {
+      "risque_nom": "Cheval de Troie (trojan)",
+      "solutions": [
+        {
+          "solution_id": "sol011",
+          "solution_nom": "Antivirus avec scan automatique des supports externes",
+          "efficacite": "Élevée",
+          "justification": "Détecte le programme malveillant caché dans le vecteur légitime"
+        },
+        {
+          "solution_id": "sol015",
+          "solution_nom": "Vigilance et vérification des emails suspects",
+          "efficacite": "Moyenne",
+          "justification": "Réduit le risque de télécharger/exécuter le vecteur d'infiltration"
+        }
+      ]
+    },
+    "r013": {
+      "risque_nom": "Keylogger",
+      "solutions": [
+        {
+          "solution_id": "sol014",
+          "solution_nom": "Logiciel anti-keylogger",
+          "efficacite": "Élevée",
+          "justification": "Solution ciblée spécifiquement conçue contre ce vecteur"
+        }
+      ]
+    },
+    "r014": {
+      "risque_nom": "Spyware (logiciel espion)",
+      "solutions": [
+        {
+          "solution_id": "sol013",
+          "solution_nom": "Logiciel antispyware",
+          "efficacite": "Élevée",
+          "justification": "Solution ciblée spécifiquement conçue contre ce vecteur"
+        }
+      ]
+    },
+    "r015": {
+      "risque_nom": "Spoofing (usurpation d'identité électronique)",
+      "solutions": [
+        {
+          "solution_id": "sol015",
+          "solution_nom": "Vigilance et vérification des emails suspects",
+          "efficacite": "Moyenne",
+          "justification": "Vérifier la cohérence expéditeur/contenu permet de détecter une usurpation"
+        },
+        {
+          "solution_id": "sol012",
+          "solution_nom": "Logiciel antispam pour la messagerie",
+          "efficacite": "Moyenne",
+          "justification": "Filtre une partie des tentatives de spoofing par email"
+        }
+      ]
+    },
+    "r016": {
+      "risque_nom": "Implication involontaire dans un circuit de blanchiment via monnaies virtuelles",
+      "solutions": [],
+      "couverture": "aucune_solution_dediee",
+      "note": "Le guide CMRPI décrit ce risque (section 3.3.3) sans proposer de mesure de protection technique correspondante. Une vraie réponse nécessiterait une procédure KYC/AML et un conseil juridique spécialisé, hors périmètre du guide consulté."
+    },
+    "r017": {
+      "risque_nom": "Interception de coordonnées bancaires lors de paiements en ligne",
+      "solutions": [
+        {
+          "solution_id": "sol017",
+          "solution_nom": "Checklist de vérification avant paiement en ligne",
+          "efficacite": "Élevée",
+          "justification": "Réponse directe et documentée dans le guide (section 3.3.4)"
+        },
+        {
+          "solution_id": "sol002",
+          "solution_nom": "Certificat SSL/TLS + chiffrement stockage",
+          "efficacite": "Moyenne",
+          "justification": "Sécurise le canal mais dépend aussi du comportement de l'utilisateur"
+        }
+      ]
+    },
+    "r018": {
+      "risque_nom": "Extorsion numérique par DDoS avec demande de rançon",
+      "solutions": [
+        {
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "efficacite": "Faible",
+          "justification": "Aide à la reprise après incident mais ne prévient pas l'attaque elle-même"
+        }
+      ],
+      "couverture": "partielle",
+      "note": "Le guide mentionne l'extorsion par DDoS comme définition (section 3.3.1) mais ne détaille pas de mesure de protection technique dédiée (ex: anti-DDoS, WAF) dans les extraits consultés."
+    },
+    "r019": {
+      "risque_nom": "Shadow IT — usage non approuvé d'outils cloud grand public",
+      "solutions": [
+        {
+          "solution_id": "sol018",
+          "solution_nom": "Solution centralisée et sécurisée de partage de fichiers",
+          "efficacite": "Élevée",
+          "justification": "Réponse directe recommandée par le guide (section 3.4.4)"
+        },
+        {
+          "solution_id": "sol007",
+          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "efficacite": "Moyenne",
+          "justification": "Encadre l'usage des outils non approuvés par une règle claire"
+        }
+      ]
+    },
+    "r020": {
+      "risque_nom": "Risques liés à l'externalisation cloud (confidentialité, juridique, réversibilité)",
+      "solutions": [
+        {
+          "solution_id": "sol019",
+          "solution_nom": "Chiffrement pré-cloud + choix contractuel rigoureux",
+          "efficacite": "Élevée",
+          "justification": "Réponse directe recommandée par le guide (section 3.5.2)"
+        }
+      ]
+    },
+    "r021": {
+      "risque_nom": "Non-conformité à la loi 09-08 (collecte de données personnelles)",
+      "solutions": [
+        {
+          "solution_id": "sol020",
+          "solution_nom": "Mise en conformité loi 09-08",
+          "efficacite": "Élevée",
+          "justification": "Réponse directe et complète aux 6 règles d'or citées dans le guide (section 3.5.4)"
+        }
+      ]
+    }
+  }
+}
