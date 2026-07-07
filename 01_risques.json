@@ -1,0 +1,870 @@
+{
+  "risques": {
+    "r001": {
+      "id": "r001",
+      "nom": "Connexion via réseau Wi-Fi public/non sécurisé",
+      "description": "Utilisation de réseaux Wi-Fi publics ou pièges créés par des cybercriminels pour intercepter des données",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de VPN",
+        "Wi-Fi public sans mot de passe",
+        "Connexion automatique aux réseaux inconnus"
+      ],
+      "impact_potentiel": "Interception de données, vol d'identifiants",
+      "notes": "Risque fréquent pour collaborateurs mobiles/en mission",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r002": {
+      "id": "r002",
+      "nom": "Injection de code sur le site web (SQL injection, XSS)",
+      "description": "Attaque exploitant une faille du site web pour exécuter du code malveillant",
+      "severite": "CRITIQUE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "Services web",
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "CMS/plugins obsolètes",
+        "Pas de validation des entrées",
+        "Pas de WAF"
+      ],
+      "impact_potentiel": "Vol de base de données, défacement du site, prise de contrôle serveur",
+      "notes": "Cause n°1 des attaques web selon le guide CMRPI",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r003": {
+      "id": "r003",
+      "nom": "Mauvaise configuration de sécurité (serveur, CMS, plugins)",
+      "description": "Paramétrage par défaut ou incorrect du serveur web, CMS ou extensions",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "Pas de mise à jour CMS/plugins",
+        "Comptes admin par défaut",
+        "Ports/services inutiles ouverts"
+      ],
+      "impact_potentiel": "Porte d'entrée pour attaques sophistiquées",
+      "notes": "Distinct de l'infrastructure obsolète : ici c'est un problème de configuration, pas d'âge du matériel",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r004": {
+      "id": "r004",
+      "nom": "Perte ou vol de matériel nomade (laptop, smartphone, clé USB)",
+      "description": "Vol ou perte d'équipement lors de déplacements professionnels",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de chiffrement du disque",
+        "Pas de mot de passe de boot",
+        "Voyage avec données sensibles non nécessaires"
+      ],
+      "impact_potentiel": "Exposition de données sensibles, perte de matériel",
+      "notes": "Spécifique aux employés en mission/voyage",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r005": {
+      "id": "r005",
+      "nom": "Compromission via périphérique USB non fiable",
+      "description": "Clé USB offerte, trouvée ou de provenance inconnue contenant un logiciel malveillant",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de politique de contrôle des supports amovibles",
+        "Antivirus non configuré pour scanner l'USB automatiquement"
+      ],
+      "impact_potentiel": "Infection du poste ou du réseau interne",
+      "notes": "Vecteur classique et sous-estimé",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r006": {
+      "id": "r006",
+      "nom": "Mot de passe faible, partagé ou jamais renouvelé",
+      "description": "Employés utilisant des mots de passe faciles à deviner, réutilisés sur plusieurs services, ou jamais changés",
+      "severite": "ÉLEVÉE",
+      "probabilite": "TRÈS ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de politique de mots de passe",
+        "Pas de gestionnaire de mots de passe",
+        "Mots de passe notés sur papier/post-it"
+      ],
+      "impact_potentiel": "Compromission en cascade de plusieurs comptes/systèmes",
+      "notes": "Cause racine derrière beaucoup de vols d'identifiants (r002)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r007": {
+      "id": "r007",
+      "nom": "Non-respect de la charte d'usage d'Internet",
+      "description": "Navigation sur sites douteux, téléchargements illégaux, désactivation de l'antivirus/pare-feu par l'employé",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Absence de charte formalisée",
+        "Pas de sensibilisation",
+        "Pas de contrôle/supervision"
+      ],
+      "impact_potentiel": "Introduction de malwares, fuite d'informations, sanctions disciplinaires",
+      "notes": "Risque organisationnel/humain, facilement réductible par une charte",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r008": {
+      "id": "r008",
+      "nom": "Accès non protégé aux fichiers systèmes sensibles",
+      "description": "Fichiers utilisateurs/mots de passe (/etc/passwd, base de registre Windows) mal protégés dans le réseau local",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "tous avec réseau LAN"
+      ],
+      "facteurs_risque": [
+        "Pas de fichier shadow (Unix)",
+        "Accès non restreint à poledit/regedit (Windows)",
+        "Comptes guest/anonymous actifs"
+      ],
+      "impact_potentiel": "Piratage des comptes systèmes, prise de contrôle du LAN",
+      "notes": "Complète le risque d'accès physique (r006) côté logique/système",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r009": {
+      "id": "r009",
+      "nom": "Absence de sauvegarde du site web de l'entreprise",
+      "description": "Le site vitrine/e-commerce n'est pas sauvegardé régulièrement",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "Pas de politique de backup web",
+        "Hébergeur ne propose pas de backup automatique"
+      ],
+      "impact_potentiel": "Perte totale du site en cas d'attaque, coût de reconstruction",
+      "notes": "Distinct de la perte de données générale (r003) : spécifique au site web",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r010": {
+      "id": "r010",
+      "nom": "Divulgation d'informations sensibles sur Internet par un collaborateur",
+      "description": "Partage d'informations confidentielles sur forums, réseaux sociaux, ou via formulaires non sécurisés",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de sensibilisation",
+        "Pas de liste de personnes habilitées à communiquer",
+        "Formulaires web non sécurisés (pas HTTPS)"
+      ],
+      "impact_potentiel": "Fuite d'informations stratégiques ou personnelles, atteinte à l'image",
+      "notes": "Risque humain lié à l'usage quotidien du web, pas au piratage",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r011": {
+      "id": "r011",
+      "nom": "Ver informatique (worm)",
+      "description": "Logiciel malveillant qui se reproduit sur plusieurs ordinateurs via le réseau et sature la bande passante",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas d'antivirus à jour",
+        "Réseau non segmenté",
+        "Postes non patchés"
+      ],
+      "impact_potentiel": "Saturation réseau, indisponibilité des services internes",
+      "notes": "Sous-catégorie de malware distincte du virus classique",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r012": {
+      "id": "r012",
+      "nom": "Cheval de Troie (trojan)",
+      "description": "Programme d'apparence légitime servant de vecteur pour installer un autre programme malveillant à l'insu de l'utilisateur",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Téléchargement depuis sites douteux",
+        "Pas d'antivirus",
+        "Employés non sensibilisés"
+      ],
+      "impact_potentiel": "Accès frauduleux aux ressources, installation de logiciels espions",
+      "notes": "Souvent confondu avec un virus, mais mécanisme différent (véhicule d'infiltration)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r013": {
+      "id": "r013",
+      "nom": "Keylogger",
+      "description": "Programme espion qui enregistre tout ce que l'utilisateur saisit au clavier (mots de passe, données bancaires)",
+      "severite": "CRITIQUE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "Finance",
+        "E-commerce",
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de logiciel anti-keylogger",
+        "Poste infecté par un cheval de Troie",
+        "Clavier virtuel non utilisé pour saisies sensibles"
+      ],
+      "impact_potentiel": "Vol de mots de passe, vol de données bancaires",
+      "notes": "Vecteur précis et particulièrement dangereux pour données financières",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r014": {
+      "id": "r014",
+      "nom": "Spyware (logiciel espion)",
+      "description": "Logiciel parasite qui collecte et transmet à des tiers des informations sur la navigation ou des données personnelles",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Téléchargements non contrôlés",
+        "Pas d'antispyware",
+        "Navigation sur sites douteux"
+      ],
+      "impact_potentiel": "Fuite de données personnelles, utilisation commerciale malhonnête des données",
+      "notes": "Souvent indétectable, impact plus discret mais réel",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r015": {
+      "id": "r015",
+      "nom": "Spoofing (usurpation d'identité électronique)",
+      "description": "Usurpation de l'identité d'un utilisateur ou d'un système pour faire croire que des actions/communications viennent d'une autre source",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de vérification d'identité de l'expéditeur",
+        "Absence de protocoles d'authentification email (SPF/DKIM)"
+      ],
+      "impact_potentiel": "Fraude financière, atteinte à la réputation, actions illégitimes attribuées à l'entreprise",
+      "notes": "Distinct du phishing : ici la technique consiste à usurper une identité plutôt qu'à manipuler la victime",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r016": {
+      "id": "r016",
+      "nom": "Implication involontaire dans un circuit de blanchiment via monnaies virtuelles",
+      "description": "La PME accepte ou manipule des monnaies virtuelles sans contrôle suffisant, risquant d'être utilisée dans un blanchiment de fonds",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE",
+      "secteurs_affectes": [
+        "Finance",
+        "E-commerce"
+      ],
+      "facteurs_risque": [
+        "Pas de politique KYC/AML",
+        "Acceptation de cryptomonnaies sans vérification",
+        "Manque de formation juridique"
+      ],
+      "impact_potentiel": "Poursuites légales, gel d'avoirs, atteinte réputationnelle grave",
+      "notes": "Risque émergent, spécifique aux PME manipulant des paiements alternatifs",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r017": {
+      "id": "r017",
+      "nom": "Interception de coordonnées bancaires lors de paiements en ligne",
+      "description": "Coordonnées bancaires interceptées sur le poste client ou dans les fichiers du site marchand",
+      "severite": "CRITIQUE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "Finance"
+      ],
+      "facteurs_risque": [
+        "Pas de HTTPS",
+        "Stockage non chiffré des données de paiement",
+        "Pas de conformité PCI-DSS"
+      ],
+      "impact_potentiel": "Fraude bancaire, perte de confiance client, sanctions PCI-DSS",
+      "notes": "Risque central pour tout site marchand marocain",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r018": {
+      "id": "r018",
+      "nom": "Extorsion numérique par DDoS avec demande de rançon",
+      "description": "Attaque DDoS ciblée suivie d'une demande de rançon pour cesser l'attaque",
+      "severite": "CRITIQUE",
+      "probabilite": "FAIBLE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "Finance",
+        "Services web"
+      ],
+      "facteurs_risque": [
+        "Pas de protection anti-DDoS",
+        "Pas de plan de réponse aux incidents"
+      ],
+      "impact_potentiel": "Indisponibilité prolongée, pression financière, précédent dangereux si rançon payée",
+      "notes": "Version aggravée du DDoS (r004) avec intention d'extorsion explicite",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r019": {
+      "id": "r019",
+      "nom": "Shadow IT — usage non approuvé d'outils cloud grand public",
+      "description": "Employés utilisant des services comme Dropbox ou Google Docs à usage personnel pour partager des fichiers professionnels, sans validation IT",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de solution de partage sécurisée fournie par l'entreprise",
+        "Pas de politique claire",
+        "Pas de supervision IT"
+      ],
+      "impact_potentiel": "Fuite de données hors du contrôle de l'entreprise, non-conformité",
+      "notes": "Près de 50% des entreprises jugent ces outils grand public inadaptés à l'usage professionnel (étude Axway citée dans le guide)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r020": {
+      "id": "r020",
+      "nom": "Risques liés à l'externalisation cloud (confidentialité, juridique, réversibilité)",
+      "description": "Risques pour la confidentialité, incertitude sur la localisation des données, disponibilité/intégrité, et irréversibilité contractuelle lors du recours au cloud",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Contrats génériques non adaptés",
+        "Pas de conseil juridique/technique avant contractualisation",
+        "Pas de chiffrement avant envoi au cloud"
+      ],
+      "impact_potentiel": "Perte de contrôle des données, litiges contractuels, blocage en cas de changement de prestataire",
+      "notes": "Pertinent pour les PME migrant vers le cloud sans accompagnement",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r021": {
+      "id": "r021",
+      "nom": "Non-conformité à la loi 09-08 (collecte de données personnelles)",
+      "description": "Collecte de données personnelles sans respecter les 6 règles d'or : sécurité des fichiers, confidentialité, droits des personnes, autorisation CNDP, durée de conservation, finalité définie",
+      "severite": "CRITIQUE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous collectant des données personnelles"
+      ],
+      "facteurs_risque": [
+        "Pas de déclaration/autorisation CNDP",
+        "Pas de finalité précise définie",
+        "Conservation illimitée des données"
+      ],
+      "impact_potentiel": "Sanctions CNDP, atteinte réputationnelle, plaintes de personnes concernées",
+      "notes": "Précise et complète le risque de conformité générale r005",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r022": {
+      "id": "r022",
+      "nom": "Absence de plan de continuité et de reprise d'activité (PCA/PRA)",
+      "description": "Aucune analyse d'impact ni procédure formalisée pour maintenir ou reprendre l'activité après un sinistre ou une panne majeure du SI",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas d'analyse d'impact sur l'activité (BIA)",
+        "Pas de site ou solution de secours",
+        "Pas de test de reprise"
+      ],
+      "impact_potentiel": "Arrêt prolongé de l'activité après un incident majeur, incapacité à estimer le délai de reprise",
+      "notes": "Risque organisationnel de fond : sans PCA/PRA, même une bonne sauvegarde ne garantit pas une reprise rapide et maîtrisée",
+      "source_guide": "DGSSI/DNSSI - Chapitre Gestion de la continuité de l'activité (CONTINU-BIA, CONTINU-ACT)"
+    },
+    "r023": {
+      "id": "r023",
+      "nom": "Comptes utilisateurs non révoqués après départ d'un employé",
+      "description": "Un ancien employé ou prestataire conserve un accès actif aux systèmes après la fin de son contrat, faute de procédure formalisée",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de communication RH -> IT lors des départs",
+        "Pas d'inventaire des comptes actifs",
+        "Comptes génériques non tracés"
+      ],
+      "impact_potentiel": "Accès non autorisé, vol ou sabotage par un ancien collaborateur mécontent",
+      "notes": "Risque souvent sous-estimé, en particulier dans les petites structures sans processus RH formalisé",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des ressources humaines (RH-FIN-GEST)"
+    },
+    "r024": {
+      "id": "r024",
+      "nom": "Utilisation de logiciels sans licence valide",
+      "description": "Installation et usage de logiciels piratés ou sans licence officielle, exposant à des risques juridiques et de sécurité",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas d'inventaire des licences",
+        "Volonté de réduire les coûts logiciels",
+        "Téléchargement de versions piratées"
+      ],
+      "impact_potentiel": "Poursuites pour violation de propriété intellectuelle, logiciels piratés souvent vecteurs de malware",
+      "notes": "Risque à la fois juridique et technique (les logiciels piratés contiennent fréquemment des malwares)",
+      "source_guide": "DGSSI/DNSSI - Chapitre Conformité (CONF-OBLIG-INTELLECT)"
+    },
+    "r025": {
+      "id": "r025",
+      "nom": "Absence de journalisation et de traçabilité des événements de sécurité",
+      "description": "Aucun journal centralisé des événements système/sécurité, rendant impossible l'investigation en cas d'incident",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de solution de centralisation des logs",
+        "Pas de politique de conservation des journaux",
+        "Horloges des systèmes non synchronisées"
+      ],
+      "impact_potentiel": "Incapacité à déterminer l'origine, l'étendue et la chronologie d'une attaque après coup",
+      "notes": "Complète directement les lacunes déjà identifiées sur les risques r018 (DDoS) et r028 (extorsion) : sans logs, la réponse à incident est très limitée",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-JOURN/SURV-JOURNAL, EXP-JOURN/SURV-SYNCHRON)"
+    },
+    "r026": {
+      "id": "r026",
+      "nom": "Absence de séparation des environnements de développement, test et production",
+      "description": "Le même environnement sert au développement, aux tests et à la production, augmentant le risque de changements non maîtrisés",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "tous avec développement logiciel interne"
+      ],
+      "facteurs_risque": [
+        "Ressources limitées pour avoir des environnements séparés",
+        "Absence de procédure de gestion des changements"
+      ],
+      "impact_potentiel": "Bug ou faille introduits directement en production, incidents lors de mises à jour",
+      "notes": "Concerne surtout les PME qui développent ou font développer leurs propres applications/site web",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-PROC-ENVIR)"
+    },
+    "r027": {
+      "id": "r027",
+      "nom": "Données de production utilisées en test sans anonymisation",
+      "description": "Des données réelles de clients ou d'employés sont copiées dans un environnement de test moins sécurisé, sans anonymisation",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "Santé",
+        "Finance",
+        "tous traitant des données personnelles"
+      ],
+      "facteurs_risque": [
+        "Pas de procédure d'anonymisation",
+        "Environnement de test moins protégé que la production"
+      ],
+      "impact_potentiel": "Fuite de données personnelles réelles via un environnement de test non sécurisé, non-conformité loi 09-08",
+      "notes": "Risque directement lié à r021 (non-conformité loi 09-08) mais avec un vecteur technique précis",
+      "source_guide": "DGSSI/DNSSI - Chapitre Acquisition, développement et maintenance des SI (DEV-PROC-DONNEE)"
+    },
+    "r028": {
+      "id": "r028",
+      "nom": "Risques liés aux prestataires/fournisseurs non encadrés contractuellement",
+      "description": "Des fournisseurs ou prestataires ont accès aux systèmes/données de l'entreprise sans clauses de sécurité ni de réversibilité définies",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Contrats génériques sans clause de sécurité",
+        "Pas d'audit des prestataires",
+        "Accès non révoqué après fin de mission"
+      ],
+      "impact_potentiel": "Fuite de données via un tiers, dépendance dangereuse à un prestataire en cas de litige",
+      "notes": "Complète r030 (risques cloud) avec une vision plus large incluant tout type de sous-traitance IT",
+      "source_guide": "DGSSI/DNSSI - Chapitre Relations avec les fournisseurs (FOURNIS-REL-RISQ, FOURNIS-REL-EXIG)"
+    },
+    "r029": {
+      "id": "r029",
+      "nom": "Absence de cloisonnement du réseau interne",
+      "description": "Le réseau de l'entreprise n'est pas divisé en zones (publique, utilisateurs, serveurs), facilitant la propagation latérale d'une attaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous avec réseau LAN"
+      ],
+      "facteurs_risque": [
+        "Réseau plat sans segmentation",
+        "Tous les équipements sur le même sous-réseau",
+        "Pas de VLAN"
+      ],
+      "impact_potentiel": "Une infection ou intrusion sur un poste se propage librement à l'ensemble du réseau, y compris aux serveurs sensibles",
+      "notes": "Aggrave directement l'impact potentiel des risques r011 (ver informatique) et r012 (cheval de Troie)",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des communications (COM-MANAG-CLOISON, COM-MANAG-FILTRAGE)"
+    },
+    "r030": {
+      "id": "r030",
+      "nom": "Gestion non structurée des vulnérabilités et des correctifs",
+      "description": "Absence de processus formel d'identification, d'évaluation et de correction des vulnérabilités techniques des systèmes",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de veille sur les vulnérabilités publiées",
+        "Correctifs appliqués de façon ad hoc, sans priorisation",
+        "Pas d'inventaire des actifs à jour"
+      ],
+      "impact_potentiel": "Exploitation de failles connues restées non corrigées pendant une longue période",
+      "notes": "Complète et structure r003/r013 (mauvaise configuration/infrastructure obsolète) avec une approche processus plutôt que ponctuelle",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-VULN-GEST, EXP-VULN-CORRECT)"
+    },
+    "r031": {
+      "id": "r031",
+      "nom": "Risques physiques et environnementaux sur les salles serveurs",
+      "description": "Absence de protection contre l'incendie, les dégâts des eaux, les coupures électriques ou les intrusions physiques dans les locaux hébergeant les serveurs",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE",
+      "secteurs_affectes": [
+        "tous disposant de serveurs sur site"
+      ],
+      "facteurs_risque": [
+        "Pas d'onduleur",
+        "Pas de détection incendie",
+        "Local serveur non protégé physiquement"
+      ],
+      "impact_potentiel": "Perte totale du matériel et des données non sauvegardées suite à un sinistre physique",
+      "notes": "Risque complémentaire à r006 (accès physique non autorisé), mais centré sur les sinistres accidentels plutôt que la malveillance",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité physique et environnementale (PHYS-ZONE-INCEN, PHYS-ZONE-EAU, PHYS-MAT-OND)"
+    },
+    "r032": {
+      "id": "r032",
+      "nom": "Absence d'inventaire des actifs informatiques",
+      "description": "L'entreprise ne dispose d'aucun inventaire formalisé de ses équipements, logiciels, données et accès, l'empêchant de savoir précisément quoi protéger",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de démarche formalisée",
+        "Croissance de l'entreprise sans mise à jour de l'inventaire",
+        "Multiplicité des équipements et services cloud"
+      ],
+      "impact_potentiel": "Incapacité à prioriser les mesures de sécurité, angles morts non identifiés, accès résiduels non détectés",
+      "notes": "Risque fondamental et souvent négligé : sans inventaire, toute politique de sécurité reste incomplète",
+      "source_guide": "ANSSI/CPME - Question N°1 (Connaissez-vous bien votre parc informatique et vos actifs métier ?)"
+    },
+    "r033": {
+      "id": "r033",
+      "nom": "Redirection de messages professionnels vers une messagerie personnelle",
+      "description": "Un employé fait suivre ses emails professionnels vers sa boîte personnelle, créant une fuite d'information hors du contrôle de l'entreprise",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pratique de confort non interdite explicitement",
+        "Absence de charte précisant cet interdit"
+      ],
+      "impact_potentiel": "Fuite irrémédiable d'informations professionnelles, perte de contrôle en cas de départ de l'employé",
+      "notes": "Le guide ANSSI qualifie explicitement cette pratique de vecteur de fuite irrémédiable",
+      "source_guide": "ANSSI/CPME - Question N°7 (Comment sécurisez-vous votre messagerie ?)"
+    },
+    "r034": {
+      "id": "r034",
+      "nom": "Navigation Internet avec un compte disposant de privilèges d'administrateur",
+      "description": "Les employés utilisent un compte administrateur pour leurs tâches quotidiennes (dont la navigation web), facilitant la prise de contrôle complète en cas d'infection",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de compte utilisateur dédié sans privilège",
+        "Confusion entre compte d'administration et compte quotidien"
+      ],
+      "impact_potentiel": "Un malware exécuté avec ces privilèges obtient un contrôle total du poste, propagation facilitée",
+      "notes": "Mesure d'hygiène de base souvent négligée dans les petites structures",
+      "source_guide": "ANSSI/CPME - Question N°8 (Comment séparez-vous vos usages informatiques ?)"
+    },
+    "r035": {
+      "id": "r035",
+      "nom": "Défiguration de site web (website defacement)",
+      "description": "Un attaquant modifie, insère ou supprime du contenu sur le site web de l'entreprise sans autorisation, souvent visible publiquement",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "Distribution",
+        "E-commerce",
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "Pas de solution de vérification d'intégrité des fichiers",
+        "Vulnérabilités non corrigées",
+        "Pas de version de référence du site prête à restaurer"
+      ],
+      "impact_potentiel": "Atteinte à l'image publique immédiate, peut être le prélude à une attaque plus profonde (rebond vers d'autres systèmes)",
+      "notes": "Distinct de l'injection de code générique (r002) : ici l'impact est la modification visible du contenu",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Annexe H)"
+    },
+    "r036": {
+      "id": "r036",
+      "nom": "Exposition directe d'applications métier sensibles sur Internet sans VPN",
+      "description": "Des applications ou données métier sensibles sont accessibles directement depuis Internet sans passer par un tunnel VPN chiffré",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facilité d'accès privilégiée à la sécurité",
+        "Pas de VPN déployé",
+        "Méconnaissance des risques d'exposition directe"
+      ],
+      "impact_potentiel": "Surface d'attaque directement accessible à n'importe quel attaquant sur Internet",
+      "notes": "Complète r020 (risques cloud) avec un vecteur plus large incluant les applications métier internes exposées",
+      "source_guide": "ANSSI/CPME - Question N°9 (Maîtrisez-vous le risque numérique en situation de nomadisme ?)"
+    },
+    "r037": {
+      "id": "r037",
+      "nom": "Absence de couverture assurantielle contre le risque cyber",
+      "description": "L'entreprise n'a évalué ni souscrit de police d'assurance couvrant les conséquences financières d'une cyberattaque",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Méconnaissance de l'offre assurantielle cyber",
+        "Sous-estimation du coût potentiel d'un incident"
+      ],
+      "impact_potentiel": "Incapacité à absorber financièrement les conséquences d'une cyberattaque grave (perte d'exploitation, frais juridiques, restauration)",
+      "notes": "Risque de nature financière plutôt que technique, complète la vision globale de gestion des risques",
+      "source_guide": "ANSSI/CPME - Question N°11 (Avez-vous fait évaluer la couverture de votre police d'assurance au risque cyber ?)"
+    },
+    "r038": {
+      "id": "r038",
+      "nom": "Absence de déclaration d'incident à l'autorité compétente",
+      "description": "En cas d'incident de cybersécurité ou de fuite de données personnelles, l'entreprise ne déclare pas l'incident aux autorités compétentes (maCERT/DGSSI ou CNDP selon le cas)",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Méconnaissance de l'obligation légale",
+        "Crainte de sanction ou d'image négative",
+        "Pas de procédure formalisée"
+      ],
+      "impact_potentiel": "Non-conformité légale (notamment pour les entités visées par la loi 05-20), retard dans la réponse coordonnée à l'incident",
+      "notes": "Distinct du risque de non-déclaration à la CNDP déjà couvert par r021 (loi 09-08) : ici il s'agit de la déclaration d'incident de cybersécurité elle-même",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Section II.2 Détection et triage)"
+    },
+    
+    "r039": {
+      "id": "r039",
+      "nom": "Absence de formation continue en sécurité",
+      "description": "Les employés ne reçoivent pas de formation régulière sur les bonnes pratiques de cybersécurité, les rendant vulnérables aux techniques d'ingénierie sociale évolutives et aux nouvelles menaces",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Pas de programme de formation annuel",
+        "Formation uniquement à l'embauche puis jamais renouvelée",
+        "Absence de modules adaptés aux évolutions des menaces"
+      ],
+      "impact_potentiel": "Augmentation du risque d'erreur humaine, vulnérabilité accrue aux techniques de phishing avancées, non-conformité DNSSI",
+      "notes": "La formation continue est exigée par la DNSSI (RH-FORM) et constitue un pilier de la Stratégie Nationale 2030",
+      "source_guide": "DGSSI/DNSSI, Stratégie Nationale Cybersécurité 2030 (Pilier 3)"
+    },
+    "r040": {
+      "id": "r040",
+      "nom": "Non-prise en compte du cycle de vie sécurisé du logiciel",
+      "description": "Les applications sont développées sans intégrer la sécurité dès la conception (pas de modélisation des menaces, pas de revues de conception, pas de tests de sécurité intégrés)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous avec développement logiciel interne ou externalisé"],
+      "facteurs_risque": [
+        "Absence de framework SDL (Microsoft SDL, SAMM, etc.)",
+        "Développement en mode 'agile' sans volet sécurité",
+        "Pas de revue d'architecture sécurité"
+      ],
+      "impact_potentiel": "Vulnérabilités structurelles difficiles à corriger en production, coûts de correction 30x plus élevés qu'en phase de conception",
+      "notes": "Le NIST SSDF estime que corriger en post-production coûte 30 fois plus cher qu'en conception",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.4, 5, 8), NIST SSDF"
+    },
+    "r041": {
+      "id": "r041",
+      "nom": "Absence de tests de sécurité automatisés (SAST/DAST)",
+      "description": "Les développements ne sont pas soumis à des analyses statiques (code source) et dynamiques (application en cours d'exécution) de sécurité, laissant passer des vulnérabilités exploitables",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous avec site web ou application métier"],
+      "facteurs_risque": [
+        "Tests de sécurité uniquement manuels et ponctuels",
+        "Pas d'intégration dans la chaîne CI/CD",
+        "Méconnaissance des outils SAST/DAST"
+      ],
+      "impact_potentiel": "Vulnérabilités communes (injections, XSS, erreurs de configuration) présentes en production",
+      "notes": "Recommandé par les modèles Microsoft SDL, OSSA et SAMM (pratique Security Testing)",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.4 - Microsoft SDL, OSSA), SAMM 2.0"
+    },
+    "r042": {
+      "id": "r042",
+      "nom": "Dépendance non contrôlée à des bibliothèques open-source",
+      "description": "Utilisation de composants open-source sans analyse de leur niveau de sécurité, de leurs vulnérabilités connues ni des contraintes de licence, exposant à des risques majeurs",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous utilisant des bibliothèques tierces ou frameworks"],
+      "facteurs_risque": [
+        "Pas de BOM (Bill of Materials) logicielle",
+        "Pas d'outil d'analyse SCA (Software Composition Analysis)",
+        "Mise à jour manuelle et irrégulière des dépendances"
+      ],
+      "impact_potentiel": "Exploitation de vulnérabilités connues (ex: Log4j), violations de licences, attaques via la chaîne d'approvisionnement",
+      "notes": "Plus de 50% des composants logiciels des applications sont aujourd'hui open-source (source guide DGSSI)",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.7.1 Bonnes pratiques SDLC)"
+    },
+    "r043": {
+      "id": "r043",
+      "nom": "Absence de qualification des prestataires cybersécurité",
+      "description": "Recours à des prestataires d'audit, de sécurité ou de maintenance sans vérification de leurs qualifications officielles (PASSI, PAMS, SecNumCloud, PDIS, PRIS, etc.)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": ["Administrations publiques", "IIV", "tous externalisant leur sécurité"],
+      "facteurs_risque": [
+        "Pas de vérification des qualifications lors de l'appel d'offres",
+        "Méconnaissance des régimes de qualification DGSSI",
+        "Choix basé uniquement sur le critère financier"
+      ],
+      "impact_potentiel": "Prestations de mauvaise qualité, risques de fuites de données sensibles, absence de recours en cas de litige",
+      "notes": "Pour les IIV et entités publiques, le recours à des prestataires non qualifiés est une non-conformité à la loi 05-20",
+      "source_guide": "DGSSI - Guide d'audit 2015 (Ch.3), Loi 05-20, Décret d'application 2021"
+    },
+    "r044": {
+      "id": "r044",
+      "nom": "Non-respect des durées de conservation des données personnelles",
+      "description": "Conservation des données personnelles au-delà des délais légaux, sans justification de finalité, exposant à des amendes CNDP et à des risques de fuite",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous collectant des données personnelles"],
+      "facteurs_risque": [
+        "Absence de politique de conservation",
+        "Stockage illimité par défaut",
+        "Pas de processus de purge automatique"
+      ],
+      "impact_potentiel": "Sanctions CNDP (amendes), atteinte aux droits des personnes, exposition accrue en cas de fuite",
+      "notes": "Principe fondamental de la loi 09-08 : conserver uniquement le temps nécessaire à la finalité déclarée",
+      "source_guide": "DGSSI - Guide bonnes pratiques CMRPI/AUSIM (Loi 09-08), DNSSI - Conformité"
+    },
+    "r045": {
+      "id": "r045",
+      "nom": "Manque d'exercices de gestion de crise cyber",
+      "description": "Le plan de réponse aux incidents n'est jamais testé via des exercices pratiques, réduisant considérablement son efficacité en situation réelle",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous ayant un plan de réponse"],
+      "facteurs_risque": [
+        "Plan rédigé mais jamais éprouvé",
+        "Manque de temps ou de budget pour organiser des exercices",
+        "Crainte de perturber l'activité"
+      ],
+      "impact_potentiel": "Réaction chaotique et inefficace lors d'une vraie crise, allongement du temps de rétablissement",
+      "notes": "Les exercices sont préconisés par la Stratégie Nationale 2030 (Pilier 2 - Renforcer la préparation nationale)",
+      "source_guide": "Stratégie Nationale Cybersécurité 2030 (Pilier 2, Objectif 2.3)"
+    },
+    "r046": {
+      "id": "r046",
+      "nom": "Absence d'analyse de risques formelle (EBIOS, etc.)",
+      "description": "L'organisation n'a jamais réalisé d'analyse de risques structurée selon une méthode reconnue, ne connaît pas précisément ses menaces, ses vulnérabilités et ses impacts potentiels",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Démarche de sécurité basée sur des intuitions, pas sur des données",
+        "Méconnaissance des méthodes type EBIOS, MEHARI, OCTAVE",
+        "Analyse de risques jamais renouvelée"
+      ],
+      "impact_potentiel": "Investissements en sécurité mal orientés, efforts sur des risques non prioritaires, angles morts majeurs",
+      "notes": "L'analyse de risques est la pierre angulaire de toute politique de sécurité (référence EBIOS Risk Manager de l'ANSSI)",
+      "source_guide": "DGSSI - Guide d'audit 2015 (Ch.2.1.1), Stratégie Nationale 2030"
+    },
+    "r047": {
+      "id": "r047",
+      "nom": "Segmentation réseau insuffisante au niveau applicatif",
+      "description": "Les applications critiques et non critiques sont sur le même segment réseau, favorisant la propagation latérale d'une attaque (pas de micro-segmentation)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": ["tous avec réseau interne"],
+      "facteurs_risque": [
+        "Réseau unique ou zones mal définies",
+        "Absence de flux restreints entre zones",
+        "Pas de VLAN ou sous-réseaux dédiés"
+      ],
+      "impact_potentiel": "Un poste infecté permet à un attaquant d'accéder à l'ensemble des applications internes (ERP, CRM, serveurs de bases de données)",
+      "notes": "Complète le risque r029 (absences de cloisonnement général) avec un focus sur les applications",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des communications (COM-MANAG-CLOISON, COM-MANAG-FILTRAGE)"
+    },
+    "r048": {
+      "id": "r048",
+      "nom": "Absence de validation des entrées sur les formulaires web",
+      "description": "Les formulaires web ne filtrent pas correctement les données entrantes (validation côté serveur insuffisante), favorisant les injections SQL, XSS et autres attaques",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous avec site web ou application web"],
+      "facteurs_risque": [
+        "Validation uniquement côté client (JavaScript)",
+        "Pas de listes blanches (whitelist) pour les champs",
+        "Données utilisateur directement insérées dans les requêtes SQL"
+      ],
+      "impact_potentiel": "Vol de base de données, prise de contrôle serveur, défacement, compromission de la base clients",
+      "notes": "Précisé dans le NIST SSDF (PW.5 - Créer un code source conforme aux pratiques de codage sécurisé)",
+      "source_guide": "DNSSI - Bonnes pratiques de codage, NIST SSDF (PW.5), OWASP Top 10"
+    },
+    "r049": {
+      "id": "r049",
+      "nom": "Manque de sensibilisation des sous-traitants externes",
+      "description": "Les prestataires ayant accès au système d'information (maintenance, développement, hébergement) ne sont pas sensibilisés aux règles de sécurité spécifiques de l'entreprise",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous ayant des prestataires IT"],
+      "facteurs_risque": [
+        "Contrats sans clause de formation/sensibilisation",
+        "Pas de briefing sécurité avant accès",
+        "Rotation des équipes prestataires sans ré-formation"
+      ],
+      "impact_potentiel": "Erreurs de manipulation, introduction de vulnérabilités, non-respect des procédures de l'entreprise",
+      "notes": "La DNSSI exige que les relations fournisseurs incluent la sensibilisation",
+      "source_guide": "DGSSI/DNSSI - Chapitre Relations avec les fournisseurs (FOURNIS-REL-SECU)"
+    }
+  }
+}
