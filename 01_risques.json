@@ -1105,6 +1105,500 @@
       "impact_potentiel": "Infection non détectée, propagation de malwares, exfiltration de données",
       "notes": "L'EDR complète l'antivirus en détectant les comportements anormaux et en permettant une réponse rapide.",
       "source_guide": "Article Sudip Maity - Phase 2 (Protection avancée des endpoints)"
+    },
+        "r072": {
+      "id": "r072",
+      "nom": "Absence d'inventaire des équipements industriels connectés",
+      "description": "Les automates, capteurs, actionneurs, RTU et autres équipements OT ne sont pas recensés, rendant impossible leur protection et la priorisation des mesures de sécurité",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de cartographie OT",
+        "Équipements dispersés géographiquement",
+        "Multiplicité des fournisseurs"
+      ],
+      "impact_potentiel": "Incapacité à protéger les actifs critiques, angles morts, attaques non détectées",
+      "notes": "Recommandé par le guide Clusif comme prérequis à toute démarche de cybersécurité OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.4)",
+      "categorie": "systemes_postes"
+    },
+    "r073": {
+      "id": "r073",
+      "nom": "Utilisation de protocoles industriels non sécurisés",
+      "description": "Protocoles comme Modbus TCP, Profinet, DNP3, EtherNet/IP utilisés sans chiffrement ni authentification, exposant les communications à l'interception et à la manipulation",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Protocoles historiques sans sécurité native",
+        "Absence de chiffrement",
+        "Absence d'authentification"
+      ],
+      "impact_potentiel": "Interception des commandes, modification des paramètres, sabotage industriel",
+      "notes": "La plupart des protocoles industriels ne sont pas sécurisés par défaut. Le guide Clusif recommande une segmentation et des mesures compensatoires.",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.7)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r074": {
+      "id": "r074",
+      "nom": "Absence de segmentation IT/OT (réseau plat)",
+      "description": "Le réseau industriel et le réseau bureautique ne sont pas séparés, facilitant la propagation des attaques d'un environnement à l'autre",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Réseau unique",
+        "Absence de DMZ",
+        "Flux non filtrés entre IT et OT"
+      ],
+      "impact_potentiel": "Propagation d'un ransomware du SI de gestion vers les automates, arrêt de production",
+      "notes": "La séparation IT/OT est un principe fondamental de l'architecture sécurisée OT (modèle Purdue)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r075": {
+      "id": "r075",
+      "nom": "Absence de DMZ (zone démilitarisée) entre IT et OT",
+      "description": "Les échanges entre le SI de gestion et le SI industriel se font directement sans zone tampon sécurisée, exposant les systèmes OT aux menaces IT",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Absence de zone de filtrage",
+        "Flux IT/OT non contrôlés",
+        "Pas de serveur de rebond"
+      ],
+      "impact_potentiel": "Compromission directe des automates depuis le réseau bureautique",
+      "notes": "Le guide Clusif recommande une DMZ pour héberger les serveurs de patchs, signatures antivirus et passerelles de données",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r076": {
+      "id": "r076",
+      "nom": "Comptes et mots de passe par défaut sur les équipements industriels",
+      "description": "Les automates, routeurs et autres équipements OT conservent leurs identifiants d'usine, facilement exploitables par les attaquants",
+      "severite": "ÉLEVÉE",
+      "probabilite": "TRÈS ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Mots de passe d'usine non changés",
+        "Comptes par défaut actifs",
+        "Mots de passe identiques sur plusieurs équipements"
+      ],
+      "impact_potentiel": "Prise de contrôle des automates, modification des paramètres, sabotage",
+      "notes": "Les mots de passe par défaut sont souvent documentés dans les manuels techniques, accessibles aux attaquants",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r077": {
+      "id": "r077",
+      "nom": "Services inutiles activés sur les équipements industriels",
+      "description": "Des services non nécessaires (HTTP, Telnet, FTP, SNMP) sont activés par défaut sur les automates et serveurs OT, augmentant la surface d'attaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Configuration par défaut",
+        "Services non désactivés",
+        "Ports ouverts inutiles"
+      ],
+      "impact_potentiel": "Accès non autorisé aux équipements, exploitation des vulnérabilités des services",
+      "notes": "La désactivation des services inutiles est une mesure de durcissement de base (CIS benchmarks)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r078": {
+      "id": "r078",
+      "nom": "Absence de durcissement des postes de maintenance OT",
+      "description": "Les postes utilisés pour la maintenance des systèmes industriels ne sont pas sécurisés (pas d'antivirus, mises à jour absentes, accès Internet non contrôlé)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Postes non durcis",
+        "Antivirus absent",
+        "Mises à jour non effectuées"
+      ],
+      "impact_potentiel": "Introduction de malwares lors des interventions de maintenance, propagation aux automates",
+      "notes": "Les postes de maintenance sont des vecteurs d'attaque critiques car ils ont accès aux systèmes industriels avec des privilèges élevés",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r079": {
+      "id": "r079",
+      "nom": "Obsolescence critique des équipements industriels",
+      "description": "Des automates ou systèmes de contrôle de 15 à 30 ans ne sont plus patchés et vulnérables aux exploits connus, mais ne peuvent pas être remplacés facilement",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Durée de vie OT de 20-30 ans",
+        "Fin de support des éditeurs",
+        "Impossibilité de patcher"
+      ],
+      "impact_potentiel": "Exploitation de failles connues non corrigées, risque de sabotage",
+      "notes": "L'obsolescence est une particularité des systèmes industriels. Le guide Clusif recommande des mesures compensatoires (segmentation, surveillance)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6, Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r080": {
+      "id": "r080",
+      "nom": "Absence de sauvegardes hors-ligne des configurations OT",
+      "description": "Les configurations des automates et programmes industriels ne sont pas sauvegardées sur des supports déconnectés du réseau, rendant la reconstruction impossible en cas d'attaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Sauvegarde uniquement en ligne",
+        "Pas de support hors-ligne",
+        "Sauvegardes non testées"
+      ],
+      "impact_potentiel": "Impossibilité de restaurer les automates après un ransomware, arrêt prolongé",
+      "notes": "Les sauvegardes OT sont plus complexes que les sauvegardes IT (configurations, firmwares, programmes automates)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r081": {
+      "id": "r081",
+      "nom": "Accès distant non sécurisé (télémaintenance)",
+      "description": "Les accès distants pour la maintenance des systèmes industriels sont ouverts sans VPN, MFA ou bastion, exposant les systèmes à des intrusions extérieures",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de VPN",
+        "Pas de MFA",
+        "Pas de bastion",
+        "Accès direct aux automates"
+      ],
+      "impact_potentiel": "Prise de contrôle à distance des systèmes industriels, sabotage, espionnage",
+      "notes": "La télémaintenance est souvent un vecteur d'attaque privilégié car elle crée une connexion permanente entre l'extérieur et le réseau OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r082": {
+      "id": "r082",
+      "nom": "Absence de surveillance spécifique aux flux OT (IDS industriel)",
+      "description": "Les communications industrielles ne sont pas analysées par des sondes capables d'interpréter les protocoles OT, empêchant la détection des attaques ciblées",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de N-IDS OT",
+        "Surveillance uniquement IT",
+        "Protocoles non interprétés"
+      ],
+      "impact_potentiel": "Détection tardive des intrusions, propagation non détectée dans le réseau OT",
+      "notes": "Les IDS/IPS industriels doivent comprendre les protocoles comme Modbus, Profinet, DNP3 pour détecter les anomalies",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r083": {
+      "id": "r083",
+      "nom": "Absence de journalisation des événements sur les équipements OT",
+      "description": "Les automates et équipements industriels ne génèrent pas de logs permettant l'investigation post-incident, compliquant les analyses forensiques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Logs désactivés",
+        "Pas de centralisation",
+        "Capacité de stockage limitée"
+      ],
+      "impact_potentiel": "Incapacité à retracer l'origine d'une attaque, à identifier les systèmes compromis",
+      "notes": "Les équipements OT ont souvent des capacités de journalisation limitées, mais il est possible de configurer des syslog ou observateurs d'événements",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)",
+      "categorie": "audit_conformite"
+    },
+    "r084": {
+      "id": "r084",
+      "nom": "Ports USB/série non protégés sur les équipements industriels",
+      "description": "Les ports physiques des automates et postes OT sont accessibles sans protection, permettant des infections via clés USB ou câbles non maîtrisés",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Ports USB accessibles",
+        "Pas de bouchons à clé",
+        "Utilisation de clés USB personnelles"
+      ],
+      "impact_potentiel": "Infection des automates via clés USB, exfiltration de données",
+      "notes": "Les clés USB sont un vecteur d'infection classique des systèmes industriels (ex: Stuxnet)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "physiques_environnementaux"
+    },
+    "r085": {
+      "id": "r085",
+      "nom": "Absence d'analyse de risques OT spécifique",
+      "description": "Les risques liés aux processus industriels (impacts humains, environnementaux, production) ne sont pas évalués, conduisant à une sous-estimation des conséquences d'une cyberattaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas d'AR OT",
+        "Méconnaissance des impacts",
+        "Safety et cybersécurité non coordonnées"
+      ],
+      "impact_potentiel": "Risques de blessures, dommages environnementaux, arrêts de production non anticipés",
+      "notes": "L'appréciation des risques OT doit intégrer les impacts humains et environnementaux, pas seulement les impacts informatiques",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.5)",
+      "categorie": "audit_conformite"
+    },
+    "r086": {
+      "id": "r086",
+      "nom": "Sous-traitants non encadrés pour la maintenance OT",
+      "description": "Les prestataires de maintenance des systèmes industriels n'ont pas de clauses de sécurité, ne sont pas supervisés et peuvent exposer l'entreprise à des risques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Contrats sans clauses de sécurité",
+        "Absence de supervision",
+        "Accès OT non tracé"
+      ],
+      "impact_potentiel": "Compromission via le sous-traitant, accès non révoqués, fuites de données",
+      "notes": "Les attaques par rebond via les prestataires de maintenance sont de plus en plus fréquentes",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)",
+      "categorie": "audit_conformite"
+    },
+    "r087": {
+      "id": "r087",
+      "nom": "Absence de procédures d'homologation cybersécurité OT",
+      "description": "Les systèmes industriels sont mis en production sans validation formelle de leur niveau de sécurité, laissant des vulnérabilités non détectées",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de recette de sécurité",
+        "Mise en production sans validation",
+        "Tests de sécurité non réalisés"
+      ],
+      "impact_potentiel": "Vulnérabilités présentes en production, facilitant les attaques",
+      "notes": "L'homologation cybersécurité devrait inclure des tests de FAT et SAT spécifiques",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.8)",
+      "categorie": "audit_conformite"
+    },
+    "r088": {
+      "id": "r088",
+      "nom": "Absence de gouvernance de la cybersécurité des systèmes industriels",
+      "description": "L'organisation n'a pas défini de structure, de rôles et de responsabilités pour la sécurité des systèmes OT, rendant la coordination impossible",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de responsable OT",
+        "Rôles non définis",
+        "Absence de pilotage"
+      ],
+      "impact_potentiel": "Actions non coordonnées, absence de décisions, inefficacité des mesures",
+      "notes": "La gouvernance est le pilier de toute démarche de cybersécurité OT (IEC 62443)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)",
+      "categorie": "audit_conformite"
+    },
+    "r089": {
+      "id": "r089",
+      "nom": "Absence de politique de sécurité des systèmes industriels (PSSI OT)",
+      "description": "L'organisation ne dispose pas d'une politique de sécurité formalisée et approuvée pour les systèmes industriels, rendant les actions non encadrées",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de PSSI OT",
+        "Politiques IT non adaptées",
+        "Absence de référence"
+      ],
+      "impact_potentiel": "Mesures de sécurité ad hoc, incohérentes, non opposables",
+      "notes": "La PSSI doit être spécifique aux systèmes industriels et prendre en compte leurs contraintes (disponibilité, obsolescence)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)",
+      "categorie": "audit_conformite"
+    },
+    "r090": {
+      "id": "r090",
+      "nom": "Manque de coordination entre les directions (OT, IT, sécurité, exploitation)",
+      "description": "Les différentes directions (automatismes, informatique, sécurité, production) ne communiquent pas, créant des angles morts et des conflits",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Silos organisationnels",
+        "Absence de comité de coordination",
+        "Conflits d'objectifs"
+      ],
+      "impact_potentiel": "Mesures contradictoires, absence de vision globale, incidents non gérés",
+      "notes": "La coordination entre les directions est un facteur clé de succès de la cybersécurité OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)",
+      "categorie": "audit_conformite"
+    },
+    "r091": {
+      "id": "r091",
+      "nom": "Absence d'analyse de risques OT formelle et périodique",
+      "description": "Les risques liés aux systèmes industriels (disponibilité, sécurité des personnes, environnement) ne sont pas évalués régulièrement",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "AR ponctuelle ou inexistante",
+        "Non renouvelée",
+        "Absence de prise en compte des évolutions"
+      ],
+      "impact_potentiel": "Mesures de sécurité mal orientées, risques non identifiés",
+      "notes": "L'analyse de risques OT doit être renouvelée régulièrement (tous les 1-3 ans) et après chaque modification majeure",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.5)",
+      "categorie": "audit_conformite"
+    },
+    "r092": {
+      "id": "r092",
+      "nom": "Sous-traitants OT non évalués ni contractualisés en sécurité",
+      "description": "Les prestataires de maintenance, intégrateurs et fournisseurs n'ont pas de clauses de sécurité ni d'obligations de résultats",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas d'audit des sous-traitants",
+        "Clauses de sécurité absentes",
+        "Absence de pénalités"
+      ],
+      "impact_potentiel": "Compromission via tiers, dépendance dangereuse",
+      "notes": "Les sous-traitants OT doivent être évalués et contractualisés avec des obligations de sécurité (ANSSI, IEC 62443-2-4)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)",
+      "categorie": "audit_conformite"
+    },
+    "r093": {
+      "id": "r093",
+      "nom": "Absence de plan de continuité et reprise d'activité OT (PCA/PRA OT)",
+      "description": "Les systèmes industriels critiques n'ont pas de plans de reprise spécifiques, rendant la reconstruction impossible en cas d'incident majeur",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de PCA/PRA OT",
+        "Plans IT non adaptés",
+        "Non testé"
+      ],
+      "impact_potentiel": "Arrêt prolongé de la production, impacts humains et environnementaux",
+      "notes": "Les PCA/PRA OT doivent prendre en compte les spécificités des systèmes industriels (redémarrage progressif, modes dégradés)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.11)",
+      "categorie": "audit_conformite"
+    },
+    "r094": {
+      "id": "r094",
+      "nom": "Absence d'exercices de gestion de crise OT",
+      "description": "Les procédures de réponse à incident ne sont jamais testées, réduisant leur efficacité en situation réelle",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Plan rédigé mais non testé",
+        "Manque de budget",
+        "Crainte de perturber la production"
+      ],
+      "impact_potentiel": "Réaction chaotique, allongement du temps de rétablissement",
+      "notes": "Les exercices de crise OT doivent être réalisés avec les équipes de production pour valider les modes dégradés",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.11)",
+      "categorie": "audit_conformite"
+    },
+    "r095": {
+      "id": "r095",
+      "nom": "Absence de plan de formation et sensibilisation OT",
+      "description": "Les équipes (maintenance, exploitation, sécurité) ne sont pas formées aux risques cyber et bonnes pratiques spécifiques aux systèmes industriels",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de formation OT",
+        "Formation uniquement IT",
+        "Personnel non sensibilisé"
+      ],
+      "impact_potentiel": "Erreurs humaines, non-détection des anomalies, actions incorrectes",
+      "notes": "La formation OT doit couvrir les protocoles industriels, les risques spécifiques et les bonnes pratiques",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "audit_conformite"
+    },
+    "r096": {
+      "id": "r096",
+      "nom": "Absence de processus formalisé de gestion des correctifs OT",
+      "description": "Les mises à jour de sécurité des équipements industriels ne sont pas planifiées ni suivies, laissant des vulnérabilités non corrigées",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de planning de patchs",
+        "Correctifs ad hoc",
+        "Non priorisation"
+      ],
+      "impact_potentiel": "Exploitation de failles connues non corrigées",
+      "notes": "La gestion des correctifs OT est complexe car les mises à jour nécessitent souvent des arrêts de production",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "audit_conformite"
+    },
+    "r097": {
+      "id": "r097",
+      "nom": "Absence de gestion des accès physiques aux équipements OT",
+      "description": "Les armoires, salles serveurs et locaux techniques ne sont pas protégés contre les accès physiques non autorisés",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Portes non verrouillées",
+        "Accès public",
+        "Absence de vidéosurveillance"
+      ],
+      "impact_potentiel": "Accès physique aux automates, insertion de clés USB infectées, sabotage",
+      "notes": "La sécurité physique est une couche de protection essentielle pour les systèmes industriels souvent situés dans des zones accessibles",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "physiques_environnementaux"
+    },
+    "r098": {
+      "id": "r098",
+      "nom": "Absence de maintenance en conditions de sécurité (MCS OT)",
+      "description": "Les dispositifs de sécurité ne sont pas maintenus dans le temps, réduisant leur efficacité face à l'évolution des menaces",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "MCS non défini",
+        "Pas de veille",
+        "Dispositifs obsolètes"
+      ],
+      "impact_potentiel": "Affaiblissement progressif des mesures de sécurité",
+      "notes": "Le MCS OT doit inclure la veille, les mises à jour, les revues de configuration et les audits",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "audit_conformite"
+    },
+    "r099": {
+      "id": "r099",
+      "nom": "Absence d'audit cybersécurité OT périodique",
+      "description": "Les systèmes industriels ne font pas l'objet d'audits réguliers pour évaluer leur niveau de sécurité et identifier les vulnérabilités",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas d'audit OT",
+        "Audits uniquement IT",
+        "Non renouvelé"
+      ],
+      "impact_potentiel": "Non-détection des failles, dégradation du niveau de sécurité",
+      "notes": "Les audits OT doivent être réalisés par des prestataires qualifiés (PASSI) ou internes, avec une périodicité de 1 à 3 ans",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.12)",
+      "categorie": "audit_conformite"
+    },
+    "r100": {
+      "id": "r100",
+      "nom": "Absence de surveillance SOC OT externe/interne",
+      "description": "Aucun centre opérationnel de sécurité ne surveille les systèmes industriels, retardant la détection et la réponse aux incidents",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["Industrie", "Énergie", "Transport", "tous avec systèmes OT"],
+      "facteurs_risque": [
+        "Pas de SOC OT",
+        "SOC uniquement IT",
+        "Pas d'analystes OT"
+      ],
+      "impact_potentiel": "Détection tardive des attaques, propagation non maîtrisée",
+      "notes": "Un SOC OT doit comprendre des analystes formés aux protocoles industriels et aux spécificités des systèmes OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)",
+      "categorie": "audit_conformite"
     }
   }
 }
