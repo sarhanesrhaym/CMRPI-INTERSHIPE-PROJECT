@@ -299,6 +299,1917 @@
         "CNDP (déclaration/autorisation)",
         "Consultants juridiques RGPD/loi 09-08"
       ]
+    },
+    "sol021": {
+      "id": "sol021",
+      "nom": "Plan de Continuité et de Reprise d'Activité (PCA/PRA)",
+      "description": "Établir une analyse d'impact sur l'activité (BIA), un plan de continuité/reprise, et tester ce plan annuellement via des exercices de crise",
+      "type": "Organisationnel",
+      "prerequis": "Identification des processus critiques de l'entreprise",
+      "exemples_outils": [
+        "Modèles de BIA/PCA disponibles auprès de consultants ou de la DGSSI",
+        "Solutions de site de secours cloud"
+      ],
+      "benefices": "Réduit drastiquement le temps d'arrêt en cas de sinistre majeur, structure la réponse plutôt que de l'improviser",
+      "difficultes": "Demande du temps et une implication de la direction",
+      "notes": "Directement calqué sur les exigences DNSSI, à adapter en version simplifiée pour une PME",
+      "source_guide": "DGSSI/DNSSI - Chapitre Gestion de la continuité de l'activité"
+    },
+    "sol022": {
+      "id": "sol022",
+      "nom": "Procédure formalisée de gestion des départs et mutations",
+      "description": "Processus systématique entre RH et IT pour révoquer immédiatement les accès d'un employé qui quitte l'entreprise ou change de poste",
+      "type": "Organisationnel",
+      "prerequis": "Communication formalisée entre RH et service informatique",
+      "exemples_outils": [
+        "Checklist de départ",
+        "Annuaire centralisé des comptes utilisateurs"
+      ],
+      "benefices": "Élimine le risque d'accès résiduel après un départ, peu coûteux à mettre en place",
+      "difficultes": "Nécessite une discipline de suivi RH-IT",
+      "notes": "Mesure simple et à très fort ratio bénéfice/coût",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des ressources humaines (RH-FIN-GEST)"
+    },
+    "sol023": {
+      "id": "sol023",
+      "nom": "Inventaire et conformité des licences logicielles",
+      "description": "Tenir un inventaire des logiciels utilisés et de leurs licences, en garantissant l'utilisation exclusive de versions sous licence valide",
+      "type": "Organisationnel",
+      "prerequis": "Inventaire des actifs logiciels",
+      "exemples_outils": [
+        "Outils de gestion d'actifs logiciels (SAM)",
+        "Alternatives open-source légales"
+      ],
+      "benefices": "Évite les risques juridiques et réduit l'exposition aux malwares distribués via logiciels piratés",
+      "difficultes": "Coût de mise en conformité si des logiciels payants étaient utilisés illégalement",
+      "notes": "Souvent négligé par les petites PME cherchant à réduire les coûts",
+      "source_guide": "DGSSI/DNSSI - Chapitre Conformité (CONF-OBLIG-INTELLECT)"
+    },
+    "sol024": {
+      "id": "sol024",
+      "nom": "Centralisation et conservation des journaux d'événements",
+      "description": "Mettre en place une collecte centralisée des journaux de sécurité (serveurs, postes, équipements réseau), conservés au moins 6 mois, avec synchronisation des horloges (NTP)",
+      "type": "Technique",
+      "prerequis": "Infrastructure de logs, serveur NTP",
+      "exemples_outils": [
+        "Solutions open-source de centralisation de logs",
+        "Service NTP public ou interne"
+      ],
+      "benefices": "Permet l'investigation après incident, obligatoire pour toute analyse forensique fiable",
+      "difficultes": "Nécessite un espace de stockage et une politique de rétention",
+      "notes": "Prérequis technique pour toute réponse à incident sérieuse (complète regle_019 du fichier de règles)",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-JOURN/SURV-JOURNAL, EXP-JOURN/SURV-SYNCHRON)"
+    },
+    "sol025": {
+      "id": "sol025",
+      "nom": "Séparation des environnements de développement, test et production",
+      "description": "Isoler physiquement ou logiquement les environnements de développement, de test et de production pour éviter tout changement non maîtrisé",
+      "type": "Technique",
+      "prerequis": "Infrastructure permettant plusieurs environnements (même virtualisés)",
+      "exemples_outils": [
+        "Environnements virtualisés (VM, conteneurs)",
+        "Serveurs de test distincts"
+      ],
+      "benefices": "Réduit le risque d'incidents en production liés à des tests ou développements non aboutis",
+      "difficultes": "Coût d'infrastructure supplémentaire pour une petite structure",
+      "notes": "Concerne surtout les PME avec développement logiciel ou site web interne",
+      "source_guide": "DGSSI/DNSSI - Chapitre Acquisition, développement et maintenance des SI (EXP-PROC-ENVIR)"
+    },
+    "sol026": {
+      "id": "sol026",
+      "nom": "Anonymisation des données de production utilisées en test",
+      "description": "Anonymiser ou pseudonymiser systématiquement les données réelles avant toute utilisation dans un environnement de test",
+      "type": "Technique",
+      "prerequis": "Outil ou script d'anonymisation, procédure d'autorisation",
+      "exemples_outils": [
+        "Scripts d'anonymisation sur mesure",
+        "Outils open-source d'anonymisation de bases de données"
+      ],
+      "benefices": "Élimine le risque de fuite de données réelles via un environnement moins sécurisé",
+      "difficultes": "Nécessite un développement ou un outil dédié",
+      "notes": "Directement lié à la conformité loi 09-08",
+      "source_guide": "DGSSI/DNSSI - Chapitre Acquisition, développement et maintenance des SI (DEV-PROC-DONNEE)"
+    },
+    "sol027": {
+      "id": "sol027",
+      "nom": "Clauses de sécurité et de réversibilité dans les contrats fournisseurs",
+      "description": "Intégrer systématiquement des clauses de sécurité, d'auditabilité et de réversibilité dans tout contrat avec un prestataire ayant accès aux systèmes/données",
+      "type": "Légal/Organisationnel",
+      "prerequis": "Revue juridique des contrats existants et futurs",
+      "exemples_outils": [
+        "Modèles de clauses contractuelles types",
+        "Conseil juridique spécialisé IT"
+      ],
+      "benefices": "Réduit la dépendance dangereuse à un prestataire et encadre juridiquement les risques de sous-traitance",
+      "difficultes": "Coût de conseil juridique, difficulté à renégocier des contrats existants",
+      "notes": "Élargit sol019 (déjà existante pour le cloud) à l'ensemble des prestataires IT",
+      "source_guide": "DGSSI/DNSSI - Chapitre Relations avec les fournisseurs (FOURNIS-REL-EXIG)"
+    },
+    "sol028": {
+      "id": "sol028",
+      "nom": "Cloisonnement du réseau en zones de sécurité",
+      "description": "Diviser le réseau interne en zones distinctes (publique, utilisateurs, serveurs) avec filtrage des flux entre zones",
+      "type": "Technique",
+      "prerequis": "Équipements réseau supportant le VLAN/segmentation",
+      "exemples_outils": [
+        "Switches manageables avec VLAN",
+        "Pare-feu avec règles de filtrage inter-zones"
+      ],
+      "benefices": "Limite fortement la propagation d'une attaque au sein du réseau interne",
+      "difficultes": "Nécessite une expertise réseau pour la configuration",
+      "notes": "Mesure structurante recommandée dès que le réseau dépasse une dizaine de postes",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des communications (COM-MANAG-CLOISON, COM-MANAG-FILTRAGE)"
+    },
+    "sol029": {
+      "id": "sol029",
+      "nom": "Processus structuré de gestion des vulnérabilités et des correctifs",
+      "description": "Mettre en place une veille sur les vulnérabilités connues, évaluer l'exposition de l'entreprise, et appliquer les correctifs selon un calendrier priorisé",
+      "type": "Organisationnel/Technique",
+      "prerequis": "Inventaire des actifs à jour",
+      "exemples_outils": [
+        "Bulletins de sécurité des éditeurs",
+        "Outils de scan de vulnérabilités (certains gratuits)"
+      ],
+      "benefices": "Réduit fortement la fenêtre d'exposition aux failles connues",
+      "difficultes": "Demande un suivi régulier et une priorisation rigoureuse",
+      "notes": "Structure et complète sol003 (mise à jour CMS) à l'échelle de tout le parc informatique",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-VULN-GEST, EXP-VULN-CORRECT)"
+    },
+    "sol030": {
+      "id": "sol030",
+      "nom": "Mesures de sécurité physique et environnementale des salles serveurs",
+      "description": "Équiper les locaux hébergeant des serveurs de détection incendie, protection contre les dégâts des eaux, onduleurs et contrôle d'accès physique",
+      "type": "Technique",
+      "prerequis": "Local dédié aux équipements informatiques",
+      "exemples_outils": [
+        "Détecteurs de fumée",
+        "Onduleurs (UPS)",
+        "Serrures/badges d'accès"
+      ],
+      "benefices": "Protège contre les sinistres accidentels, complète la sécurité logique",
+      "difficultes": "Coût d'équipement, pertinent surtout si serveurs hébergés sur site",
+      "notes": "Moins prioritaire si l'entreprise héberge déjà tout en cloud",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité physique et environnementale"
+    },
+    "sol031": {
+      "id": "sol031",
+      "nom": "Matrice d'habilitations avec revue annuelle des droits d'accès",
+      "description": "Documenter précisément les droits de chaque utilisateur par système, et revoir cette matrice au moins une fois par an pour supprimer les accès obsolètes",
+      "type": "Organisationnel",
+      "prerequis": "Inventaire des utilisateurs et des systèmes",
+      "exemples_outils": [
+        "Tableur ou outil IAM (Identity and Access Management)"
+      ],
+      "benefices": "Renforce et formalise le principe du moindre privilège dans la durée",
+      "difficultes": "Nécessite un suivi régulier, sinon la matrice devient obsolète",
+      "notes": "Complète directement sol010 (gestion des permissions) avec un mécanisme de revue périodique",
+      "source_guide": "DGSSI/DNSSI - Chapitre Contrôle d'accès (ACC-UTILIS-HABILIT, ACC-UTILIS-REVUE)"
+    },
+    "sol032": {
+      "id": "sol032",
+      "nom": "Synchronisation des horloges systèmes (NTP)",
+      "description": "Synchroniser l'ensemble des équipements sur une même base de temps via un serveur NTP de confiance",
+      "type": "Technique",
+      "prerequis": "Accès à un serveur NTP (public ou interne)",
+      "exemples_outils": [
+        "Serveurs NTP publics",
+        "Configuration native des OS"
+      ],
+      "benefices": "Garantit la fiabilité chronologique des journaux en cas d'investigation",
+      "difficultes": "Aucune, configuration simple",
+      "notes": "Mesure technique mineure mais qui conditionne la fiabilité de sol024",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-JOURN/SURV-SYNCHRON)"
+    },
+    "sol033": {
+      "id": "sol033",
+      "nom": "Inventaire complet et à jour des actifs informatiques",
+      "description": "Recenser et maintenir à jour (au moins une fois par an) l'ensemble des équipements, logiciels, données, accès et interconnexions avec l'extérieur",
+      "type": "Organisationnel",
+      "prerequis": "Aucun prérequis technique particulier, démarche accessible même à une entreprise unipersonnelle",
+      "exemples_outils": [
+        "Tableur simple",
+        "Outils de gestion d'actifs (CMDB) pour les structures plus grandes"
+      ],
+      "benefices": "Base indispensable de toute démarche de sécurité, permet d'identifier les biens critiques et les accès résiduels",
+      "difficultes": "Demande une mise à jour régulière pour rester utile",
+      "notes": "Recommandé comme première étape avant toute autre mesure de sécurité",
+      "source_guide": "ANSSI/CPME - Question N°1"
+    },
+    "sol034": {
+      "id": "sol034",
+      "nom": "Séparation stricte des comptes utilisateur et administrateur",
+      "description": "Chaque employé dispose d'un compte utilisateur sans privilège pour ses tâches quotidiennes (dont la navigation Internet), les comptes admin étant réservés à la configuration/installation",
+      "type": "Organisationnel/Technique",
+      "prerequis": "Système d'exploitation supportant la gestion de comptes différenciés",
+      "exemples_outils": [
+        "Fonctionnalité native de tout OS (Windows, Linux, MacOS)"
+      ],
+      "benefices": "Réduit fortement le risque qu'un malware obtienne un contrôle total du poste",
+      "difficultes": "Nécessite une revue initiale des comptes existants",
+      "notes": "Mesure d'hygiène de base, gratuite et à fort impact",
+      "source_guide": "ANSSI/CPME - Question N°8"
+    },
+    "sol035": {
+      "id": "sol035",
+      "nom": "Règle de sauvegarde 3-2-1",
+      "description": "Maintenir 3 copies des données, sur 2 supports différents, dont 1 copie hors ligne (déconnectée du réseau)",
+      "type": "Technique",
+      "prerequis": "Support de sauvegarde externe (disque dur, cloud dédié)",
+      "exemples_outils": [
+        "Disque dur externe déconnecté après sauvegarde",
+        "Service cloud avec option de sauvegarde déconnectée"
+      ],
+      "benefices": "Protège spécifiquement contre les rançongiciels qui chiffrent aussi les sauvegardes connectées au réseau",
+      "difficultes": "Nécessite une discipline de déconnexion du support après chaque sauvegarde",
+      "notes": "Complète et précise sol009 (sauvegarde générale) avec une règle concrète et actionnable",
+      "source_guide": "ANSSI/CPME - Question N°2"
+    },
+    "sol036": {
+      "id": "sol036",
+      "nom": "Plan de réponse à incident structuré en 6 phases",
+      "description": "Formaliser un processus de gestion des incidents couvrant : planification/préparation, détection/triage, analyse/endiguement, éradication, récupération, retour d'expérience",
+      "type": "Organisationnel",
+      "prerequis": "Désignation d'une équipe ou d'un référent de réponse, même minimal",
+      "exemples_outils": [
+        "Modèle de fiche de déclaration d'incident",
+        "Main courante pour tracer les actions pendant l'incident"
+      ],
+      "benefices": "Réduit le temps de détection et de réponse, structure une réaction sous pression plutôt que de l'improviser",
+      "difficultes": "Demande une préparation en amont et des tests réguliers",
+      "notes": "Donne enfin une vraie réponse structurelle à r018 (DDoS/extorsion), auparavant seulement partiellement couvert",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Section II)"
+    },
+    "sol037": {
+      "id": "sol037",
+      "nom": "Authentification des emails sortants (SPF/DKIM)",
+      "description": "Configurer les enregistrements SPF (Sender Policy Framework) et DKIM sur le domaine email de l'entreprise pour permettre de vérifier l'authenticité de l'expéditeur",
+      "type": "Technique",
+      "prerequis": "Accès à la configuration DNS du domaine",
+      "exemples_outils": [
+        "Configuration native de tout serveur/fournisseur de messagerie professionnel"
+      ],
+      "benefices": "Réduit fortement les usurpations d'identité par email (spoofing) visant l'entreprise ou ses partenaires",
+      "difficultes": "Configuration technique ponctuelle, nécessite un accès DNS",
+      "notes": "Apporte enfin une vraie réponse technique à r015 (spoofing), qui n'avait qu'une réponse comportementale jusqu'ici",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Annexe G)"
+    },
+    "sol038": {
+      "id": "sol038",
+      "nom": "Vérification d'intégrité des fichiers du site web",
+      "description": "Mettre en place une solution qui détecte automatiquement toute modification non autorisée des fichiers et dossiers du site web",
+      "type": "Technique",
+      "prerequis": "Accès au serveur web hébergeant le site",
+      "exemples_outils": [
+        "Plugins de sécurité CMS (intégrité de fichiers)",
+        "Outils de hachage/comparaison de fichiers"
+      ],
+      "benefices": "Permet de détecter rapidement une défiguration ou une altération malveillante du site",
+      "difficultes": "Peut générer des alertes lors de mises à jour légitimes si mal configuré",
+      "notes": "Réponse directe au risque r035 (défiguration de site web)",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Annexe H)"
+    },
+    "sol039": {
+      "id": "sol039",
+      "nom": "Stratégie de mitigation DDoS",
+      "description": "Mettre en place une redondance de connexion Internet (deux FAI), dimensionner l'infrastructure pour fonctionner à 60% de sa capacité en temps normal, et recourir à un service proxy anti-DDoS filtrant le trafic",
+      "type": "Technique",
+      "prerequis": "Budget infrastructure réseau, contrat avec fournisseur d'accès adapté",
+      "exemples_outils": [
+        "Services anti-DDoS de fournisseurs spécialisés",
+        "Contrats avec clause de bande passante flexible"
+      ],
+      "benefices": "Réduit fortement l'impact d'une attaque par déni de service, maintient la disponibilité des services critiques",
+      "difficultes": "Coût d'infrastructure et de contrat plus élevé, pertinent surtout pour les PME dépendantes de leur présence en ligne",
+      "notes": "Donne enfin une vraie réponse technique préventive à r018 (extorsion DDoS), en complément du plan de réponse (sol036)",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Annexe J)"
+    },
+    "sol040": {
+      "id": "sol040",
+      "nom": "Souscription d'une police d'assurance cyber",
+      "description": "Évaluer et souscrire une couverture assurantielle contre les conséquences financières d'une cyberattaque (perte d'exploitation, frais juridiques, restauration)",
+      "type": "Financier/Organisationnel",
+      "prerequis": "Évaluation préalable des risques et des besoins de couverture",
+      "exemples_outils": [
+        "Compagnies d'assurance proposant des clauses cyber spécifiques"
+      ],
+      "benefices": "Permet d'absorber financièrement les conséquences d'un incident grave que l'entreprise ne pourrait pas supporter seule",
+      "difficultes": "Marché encore jeune, vigilance nécessaire sur les clauses d'exclusion",
+      "notes": "Complète les mesures techniques par une réponse de transfert de risque financier",
+      "source_guide": "ANSSI/CPME - Question N°11"
+    },
+    "sol041": {
+      "id": "sol041",
+      "nom": "Protection physique renforcée pour le nomadisme (filtre écran, BIOS, secure boot)",
+      "description": "Équiper les postes nomades d'un filtre de confidentialité écran, protéger l'accès au BIOS par mot de passe, et activer le secure boot",
+      "type": "Technique",
+      "prerequis": "Équipements compatibles",
+      "exemples_outils": [
+        "Filtres de confidentialité physiques",
+        "Configuration BIOS native"
+      ],
+      "benefices": "Protège contre l'espionnage visuel et le piégeage matériel de bas niveau lors des déplacements",
+      "difficultes": "Coût matériel mineur pour les filtres écran",
+      "notes": "Complète sol005 (chiffrement des équipements nomades) avec des mesures physiques supplémentaires",
+      "source_guide": "ANSSI/CPME - Question N°9"
+    },
+    "sol042": {
+      "id": "sol042",
+      "nom": "Procédure de déclaration d'incident conforme",
+      "description": "Formaliser la procédure de déclaration d'un incident de cybersécurité au maCERT/DGSSI (pour les entités concernées par la loi 05-20) et/ou à la CNDP (fuite de données personnelles)",
+      "type": "Organisationnel/Légal",
+      "prerequis": "Connaissance des obligations légales applicables à l'entreprise",
+      "exemples_outils": [
+        "Fiche de déclaration d'incident type",
+        "Procédure documentée avec contacts des autorités"
+      ],
+      "benefices": "Assure la conformité légale et bénéficie d'un support/coordination officielle en cas d'incident majeur",
+      "difficultes": "Nécessite de connaître précisément son statut réglementaire (entité visée par la loi 05-20 ou non)",
+      "notes": "Réponse directe au risque r038",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Section II.2)"
+    },
+    "sol043": {
+      "id": "sol043",
+      "nom": "Programme de formation continue en cybersécurité",
+      "description": "Mettre en place des formations annuelles obligatoires pour tous les employés, avec des modules spécifiques par rôle (développeurs, admins, dirigeants, utilisateurs) et des ateliers pratiques (phishing simulé)",
+      "type": "Humain/Organisationnel",
+      "prerequis": "Identification des besoins par rôle, validation direction, budget formation",
+      "benefices": "Réduit l'erreur humaine, améliore la détection des tentatives d'hameçonnage, conforme aux exigences DNSSI et Stratégie 2030",
+      "difficultes": "Nécessite un engagement sur la durée et une actualisation des contenus",
+      "notes": "La formation annuelle est un prérequis de la DNSSI (RH-FORM). Peut être internalisée ou sous-traitée à des prestataires qualifiés.",
+      "source_guide": "DGSSI/DNSSI, Stratégie Nationale Cybersécurité 2030 (Pilier 3)",
+      "exemples_outils": [
+        "Plateformes de LMS (Moodle, 360Learning)",
+        "Prestataires de formation en cybersécurité",
+        "Simulateurs de phishing (KnowBe4, PhishMe)"
+      ]
+    },
+    "sol044": {
+      "id": "sol044",
+      "nom": "Intégration de la sécurité dans le cycle de vie SDLC",
+      "description": "Adopter un framework structuré comme SAMM (OWASP) ou le SSDF (NIST) pour intégrer la sécurité dès la conception : modélisation des menaces, revues de conception, tests de sécurité automatisés, revues de code, etc.",
+      "type": "Organisationnel/Technique",
+      "prerequis": "Engagement de la maîtrise d'ouvrage, désignation d'un référent sécurité, intégration dans les processus Agile/Cascade",
+      "benefices": "Réduction drastique des vulnérabilités, économie de coûts (30x moins cher de corriger en conception), conformité aux exigences DNSSI",
+      "difficultes": "Nécessite un changement de culture et une montée en compétence des équipes",
+      "notes": "La DGSSI recommande spécifiquement SAMM 2.0 car il est indépendant des méthodologies (Agile, DevOps, Cascade)",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.4, 5, 8)",
+      "exemples_outils": [
+        "OWASP SAMM 2.0 (framework gratuit)",
+        "NIST SSDF (framework)",
+        "Microsoft SDL (framework)",
+        "Intégration dans Jira/Azure DevOps"
+      ]
+    },
+    "sol045": {
+      "id": "sol045",
+      "nom": "Déploiement d'outils SAST/DAST dans la chaîne CI/CD",
+      "description": "Intégrer des outils d'analyse statique (SAST - code source) et dynamique (DAST - application en cours d'exécution) dans le pipeline de développement pour détecter automatiquement les vulnérabilités avant mise en production",
+      "type": "Technique",
+      "prerequis": "Chaîne d'intégration continue (Jenkins, GitLab CI, GitHub Actions), accès aux sources et aux environnements de test",
+      "benefices": "Détection automatique des failles de sécurité, correction avant production, gain de temps par rapport aux tests manuels",
+      "difficultes": "Configuration initiale, gestion des faux positifs, coût des licences",
+      "notes": "Ces outils sont la base d'un DevSecOps efficace (Microsoft SDL, OSSA, SAMM)",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.4, Microsoft SDL, OSSA)",
+      "exemples_outils": [
+        "SonarQube (SAST - version gratuite disponible)",
+        "Checkmarx (SAST)",
+        "Fortify (SAST)",
+        "OWASP ZAP (DAST - gratuit)",
+        "Burp Suite (DAST)",
+        "GitLab SAST/DAST (intégré)"
+      ]
+    },
+    "sol046": {
+      "id": "sol046",
+      "nom": "Mise en place d'une analyse SCA (Software Composition Analysis)",
+      "description": "Utiliser un outil d'analyse de la composition logicielle pour inventorier automatiquement les bibliothèques open-source utilisées, détecter leurs vulnérabilités connues et les problèmes de licence",
+      "type": "Technique",
+      "prerequis": "Inventaire des applications, accès aux dépôts de code et aux dépendances",
+      "benefices": "Détection des failles connues (CVEs) dans les dépendances, conformité des licences, réduction de la surface d'attaque",
+      "difficultes": "Mise en place et interprétation des rapports, gestion des faux positifs",
+      "notes": "La DGSSI recommande expressément la SCA, plus de 50% des composants logiciels sont open-source",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.7.1)",
+      "exemples_outils": [
+        "OWASP Dependency-Check (gratuit)",
+        "Snyk",
+        "Black Duck",
+        "JFrog Xray",
+        "GitLab Dependency Scanning"
+      ]
+    },
+    "sol047": {
+      "id": "sol047",
+      "nom": "Vérification systématique de la qualification des prestataires",
+      "description": "Exiger et vérifier les qualifications officielles (PASSI, PAMS, PDIS, PRIS, SecNumCloud) pour tout prestataire externe intervenant sur les systèmes d'information sensibles, via le registre de la DGSSI",
+      "type": "Organisationnel/Légal",
+      "prerequis": "Connaissance des régimes de qualification DGSSI, intégration dans les cahiers des charges",
+      "benefices": "Garantie de compétence et de qualité, conformité à la loi 05-20, traçabilité et recours",
+      "difficultes": "Offre de prestataires qualifiés encore limitée sur certains domaines",
+      "notes": "Obligatoire pour les IIV et entités publiques selon la loi 05-20. Le registre est disponible sur le site de la DGSSI.",
+      "source_guide": "DGSSI - Guide d'audit 2015 (Ch.3), Loi 05-20, Décret d'application 2021",
+      "exemples_outils": [
+        "Registre des prestataires qualifiés (site DGSSI)",
+        "Appels d'offres avec critères de qualification",
+        "Audits de sous-traitance"
+      ]
+    },
+    "sol048": {
+      "id": "sol048",
+      "nom": "Politique formelle de conservation des données",
+      "description": "Définir et appliquer des durées maximales de conservation par catégorie de données (clients, employés, prospects), avec des procédures de purge automatisée ou manuelle régulière",
+      "type": "Organisationnel/Légal",
+      "prerequis": "Cartographie des données, analyse des finalités, validation juridique",
+      "benefices": "Conformité à la loi 09-08, réduction de la surface d'exposition en cas de fuite, optimisation des espaces de stockage",
+      "difficultes": "Nécessite une coordination métier, juridique et IT",
+      "notes": "Principe fondamental du RGPD et de la loi 09-08 : les données ne doivent pas être conservées indéfiniment",
+      "source_guide": "DGSSI - Guide bonnes pratiques CMRPI/AUSIM, DNSSI - Conformité",
+      "exemples_outils": [
+        "Procédures internes",
+        "Outils de DLP (Data Loss Prevention)",
+        "Scripts de purge automatisée",
+        "Archivage électronique conforme"
+      ]
+    },
+    "sol049": {
+      "id": "sol049",
+      "nom": "Exercices annuels de gestion de crise cyber",
+      "description": "Organiser des simulations de crise (table-top exercises) avec le comité de gestion de crise, impliquant la direction, les équipes IT, le RSSI, et les prestataires clés",
+      "type": "Organisationnel",
+      "prerequis": "Plan de réponse à incident (PRI) existant, comité de crise défini",
+      "benefices": "Teste et améliore le plan de réponse, entraîne les équipes en conditions réalistes, identifie les angles morts du plan",
+      "difficultes": "Nécessite du temps, un scénario réaliste et un retour d'expérience formel",
+      "notes": "La Stratégie Nationale 2030 (Pilier 2) préconise des exercices réguliers",
+      "source_guide": "Stratégie Nationale Cybersécurité 2030 (Pilier 2, Objectif 2.3)",
+      "exemples_outils": [
+        "Scénarios types (DGSSI, ANSSI)",
+        "Consultants spécialisés en exercice de crise",
+        "Tableaux de suivi (main courante, chronologie)"
+      ]
+    },
+    "sol050": {
+      "id": "sol050",
+      "nom": "Réalisation d'une analyse de risques EBIOS ou équivalent",
+      "description": "Conduire une analyse de risques formelle en utilisant EBIOS Risk Manager (méthode de l'ANSSI) ou une autre méthode reconnue (MEHARI, OCTAVE), impliquant les métiers et la direction",
+      "type": "Organisationnel",
+      "prerequis": "Soutien de la direction, désignation d'un pilote, formation à la méthode choisie",
+      "benefices": "Identification des actifs critiques, évaluation objective des menaces, priorisation des actions de sécurité",
+      "difficultes": "Processus exigeant en temps et en compétences, nécessite une implication métier forte",
+      "notes": "La DGSSI recommande EBIOS Risk Manager (méthode nationale de référence)",
+      "source_guide": "DGSSI - Guide d'audit 2015 (Ch.2), ANSSI EBIOS Risk Manager",
+      "exemples_outils": [
+        "Guide EBIOS Risk Manager (ANSSI)",
+        "MEHARI (Clusif)",
+        "OCTAVE (Carnegie Mellon)",
+        "Outils de cartographie des risques"
+      ]
+    },
+    "sol051": {
+      "id": "sol051",
+      "nom": "Mise en place d'une architecture Zero Trust applicative",
+      "description": "Appliquer le principe de micro-segmentation au niveau des applications : isoler chaque application critique dans son propre segment (VLAN, sous-réseau) avec des politiques de flux strictes et un contrôle d'accès granulaire",
+      "type": "Technique",
+      "prerequis": "Infrastructure réseau supportant les VLAN/firewalling, expertise en architecture réseau",
+      "benefices": "Limite la propagation latérale des attaques, réduit la surface d'attaque, renforce la confidentialité",
+      "difficultes": "Nécessite une refonte ou un ajustement de l'architecture réseau existante",
+      "notes": "Complète la segmentation générale (sol028) avec un focus sur les applications",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des communications (COM-MANAG-CLOISON)",
+      "exemples_outils": [
+        "VLAN sur switches manageables",
+        "Règles de filtrage sur pare-feu",
+        "Solutions de micro-segmentation (VMware NSX, Illumio)",
+        "Politiques de Network Security Groups (cloud)"
+      ]
+    },
+    "sol052": {
+      "id": "sol052",
+      "nom": "Systématisation de la validation des entrées (input validation)",
+      "description": "Mettre en place des filtres de validation en entrée sur toutes les applications web : validation côté serveur, listes blanches (whitelist), échappement des caractères, requêtes paramétrées (pour SQL)",
+      "type": "Technique",
+      "prerequis": "Accès au code source des applications web, procédures de développement sécurisé",
+      "benefices": "Élimine la grande majorité des failles d'injection (SQL, XSS, Command Injection), conforme aux bonnes pratiques OWASP",
+      "difficultes": "Nécessite une revue de toutes les entrées de l'application, peut impacter les performances si mal implémenté",
+      "notes": "Pratique de base du Secure Coding (NIST SSDF PW.5, OWASP Top 10)",
+      "source_guide": "NIST SSDF (PW.5), DNSSI - Bonnes pratiques de codage, OWASP",
+      "exemples_outils": [
+        "Frameworks de validation (Spring Validation, Django Forms, ASP.NET Validators)",
+        "WAF avec règles de validation (comme modsecurity)",
+        "Bibliothèques d'échappement (OWASP ESAPI)"
+      ]
+    },
+    "sol053": {
+      "id": "sol053",
+      "nom": "Clauses de sensibilisation dans les contrats fournisseurs",
+      "description": "Inclure dans tout contrat avec un prestataire IT des clauses obligeant ce dernier à sensibiliser ses personnels aux règles de sécurité de l'entreprise et à fournir des attestations de formation",
+      "type": "Légal/Organisationnel",
+      "prerequis": "Revue juridique des modèles de contrat, collaboration avec les achats",
+      "benefices": "Garantit que les sous-traitants respectent les mêmes standards de sécurité, réduit les risques d'erreur humaine",
+      "difficultes": "Négociation avec les prestataires, suivi des attestations",
+      "notes": "La DNSSI exige que les relations fournisseurs incluent la sécurité (FOURNIS-REL-SECU)",
+      "source_guide": "DGSSI/DNSSI - Chapitre Relations avec les fournisseurs (FOURNIS-REL-SECU)",
+      "exemples_outils": [
+        "Modèles de clauses contractuelles",
+        "Processus de vérification des attestations",
+        "Audit des fournisseurs"
+      ]
+    },
+    "sol054": {
+      "id": "sol054",
+      "nom": "Mise en place d'un programme 'Security Champions'",
+      "description": "Désigner un référent sécurité par équipe de développement (ou par projet) chargé de diffuser les bonnes pratiques, d'identifier les risques et d'être le relais entre l'équipe de sécurité et les développeurs",
+      "type": "Humain/Organisationnel",
+      "prerequis": "Équipe sécurité existante, volontariat ou désignation de développeurs expérimentés",
+      "benefices": "Ancre la culture sécurité au cœur des équipes de développement, accélère la remontée des problèmes, facilite l'adoption du SDL",
+      "difficultes": "Nécessite du temps de formation pour les Champions, risque de dilution si mal cadré",
+      "notes": "Pratique inspirée du modèle SAMM (Education & Guidance - niveau avancé)",
+      "source_guide": "OWASP SAMM 2.0 - Education & Guidance, Microsoft SDL",
+      "exemples_outils": [
+        "Programme de mentorat interne",
+        "Formations spécifiques aux Security Champions",
+        "Communauté de pratique interne"
+      ]
+    },
+    "sol055": {
+      "id": "sol055",
+      "nom": "Adoption d'une politique de 'Secure by Default'",
+      "description": "Configurer tous les systèmes (serveurs, bases de données, applications, postes de travail) avec des paramètres sécurisés par défaut : ports inutiles fermés, services minimaux, comptes par défaut désactivés, mode de sécurité maximal à l'installation",
+      "type": "Technique",
+      "prerequis": "Liste des configurations de référence, procédure d'installation standardisée",
+      "benefices": "Réduit la surface d'attaque dès le premier jour, évite les erreurs de configuration courantes",
+      "difficultes": "Peut nécessiter des tests pour s'assurer du bon fonctionnement métier",
+      "notes": "Recommandation clé du NIST SSDF (PW.9) et de la DNSSI",
+      "source_guide": "NIST SSDF (PW.9 - Configurer le logiciel pour avoir des paramètres sécurisés par défaut)",
+      "exemples_outils": [
+        "Scripts d'installation sécurisée (Ansible, Puppet)",
+        "Bases de référence CIS (Center for Internet Security)",
+        "Images de machines durcies (Golden Images)"
+      ]
+    },
+    "sol056": {
+      "id": "sol056",
+      "nom": "Mise en œuvre d'une Infrastructure Immuable",
+      "description": "Adopter une stratégie où les serveurs et composants ne sont jamais modifiés en place après déploiement : en cas de mise à jour ou de correctif, on déploie une nouvelle version en intégralité et on remplace l'ancienne",
+      "type": "Technique",
+      "prerequis": "Infrastructure virtualisée ou conteneurisée, orchestration (Kubernetes, Terraform), chaîne CI/CD",
+      "benefices": "Garantit un état connu et reproductible à chaque déploiement, facilite le rollback, réduit les écarts de configuration",
+      "difficultes": "Nécessite une automatisation poussée et une gestion des états hors du serveur (base de données, fichiers)",
+      "notes": "Concept clé du DevSecOps (guide évaluation maturité - Ch.3.3.1)",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.3.3 - Principes DevSecOps)",
+      "exemples_outils": [
+        "Conteneurs Docker avec Kubernetes",
+        "Terraform + Packer (images immuables)",
+        "AMI (Amazon Machine Images) versionnées",
+        "GitOps (FluxCD, ArgoCD)"
+      ]
+    },
+    "sol057": {
+      "id": "sol057",
+      "nom": "Inventaire centralisé des actifs",
+      "description": "Mettre en place un outil de gestion d'inventaire pour recenser tous les actifs (physiques, virtuels, cloud, mobiles) avec mise à jour automatique et régulière",
+      "type": "Technique",
+      "prerequis": "Désignation d'un responsable, budget pour l'outil",
+      "benefices": "Permet de savoir précisément ce qui doit être protégé, facilite la gestion des correctifs et des accès",
+      "difficultes": "Nécessite une maintenance continue et une synchronisation avec les environnements cloud",
+      "notes": "Outil indispensable pour appliquer le principe 'On ne peut pas protéger ce qu'on ne connaît pas'.",
+      "source_guide": "CIS Controls v8.1 - Control 1 (Inventory and Control of Enterprise Assets)",
+      "exemples_outils": [
+        "Lansweeper",
+        "ManageEngine AssetExplorer",
+        "GLPI (open‑source)",
+        "SolarWinds"
+      ]
+    },
+    "sol058": {
+      "id": "sol058",
+      "nom": "Gestion des logiciels autorisés (whitelisting)",
+      "description": "Mettre en place une liste blanche (whitelist) des logiciels autorisés, et bloquer l'installation et l'exécution de tout logiciel non approuvé",
+      "type": "Technique",
+      "prerequis": "Inventaire des logiciels, politique de sécurité",
+      "benefices": "Réduit fortement les risques de malwares, assure la conformité des licences, renforce le contrôle IT",
+      "difficultes": "Nécessite une gestion des exceptions (mises à jour, nouveaux besoins), peut ralentir l'installation de logiciels légitimes si mal configuré",
+      "notes": "À combiner avec une politique d'exceptions approuvées par le RSSI.",
+      "source_guide": "CIS Controls v8.1 - Control 2 (Inventory and Control of Software Assets)",
+      "exemples_outils": [
+        "AppLocker (Windows)",
+        "Software Restriction Policies",
+        "CrowdStrike Falcon",
+        "Puppet avec whitelisting"
+      ]
+    },
+    "sol059": {
+      "id": "sol059",
+      "nom": "Classification et protection des données",
+      "description": "Mettre en place un processus de classification des données (publiques, internes, sensibles, critiques) avec des contrôles de protection adaptés (chiffrement, accès restreint)",
+      "type": "Organisationnel/Technique",
+      "prerequis": "Cartographie des données, implication des métiers",
+      "benefices": "Protection proportionnelle à la criticité, conformité à la loi 09‑08, réduction des risques de fuite",
+      "difficultes": "Nécessite une coordination métier et IT, définition des critères de classification",
+      "notes": "La classification est la base de la protection des données (CIS Control 3).",
+      "source_guide": "CIS Controls v8.1 - Control 3 (Data Protection)",
+      "exemples_outils": [
+        "Microsoft Purview (Information Protection)",
+        "Varonis",
+        "Netwrix"
+      ]
+    },
+    "sol060": {
+      "id": "sol060",
+      "nom": "Gestion structurée des comptes privilégiés",
+      "description": "Centraliser la gestion des comptes administrateurs et de service avec des processus de création, modification et suppression, et imposer des mots de passe forts et uniques",
+      "type": "Organisationnel/Technique",
+      "prerequis": "Annuaire centralisé, politique de mots de passe",
+      "benefices": "Réduit le risque de compromission des comptes admin, limite la propagation en cas d'attaque",
+      "difficultes": "Nécessite une revue des comptes existants, gestion des mots de passe de service",
+      "notes": "CIS Control 5 recommande de gérer les comptes privilégiés avec des revues régulières.",
+      "source_guide": "CIS Controls v8.1 - Control 5 (Account Management)",
+      "exemples_outils": [
+        "Active Directory/Entra ID PAM",
+        "BeyondTrust",
+        "CyberArk",
+        "ManageEngine ADManager"
+      ]
+    },
+    "sol061": {
+      "id": "sol061",
+      "nom": "Processus formalisé de gestion des accès",
+      "description": "Mettre en place des workflows pour créer, modifier et révoquer les accès, avec une revue périodique des droits (matrice d'habilitation)",
+      "type": "Organisationnel",
+      "prerequis": "Inventaire des utilisateurs et des systèmes, validation RH",
+      "benefices": "Applique le principe du moindre privilège, réduit les accès obsolètes, facilite la conformité",
+      "difficultes": "Nécessite un suivi régulier et une coordination avec les managers",
+      "notes": "CIS Control 6 impose une revue annuelle des droits d'accès.",
+      "source_guide": "CIS Controls v8.1 - Control 6 (Access Control Management)",
+      "exemples_outils": [
+        "IAM (Okta, Azure AD)",
+        "Tableur de matrice d'accès",
+        "Processus RH‑IT formalisé"
+      ]
+    },
+    "sol062": {
+      "id": "sol062",
+      "nom": "Solution SIEM de surveillance des logs",
+      "description": "Déployer une solution de centralisation et d'analyse des logs (SIEM) avec des alertes en temps réel sur les événements suspects",
+      "type": "Technique",
+      "prerequis": "Infrastructure de logs, serveur NTP, budget",
+      "benefices": "Permet la détection précoce des incidents, facilite l'investigation, répond aux exigences de traçabilité",
+      "difficultes": "Coût et complexité de mise en œuvre, gestion des volumes de logs",
+      "notes": "CIS Control 8 recommande une conservation d'au moins 90 jours et des alertes sur les événements critiques.",
+      "source_guide": "CIS Controls v8.1 - Control 8 (Audit Log Management)",
+      "exemples_outils": [
+        "Splunk",
+        "ELK Stack (open‑source)",
+        "Wazuh",
+        "Microsoft Sentinel"
+      ]
+    },
+    "sol063": {
+      "id": "sol063",
+      "nom": "Protection renforcée des messageries et navigateurs",
+      "description": "Mettre en place des filtres anti‑phishing, anti‑malware, des politiques de sécurité pour les emails et navigateurs, et un sandboxing pour les pièces jointes",
+      "type": "Technique",
+      "prerequis": "Serveur de messagerie, navigateurs gérés",
+      "benefices": "Bloque les tentatives de phishing et les malwares véhiculés par email, réduit le risque de compromission",
+      "difficultes": "Configuration initiale, gestion des faux positifs",
+      "notes": "CIS Control 9 est essentiel car les emails et navigateurs sont les principaux vecteurs d'attaque.",
+      "source_guide": "CIS Controls v8.1 - Control 9 (Email and Web Browser Protections)",
+      "exemples_outils": [
+        "Microsoft 365 Defender",
+        "Proofpoint",
+        "Mimecast",
+        "Cisco Secure Email"
+      ]
+    },
+    "sol064": {
+      "id": "sol064",
+      "nom": "Programme de formation technique continue",
+      "description": "Développer un programme de formation régulier pour les équipes IT et de développement sur les menaces émergentes, les bonnes pratiques de durcissement, et les outils de sécurité",
+      "type": "Humain/Organisationnel",
+      "prerequis": "Budget formation, identification des besoins",
+      "benefices": "Maintient à jour les compétences des équipes, réduit les erreurs de configuration et améliore la réponse aux incidents",
+      "difficultes": "Nécessite un engagement sur la durée et une actualisation des contenus",
+      "notes": "CIS Control 14 inclut la formation technique, au même titre que la sensibilisation des utilisateurs.",
+      "source_guide": "CIS Controls v8.1 - Control 14 (Security Awareness and Skills Training)",
+      "exemples_outils": [
+        "Plateformes e‑learning (Pluralsight, Udemy)",
+        "Prestataires spécialisés",
+        "Séminaires techniques"
+      ]
+    },
+    "sol065": {
+      "id": "sol065",
+      "nom": "Évaluation et supervision des prestataires externes",
+      "description": "Mettre en place un processus d'évaluation des fournisseurs avec des critères de sécurité, des audits contractuels, et un suivi des accès et des correctifs",
+      "type": "Organisationnel/Légal",
+      "prerequis": "Contrats avec prestataires, équipe achats/juridique",
+      "benefices": "Réduit les risques liés à la sous‑traitance, assure la conformité, facilite la réversibilité",
+      "difficultes": "Négociation des clauses, suivi régulier",
+      "notes": "CIS Control 15 impose une évaluation des prestataires avant tout engagement.",
+      "source_guide": "CIS Controls v8.1 - Control 15 (Service Provider Management)",
+      "exemples_outils": [
+        "Modèles de due diligence",
+        "Audits de sécurité",
+        "Clauses contractuelles types"
+      ]
+    },
+    "sol066": {
+      "id": "sol066",
+      "nom": "Gestion du cycle de vie sécurisé des applications",
+      "description": "Intégrer des revues de sécurité, des tests (SAST/DAST) et des analyses de composition (SCA) dans toutes les phases du développement (conception, codage, test, déploiement, maintenance)",
+      "type": "Organisationnel/Technique",
+      "prerequis": "Processus de développement (Agile, DevOps), engagement des équipes",
+      "benefices": "Réduit les vulnérabilités dès la conception, économise les coûts de correction en production, répond aux exigences de la DNSSI",
+      "difficultes": "Nécessite une culture sécurité, des outils et des compétences",
+      "notes": "CIS Control 16 recommande de sécuriser les applications tout au long de leur cycle de vie.",
+      "source_guide": "CIS Controls v8.1 - Control 16 (Application Software Security)",
+      "exemples_outils": [
+        "SonarQube",
+        "Veracode",
+        "Checkmarx",
+        "OWASP Dependency-Check"
+      ]
+    },
+    "sol067": {
+      "id": "sol067",
+      "nom": "Programme de tests d'intrusion réguliers",
+      "description": "Planifier des tests d'intrusion internes et externes (au moins annuels) avec des prestataires qualifiés, et corriger les vulnérabilités identifiées",
+      "type": "Technique",
+      "prerequis": "Budget, périmètre défini, prestataires PASSI",
+      "benefices": "Identifie les failles exploitables, valide l'efficacité des contrôles, répond aux exigences de conformité",
+      "difficultes": "Coût, risque opérationnel (tests en production), gestion des correctifs",
+      "notes": "CIS Control 18 préconise des tests d'intrusion externes et internes au moins annuellement.",
+      "source_guide": "CIS Controls v8.1 - Control 18 (Penetration Testing)",
+      "exemples_outils": [
+        "Prestataires PASSI (DGSSI)",
+        "Outils (Nessus, Metasploit, Burp Suite)",
+        "Simulations de phishing"
+      ]
+    },
+    "sol068": {
+      "id": "sol068",
+      "nom": "Gestion des vulnérabilités des fournisseurs",
+      "description": "Mettre en place un processus de due diligence pour les prestataires ayant accès aux données sensibles ou aux plateformes critiques, incluant des audits de sécurité et des clauses contractuelles",
+      "type": "Organisationnel",
+      "prerequis": "Base de données des fournisseurs, équipe juridique",
+      "benefices": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur",
+      "difficultes": "Nécessite des ressources pour évaluer les fournisseurs, suivi régulier",
+      "notes": "Complète sol065 avec un focus sur les vulnérabilités spécifiques aux fournisseurs.",
+      "source_guide": "CIS Controls v8.1 - Control 15 (Service Provider Management)",
+      "exemples_outils": [
+        "Questionnaires de sécurité (SAQ)",
+        "Audits tiers",
+        "Clauses de réversibilité"
+      ]
+    },
+    "sol069": {
+      "id": "sol069",
+      "nom": "Exercices annuels de réponse aux incidents (tabletop)",
+      "description": "Organiser des simulations de crise (tabletop) avec les équipes clés (IT, sécurité, direction, communication) pour tester et améliorer le plan de réponse aux incidents",
+      "type": "Organisationnel",
+      "prerequis": "Plan de réponse à incident (PRI) existant, comité de crise défini",
+      "benefices": "Permet de valider le plan, d'entraîner les équipes, d'identifier les lacunes avant une vraie crise",
+      "difficultes": "Nécessite du temps, un scénario réaliste et un retour d'expérience formel",
+      "notes": "Les exercices tabletop sont recommandés par le NIST CSF et la Stratégie Nationale 2030.",
+      "source_guide": "Article Sudip Maity - Phase 2 + Stratégie Nationale Cybersécurité 2030",
+      "exemples_outils": [
+        "Scénarios types (DGSSI, ANSSI)",
+        "Consultants spécialisés",
+        "Tableaux de suivi (main courante)"
+      ]
+    },
+    "sol070": {
+      "id": "sol070",
+      "nom": "Durcissement des serveurs (CIS benchmarks)",
+      "description": "Configurer tous les serveurs selon les benchmarks de sécurité CIS (ou équivalents) : désactivation des services inutiles, renforcement des mots de passe, fermeture des ports, activation des logs",
+      "type": "Technique",
+      "prerequis": "Liste des serveurs, compétences en administration",
+      "benefices": "Réduit drastiquement la surface d'attaque, protège contre les exploits de configuration, assure une base cohérente",
+      "difficultes": "Nécessite des tests avant déploiement, peut nécessiter des adaptations métier",
+      "notes": "Le durcissement est une pratique clé du NIST et du CIS (Control 4 – Secure Configuration).",
+      "source_guide": "Article Sudip Maity - Phase 3 + CIS Controls v8.1",
+      "exemples_outils": [
+        "CIS Benchmarks (guides)",
+        "Ansible (automatisation)",
+        "Puppet",
+        "Outils de durcissement (Lynis, OpenSCAP)"
+      ]
+    },
+    "sol071": {
+      "id": "sol071",
+      "nom": "Déploiement d'une solution EDR (Endpoint Detection and Response)",
+      "description": "Déployer une solution de détection et réponse sur les endpoints (EDR) pour surveiller les comportements suspects, détecter les menaces avancées et permettre une réponse automatisée ou rapide",
+      "type": "Technique",
+      "prerequis": "Postes de travail, budget, compétences en administration",
+      "benefices": "Complète l'antivirus en détectant les comportements anormaux, permet une réponse rapide, réduit le temps de détection (MTTD)",
+      "difficultes": "Coût, configuration, gestion des alertes",
+      "notes": "L'EDR est recommandé pour les PME ayant des données sensibles, comme alternative plus légère à un SOC.",
+      "source_guide": "Article Sudip Maity - Phase 2",
+      "exemples_outils": [
+        "Microsoft Defender for Endpoint",
+        "CrowdStrike Falcon",
+        "SentinelOne",
+        "Trend Micro Vision One"
+      ]
+    },
+    "sol072": {
+      "id": "sol072",
+      "nom": "Inventaire et cartographie des actifs OT",
+      "description": "Recenser tous les équipements industriels (automates, capteurs, RTU, actionneurs, postes) avec leurs versions, firmwares, adresses IP et localisations physiques",
+      "type": "Organisationnel/Technique",
+      "categorie": "systemes_postes",
+      "prerequis": [
+        "Accès aux équipements",
+        "Mobilisation des équipes maintenance et exploitation"
+      ],
+      "benefices": [
+        "Permet de savoir ce qui doit être protégé",
+        "Facilite la gestion des vulnérabilités",
+        "Base de toute démarche de sécurité OT"
+      ],
+      "difficultes": [
+        "Volume d'équipements",
+        "Dispersion géographique",
+        "Systèmes obsolètes"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "Outil interne (Excel, bases)",
+        "Sondes réseau OT (Nozomi, Dragos)",
+        "CMDB adaptée"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.4)"
+    },
+    "sol073": {
+      "id": "sol073",
+      "nom": "Mise en place d'une DMZ IT/OT",
+      "description": "Créer une zone démilitarisée entre le réseau bureautique et le réseau industriel pour héberger les serveurs de patchs, signatures antivirus et passerelles de données",
+      "type": "Technique",
+      "categorie": "reseau_infrastructure",
+      "prerequis": [
+        "Infrastructure réseau adaptée",
+        "Plan de migration",
+        "Validation des flux"
+      ],
+      "benefices": [
+        "Sépare les environnements IT et OT",
+        "Filtre les flux",
+        "Réduit la surface d'attaque"
+      ],
+      "difficultes": [
+        "Nécessite une refonte réseau",
+        "Impacts sur la production"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Pare-feu avec DMZ",
+        "Reverse proxy",
+        "Serveurs de rebond"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6)"
+    },
+    "sol074": {
+      "id": "sol074",
+      "nom": "Segmentation du réseau OT (zones ISA 62443)",
+      "description": "Diviser le réseau industriel en zones selon le modèle Purdue (niveaux 0 à 5) avec des filtrages entre zones et une micro-segmentation au sein des VLANs OT",
+      "type": "Technique",
+      "categorie": "reseau_infrastructure",
+      "prerequis": [
+        "Cartographie OT",
+        "Plan de segmentation",
+        "Équipements compatibles"
+      ],
+      "benefices": [
+        "Limite la propagation des attaques",
+        "Isole les systèmes obsolètes",
+        "Réduit la surface d'attaque"
+      ],
+      "difficultes": [
+        "Nécessite une expertise réseau OT",
+        "Tests avant déploiement",
+        "Gestion des flux temps réel"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Switches managés avec VLAN",
+        "Pare-feux OT",
+        "Routeurs industriels"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6, Ch.7)"
+    },
+    "sol075": {
+      "id": "sol075",
+      "nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+      "description": "Appliquer des configurations sécurisées sur les automates, serveurs et équipements OT : fermeture des ports inutiles, désactivation des services non utilisés, changement des mots de passe par défaut",
+      "type": "Technique",
+      "categorie": "systemes_postes",
+      "prerequis": [
+        "Inventaire des équipements",
+        "Compétences en administration OT",
+        "Fenêtres de maintenance"
+      ],
+      "benefices": [
+        "Réduit la surface d'attaque",
+        "Protège contre les exploitations de configuration"
+      ],
+      "difficultes": [
+        "Nécessite des tests",
+        "Impact potentiel sur la production",
+        "Équipements obsolètes"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "CIS Benchmarks OT",
+        "Guides constructeurs",
+        "Scripts de durcissement"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol076": {
+      "id": "sol076",
+      "nom": "Politique de gestion des mots de passe OT",
+      "description": "Modifier tous les mots de passe par défaut, utiliser des comptes nominatifs avec le principe du moindre privilège, et mettre en place un gestionnaire de mots de passe pour les comptes de service",
+      "type": "Organisationnel/Technique",
+      "categorie": "systemes_postes",
+      "prerequis": [
+        "Inventaire des comptes",
+        "Validation des équipes maintenance"
+      ],
+      "benefices": [
+        "Protège contre l'utilisation des identifiants par défaut",
+        "Applique le moindre privilège"
+      ],
+      "difficultes": [
+        "Gestion des comptes de service",
+        "Changement coordonné avec les prestataires"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Gestionnaire de mots de passe",
+        "Annuaire LDAP/AD",
+        "PAM"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol077": {
+      "id": "sol077",
+      "nom": "Protection des ports physiques (USB, série, RJ45)",
+      "description": "Mettre en place des bouchons à clé sur les ports physiques des automates et postes OT pour prévenir les connexions non autorisées",
+      "type": "Physique",
+      "categorie": "physiques_environnementaux",
+      "prerequis": [
+        "Inventaire des ports",
+        "Achat de bouchons"
+      ],
+      "benefices": [
+        "Prévient les infections via USB",
+        "Empêche les connexions non autorisées"
+      ],
+      "difficultes": [
+        "Gestion des clés",
+        "Formation des équipes"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Bouchons à clé USB",
+        "Bouchons RJ45",
+        "Câble lockers"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol078": {
+      "id": "sol078",
+      "nom": "Sauvegarde hors-ligne des configurations OT (3-2-1 OT)",
+      "description": "Sauvegarder les configurations des automates, programmes, firmwares et paramètres sur des supports déconnectés du réseau (disques externes, cassettes)",
+      "type": "Technique",
+      "categorie": "systemes_postes",
+      "prerequis": [
+        "Outils de sauvegarde OT",
+        "Supports de stockage",
+        "Procédure"
+      ],
+      "benefices": [
+        "Permet la reconstruction après ransomware",
+        "Protège les sauvegardes contre le chiffrement"
+      ],
+      "difficultes": [
+        "Test de restauration",
+        "Planification des sauvegardes"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Disques durs externes",
+        "Cassettes",
+        "Logiciels de backup OT"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol079": {
+      "id": "sol079",
+      "nom": "Postes de maintenance dédiés et durcis",
+      "description": "Mettre à disposition des prestataires et équipes internes des postes de maintenance sécurisés avec antivirus, mises à jour, sans accès Internet, et usage contrôlé",
+      "type": "Technique/Organisationnel",
+      "categorie": "systemes_postes",
+      "prerequis": [
+        "Matériel dédié",
+        "Configuration sécurisée",
+        "Procédure d'usage"
+      ],
+      "benefices": [
+        "Limite les risques d'introduction de malwares",
+        "Assure un environnement de maintenance contrôlé"
+      ],
+      "difficultes": [
+        "Coût matériel",
+        "Gestion des postes",
+        "Formation des prestataires"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "Postes dédiés sans Internet",
+        "Antivirus",
+        "Gestion des accès"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol080": {
+      "id": "sol080",
+      "nom": "Protection des accès distants OT (VPN + MFA + bastion)",
+      "description": "Sécuriser la télémaintenance par VPN, authentification multifacteurs et serveurs de rebond (bastion) avec journalisation des accès",
+      "type": "Technique",
+      "categorie": "reseau_infrastructure",
+      "prerequis": [
+        "Infrastructure VPN",
+        "Gestion MFA",
+        "Serveurs bastion"
+      ],
+      "benefices": [
+        "Protège les accès distants",
+        "Trace les interventions",
+        "Limite l'exposition des automates"
+      ],
+      "difficultes": [
+        "Coût d'infrastructure",
+        "Complexité de déploiement"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "VPN (OpenVPN, FortiClient)",
+        "MFA (Google Authenticator)",
+        "Bastion (Guacamole, BeyondTrust)"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)"
+    },
+    "sol081": {
+      "id": "sol081",
+      "nom": "Déploiement d'IDS/IPS industriels (N-IDS)",
+      "description": "Installer des sondes réseau capables d'analyser les protocoles industriels (Modbus, Profinet, DNP3, etc.) pour détecter les anomalies et les attaques",
+      "type": "Technique",
+      "categorie": "reseau_infrastructure",
+      "prerequis": [
+        "Accès réseau OT",
+        "Analyse des flux",
+        "Compétences en protocoles industriels"
+      ],
+      "benefices": [
+        "Détection des attaques ciblées",
+        "Analyse des comportements anormaux"
+      ],
+      "difficultes": [
+        "Coût des solutions",
+        "Configuration",
+        "Gestion des faux positifs"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Nozomi Networks",
+        "Dragos",
+        "Claroty",
+        "Snort avec règles OT"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)"
+    },
+    "sol082": {
+      "id": "sol082",
+      "nom": "Centralisation des logs OT (puits de logs)",
+      "description": "Collecter et centraliser les journaux des équipements industriels (syslog, observateurs d'événements) dans une infrastructure sécurisée avec conservation et analyse",
+      "type": "Technique",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Configuration des équipements OT",
+        "Serveur de logs",
+        "Stockage"
+      ],
+      "benefices": [
+        "Permet l'investigation post-incident",
+        "Facilite la détection",
+        "Assure la traçabilité"
+      ],
+      "difficultes": [
+        "Capacité des équipements OT",
+        "Flux réseau",
+        "Volumes de données"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "syslog-ng",
+        "rsyslog",
+        "ELK Stack",
+        "Splunk",
+        "Graylog"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)"
+    },
+    "sol083": {
+      "id": "sol083",
+      "nom": "Procédure de gestion des modifications OT",
+      "description": "Formaliser les processus de changement sur les systèmes industriels avec validation, journalisation, tests de non-régression et rollback",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Validation des équipes",
+        "Procédure rédigée",
+        "Outils de suivi"
+      ],
+      "benefices": [
+        "Réduit les risques d'incidents",
+        "Assure la traçabilité",
+        "Facilite les audits"
+      ],
+      "difficultes": [
+        "Adoption par les équipes",
+        "Coordination avec les prestataires"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Procédure interne",
+        "Outils de ticketing",
+        "Validation en comité"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol084": {
+      "id": "sol084",
+      "nom": "Intégration de la sécurité dans les projets OT (Security by Design)",
+      "description": "Inclure les exigences de cybersécurité dès la conception des nouveaux systèmes industriels, avec des revues d'architecture et des analyses de risques",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Engagement des directions",
+        "Compétences en sécurité OT",
+        "Processus de projet"
+      ],
+      "benefices": [
+        "Réduit les coûts de correction",
+        "Anticipe les risques",
+        "Facilite l'homologation"
+      ],
+      "difficultes": [
+        "Changement de culture",
+        "Formation des équipes projet"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Exigences de sécurité dans les cahiers des charges",
+        "Revues d'architecture",
+        "Analyses de risques"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.8)"
+    },
+    "sol085": {
+      "id": "sol085",
+      "nom": "Recette de cybersécurité OT (FAT/SAT)",
+      "description": "Réaliser des tests de sécurité en usine (FAT) et sur site (SAT) avant mise en production : tests de configuration, de robustesse, d'intrusion et de conformité",
+      "type": "Technique",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Plateforme de recette",
+        "Cahiers de tests",
+        "Équipes qualifiées"
+      ],
+      "benefices": [
+        "Détecte les vulnérabilités avant la production",
+        "Valide la conformité"
+      ],
+      "difficultes": [
+        "Coût",
+        "Disponibilité des équipements",
+        "Simulation des conditions réelles"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Cahiers de recette",
+        "Outils de tests",
+        "Prestataires qualifiés"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.8)"
+    },
+    "sol086": {
+      "id": "sol086",
+      "nom": "Gestion des fenêtres de maintenance OT",
+      "description": "Planifier les interventions de sécurité (correctifs, durcissement, sauvegardes) en coordination avec les équipes de production pour minimiser les impacts",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Coordination avec production",
+        "Planification annuelle"
+      ],
+      "benefices": [
+        "Permet les interventions sans perturber la production",
+        "Anticipe les actions"
+      ],
+      "difficultes": [
+        "Fenêtres limitées",
+        "Coordination avec multiples équipes"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Planning de maintenance",
+        "Procédure d'intervention",
+        "Comité de planification"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol087": {
+      "id": "sol087",
+      "nom": "Analyse de risques OT (EBIOS RM adapté)",
+      "description": "Réaliser une appréciation des risques spécifique aux processus industriels avec prise en compte des impacts humains, environnementaux et de production",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Cartographie OT",
+        "Équipe pluridisciplinaire",
+        "Méthode adaptée"
+      ],
+      "benefices": [
+        "Identifie les risques spécifiques OT",
+        "Priorise les actions",
+        "Sensibilise la direction"
+      ],
+      "difficultes": [
+        "Complexité",
+        "Coordination safety/cyber",
+        "Méthode à adapter"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "EBIOS Risk Manager",
+        "Méthode Clusif",
+        "Approches hybrides"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.5)"
+    },
+    "sol088": {
+      "id": "sol088",
+      "nom": "Clauses contractuelles de sécurité pour la sous-traitance OT",
+      "description": "Intégrer des exigences de sécurité dans les contrats avec les prestataires de maintenance, intégrateurs et fournisseurs OT (clauses d'audit, pénalités, réversibilité)",
+      "type": "Légale/Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Service juridique",
+        "Référentiel de sécurité",
+        "Équipe achat"
+      ],
+      "benefices": [
+        "Responsabilise les prestataires",
+        "Permet les audits",
+        "Assure la réversibilité"
+      ],
+      "difficultes": [
+        "Négociation",
+        "Suivi des prestataires"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Modèles de clauses",
+        "Audits contractuels",
+        "Pénalités"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)"
+    },
+    "sol089": {
+      "id": "sol089",
+      "nom": "Plan de continuité OT (PCA/PRA adapté)",
+      "description": "Définir des plans de reprise spécifiques aux systèmes industriels avec des modes dégradés, des procédures de redémarrage progressif et des exercices annuels",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Analyse d'impact OT",
+        "Équipes de production",
+        "Supports de sauvegarde"
+      ],
+      "benefices": [
+        "Réduit le temps d'arrêt",
+        "Assure la reprise contrôlée",
+        "Sécurise la production"
+      ],
+      "difficultes": [
+        "Complexité des redémarrages",
+        "Coordination",
+        "Coût"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Plan de reprise",
+        "Exercices annuels",
+        "Modes dégradés"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.11)"
+    },
+    "sol090": {
+      "id": "sol090",
+      "nom": "Mise en place d'une gouvernance OT avec RACI",
+      "description": "Définir une organisation formalisée avec rôles, responsabilités (RACI) et un responsable cybersécurité OT pour piloter la démarche",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Sponsor direction",
+        "Cartographie des acteurs",
+        "Validation"
+      ],
+      "benefices": [
+        "Structure les actions",
+        "Clarifie les responsabilités",
+        "Assure le pilotage"
+      ],
+      "difficultes": [
+        "Adoption par les équipes",
+        "Conflits d'intérêts"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Organigramme",
+        "RACI",
+        "Comité de pilotage"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)"
+    },
+    "sol091": {
+      "id": "sol091",
+      "nom": "Élaboration d'une PSSI OT (Politique de sécurité OT)",
+      "description": "Rédiger et faire approuver une politique de sécurité spécifique aux systèmes industriels, prenant en compte leurs contraintes (disponibilité, obsolescence, safety)",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Validation direction",
+        "Référentiels de sécurité"
+      ],
+      "benefices": [
+        "Cadre de référence",
+        "Opposable aux équipes",
+        "Base des procédures"
+      ],
+      "difficultes": [
+        "Rédaction",
+        "Approbation",
+        "Diffusion"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Modèle de PSSI",
+        "Référentiels (IEC 62443, NIST)"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)"
+    },
+    "sol092": {
+      "id": "sol092",
+      "nom": "Création d'un comité de coordination OT/IT/Sécurité",
+      "description": "Mettre en place des instances de pilotage (COPIL, COTECH) réunissant les directions concernées (automatismes, informatique, sécurité, production)",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Sponsor direction",
+        "Désignation des participants"
+      ],
+      "benefices": [
+        "Coordonne les actions",
+        "Résout les conflits",
+        "Assure le partage d'information"
+      ],
+      "difficultes": [
+        "Disponibilité des acteurs",
+        "Conflits d'objectifs"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "COPIL mensuel",
+        "COTECH technique",
+        "Compte rendus"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)"
+    },
+    "sol093": {
+      "id": "sol093",
+      "nom": "Contractualisation sécurisée des sous-traitants OT",
+      "description": "Intégrer des clauses de sécurité (audit, pénalités, réversibilité) dans les contrats avec les prestataires de maintenance, intégrateurs et fournisseurs OT",
+      "type": "Légale/Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Service juridique",
+        "Référentiel de sécurité",
+        "Équipe achat"
+      ],
+      "benefices": [
+        "Responsabilise les prestataires",
+        "Permet les audits",
+        "Assure la réversibilité"
+      ],
+      "difficultes": [
+        "Négociation",
+        "Suivi des prestataires"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Modèles de clauses",
+        "Audits contractuels",
+        "Pénalités"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)"
+    },
+    "sol094": {
+      "id": "sol094",
+      "nom": "Plan de Continuité d'Activité OT (PCA OT)",
+      "description": "Élaborer des plans de continuité spécifiques aux systèmes industriels avec modes dégradés, procédures de redémarrage progressif et exercices annuels",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Analyse d'impact OT",
+        "Équipes de production",
+        "Supports de sauvegarde"
+      ],
+      "benefices": [
+        "Réduit le temps d'arrêt",
+        "Assure la reprise contrôlée",
+        "Sécurise la production"
+      ],
+      "difficultes": [
+        "Complexité des redémarrages",
+        "Coordination",
+        "Coût"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Plan de reprise",
+        "Exercices annuels",
+        "Modes dégradés"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.11)"
+    },
+    "sol095": {
+      "id": "sol095",
+      "nom": "Exercices annuels de gestion de crise OT",
+      "description": "Organiser des simulations de crise (tabletop) avec les équipes métier, sécurité et direction pour tester les procédures de réponse à incident",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Plan de réponse à incident",
+        "Comité de crise",
+        "Scénarios"
+      ],
+      "benefices": [
+        "Teste les procédures",
+        "Entraîne les équipes",
+        "Identifie les lacunes"
+      ],
+      "difficultes": [
+        "Temps de préparation",
+        "Coordination",
+        "Retour d'expérience"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "Scénarios de crise",
+        "Simulations",
+        "Rapports d'exercice"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.11)"
+    },
+    "sol096": {
+      "id": "sol096",
+      "nom": "Programme de formation et sensibilisation OT",
+      "description": "Déployer des formations annuelles pour les équipes (maintenance, exploitation, sécurité) sur les risques cyber, les protocoles industriels et les bonnes pratiques OT",
+      "type": "Humain/Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Budget formation",
+        "Identification des besoins",
+        "Contenus adaptés"
+      ],
+      "benefices": [
+        "Réduit l'erreur humaine",
+        "Améliore la détection",
+        "Renforce la culture sécurité"
+      ],
+      "difficultes": [
+        "Disponibilité des équipes",
+        "Adaptation des contenus"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "Formations e-learning",
+        "Ateliers pratiques",
+        "Sessions sur site"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol097": {
+      "id": "sol097",
+      "nom": "Processus formel de gestion des correctifs OT",
+      "description": "Établir un planning de déploiement des patchs avec fenêtres de maintenance, validation avant déploiement et rollback en cas de problème",
+      "type": "Organisationnel/Technique",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Inventaire OT",
+        "Fenêtres de maintenance",
+        "Compétences"
+      ],
+      "benefices": [
+        "Réduit les vulnérabilités",
+        "Assure la continuité",
+        "Traçabilité"
+      ],
+      "difficultes": [
+        "Tests de non-régression",
+        "Coordination avec production"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "Planning de patchs",
+        "Outils de déploiement",
+        "Procédure de rollback"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol098": {
+      "id": "sol098",
+      "nom": "Gestion des accès physiques aux équipements OT",
+      "description": "Mettre en place des contrôles d'accès (badges, serrures, vidéosurveillance) pour les armoires, salles serveurs et locaux techniques hébergeant des équipements OT",
+      "type": "Physique/Organisationnel",
+      "categorie": "physiques_environnementaux",
+      "prerequis": [
+        "Inventaire des locaux",
+        "Systèmes de contrôle d'accès"
+      ],
+      "benefices": [
+        "Protège contre les intrusions physiques",
+        "Prévient les accès non autorisés"
+      ],
+      "difficultes": [
+        "Coût d'équipement",
+        "Gestion des droits d'accès"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "Serrure à code",
+        "Badgeuses",
+        "Vidéosurveillance"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol099": {
+      "id": "sol099",
+      "nom": "Maintien en Conditions de Sécurité (MCS OT)",
+      "description": "Établir des procédures récurrentes pour maintenir les dispositifs de sécurité : veille, mises à jour, revues de configuration, audits, formation continue",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "PSSI OT",
+        "Équipe dédiée",
+        "Budget"
+      ],
+      "benefices": [
+        "Maintient le niveau de sécurité dans le temps",
+        "Anticipe les évolutions"
+      ],
+      "difficultes": [
+        "Ressources humaines",
+        "Suivi régulier"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Plan de MCS",
+        "Veille CERT",
+        "Audits réguliers"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol100": {
+      "id": "sol100",
+      "nom": "Audit cybersécurité OT périodique",
+      "description": "Réaliser des audits organisationnels et techniques tous les 1 à 3 ans (ou après modifications majeures) avec des prestataires qualifiés PASSI",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Budget",
+        "Prestataires qualifiés",
+        "Plan d'audit"
+      ],
+      "benefices": [
+        "Évalue le niveau de sécurité",
+        "Identifie les vulnérabilités",
+        "Renforce la conformité"
+      ],
+      "difficultes": [
+        "Coût",
+        "Disponibilité des prestataires",
+        "Impacts sur la production"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Prestataires PASSI",
+        "Audits organisationnels",
+        "Tests d'intrusion"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.12)"
+    },
+    "sol101": {
+      "id": "sol101",
+      "nom": "Mise en place d'un SOC OT (interne ou externe)",
+      "description": "Déployer un centre de surveillance des incidents avec des analystes formés à l'OT, capable de détecter et répondre aux attaques sur les systèmes industriels",
+      "type": "Organisationnel/Technique",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Budget",
+        "Analystes formés",
+        "Outils SIEM/IDS OT"
+      ],
+      "benefices": [
+        "Détecte les incidents rapidement",
+        "Améliore le temps de réponse",
+        "Protège la production"
+      ],
+      "difficultes": [
+        "Coût",
+        "Recrutement d'analystes OT",
+        "Configuration"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "SOC interne",
+        "SOC externe (PDIS)",
+        "SIEM OT"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)"
+    },
+    "sol102": {
+      "id": "sol102",
+      "nom": "Procédure d'homologation cybersécurité OT",
+      "description": "Formaliser les processus de validation avant mise en production des systèmes industriels avec des tests de sécurité (FAT/SAT) et des revues de conformité",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Référentiel de sécurité",
+        "Cahiers de tests",
+        "Équipes projet"
+      ],
+      "benefices": [
+        "Valide la sécurité avant mise en production",
+        "Évite les vulnérabilités"
+      ],
+      "difficultes": [
+        "Coût",
+        "Planification",
+        "Coordination"
+      ],
+      "cout_estime": "Moyen",
+      "exemples_outils": [
+        "Procédure d'homologation",
+        "Cahiers de recette",
+        "Comité d'homologation"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.8)"
+    },
+    "sol103": {
+      "id": "sol103",
+      "nom": "Plan de gestion des obsolescences OT",
+      "description": "Établir une stratégie de remplacement des équipements industriels obsolètes avec planification des mises à jour, des tests et des budgets",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Inventaire OT",
+        "Budgets",
+        "Planification"
+      ],
+      "benefices": [
+        "Réduit les risques liés aux systèmes obsolètes",
+        "Anticipe les coûts"
+      ],
+      "difficultes": [
+        "Coût de remplacement",
+        "Impact sur la production"
+      ],
+      "cout_estime": "Élevé",
+      "exemples_outils": [
+        "Plan de remplacement",
+        "Budget prévisionnel",
+        "Tests de migration"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)"
+    },
+    "sol104": {
+      "id": "sol104",
+      "nom": "Définition de métriques et KPIs OT",
+      "description": "Suivre des indicateurs clés (nombre de correctifs déployés, incidents détectés, exercices réalisés, audits effectués) pour mesurer la performance de la sécurité OT",
+      "type": "Organisationnel",
+      "categorie": "audit_conformite",
+      "prerequis": [
+        "Tableau de bord",
+        "Sources de données",
+        "Reporting"
+      ],
+      "benefices": [
+        "Mesure la progression",
+        "Facilite le reporting",
+        "Oriente les actions"
+      ],
+      "difficultes": [
+        "Définition des indicateurs",
+        "Collecte des données"
+      ],
+      "cout_estime": "Faible",
+      "exemples_outils": [
+        "Tableau de bord",
+        "Rapports de sécurité",
+        "Indicateurs de suivi"
+      ],
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)"
+    },
+    "sol105": {
+      "id": "sol105",
+      "nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+      "description": "Adapter les approches de gestion des risques SI aux spécificités culturelles marocaines en tenant compte du fatalisme, de la confiance interpersonnelle et de la résistance au changement",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8, Section 9",
+      "exemples_outils": []
+    },
+    "sol106": {
+      "id": "sol106",
+      "nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+      "description": "Intégrer la gestion des risques SI dans les processus de gouvernance et de gestion des risques de l'entreprise pour assurer une approche holistique",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol107": {
+      "id": "sol107",
+      "nom": "Programmes de sensibilisation à la cybersécurité adaptés au contexte marocain",
+      "description": "Déployer des politiques de sensibilisation utilisant des moyens variés (capsules vidéo, réunions, séminaires, courriels personnalisés) adaptés à la culture marocaine",
+      "type": "Humain/Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol108": {
+      "id": "sol108",
+      "nom": "Développement de guides pratiques simplifiés pour les PME",
+      "description": "Créer des guides et outils d'auto-évaluation simplifiés pour les PME marocaines, prenant en compte leurs contraintes de ressources",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol109": {
+      "id": "sol109",
+      "nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+      "description": "Mettre en place des incitations financières (subventions, crédits d'impôt) pour encourager les PME à adopter les bonnes pratiques de cybersécurité",
+      "type": "Financier/Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol110": {
+      "id": "sol110",
+      "nom": "Renforcement des programmes de formation continue en cybersécurité",
+      "description": "Développer des programmes de formation continue adaptés aux différents niveaux organisationnels et secteurs, avec des modules spécifiques pour les PME",
+      "type": "Humain/Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol111": {
+      "id": "sol111",
+      "nom": "Développement des compétences locales en cybersécurité via partenariats universités-entreprises",
+      "description": "Créer des partenariats entre universités et entreprises pour développer des compétences locales en cybersécurité et faciliter l'insertion professionnelle",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol112": {
+      "id": "sol112",
+      "nom": "Harmonisation des cadres réglementaires entre les différents textes",
+      "description": "Rechercher une plus grande harmonisation entre les différents cadres réglementaires (loi 05-20, loi 09-08, DNSSI) pour éviter les contradictions et faciliter la mise en conformité",
+      "type": "Légal/Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 6.4",
+      "exemples_outils": []
+    },
+    "sol113": {
+      "id": "sol113",
+      "nom": "Mise en place d'un processus structuré de révision des référentiels nationaux",
+      "description": "Établir un cycle de révision régulier des normes et référentiels marocains, aligné sur les standards internationaux (ISO 27001, NIST)",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 6.3",
+      "exemples_outils": []
+    },
+    "sol114": {
+      "id": "sol114",
+      "nom": "Développement de référentiels couvrant les domaines émergents",
+      "description": "Mettre à jour les référentiels marocains pour couvrir les domaines émergents (IA, machine learning, cloud, IoT)",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 6.3",
+      "exemples_outils": []
+    },
+    "sol115": {
+      "id": "sol115",
+      "nom": "Culture de la cybersécurité comme priorité stratégique",
+      "description": "Créer une culture où la sécurité des systèmes d'information devient une priorité stratégique pour toutes les organisations marocaines",
+      "type": "Humain/Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol116": {
+      "id": "sol116",
+      "nom": "Approche sectorielle différenciée pour la gestion des risques SI",
+      "description": "Adopter une approche par secteur, reconnaissant les différences de maturité et de besoins entre les secteurs de l'économie marocaine",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol117": {
+      "id": "sol117",
+      "nom": "Renforcement des mécanismes de contrôle et d'audit",
+      "description": "Améliorer les processus de contrôle et d'audit pour assurer une meilleure conformité aux exigences réglementaires",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol118": {
+      "id": "sol118",
+      "nom": "Promotion de la recherche académique sur le management des risques SI au Maroc",
+      "description": "Stimuler la recherche académique et appliquée sur le management des risques SI dans le contexte marocain",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
+    },
+    "sol119": {
+      "id": "sol119",
+      "nom": "Collaboration public-privé renforcée pour le partage des bonnes pratiques",
+      "description": "Renforcer la collaboration entre les organismes gouvernementaux (DGSSI) et le secteur privé pour partager les meilleures pratiques et les informations sur les menaces",
+      "type": "Organisationnel",
+      "prerequis": "Portage politique/managérial, vision à moyen-long terme",
+      "benefices": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre",
+      "difficultes": "Résultats lents à mesurer, nécessite un engagement au niveau national ou de la direction générale, pas seulement de l'IT",
+      "notes": "Solution de nature socio-organisationnelle (contexte marocain), complémentaire aux mesures techniques",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9",
+      "exemples_outils": []
     }
   }
 }
