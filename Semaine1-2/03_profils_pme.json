@@ -1774,27 +1774,4 @@
         "La CNDP applique des sanctions renforcées pour le secteur santé"
       ]
     },
-    "pme041": {
-      "id": "pme041",
-      "type_profil": "fictif_representatif",
-      "nom": "Maroc Smart City Solutions",
-      "secteur": "Smart Cities / IoT Urbain",
-      "ville": "Casablanca",
-      "nb_employes": 45,
-      "maturite_it": "Bonne (IT) / Moyenne (IoT)",
-      "budget_cyber_dedie": true,
-      "infrastructure_it": {
-        "equipe_it": "4 personnes (IT + IoT)",
-        "outils": [
-          "Plateforme de gestion urbaine",
-          "Capteurs IoT (éclairage, parking, etc.)",
-          "SCADA"
-        ],
-        "backup": "Automatisée"
-      },
-      "donnees_traitees": [
-        "Données de la ville (trafic, éclairage)",
-        "Données citoyens (anonymisées)",
-        "Données de gestion des services"
-      ],
-      "risques_principaux": [
+ 
