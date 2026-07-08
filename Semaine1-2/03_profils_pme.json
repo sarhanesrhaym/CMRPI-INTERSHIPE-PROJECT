@@ -375,8 +375,7 @@
         "r079",
         "r081",
         "r082",
-        "r088",
-        "r096"
+        "r088"
       ],
       "compliance": "Sécurité des systèmes OT (référentiel IEC 62443), conformité douane/export",
       "description": "Profil représentatif des industries 4.0 marocaines : systèmes OT connectés créant des risques de cyberattaque sur la production.",
@@ -1218,8 +1217,7 @@
         "r075",
         "r081",
         "r082",
-        "r084",
-        "r097"
+        "r084"
       ],
       "compliance": "Données personnelles (badges, occupants), sécurité des systèmes GTB",
       "description": "Profil des entreprises de gestion immobilière avec bâtiments connectés : systèmes GTB et IoT créent des surfaces d'attaque importantes.",
