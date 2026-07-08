@@ -175,6 +175,1626 @@
         "Seulement 23% des PME marocaines avaient initié un processus de digitalisation structuré en 2025 (HCP, cité par clarodigi.com, 2026)",
         "Moins de 15% des PME marocaines ont un budget cybersécurité dédié (CGEM, 2025)"
       ]
-    }
-  }
-}
+    },
+    "pme006": {
+      "id": "pme006",
+      "type_profil": "fictif_representatif",
+      "nom": "Casanet Consulting",
+      "secteur": "Services IT / Conseil",
+      "ville": "Casablanca",
+      "nb_employes": 35,
+      "maturite_it": "Bonne",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "3 ingénieurs (système, réseau, sécurité)",
+        "outils": [
+          "Serveurs cloud",
+          "Environnements de développement et production séparés",
+          "VPN pour télétravail"
+        ],
+        "backup": "Automatisée quotidienne + hors-site"
+      },
+      "donnees_traitees": [
+        "Données clients sensibles",
+        "Code source propriétaire",
+        "Bases de données clients"
+      ],
+      "risques_principaux": [
+        "r002",
+        "r004",
+        "r013",
+        "r019",
+        "r020",
+        "r040",
+        "r042"
+      ],
+      "compliance": "Loi 09-08, obligations contractuelles clients (clauses de confidentialité)",
+      "description": "Profil représentatif des entreprises du secteur IT/conseil : elles ont une maturité technique mais sont très exposées car leurs données (code, bases clients) ont une forte valeur marchande.",
+      "sources_statistiques": [
+        "Les secteurs IT et conseil sont parmi les plus ciblés par le vol de propriété intellectuelle",
+        "Une fuite de code source coûte en moyenne 500 000 MAD en perte de compétitivité"
+      ]
+    },
+    "pme007": {
+      "id": "pme007",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Agri Solutions",
+      "secteur": "Agriculture / Agroalimentaire",
+      "ville": "Meknès",
+      "nb_employes": 45,
+      "maturite_it": "Faible à Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Logiciel de traçabilité",
+          "Capteurs IoT (irrigation, température)"
+        ],
+        "backup": "Manuelle, irrégulière"
+      },
+      "donnees_traitees": [
+        "Données de production agricole",
+        "Données clients (distributeurs)",
+        "Données fournisseurs (intrants)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r073",
+        "r074",
+        "r075",
+        "r081",
+        "r082"
+      ],
+      "compliance": "Traçabilité obligatoire (loi sur la sécurité sanitaire), données personnelles employés",
+      "description": "Profil émergent : l'agriculture marocaine se digitalise avec des capteurs IoT et des logiciels de traçabilité. Les systèmes IoT créent de nouvelles surfaces d'attaque.",
+      "sources_statistiques": [
+        "L'agriculture marocaine connaît une digitalisation rapide avec l'IoT (capteurs, drones)",
+        "Les systèmes IoT sont souvent mal sécurisés (mots de passe par défaut, protocoles non chiffrés)"
+      ]
+    },
+    "pme008": {
+      "id": "pme008",
+      "type_profil": "fictif_representatif",
+      "nom": "ÉcoLogistique Maroc",
+      "secteur": "Transport / Logistique",
+      "ville": "Tanger",
+      "nb_employes": 80,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "2 personnes (support + admin)",
+        "outils": [
+          "Système de gestion de flotte (GPS)",
+          "ERP logistique",
+          "Portail clients/fournisseurs"
+        ],
+        "backup": "Quotidienne automatisée"
+      },
+      "donnees_traitees": [
+        "Données clients (marchandises)",
+        "Données fournisseurs",
+        "Données de géolocalisation (véhicules, chauffeurs)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r017",
+        "r028",
+        "r029",
+        "r036"
+      ],
+      "compliance": "Réglementation transport (GPS, traçabilité), données personnelles chauffeurs",
+      "description": "Profil représentatif du secteur Transport/Logistique : flux financiers importants, équipes mobiles, systèmes de géolocalisation créant des données sensibles.",
+      "sources_statistiques": [
+        "Le secteur du transport est une cible privilégiée pour les ransomwares (arrêt de la flotte)",
+        "Le BEC (fraude au président) est fréquent dans la logistique"
+      ]
+    },
+    "pme009": {
+      "id": "pme009",
+      "type_profil": "fictif_representatif",
+      "nom": "Studio Créatif Plus",
+      "secteur": "Culture / Création / Audiovisuel",
+      "ville": "Casablanca",
+      "nb_employes": 15,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalent)",
+        "outils": [
+          "Postes de travail créatifs (Mac)",
+          "Serveur de stockage partagé (NAS)",
+          "Cloud pour échanges de fichiers"
+        ],
+        "backup": "Irrégulière"
+      },
+      "donnees_traitees": [
+        "Créations (logos, vidéos, maquettes)",
+        "Données clients",
+        "Propriété intellectuelle"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r009",
+        "r013",
+        "r019",
+        "r027",
+        "r033"
+      ],
+      "compliance": "Propriété intellectuelle, confidentialité clients",
+      "description": "Profil représentatif des entreprises créatives : propriété intellectuelle de grande valeur mais pratiques de partage de fichiers risquées.",
+      "sources_statistiques": [
+        "Les agences créatives sont fréquemment ciblées par des ransomwares",
+        "L'utilisation de cloud grand public est très répandue dans ce secteur"
+      ]
+    },
+    "pme010": {
+      "id": "pme010",
+      "type_profil": "fictif_representatif",
+      "nom": "Smart Factory Meknès",
+      "secteur": "Industrie 4.0 / Automatisation",
+      "ville": "Meknès",
+      "nb_employes": 120,
+      "maturite_it": "Bonne (IT) / Moyenne (OT)",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "5 personnes (IT + OT)",
+        "outils": [
+          "Automates (PLC)",
+          "SCADA",
+          "ERP industriel",
+          "Capteurs IoT (maintenance prédictive)"
+        ],
+        "backup": "Automatisée + hors-site pour données IT et OT"
+      },
+      "donnees_traitees": [
+        "Données de production (OT)",
+        "Données clients/fournisseurs",
+        "Données de maintenance (IoT)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r013",
+        "r022",
+        "r029",
+        "r073",
+        "r074",
+        "r075",
+        "r076",
+        "r078",
+        "r079",
+        "r081",
+        "r082",
+        "r088",
+        "r096"
+      ],
+      "compliance": "Sécurité des systèmes OT (référentiel IEC 62443), conformité douane/export",
+      "description": "Profil représentatif des industries 4.0 marocaines : systèmes OT connectés créant des risques de cyberattaque sur la production.",
+      "sources_statistiques": [
+        "Les cyberattaques sur les systèmes OT ont augmenté de 47% en 2025",
+        "Plus de 60% des industriels n'ont pas de plan de continuité OT"
+      ]
+    },
+    "pme011": {
+      "id": "pme011",
+      "type_profil": "fictif_representatif",
+      "nom": "Cabinet BTP Casablanca",
+      "secteur": "BTP / Ingénierie",
+      "ville": "Casablanca",
+      "nb_employes": 30,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, prestataire externe",
+        "outils": [
+          "Logiciel de gestion de chantier",
+          "Suite bureautique",
+          "Messagerie professionnelle"
+        ],
+        "backup": "Manuelle, irrégulière"
+      },
+      "donnees_traitees": [
+        "Plans et devis",
+        "Données clients (maîtres d'ouvrage)",
+        "Données financières"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r017",
+        "r022",
+        "r025",
+        "r028"
+      ],
+      "compliance": "Obligations contractuelles clients, données personnelles employés",
+      "description": "Profil représentatif du BTP : délais serrés, équipes mobiles, plans sensibles. La fraude au virement bancaire est très fréquente.",
+      "sources_statistiques": [
+        "Le BTP est le secteur le plus touché par la fraude aux virements bancaires en 2025",
+        "Un cabinet d'ingénierie sur deux a été victime d'une tentative de fraude au président"
+      ]
+    },
+    "pme012": {
+      "id": "pme012",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Formation & Conseil",
+      "secteur": "Éducation / Formation",
+      "ville": "Rabat",
+      "nb_employes": 20,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, prestataire externe",
+        "outils": [
+          "Plateforme de formation en ligne (LMS)",
+          "Gestion des inscriptions",
+          "Messagerie"
+        ],
+        "backup": "Irrégulière"
+      },
+      "donnees_traitees": [
+        "Données élèves (identité, résultats)",
+        "Données formateurs",
+        "Contenus pédagogiques (propriété intellectuelle)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r006",
+        "r009",
+        "r014",
+        "r020",
+        "r021",
+        "r036"
+      ],
+      "compliance": "Loi 09-08 (données élèves = données personnelles), droits d'auteur sur contenus",
+      "description": "Profil représentatif du secteur Éducation : données sensibles (élèves, résultats) et contenus pédagogiques de valeur.",
+      "sources_statistiques": [
+        "Les établissements de formation sont de plus en plus ciblés par les cyberattaques",
+        "La digitalisation de la formation (e-learning) augmente la surface d'attaque"
+      ]
+    },
+    "pme013": {
+      "id": "pme013",
+      "type_profil": "fictif_representatif",
+      "nom": "Énergie Maroc Distribution",
+      "secteur": "Énergie / Services publics",
+      "ville": "Casablanca",
+      "nb_employes": 40,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "2 personnes",
+        "outils": [
+          "SCADA énergie",
+          "ERP",
+          "Capteurs sur réseaux"
+        ],
+        "backup": "Quotidienne automatisée"
+      },
+      "donnees_traitees": [
+        "Données de production d'énergie",
+        "Données clients (abonnés)",
+        "Données de surveillance des réseaux"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r013",
+        "r022",
+        "r029",
+        "r073",
+        "r074",
+        "r081",
+        "r082",
+        "r085",
+        "r093"
+      ],
+      "compliance": "Secteur critique (énergie), obligations réglementaires renforcées",
+      "description": "Profil représentatif des PME du secteur de l'énergie. Systèmes OT (SCADA) critiques nécessitant une protection renforcée.",
+      "sources_statistiques": [
+        "Les secteurs de l'énergie sont classés comme infrastructures d'importance vitale (loi 05-20)",
+        "Les attaques sur les systèmes SCADA sont en hausse (ITU, 2025)"
+      ]
+    },
+    "pme014": {
+      "id": "pme014",
+      "type_profil": "fictif_representatif",
+      "nom": "Startup Fintech Casablanca",
+      "secteur": "Fintech / Innovation",
+      "ville": "Casablanca",
+      "nb_employes": 15,
+      "maturite_it": "Bonne",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "2 développeurs + 1 admin",
+        "outils": [
+          "Infrastructure cloud (AWS)",
+          "CI/CD",
+          "Base de données chiffrée",
+          "MFA sur tous les comptes"
+        ],
+        "backup": "Automatisée et géo-redondante"
+      },
+      "donnees_traitees": [
+        "Données financières clients",
+        "Identités (KYC)",
+        "Transactions en temps réel"
+      ],
+      "risques_principaux": [
+        "r002",
+        "r016",
+        "r017",
+        "r025",
+        "r027",
+        "r040",
+        "r041",
+        "r042",
+        "r045",
+        "r046",
+        "r048"
+      ],
+      "compliance": "Régulation financière, loi 09-08, PCI-DSS (paiements)",
+      "description": "Profil représentatif des fintech marocaines : maturité technique élevée mais surface d'attaque importante (API, transactions financières).",
+      "sources_statistiques": [
+        "Le secteur fintech connaît une croissance de 35% par an au Maroc",
+        "Les fintech sont les cibles privilégiées des attaques par ransomware"
+      ]
+    },
+    "pme015": {
+      "id": "pme015",
+      "type_profil": "fictif_representatif",
+      "nom": "Hôtel Atlas Boutique",
+      "secteur": "Tourisme / Hôtellerie",
+      "ville": "Marrakech",
+      "nb_employes": 25,
+      "maturite_it": "Très Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, gestion par la réception",
+        "outils": [
+          "Logiciel de réservation",
+          "Gestion des paiements",
+          "Wi-Fi clients"
+        ],
+        "backup": "Aucune"
+      },
+      "donnees_traitees": [
+        "Données clients (identité, paiements)",
+        "Données employés"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r006",
+        "r007",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r021"
+      ],
+      "compliance": "Loi 09-08 (données clients), sécurité des paiements (PCI-DSS)",
+      "description": "Profil représentatif du secteur Tourisme/Hôtellerie : rotation rapide des clients, Wi-Fi ouvert, paiements fréquents.",
+      "sources_statistiques": [
+        "Le tourisme représente 7% du PIB marocain",
+        "Les hôtels sont une cible privilégiée pour les ransomwares"
+      ]
+    },
+    "pme016": {
+      "id": "pme016",
+      "type_profil": "fictif_representatif",
+      "nom": "Pharmacie Al Badr",
+      "secteur": "Pharmacie / Santé",
+      "ville": "Casablanca",
+      "nb_employes": 8,
+      "maturite_it": "Très Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, pharmacien gère",
+        "outils": [
+          "Logiciel de gestion de pharmacie",
+          "Terminal de paiement",
+          "Messagerie professionnelle"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données patients (ordonnances)",
+        "Données de santé (médicaments)",
+        "Données financières"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r021",
+        "r025",
+        "r027"
+      ],
+      "compliance": "Loi 09-08 (données de santé = catégorie sensible)",
+      "description": "Profil représentatif des pharmacies marocaines : données de santé très sensibles mais maturité IT très faible.",
+      "sources_statistiques": [
+        "Le secteur de la santé est le plus ciblé par les ransomwares en 2026",
+        "Les pharmacies sont des cibles de plus en plus fréquentes"
+      ]
+    },
+    "pme017": {
+      "id": "pme017",
+      "type_profil": "fictif_representatif",
+      "nom": "Cabinet Avocats Maroc",
+      "secteur": "Services Juridiques",
+      "ville": "Rabat",
+      "nb_employes": 10,
+      "maturite_it": "Très Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, secrétaire gère",
+        "outils": [
+          "Logiciel de gestion de dossiers",
+          "Messagerie professionnelle",
+          "Stockage cloud grand public"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Dossiers juridiques sensibles",
+        "Données clients (identité, affaires)",
+        "Échanges confidentiels (avocat-client)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r015",
+        "r017",
+        "r019",
+        "r021",
+        "r033"
+      ],
+      "compliance": "Secret professionnel (avocat-client), loi 09-08",
+      "description": "Profil représentatif des cabinets d'avocats : le secret professionnel est un enjeu majeur, mais les pratiques de cybersécurité sont souvent très faibles.",
+      "sources_statistiques": [
+        "Les cabinets juridiques sont de plus en plus ciblés par les attaques",
+        "Le secret professionnel est menacé par les cyberattaques"
+      ]
+    },
+    "pme018": {
+      "id": "pme018",
+      "type_profil": "fictif_representatif",
+      "nom": "École Privée Atlas",
+      "secteur": "Éducation / Enseignement",
+      "ville": "Casablanca",
+      "nb_employes": 40,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Logiciel de gestion scolaire",
+          "Portail élèves/parents",
+          "Messagerie"
+        ],
+        "backup": "Irrégulière"
+      },
+      "donnees_traitees": [
+        "Données élèves (identité, résultats, santé)",
+        "Données parents",
+        "Données enseignants"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r021",
+        "r025",
+        "r027"
+      ],
+      "compliance": "Loi 09-08 (données élèves = données personnelles, dont données de santé)",
+      "description": "Profil représentatif des écoles privées marocaines : données sensibles (élèves mineurs, résultats, santé) avec équipes IT réduites.",
+      "sources_statistiques": [
+        "Les établissements scolaires sont des cibles de plus en plus fréquentes",
+        "Les ransomwares peuvent paralyser les établissements"
+      ]
+    },
+    "pme019": {
+      "id": "pme019",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc E-commerce Express",
+      "secteur": "E-commerce",
+      "ville": "Casablanca",
+      "nb_employes": 8,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 développeur web",
+        "outils": [
+          "Site e-commerce (Prestashop)",
+          "Plateforme de paiement en ligne",
+          "CRM"
+        ],
+        "backup": "Automatisée pour le site"
+      },
+      "donnees_traitees": [
+        "Données clients (identité, paiements)",
+        "Données produits",
+        "Données de paiement (PCI-DSS)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r018",
+        "r019",
+        "r020",
+        "r021",
+        "r035",
+        "r036",
+        "r048"
+      ],
+      "compliance": "PCI-DSS (paiements), loi 09-08 (données clients)",
+      "description": "Profil représentatif des PME e-commerce marocaines : activité 100% en ligne, cible privilégiée avec moyens souvent limités.",
+      "sources_statistiques": [
+        "Le e-commerce marocain a augmenté de 30% en 2025",
+        "Les sites e-commerce sont la première cible des cyberattaques"
+      ]
+    },
+    "pme020": {
+      "id": "pme020",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Presse & Édition",
+      "secteur": "Médias / Communication",
+      "ville": "Rabat",
+      "nb_employes": 25,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Site web d'actualité (CMS)",
+          "Messagerie",
+          "Stockage cloud"
+        ],
+        "backup": "Automatisée pour le site"
+      },
+      "donnees_traitees": [
+        "Données journalistes",
+        "Contenus éditoriaux (propriété intellectuelle)",
+        "Données sources (confidentialité)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r015",
+        "r017",
+        "r019",
+        "r020",
+        "r021",
+        "r035",
+        "r036",
+        "r038",
+        "r048"
+      ],
+      "compliance": "Droit d'auteur, loi 09-08 (données personnelles journalistes/sources)",
+      "description": "Profil représentatif des médias marocains : protection des sources, intégrité de l'information et propriété intellectuelle sont des enjeux majeurs.",
+      "sources_statistiques": [
+        "Les médias sont des cibles pour des attaques de désinformation et de défiguration de site",
+        "Le vol de contenu est un risque majeur pour les éditeurs en ligne"
+      ]
+    },
+    "pme021": {
+      "id": "pme021",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Auto Parts",
+      "secteur": "Automobile / Pièces détachées",
+      "ville": "Casablanca",
+      "nb_employes": 35,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, prestataire externe",
+        "outils": [
+          "Logiciel de gestion de stock",
+          "Système de commande fournisseurs",
+          "Messagerie"
+        ],
+        "backup": "Irrégulière"
+      },
+      "donnees_traitees": [
+        "Données clients (mécaniciens)",
+        "Données fournisseurs (références, prix)",
+        "Flux financiers"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r017",
+        "r022",
+        "r025",
+        "r028"
+      ],
+      "compliance": "Loi 09-08 (données clients), obligations fiscales",
+      "description": "Profil représentatif du secteur automobile pièces détachées : flux financiers importants, gestion de stock critique, mais maturité IT souvent faible.",
+      "sources_statistiques": [
+        "Le secteur automobile est un pilier de l'industrie marocaine",
+        "Les PME du secteur sont des cibles pour les ransomwares"
+      ]
+    },
+    "pme022": {
+      "id": "pme022",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Pharma Distribution",
+      "secteur": "Distribution pharmaceutique",
+      "ville": "Casablanca",
+      "nb_employes": 15,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, gérant gère",
+        "outils": [
+          "Logiciel de gestion de stock pharma",
+          "Messagerie"
+        ],
+        "backup": "Non systématique"
+      },
+      "donnees_traitees": [
+        "Données clients (pharmaciens)",
+        "Données médicaments (traçabilité)",
+        "Données financières"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r021",
+        "r027"
+      ],
+      "compliance": "Loi 09-08 (données clients), traçabilité médicaments (obligation légale)",
+      "description": "Profil des grossistes pharmaceutiques : traçabilité obligatoire, données sensibles (médicaments), mais équipes IT réduites.",
+      "sources_statistiques": [
+        "La distribution pharmaceutique est un secteur stratégique",
+        "Les données de traçabilité sont très sensibles"
+      ]
+    },
+    "pme023": {
+      "id": "pme023",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Web Agency",
+      "secteur": "Agence digitale / Marketing",
+      "ville": "Casablanca",
+      "nb_employes": 12,
+      "maturite_it": "Bonne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 développeur + 1 admin",
+        "outils": [
+          "Nombreux sites clients (hébergement)",
+          "Gestion de contenu (CMS)",
+          "Messagerie"
+        ],
+        "backup": "Automatisée"
+      },
+      "donnees_traitees": [
+        "Sites web clients",
+        "Données clients (campagnes)",
+        "Mots de passe et accès clients"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r019",
+        "r020",
+        "r035",
+        "r036",
+        "r048"
+      ],
+      "compliance": "Responsabilité contractuelle vis-à-vis des clients (sécurité des sites hébergés)",
+      "description": "Profil des agences web marocaines : gèrent des sites clients, une compromission peut affecter plusieurs entreprises simultanément.",
+      "sources_statistiques": [
+        "Les agences web sont des vecteurs d'attaque indirects (compromission d'un prestataire = compromission de tous ses clients)",
+        "La sécurité des sites hébergés est une responsabilité majeure"
+      ]
+    },
+    "pme024": {
+      "id": "pme024",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Assurance Services",
+      "secteur": "Assurance / Courtage",
+      "ville": "Casablanca",
+      "nb_employes": 28,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "1 administrateur système",
+        "outils": [
+          "Logiciel de gestion de contrats",
+          "CRM",
+          "Messagerie sécurisée"
+        ],
+        "backup": "Quotidienne"
+      },
+      "donnees_traitees": [
+        "Données clients (assurés)",
+        "Contrats d'assurance",
+        "Données financières (primes, sinistres)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r021",
+        "r022",
+        "r025",
+        "r027"
+      ],
+      "compliance": "Loi 09-08 (données clients), régulation sectorielle (ACAPS)",
+      "description": "Profil représentatif des cabinets de courtage d'assurance : données financières et personnelles sensibles, avec une maturité IT moyenne.",
+      "sources_statistiques": [
+        "Le secteur de l'assurance est soumis à une régulation stricte",
+        "Les données de sinistres sont très sensibles"
+      ]
+    },
+    "pme025": {
+      "id": "pme025",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Comptabilité & Audit",
+      "secteur": "Expertise comptable / Audit",
+      "ville": "Casablanca",
+      "nb_employes": 15,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, secrétariat gère",
+        "outils": [
+          "Logiciel de comptabilité",
+          "Messagerie professionnelle",
+          "Stockage cloud"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données financières clients (comptes)",
+        "Déclarations fiscales",
+        "Données personnelles (salariés des clients)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r015",
+        "r017",
+        "r019",
+        "r020",
+        "r021",
+        "r027",
+        "r033",
+        "r044"
+      ],
+      "compliance": "Secret professionnel (expert-comptable), loi 09-08 (données personnelles)",
+      "description": "Profil des cabinets d'expertise comptable : accès à des données financières très sensibles, mais pratiques de sécurité souvent faibles.",
+      "sources_statistiques": [
+        "Les cabinets d'expertise comptable sont des cibles privilégiées pour le vol de données financières",
+        "La fuite de données comptables peut être catastrophique pour les clients"
+      ]
+    },
+    "pme026": {
+      "id": "pme026",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Immobilier Conseil",
+      "secteur": "Immobilier",
+      "ville": "Casablanca",
+      "nb_employes": 12,
+      "maturite_it": "Très Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune",
+        "outils": [
+          "Logiciel de gestion de biens",
+          "Messagerie"
+        ],
+        "backup": "Aucune"
+      },
+      "donnees_traitees": [
+        "Données clients (acheteurs, vendeurs)",
+        "Données financières (transactions)",
+        "Documents juridiques (actes)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r021",
+        "r027",
+        "r033"
+      ],
+      "compliance": "Loi 09-08 (données clients), obligations de confidentialité",
+      "description": "Profil des agences immobilières : données financières et personnelles, transactions importantes, mais maturité IT souvent très faible.",
+      "sources_statistiques": [
+        "Le secteur immobilier est une cible pour les fraudes aux virements bancaires (acquisitions)",
+        "Les agences immobilières stockent des données très sensibles"
+      ]
+    },
+    "pme027": {
+      "id": "pme027",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Ship & Logistics",
+      "secteur": "Transport maritime / Logistique",
+      "ville": "Tanger-Med",
+      "nb_employes": 70,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "2 personnes",
+        "outils": [
+          "Système de suivi de conteneurs",
+          "ERP logistique",
+          "Portail clients"
+        ],
+        "backup": "Quotidienne"
+      },
+      "donnees_traitees": [
+        "Données de fret (conteneurs)",
+        "Données clients (import/export)",
+        "Données douanières"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r017",
+        "r022",
+        "r028",
+        "r029",
+        "r036"
+      ],
+      "compliance": "Réglementation douanière, traçabilité des marchandises",
+      "description": "Profil des entreprises de transport maritime/logistique : données de fret critiques, enjeux douaniers, équipes mobiles.",
+      "sources_statistiques": [
+        "Tanger-Med est un hub stratégique, les données douanières sont très sensibles",
+        "Les attaques par ransomware peuvent bloquer des conteneurs"
+      ]
+    },
+    "pme028": {
+      "id": "pme028",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Retail Express",
+      "secteur": "Grande distribution / Retail",
+      "ville": "Casablanca",
+      "nb_employes": 200,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "3 personnes",
+        "outils": [
+          "ERP retail",
+          "Gestion de stocks",
+          "Gestion des paiements",
+          "Programme de fidélité"
+        ],
+        "backup": "Quotidienne"
+      },
+      "donnees_traitees": [
+        "Données clients (fidélité)",
+        "Données de paiement (CB)",
+        "Données fournisseurs",
+        "Données stocks"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r019",
+        "r020",
+        "r021",
+        "r022",
+        "r025",
+        "r027",
+        "r033",
+        "r044",
+        "r048"
+      ],
+      "compliance": "PCI-DSS (paiements), loi 09-08 (données clients), conformité fiscale",
+      "description": "Profil des PME du secteur retail (chaînes de magasins) : données clients et paiements en masse, surfaces d'attaque nombreuses (points de vente, e-commerce).",
+      "sources_statistiques": [
+        "Les données de fidélité clients sont très prisées par les cybercriminels",
+        "Les paiements en magasin et en ligne sont des cibles privilégiées"
+      ]
+    },
+    "pme029": {
+      "id": "pme029",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Smart Building",
+      "secteur": "Immobilier / Bâtiments connectés",
+      "ville": "Casablanca",
+      "nb_employes": 30,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Systèmes de gestion technique du bâtiment (GTB)",
+          "Capteurs IoT (éclairage, clim)",
+          "Gestion des accès (badges)"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données de gestion des bâtiments",
+        "Données des occupants (badges)",
+        "Données de consommation énergétique"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r029",
+        "r073",
+        "r074",
+        "r075",
+        "r081",
+        "r082",
+        "r084",
+        "r097"
+      ],
+      "compliance": "Données personnelles (badges, occupants), sécurité des systèmes GTB",
+      "description": "Profil des entreprises de gestion immobilière avec bâtiments connectés : systèmes GTB et IoT créent des surfaces d'attaque importantes.",
+      "sources_statistiques": [
+        "Les bâtiments connectés sont de plus en plus nombreux au Maroc",
+        "Les systèmes GTB sont souvent mal sécurisés (mots de passe par défaut)"
+      ]
+    },
+    "pme030": {
+      "id": "pme030",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc E-Santé Solutions",
+      "secteur": "Santé / Télémédecine",
+      "ville": "Casablanca",
+      "nb_employes": 15,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 développeur + 1 admin",
+        "outils": [
+          "Plateforme de télémédecine",
+          "Base de données patients",
+          "Messagerie sécurisée"
+        ],
+        "backup": "Automatisée"
+      },
+      "donnees_traitees": [
+        "Dossiers médicaux (consultations à distance)",
+        "Données personnelles patients",
+        "Données de santé (catégorie sensible)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r018",
+        "r019",
+        "r020",
+        "r021",
+        "r025",
+        "r027",
+        "r036",
+        "r040",
+        "r041",
+        "r042",
+        "r048"
+      ],
+      "compliance": "Loi 09-08 (données de santé = catégorie sensible), régulation e-santé",
+      "description": "Profil des startups de télémédecine : données de santé très sensibles, plateformes en ligne, enjeux de conformité majeurs.",
+      "sources_statistiques": [
+        "La télémédecine est en forte croissance au Maroc",
+        "Les données de santé sont les plus chères sur le marché noir"
+      ]
+    },
+    "pme031": {
+      "id": "pme031",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Formation & E-Learning",
+      "secteur": "Éducation / Digital Learning",
+      "ville": "Rabat",
+      "nb_employes": 15,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 développeur + 1 admin",
+        "outils": [
+          "Plateforme LMS (Moodle)",
+          "Création de contenus (vidéos)",
+          "Messagerie"
+        ],
+        "backup": "Automatisée"
+      },
+      "donnees_traitees": [
+        "Données apprenants (identité, progression)",
+        "Contenus pédagogiques (propriété intellectuelle)",
+        "Données formateurs"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r019",
+        "r020",
+        "r021",
+        "r025",
+        "r027",
+        "r033",
+        "r035",
+        "r036",
+        "r040",
+        "r041",
+        "r042",
+        "r048"
+      ],
+      "compliance": "Loi 09-08 (données apprenants), droits d'auteur sur contenus",
+      "description": "Profil des entreprises de e-learning : contenus pédagogiques de valeur, données apprenants sensibles, plateformes en ligne.",
+      "sources_statistiques": [
+        "Le e-learning a explosé au Maroc avec la digitalisation de la formation",
+        "Les contenus pédagogiques sont une propriété intellectuelle précieuse"
+      ]
+    },
+    "pme032": {
+      "id": "pme032",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Event & Tech",
+      "secteur": "Événementiel / Technologies événementielles",
+      "ville": "Casablanca",
+      "nb_employes": 20,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, prestataire externe",
+        "outils": [
+          "Plateforme de billetterie en ligne",
+          "Gestion de participants",
+          "Messagerie"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données participants (identité, paiements)",
+        "Données financières (billetterie)",
+        "Données de satisfaction"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r018",
+        "r020",
+        "r021",
+        "r035",
+        "r036",
+        "r048"
+      ],
+      "compliance": "Loi 09-08 (données participants), sécurité des paiements (PCI-DSS)",
+      "description": "Profil des agences événementielles digitalisées : billetterie en ligne, données participants, pic d'activité pendant les événements.",
+      "sources_statistiques": [
+        "L'événementiel digital est en plein essor",
+        "Les pics de trafic sont des moments critiques pour la sécurité"
+      ]
+    },
+    "pme033": {
+      "id": "pme033",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Logistique Froide",
+      "secteur": "Transport / Logistique tempérée",
+      "ville": "Casablanca",
+      "nb_employes": 55,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Système de suivi de la chaîne du froid (IoT)",
+          "ERP logistique",
+          "Messagerie"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données de température (chaîne du froid)",
+        "Données clients (produits sensibles)",
+        "Données fournisseurs"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r022",
+        "r028",
+        "r029",
+        "r073",
+        "r074",
+        "r075",
+        "r081",
+        "r082"
+      ],
+      "compliance": "Traçabilité des produits sensibles (alimentaire, pharma), sécurité sanitaire",
+      "description": "Profil des entreprises de logistique frigorifique : données de température critiques, sécurité sanitaire en jeu, IoT.",
+      "sources_statistiques": [
+        "La chaîne du froid est stratégique pour l'alimentaire et la pharmacie",
+        "Une rupture de la chaîne du froid peut avoir des conséquences sanitaires"
+      ]
+    },
+    "pme034": {
+      "id": "pme034",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Drone Services",
+      "secteur": "Technologie / Drones / Aérien",
+      "ville": "Casablanca",
+      "nb_employes": 12,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Logiciel de planification de vols drones",
+          "Gestion des images et données aériennes",
+          "Messagerie"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données aériennes (images, cartographie)",
+        "Données clients (projets)",
+        "Données de vol (GPS, paramètres)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r019",
+        "r020",
+        "r021",
+        "r025",
+        "r027",
+        "r033",
+        "r036"
+      ],
+      "compliance": "Régulation aérienne (DGAC), données personnelles (imagerie)",
+      "description": "Profil des sociétés de services drones : données aériennes sensibles, enjeux de confidentialité, régulation spécifique.",
+      "sources_statistiques": [
+        "Le marché des drones est en forte croissance au Maroc",
+        "Les données aériennes peuvent être très sensibles (imagerie, cartographie)"
+      ]
+    },
+    "pme035": {
+      "id": "pme035",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc E-Transport Voyageurs",
+      "secteur": "Transport / Mobilité",
+      "ville": "Casablanca",
+      "nb_employes": 40,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Application de réservation",
+          "Gestion de flotte (GPS)",
+          "Messagerie"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données passagers (identité, paiements)",
+        "Données de géolocalisation (véhicules)",
+        "Données conducteurs"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r018",
+        "r020",
+        "r021",
+        "r022",
+        "r025",
+        "r027",
+        "r036"
+      ],
+      "compliance": "Loi 09-08 (données passagers), régulation des transports",
+      "description": "Profil des sociétés de transport de voyageurs digitalisées : applications de réservation, données passagers, géolocalisation.",
+      "sources_statistiques": [
+        "Les applications de mobilité sont en plein essor au Maroc",
+        "Les données de géolocalisation sont très sensibles"
+      ]
+    },
+    "pme036": {
+      "id": "pme036",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc FoodTech",
+      "secteur": "Agroalimentaire / FoodTech",
+      "ville": "Casablanca",
+      "nb_employes": 20,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "Aucune, prestataire externe",
+        "outils": [
+          "Site e-commerce alimentaire",
+          "Gestion des commandes",
+          "Messagerie"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données clients (identité, paiements)",
+        "Données commandes",
+        "Données de livraison"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r002",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r018",
+        "r019",
+        "r020",
+        "r021",
+        "r025",
+        "r027",
+        "r035",
+        "r036",
+        "r048"
+      ],
+      "compliance": "PCI-DSS (paiements), loi 09-08 (données clients), traçabilité alimentaire",
+      "description": "Profil des startups FoodTech : e-commerce alimentaire, paiements en ligne, livraison. Données clients sensibles.",
+      "sources_statistiques": [
+        "La FoodTech est un secteur en croissance au Maroc",
+        "Les données de livraison (adresses) sont très sensibles"
+      ]
+    },
+    "pme037": {
+      "id": "pme037",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc CleanTech",
+      "secteur": "Énergie / GreenTech",
+      "ville": "Casablanca",
+      "nb_employes": 25,
+      "maturite_it": "Faible",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 personne (polyvalente)",
+        "outils": [
+          "Systèmes de monitoring énergétique",
+          "Capteurs IoT",
+          "Messagerie"
+        ],
+        "backup": "Manuelle"
+      },
+      "donnees_traitees": [
+        "Données de consommation énergétique",
+        "Données clients (facturation)",
+        "Données de production (solaire, éolien)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r020",
+        "r021",
+        "r022",
+        "r029",
+        "r073",
+        "r074",
+        "r075",
+        "r081",
+        "r082"
+      ],
+      "compliance": "Régulation énergétique, loi 09-08 (données clients)",
+      "description": "Profil des startups CleanTech : données de consommation et production énergétiques, IoT, enjeux de disponibilité des données.",
+      "sources_statistiques": [
+        "La transition énergétique est une priorité au Maroc",
+        "Les données de production d'énergie sont stratégiques"
+      ]
+    },
+    "pme038": {
+      "id": "pme038",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Hub Digital",
+      "secteur": "Tiers-lieux / Coworking / Digital",
+      "ville": "Casablanca",
+      "nb_employes": 10,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "1 admin",
+        "outils": [
+          "Gestion des espaces de coworking",
+          "Réseau Wi-Fi partagé",
+          "Messagerie"
+        ],
+        "backup": "Quotidienne"
+      },
+      "donnees_traitees": [
+        "Données des coworkers (identité, paiements)",
+        "Données de connexion (Wi-Fi)",
+        "Données de gestion des espaces"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r007",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r019",
+        "r020",
+        "r021",
+        "r027",
+        "r029",
+        "r033",
+        "r036"
+      ],
+      "compliance": "Loi 09-08 (données des coworkers), obligation de sécurité des réseaux Wi-Fi",
+      "description": "Profil des espaces de coworking : réseaux Wi-Fi partagés, données de plusieurs entreprises hébergées, risques de compromission croisée.",
+      "sources_statistiques": [
+        "Les espaces de coworking se multiplient au Maroc",
+        "Un Wi-Fi non sécurisé expose tous les usagers"
+      ]
+    },
+    "pme039": {
+      "id": "pme039",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc CyberLab",
+      "secteur": "Recherche / Innovation / Cyber",
+      "ville": "Rabat",
+      "nb_employes": 15,
+      "maturite_it": "Bonne",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "2 chercheurs + 1 admin",
+        "outils": [
+          "Laboratoire de recherche en cybersécurité",
+          "Outils de test (virtualisation)",
+          "Messagerie sécurisée"
+        ],
+        "backup": "Automatisée"
+      },
+      "donnees_traitees": [
+        "Données de recherche (sensibles)",
+        "Outils de cybersécurité (exploits)",
+        "Données des partenaires"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r019",
+        "r020",
+        "r021",
+        "r025",
+        "r027",
+        "r029",
+        "r033",
+        "r034",
+        "r036",
+        "r040",
+        "r041",
+        "r042",
+        "r043",
+        "r045",
+        "r046",
+        "r050",
+        "r051",
+        "r052",
+        "r053",
+        "r054",
+        "r055"
+      ],
+      "compliance": "Loi 09-08, confidentialité de la recherche, régulation spécifique",
+      "description": "Profil des laboratoires de recherche en cybersécurité : données sensibles, outils de test, enjeux de confidentialité majeurs.",
+      "sources_statistiques": [
+        "La recherche en cybersécurité est un enjeu stratégique pour le Maroc",
+        "Les outils de test (exploits) sont très sensibles"
+      ]
+    },
+    "pme040": {
+      "id": "pme040",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Digital Health",
+      "secteur": "Santé / Technologies médicales",
+      "ville": "Casablanca",
+      "nb_employes": 30,
+      "maturite_it": "Moyenne",
+      "budget_cyber_dedie": false,
+      "infrastructure_it": {
+        "equipe_it": "2 personnes (IT + support)",
+        "outils": [
+          "Logiciel de gestion de cabinet médical",
+          "Base de données patients",
+          "Messagerie sécurisée"
+        ],
+        "backup": "Quotidienne"
+      },
+      "donnees_traitees": [
+        "Dossiers médicaux",
+        "Données personnelles patients",
+        "Données de santé (catégorie sensible)"
+      ],
+      "risques_principaux": [
+        "r001",
+        "r003",
+        "r004",
+        "r006",
+        "r009",
+        "r012",
+        "r014",
+        "r017",
+        "r018",
+        "r020",
+        "r021",
+        "r022",
+        "r025",
+        "r027",
+        "r033",
+        "r036",
+        "r044"
+      ],
+      "compliance": "Loi 09-08 (données de santé = catégorie sensible), obligations CNDP renforcées",
+      "description": "Profil des structures de santé digitalisées (cabinets, cliniques) : données de santé très sensibles, conformité CNDP renforcée.",
+      "sources_statistiques": [
+        "Les données de santé sont la cible numéro 1 des cybercriminels",
+        "La CNDP applique des sanctions renforcées pour le secteur santé"
+      ]
+    },
+    "pme041": {
+      "id": "pme041",
+      "type_profil": "fictif_representatif",
+      "nom": "Maroc Smart City Solutions",
+      "secteur": "Smart Cities / IoT Urbain",
+      "ville": "Casablanca",
+      "nb_employes": 45,
+      "maturite_it": "Bonne (IT) / Moyenne (IoT)",
+      "budget_cyber_dedie": true,
+      "infrastructure_it": {
+        "equipe_it": "4 personnes (IT + IoT)",
+        "outils": [
+          "Plateforme de gestion urbaine",
+          "Capteurs IoT (éclairage, parking, etc.)",
+          "SCADA"
+        ],
+        "backup": "Automatisée"
+      },
+      "donnees_traitees": [
+        "Données de la ville (trafic, éclairage)",
+        "Données citoyens (anonymisées)",
+        "Données de gestion des services"
+      ],
+      "risques_principaux": [
