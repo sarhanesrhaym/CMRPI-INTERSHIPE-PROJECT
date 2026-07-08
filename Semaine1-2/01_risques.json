@@ -382,6 +382,1419 @@
       "impact_potentiel": "Sanctions CNDP, atteinte réputationnelle, plaintes de personnes concernées",
       "notes": "Précise et complète le risque de conformité générale r005",
       "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r022": {
+      "id": "r022",
+      "nom": "Absence de plan de continuité et de reprise d'activité (PCA/PRA)",
+      "description": "Aucune analyse d'impact ni procédure formalisée pour maintenir ou reprendre l'activité après un sinistre ou une panne majeure du SI",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas d'analyse d'impact sur l'activité (BIA)",
+        "Pas de site ou solution de secours",
+        "Pas de test de reprise"
+      ],
+      "impact_potentiel": "Arrêt prolongé de l'activité après un incident majeur, incapacité à estimer le délai de reprise",
+      "notes": "Risque organisationnel de fond : sans PCA/PRA, même une bonne sauvegarde ne garantit pas une reprise rapide et maîtrisée",
+      "source_guide": "DGSSI/DNSSI - Chapitre Gestion de la continuité de l'activité (CONTINU-BIA, CONTINU-ACT)"
+    },
+    "r023": {
+      "id": "r023",
+      "nom": "Comptes utilisateurs non révoqués après départ d'un employé",
+      "description": "Un ancien employé ou prestataire conserve un accès actif aux systèmes après la fin de son contrat, faute de procédure formalisée",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de communication RH -> IT lors des départs",
+        "Pas d'inventaire des comptes actifs",
+        "Comptes génériques non tracés"
+      ],
+      "impact_potentiel": "Accès non autorisé, vol ou sabotage par un ancien collaborateur mécontent",
+      "notes": "Risque souvent sous-estimé, en particulier dans les petites structures sans processus RH formalisé",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des ressources humaines (RH-FIN-GEST)"
+    },
+    "r024": {
+      "id": "r024",
+      "nom": "Utilisation de logiciels sans licence valide",
+      "description": "Installation et usage de logiciels piratés ou sans licence officielle, exposant à des risques juridiques et de sécurité",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas d'inventaire des licences",
+        "Volonté de réduire les coûts logiciels",
+        "Téléchargement de versions piratées"
+      ],
+      "impact_potentiel": "Poursuites pour violation de propriété intellectuelle, logiciels piratés souvent vecteurs de malware",
+      "notes": "Risque à la fois juridique et technique (les logiciels piratés contiennent fréquemment des malwares)",
+      "source_guide": "DGSSI/DNSSI - Chapitre Conformité (CONF-OBLIG-INTELLECT)"
+    },
+    "r025": {
+      "id": "r025",
+      "nom": "Absence de journalisation et de traçabilité des événements de sécurité",
+      "description": "Aucun journal centralisé des événements système/sécurité, rendant impossible l'investigation en cas d'incident",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de solution de centralisation des logs",
+        "Pas de politique de conservation des journaux",
+        "Horloges des systèmes non synchronisées"
+      ],
+      "impact_potentiel": "Incapacité à déterminer l'origine, l'étendue et la chronologie d'une attaque après coup",
+      "notes": "Complète directement les lacunes déjà identifiées sur les risques r018 (DDoS) et r028 (extorsion) : sans logs, la réponse à incident est très limitée",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-JOURN/SURV-JOURNAL, EXP-JOURN/SURV-SYNCHRON)"
+    },
+    "r026": {
+      "id": "r026",
+      "nom": "Absence de séparation des environnements de développement, test et production",
+      "description": "Le même environnement sert au développement, aux tests et à la production, augmentant le risque de changements non maîtrisés",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "tous avec développement logiciel interne"
+      ],
+      "facteurs_risque": [
+        "Ressources limitées pour avoir des environnements séparés",
+        "Absence de procédure de gestion des changements"
+      ],
+      "impact_potentiel": "Bug ou faille introduits directement en production, incidents lors de mises à jour",
+      "notes": "Concerne surtout les PME qui développent ou font développer leurs propres applications/site web",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-PROC-ENVIR)"
+    },
+    "r027": {
+      "id": "r027",
+      "nom": "Données de production utilisées en test sans anonymisation",
+      "description": "Des données réelles de clients ou d'employés sont copiées dans un environnement de test moins sécurisé, sans anonymisation",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "Santé",
+        "Finance",
+        "tous traitant des données personnelles"
+      ],
+      "facteurs_risque": [
+        "Pas de procédure d'anonymisation",
+        "Environnement de test moins protégé que la production"
+      ],
+      "impact_potentiel": "Fuite de données personnelles réelles via un environnement de test non sécurisé, non-conformité loi 09-08",
+      "notes": "Risque directement lié à r021 (non-conformité loi 09-08) mais avec un vecteur technique précis",
+      "source_guide": "DGSSI/DNSSI - Chapitre Acquisition, développement et maintenance des SI (DEV-PROC-DONNEE)"
+    },
+    "r028": {
+      "id": "r028",
+      "nom": "Risques liés aux prestataires/fournisseurs non encadrés contractuellement",
+      "description": "Des fournisseurs ou prestataires ont accès aux systèmes/données de l'entreprise sans clauses de sécurité ni de réversibilité définies",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Contrats génériques sans clause de sécurité",
+        "Pas d'audit des prestataires",
+        "Accès non révoqué après fin de mission"
+      ],
+      "impact_potentiel": "Fuite de données via un tiers, dépendance dangereuse à un prestataire en cas de litige",
+      "notes": "Complète r030 (risques cloud) avec une vision plus large incluant tout type de sous-traitance IT",
+      "source_guide": "DGSSI/DNSSI - Chapitre Relations avec les fournisseurs (FOURNIS-REL-RISQ, FOURNIS-REL-EXIG)"
+    },
+    "r029": {
+      "id": "r029",
+      "nom": "Absence de cloisonnement du réseau interne",
+      "description": "Le réseau de l'entreprise n'est pas divisé en zones (publique, utilisateurs, serveurs), facilitant la propagation latérale d'une attaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous avec réseau LAN"
+      ],
+      "facteurs_risque": [
+        "Réseau plat sans segmentation",
+        "Tous les équipements sur le même sous-réseau",
+        "Pas de VLAN"
+      ],
+      "impact_potentiel": "Une infection ou intrusion sur un poste se propage librement à l'ensemble du réseau, y compris aux serveurs sensibles",
+      "notes": "Aggrave directement l'impact potentiel des risques r011 (ver informatique) et r012 (cheval de Troie)",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des communications (COM-MANAG-CLOISON, COM-MANAG-FILTRAGE)"
+    },
+    "r030": {
+      "id": "r030",
+      "nom": "Gestion non structurée des vulnérabilités et des correctifs",
+      "description": "Absence de processus formel d'identification, d'évaluation et de correction des vulnérabilités techniques des systèmes",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de veille sur les vulnérabilités publiées",
+        "Correctifs appliqués de façon ad hoc, sans priorisation",
+        "Pas d'inventaire des actifs à jour"
+      ],
+      "impact_potentiel": "Exploitation de failles connues restées non corrigées pendant une longue période",
+      "notes": "Complète et structure r003/r013 (mauvaise configuration/infrastructure obsolète) avec une approche processus plutôt que ponctuelle",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité liée à l'exploitation (EXP-VULN-GEST, EXP-VULN-CORRECT)"
+    },
+    "r031": {
+      "id": "r031",
+      "nom": "Risques physiques et environnementaux sur les salles serveurs",
+      "description": "Absence de protection contre l'incendie, les dégâts des eaux, les coupures électriques ou les intrusions physiques dans les locaux hébergeant les serveurs",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE",
+      "secteurs_affectes": [
+        "tous disposant de serveurs sur site"
+      ],
+      "facteurs_risque": [
+        "Pas d'onduleur",
+        "Pas de détection incendie",
+        "Local serveur non protégé physiquement"
+      ],
+      "impact_potentiel": "Perte totale du matériel et des données non sauvegardées suite à un sinistre physique",
+      "notes": "Risque complémentaire à r006 (accès physique non autorisé), mais centré sur les sinistres accidentels plutôt que la malveillance",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité physique et environnementale (PHYS-ZONE-INCEN, PHYS-ZONE-EAU, PHYS-MAT-OND)"
+    },
+    "r032": {
+      "id": "r032",
+      "nom": "Absence d'inventaire des actifs informatiques",
+      "description": "L'entreprise ne dispose d'aucun inventaire formalisé de ses équipements, logiciels, données et accès, l'empêchant de savoir précisément quoi protéger",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de démarche formalisée",
+        "Croissance de l'entreprise sans mise à jour de l'inventaire",
+        "Multiplicité des équipements et services cloud"
+      ],
+      "impact_potentiel": "Incapacité à prioriser les mesures de sécurité, angles morts non identifiés, accès résiduels non détectés",
+      "notes": "Risque fondamental et souvent négligé : sans inventaire, toute politique de sécurité reste incomplète",
+      "source_guide": "ANSSI/CPME - Question N°1 (Connaissez-vous bien votre parc informatique et vos actifs métier ?)"
+    },
+    "r033": {
+      "id": "r033",
+      "nom": "Redirection de messages professionnels vers une messagerie personnelle",
+      "description": "Un employé fait suivre ses emails professionnels vers sa boîte personnelle, créant une fuite d'information hors du contrôle de l'entreprise",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pratique de confort non interdite explicitement",
+        "Absence de charte précisant cet interdit"
+      ],
+      "impact_potentiel": "Fuite irrémédiable d'informations professionnelles, perte de contrôle en cas de départ de l'employé",
+      "notes": "Le guide ANSSI qualifie explicitement cette pratique de vecteur de fuite irrémédiable",
+      "source_guide": "ANSSI/CPME - Question N°7 (Comment sécurisez-vous votre messagerie ?)"
+    },
+    "r034": {
+      "id": "r034",
+      "nom": "Navigation Internet avec un compte disposant de privilèges d'administrateur",
+      "description": "Les employés utilisent un compte administrateur pour leurs tâches quotidiennes (dont la navigation web), facilitant la prise de contrôle complète en cas d'infection",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de compte utilisateur dédié sans privilège",
+        "Confusion entre compte d'administration et compte quotidien"
+      ],
+      "impact_potentiel": "Un malware exécuté avec ces privilèges obtient un contrôle total du poste, propagation facilitée",
+      "notes": "Mesure d'hygiène de base souvent négligée dans les petites structures",
+      "source_guide": "ANSSI/CPME - Question N°8 (Comment séparez-vous vos usages informatiques ?)"
+    },
+    "r035": {
+      "id": "r035",
+      "nom": "Défiguration de site web (website defacement)",
+      "description": "Un attaquant modifie, insère ou supprime du contenu sur le site web de l'entreprise sans autorisation, souvent visible publiquement",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "Distribution",
+        "E-commerce",
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "Pas de solution de vérification d'intégrité des fichiers",
+        "Vulnérabilités non corrigées",
+        "Pas de version de référence du site prête à restaurer"
+      ],
+      "impact_potentiel": "Atteinte à l'image publique immédiate, peut être le prélude à une attaque plus profonde (rebond vers d'autres systèmes)",
+      "notes": "Distinct de l'injection de code générique (r002) : ici l'impact est la modification visible du contenu",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Annexe H)"
+    },
+    "r036": {
+      "id": "r036",
+      "nom": "Exposition directe d'applications métier sensibles sur Internet sans VPN",
+      "description": "Des applications ou données métier sensibles sont accessibles directement depuis Internet sans passer par un tunnel VPN chiffré",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facilité d'accès privilégiée à la sécurité",
+        "Pas de VPN déployé",
+        "Méconnaissance des risques d'exposition directe"
+      ],
+      "impact_potentiel": "Surface d'attaque directement accessible à n'importe quel attaquant sur Internet",
+      "notes": "Complète r020 (risques cloud) avec un vecteur plus large incluant les applications métier internes exposées",
+      "source_guide": "ANSSI/CPME - Question N°9 (Maîtrisez-vous le risque numérique en situation de nomadisme ?)"
+    },
+    "r037": {
+      "id": "r037",
+      "nom": "Absence de couverture assurantielle contre le risque cyber",
+      "description": "L'entreprise n'a évalué ni souscrit de police d'assurance couvrant les conséquences financières d'une cyberattaque",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Méconnaissance de l'offre assurantielle cyber",
+        "Sous-estimation du coût potentiel d'un incident"
+      ],
+      "impact_potentiel": "Incapacité à absorber financièrement les conséquences d'une cyberattaque grave (perte d'exploitation, frais juridiques, restauration)",
+      "notes": "Risque de nature financière plutôt que technique, complète la vision globale de gestion des risques",
+      "source_guide": "ANSSI/CPME - Question N°11 (Avez-vous fait évaluer la couverture de votre police d'assurance au risque cyber ?)"
+    },
+    "r038": {
+      "id": "r038",
+      "nom": "Absence de déclaration d'incident à l'autorité compétente",
+      "description": "En cas d'incident de cybersécurité ou de fuite de données personnelles, l'entreprise ne déclare pas l'incident aux autorités compétentes (maCERT/DGSSI ou CNDP selon le cas)",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Méconnaissance de l'obligation légale",
+        "Crainte de sanction ou d'image négative",
+        "Pas de procédure formalisée"
+      ],
+      "impact_potentiel": "Non-conformité légale (notamment pour les entités visées par la loi 05-20), retard dans la réponse coordonnée à l'incident",
+      "notes": "Distinct du risque de non-déclaration à la CNDP déjà couvert par r021 (loi 09-08) : ici il s'agit de la déclaration d'incident de cybersécurité elle-même",
+      "source_guide": "DGSSI/DNSSI - Référentiel de gestion des incidents de cybersécurité (Section II.2 Détection et triage)"
+    },
+    "r039": {
+      "id": "r039",
+      "nom": "Absence de formation continue en sécurité",
+      "description": "Les employés ne reçoivent pas de formation régulière sur les bonnes pratiques de cybersécurité, les rendant vulnérables aux techniques d'ingénierie sociale évolutives et aux nouvelles menaces",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de programme de formation annuel",
+        "Formation uniquement à l'embauche puis jamais renouvelée",
+        "Absence de modules adaptés aux évolutions des menaces"
+      ],
+      "impact_potentiel": "Augmentation du risque d'erreur humaine, vulnérabilité accrue aux techniques de phishing avancées, non-conformité DNSSI",
+      "notes": "La formation continue est exigée par la DNSSI (RH-FORM) et constitue un pilier de la Stratégie Nationale 2030",
+      "source_guide": "DGSSI/DNSSI, Stratégie Nationale Cybersécurité 2030 (Pilier 3)"
+    },
+    "r040": {
+      "id": "r040",
+      "nom": "Non-prise en compte du cycle de vie sécurisé du logiciel",
+      "description": "Les applications sont développées sans intégrer la sécurité dès la conception (pas de modélisation des menaces, pas de revues de conception, pas de tests de sécurité intégrés)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous avec développement logiciel interne ou externalisé"
+      ],
+      "facteurs_risque": [
+        "Absence de framework SDL (Microsoft SDL, SAMM, etc.)",
+        "Développement en mode 'agile' sans volet sécurité",
+        "Pas de revue d'architecture sécurité"
+      ],
+      "impact_potentiel": "Vulnérabilités structurelles difficiles à corriger en production, coûts de correction 30x plus élevés qu'en phase de conception",
+      "notes": "Le NIST SSDF estime que corriger en post-production coûte 30 fois plus cher qu'en conception",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.4, 5, 8), NIST SSDF"
+    },
+    "r041": {
+      "id": "r041",
+      "nom": "Absence de tests de sécurité automatisés (SAST/DAST)",
+      "description": "Les développements ne sont pas soumis à des analyses statiques (code source) et dynamiques (application en cours d'exécution) de sécurité, laissant passer des vulnérabilités exploitables",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous avec site web ou application métier"
+      ],
+      "facteurs_risque": [
+        "Tests de sécurité uniquement manuels et ponctuels",
+        "Pas d'intégration dans la chaîne CI/CD",
+        "Méconnaissance des outils SAST/DAST"
+      ],
+      "impact_potentiel": "Vulnérabilités communes (injections, XSS, erreurs de configuration) présentes en production",
+      "notes": "Recommandé par les modèles Microsoft SDL, OSSA et SAMM (pratique Security Testing)",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.4 - Microsoft SDL, OSSA), SAMM 2.0"
+    },
+    "r042": {
+      "id": "r042",
+      "nom": "Dépendance non contrôlée à des bibliothèques open-source",
+      "description": "Utilisation de composants open-source sans analyse de leur niveau de sécurité, de leurs vulnérabilités connues ni des contraintes de licence, exposant à des risques majeurs",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous utilisant des bibliothèques tierces ou frameworks"
+      ],
+      "facteurs_risque": [
+        "Pas de BOM (Bill of Materials) logicielle",
+        "Pas d'outil d'analyse SCA (Software Composition Analysis)",
+        "Mise à jour manuelle et irrégulière des dépendances"
+      ],
+      "impact_potentiel": "Exploitation de vulnérabilités connues (ex: Log4j), violations de licences, attaques via la chaîne d'approvisionnement",
+      "notes": "Plus de 50% des composants logiciels des applications sont aujourd'hui open-source (source guide DGSSI)",
+      "source_guide": "DGSSI - Guide évaluation maturité 2021 (Ch.7.1 Bonnes pratiques SDLC)"
+    },
+    "r043": {
+      "id": "r043",
+      "nom": "Absence de qualification des prestataires cybersécurité",
+      "description": "Recours à des prestataires d'audit, de sécurité ou de maintenance sans vérification de leurs qualifications officielles (PASSI, PAMS, SecNumCloud, PDIS, PRIS, etc.)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "Administrations publiques",
+        "IIV",
+        "tous externalisant leur sécurité"
+      ],
+      "facteurs_risque": [
+        "Pas de vérification des qualifications lors de l'appel d'offres",
+        "Méconnaissance des régimes de qualification DGSSI",
+        "Choix basé uniquement sur le critère financier"
+      ],
+      "impact_potentiel": "Prestations de mauvaise qualité, risques de fuites de données sensibles, absence de recours en cas de litige",
+      "notes": "Pour les IIV et entités publiques, le recours à des prestataires non qualifiés est une non-conformité à la loi 05-20",
+      "source_guide": "DGSSI - Guide d'audit 2015 (Ch.3), Loi 05-20, Décret d'application 2021"
+    },
+    "r044": {
+      "id": "r044",
+      "nom": "Non-respect des durées de conservation des données personnelles",
+      "description": "Conservation des données personnelles au-delà des délais légaux, sans justification de finalité, exposant à des amendes CNDP et à des risques de fuite",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous collectant des données personnelles"
+      ],
+      "facteurs_risque": [
+        "Absence de politique de conservation",
+        "Stockage illimité par défaut",
+        "Pas de processus de purge automatique"
+      ],
+      "impact_potentiel": "Sanctions CNDP (amendes), atteinte aux droits des personnes, exposition accrue en cas de fuite",
+      "notes": "Principe fondamental de la loi 09-08 : conserver uniquement le temps nécessaire à la finalité déclarée",
+      "source_guide": "DGSSI - Guide bonnes pratiques CMRPI/AUSIM (Loi 09-08), DNSSI - Conformité"
+    },
+    "r045": {
+      "id": "r045",
+      "nom": "Manque d'exercices de gestion de crise cyber",
+      "description": "Le plan de réponse aux incidents n'est jamais testé via des exercices pratiques, réduisant considérablement son efficacité en situation réelle",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous ayant un plan de réponse"
+      ],
+      "facteurs_risque": [
+        "Plan rédigé mais jamais éprouvé",
+        "Manque de temps ou de budget pour organiser des exercices",
+        "Crainte de perturber l'activité"
+      ],
+      "impact_potentiel": "Réaction chaotique et inefficace lors d'une vraie crise, allongement du temps de rétablissement",
+      "notes": "Les exercices sont préconisés par la Stratégie Nationale 2030 (Pilier 2 - Renforcer la préparation nationale)",
+      "source_guide": "Stratégie Nationale Cybersécurité 2030 (Pilier 2, Objectif 2.3)"
+    },
+    "r046": {
+      "id": "r046",
+      "nom": "Absence d'analyse de risques formelle (EBIOS, etc.)",
+      "description": "L'organisation n'a jamais réalisé d'analyse de risques structurée selon une méthode reconnue, ne connaît pas précisément ses menaces, ses vulnérabilités et ses impacts potentiels",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Démarche de sécurité basée sur des intuitions, pas sur des données",
+        "Méconnaissance des méthodes type EBIOS, MEHARI, OCTAVE",
+        "Analyse de risques jamais renouvelée"
+      ],
+      "impact_potentiel": "Investissements en sécurité mal orientés, efforts sur des risques non prioritaires, angles morts majeurs",
+      "notes": "L'analyse de risques est la pierre angulaire de toute politique de sécurité (référence EBIOS Risk Manager de l'ANSSI)",
+      "source_guide": "DGSSI - Guide d'audit 2015 (Ch.2.1.1), Stratégie Nationale 2030"
+    },
+    "r047": {
+      "id": "r047",
+      "nom": "Segmentation réseau insuffisante au niveau applicatif",
+      "description": "Les applications critiques et non critiques sont sur le même segment réseau, favorisant la propagation latérale d'une attaque (pas de micro-segmentation)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous avec réseau interne"
+      ],
+      "facteurs_risque": [
+        "Réseau unique ou zones mal définies",
+        "Absence de flux restreints entre zones",
+        "Pas de VLAN ou sous-réseaux dédiés"
+      ],
+      "impact_potentiel": "Un poste infecté permet à un attaquant d'accéder à l'ensemble des applications internes (ERP, CRM, serveurs de bases de données)",
+      "notes": "Complète le risque r029 (absences de cloisonnement général) avec un focus sur les applications",
+      "source_guide": "DGSSI/DNSSI - Chapitre Sécurité des communications (COM-MANAG-CLOISON, COM-MANAG-FILTRAGE)"
+    },
+    "r048": {
+      "id": "r048",
+      "nom": "Absence de validation des entrées sur les formulaires web",
+      "description": "Les formulaires web ne filtrent pas correctement les données entrantes (validation côté serveur insuffisante), favorisant les injections SQL, XSS et autres attaques",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous avec site web ou application web"
+      ],
+      "facteurs_risque": [
+        "Validation uniquement côté client (JavaScript)",
+        "Pas de listes blanches (whitelist) pour les champs",
+        "Données utilisateur directement insérées dans les requêtes SQL"
+      ],
+      "impact_potentiel": "Vol de base de données, prise de contrôle serveur, défacement, compromission de la base clients",
+      "notes": "Précisé dans le NIST SSDF (PW.5 - Créer un code source conforme aux pratiques de codage sécurisé)",
+      "source_guide": "DNSSI - Bonnes pratiques de codage, NIST SSDF (PW.5), OWASP Top 10"
+    },
+    "r049": {
+      "id": "r049",
+      "nom": "Manque de sensibilisation des sous-traitants externes",
+      "description": "Les prestataires ayant accès au système d'information (maintenance, développement, hébergement) ne sont pas sensibilisés aux règles de sécurité spécifiques de l'entreprise",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous ayant des prestataires IT"
+      ],
+      "facteurs_risque": [
+        "Contrats sans clause de formation/sensibilisation",
+        "Pas de briefing sécurité avant accès",
+        "Rotation des équipes prestataires sans ré-formation"
+      ],
+      "impact_potentiel": "Erreurs de manipulation, introduction de vulnérabilités, non-respect des procédures de l'entreprise",
+      "notes": "La DNSSI exige que les relations fournisseurs incluent la sensibilisation",
+      "source_guide": "DGSSI/DNSSI - Chapitre Relations avec les fournisseurs (FOURNIS-REL-SECU)"
+    },
+    "r050": {
+      "id": "r050",
+      "nom": "Logiciels non autorisés ou non gérés installés sur le réseau",
+      "description": "Des logiciels non approuvés sont installés et exécutés sur les postes, créant des vulnérabilités non maîtrisées et des risques de licence",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Absence de liste blanche (whitelisting)",
+        "Téléchargements libres",
+        "Pas de surveillance des installations"
+      ],
+      "impact_potentiel": "Introduction de malwares, exploitation de failles inconnues, non‑conformité logicielle",
+      "notes": "CIS Control 2 recommande de n'autoriser que les logiciels approuvés et de bloquer les autres.",
+      "source_guide": "CIS Controls v8.1 - Control 2 (Inventory and Control of Software Assets)"
+    },
+    "r051": {
+      "id": "r051",
+      "nom": "Absence de classification et de protection des données sensibles",
+      "description": "Les données ne sont pas identifiées, classifiées ou protégées selon leur niveau de sensibilité, exposant les informations critiques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de politique de classification",
+        "Stockage non chiffré",
+        "Accès non différencié"
+      ],
+      "impact_potentiel": "Fuite de données personnelles ou stratégiques, non‑conformité (loi 09‑08), atteinte à la réputation",
+      "notes": "CIS Control 3 recommande de classifier et de protéger les données en fonction de leur criticité.",
+      "source_guide": "CIS Controls v8.1 - Control 3 (Data Protection)"
+    },
+    "r052": {
+      "id": "r052",
+      "nom": "Mauvaise gestion des comptes de service et administrateurs",
+      "description": "Les comptes privilégiés (admin, service) ne sont pas gérés de manière structurée, augmentant les risques de compromission",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Comptes admin partagés",
+        "Mots de passe par défaut",
+        "Absence de revue des privilèges"
+      ],
+      "impact_potentiel": "Prise de contrôle totale du système, propagation latérale, exfiltration de données",
+      "notes": "CIS Control 5 recommande une gestion rigoureuse des comptes privilégiés, y compris les comptes de service.",
+      "source_guide": "CIS Controls v8.1 - Control 5 (Account Management)"
+    },
+    "r053": {
+      "id": "r053",
+      "nom": "Absence de gestion centralisée des droits d'accès",
+      "description": "Les processus de création, modification et révocation des accès ne sont pas formalisés, entraînant des accès obsolètes ou excessifs",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Gestion manuelle",
+        "Pas de revue périodique",
+        "Absence de matrice d'habilitation"
+      ],
+      "impact_potentiel": "Accès non autorisés, fuites internes, violation du principe du moindre privilège",
+      "notes": "CIS Control 6 impose un processus formalisé pour gérer les droits d'accès avec des revues régulières.",
+      "source_guide": "CIS Controls v8.1 - Control 6 (Access Control Management)"
+    },
+    "r054": {
+      "id": "r054",
+      "nom": "Absence de tests d'intrusion réguliers",
+      "description": "Les vulnérabilités des actifs ne sont pas testées par des simulations d'attaques, laissant des failles inconnues exploitables",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Tests ponctuels ou inexistants",
+        "Pas de budget",
+        "Méconnaissance des méthodes"
+      ],
+      "impact_potentiel": "Exploitation de failles non détectées, prise de contrôle du système",
+      "notes": "CIS Control 18 préconise des tests d'intrusion externes et internes au moins annuels.",
+      "source_guide": "CIS Controls v8.1 - Control 18 (Penetration Testing)"
+    },
+    "r055": {
+      "id": "r055",
+      "nom": "Absence de gestion des vulnérabilités des fournisseurs externes",
+      "description": "Les prestataires critiques ne sont pas évalués pour leur capacité à protéger les données et plateformes de l'entreprise, malgré les risques de la chaîne d'approvisionnement",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de due diligence",
+        "Contrats sans exigences de sécurité",
+        "Pas de suivi des correctifs chez les fournisseurs"
+      ],
+      "impact_potentiel": "Compromission via un tiers, non‑conformité, arrêt de service",
+      "notes": "CIS Control 15 exige une évaluation des risques liés aux fournisseurs, incluant leurs vulnérabilités.",
+      "source_guide": "CIS Controls v8.1 - Control 15 (Service Provider Management)"
+    },
+    "r056": {
+      "id": "r056",
+      "nom": "Absence de protection avancée des endpoints (EDR)",
+      "description": "Les postes de travail ne disposent pas de solutions de détection et réponse aux menaces au‑delà de l'antivirus classique, laissant passer des attaques sophistiquées",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Antivirus basique uniquement",
+        "Pas de surveillance comportementale",
+        "Absence de réponse automatisée"
+      ],
+      "impact_potentiel": "Infection non détectée, propagation de malwares, exfiltration de données",
+      "notes": "L'EDR complète l'antivirus en détectant les comportements anormaux et en permettant une réponse rapide.",
+      "source_guide": "Article Sudip Maity - Phase 2 (Protection avancée des endpoints)"
+    },
+    "r057": {
+      "id": "r057",
+      "nom": "Absence d'inventaire des équipements industriels connectés",
+      "description": "Les automates, capteurs, actionneurs, RTU et autres équipements OT ne sont pas recensés, rendant impossible leur protection et la priorisation des mesures de sécurité",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de cartographie OT",
+        "Équipements dispersés géographiquement",
+        "Multiplicité des fournisseurs"
+      ],
+      "impact_potentiel": "Incapacité à protéger les actifs critiques, angles morts, attaques non détectées",
+      "notes": "Recommandé par le guide Clusif comme prérequis à toute démarche de cybersécurité OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.4)",
+      "categorie": "systemes_postes"
+    },
+    "r058": {
+      "id": "r058",
+      "nom": "Utilisation de protocoles industriels non sécurisés",
+      "description": "Protocoles comme Modbus TCP, Profinet, DNP3, EtherNet/IP utilisés sans chiffrement ni authentification, exposant les communications à l'interception et à la manipulation",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Protocoles historiques sans sécurité native",
+        "Absence de chiffrement",
+        "Absence d'authentification"
+      ],
+      "impact_potentiel": "Interception des commandes, modification des paramètres, sabotage industriel",
+      "notes": "La plupart des protocoles industriels ne sont pas sécurisés par défaut. Le guide Clusif recommande une segmentation et des mesures compensatoires.",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.7)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r059": {
+      "id": "r059",
+      "nom": "Absence de segmentation IT/OT (réseau plat)",
+      "description": "Le réseau industriel et le réseau bureautique ne sont pas séparés, facilitant la propagation des attaques d'un environnement à l'autre",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Réseau unique",
+        "Absence de DMZ",
+        "Flux non filtrés entre IT et OT"
+      ],
+      "impact_potentiel": "Propagation d'un ransomware du SI de gestion vers les automates, arrêt de production",
+      "notes": "La séparation IT/OT est un principe fondamental de l'architecture sécurisée OT (modèle Purdue)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r060": {
+      "id": "r060",
+      "nom": "Absence de DMZ (zone démilitarisée) entre IT et OT",
+      "description": "Les échanges entre le SI de gestion et le SI industriel se font directement sans zone tampon sécurisée, exposant les systèmes OT aux menaces IT",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Absence de zone de filtrage",
+        "Flux IT/OT non contrôlés",
+        "Pas de serveur de rebond"
+      ],
+      "impact_potentiel": "Compromission directe des automates depuis le réseau bureautique",
+      "notes": "Le guide Clusif recommande une DMZ pour héberger les serveurs de patchs, signatures antivirus et passerelles de données",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r061": {
+      "id": "r061",
+      "nom": "Comptes et mots de passe par défaut sur les équipements industriels",
+      "description": "Les automates, routeurs et autres équipements OT conservent leurs identifiants d'usine, facilement exploitables par les attaquants",
+      "severite": "ÉLEVÉE",
+      "probabilite": "TRÈS ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Mots de passe d'usine non changés",
+        "Comptes par défaut actifs",
+        "Mots de passe identiques sur plusieurs équipements"
+      ],
+      "impact_potentiel": "Prise de contrôle des automates, modification des paramètres, sabotage",
+      "notes": "Les mots de passe par défaut sont souvent documentés dans les manuels techniques, accessibles aux attaquants",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r062": {
+      "id": "r062",
+      "nom": "Services inutiles activés sur les équipements industriels",
+      "description": "Des services non nécessaires (HTTP, Telnet, FTP, SNMP) sont activés par défaut sur les automates et serveurs OT, augmentant la surface d'attaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Configuration par défaut",
+        "Services non désactivés",
+        "Ports ouverts inutiles"
+      ],
+      "impact_potentiel": "Accès non autorisé aux équipements, exploitation des vulnérabilités des services",
+      "notes": "La désactivation des services inutiles est une mesure de durcissement de base (CIS benchmarks)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r063": {
+      "id": "r063",
+      "nom": "Absence de durcissement des postes de maintenance OT",
+      "description": "Les postes utilisés pour la maintenance des systèmes industriels ne sont pas sécurisés (pas d'antivirus, mises à jour absentes, accès Internet non contrôlé)",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Postes non durcis",
+        "Antivirus absent",
+        "Mises à jour non effectuées"
+      ],
+      "impact_potentiel": "Introduction de malwares lors des interventions de maintenance, propagation aux automates",
+      "notes": "Les postes de maintenance sont des vecteurs d'attaque critiques car ils ont accès aux systèmes industriels avec des privilèges élevés",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r064": {
+      "id": "r064",
+      "nom": "Obsolescence critique des équipements industriels",
+      "description": "Des automates ou systèmes de contrôle de 15 à 30 ans ne sont plus patchés et vulnérables aux exploits connus, mais ne peuvent pas être remplacés facilement",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Durée de vie OT de 20-30 ans",
+        "Fin de support des éditeurs",
+        "Impossibilité de patcher"
+      ],
+      "impact_potentiel": "Exploitation de failles connues non corrigées, risque de sabotage",
+      "notes": "L'obsolescence est une particularité des systèmes industriels. Le guide Clusif recommande des mesures compensatoires (segmentation, surveillance)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.6, Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r065": {
+      "id": "r065",
+      "nom": "Absence de sauvegardes hors-ligne des configurations OT",
+      "description": "Les configurations des automates et programmes industriels ne sont pas sauvegardées sur des supports déconnectés du réseau, rendant la reconstruction impossible en cas d'attaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Sauvegarde uniquement en ligne",
+        "Pas de support hors-ligne",
+        "Sauvegardes non testées"
+      ],
+      "impact_potentiel": "Impossibilité de restaurer les automates après un ransomware, arrêt prolongé",
+      "notes": "Les sauvegardes OT sont plus complexes que les sauvegardes IT (configurations, firmwares, programmes automates)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "systemes_postes"
+    },
+    "r066": {
+      "id": "r066",
+      "nom": "Accès distant non sécurisé (télémaintenance)",
+      "description": "Les accès distants pour la maintenance des systèmes industriels sont ouverts sans VPN, MFA ou bastion, exposant les systèmes à des intrusions extérieures",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de VPN",
+        "Pas de MFA",
+        "Pas de bastion",
+        "Accès direct aux automates"
+      ],
+      "impact_potentiel": "Prise de contrôle à distance des systèmes industriels, sabotage, espionnage",
+      "notes": "La télémaintenance est souvent un vecteur d'attaque privilégié car elle crée une connexion permanente entre l'extérieur et le réseau OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r067": {
+      "id": "r067",
+      "nom": "Absence de surveillance spécifique aux flux OT (IDS industriel)",
+      "description": "Les communications industrielles ne sont pas analysées par des sondes capables d'interpréter les protocoles OT, empêchant la détection des attaques ciblées",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de N-IDS OT",
+        "Surveillance uniquement IT",
+        "Protocoles non interprétés"
+      ],
+      "impact_potentiel": "Détection tardive des intrusions, propagation non détectée dans le réseau OT",
+      "notes": "Les IDS/IPS industriels doivent comprendre les protocoles comme Modbus, Profinet, DNP3 pour détecter les anomalies",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)",
+      "categorie": "reseau_infrastructure"
+    },
+    "r068": {
+      "id": "r068",
+      "nom": "Absence de journalisation des événements sur les équipements OT",
+      "description": "Les automates et équipements industriels ne génèrent pas de logs permettant l'investigation post-incident, compliquant les analyses forensiques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Logs désactivés",
+        "Pas de centralisation",
+        "Capacité de stockage limitée"
+      ],
+      "impact_potentiel": "Incapacité à retracer l'origine d'une attaque, à identifier les systèmes compromis",
+      "notes": "Les équipements OT ont souvent des capacités de journalisation limitées, mais il est possible de configurer des syslog ou observateurs d'événements",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)",
+      "categorie": "audit_conformite"
+    },
+    "r069": {
+      "id": "r069",
+      "nom": "Ports USB/série non protégés sur les équipements industriels",
+      "description": "Les ports physiques des automates et postes OT sont accessibles sans protection, permettant des infections via clés USB ou câbles non maîtrisés",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Ports USB accessibles",
+        "Pas de bouchons à clé",
+        "Utilisation de clés USB personnelles"
+      ],
+      "impact_potentiel": "Infection des automates via clés USB, exfiltration de données",
+      "notes": "Les clés USB sont un vecteur d'infection classique des systèmes industriels (ex: Stuxnet)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "physiques_environnementaux"
+    },
+    "r070": {
+      "id": "r070",
+      "nom": "Absence d'analyse de risques OT spécifique",
+      "description": "Les risques liés aux processus industriels (impacts humains, environnementaux, production) ne sont pas évalués, conduisant à une sous-estimation des conséquences d'une cyberattaque",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas d'AR OT",
+        "Méconnaissance des impacts",
+        "Safety et cybersécurité non coordonnées"
+      ],
+      "impact_potentiel": "Risques de blessures, dommages environnementaux, arrêts de production non anticipés",
+      "notes": "L'appréciation des risques OT doit intégrer les impacts humains et environnementaux, pas seulement les impacts informatiques",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.5)",
+      "categorie": "audit_conformite"
+    },
+    "r071": {
+      "id": "r071",
+      "nom": "Sous-traitants non encadrés pour la maintenance OT",
+      "description": "Les prestataires de maintenance des systèmes industriels n'ont pas de clauses de sécurité, ne sont pas supervisés et peuvent exposer l'entreprise à des risques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Contrats sans clauses de sécurité",
+        "Absence de supervision",
+        "Accès OT non tracé"
+      ],
+      "impact_potentiel": "Compromission via le sous-traitant, accès non révoqués, fuites de données",
+      "notes": "Les attaques par rebond via les prestataires de maintenance sont de plus en plus fréquentes",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.9)",
+      "categorie": "audit_conformite"
+    },
+    "r072": {
+      "id": "r072",
+      "nom": "Absence de procédures d'homologation cybersécurité OT",
+      "description": "Les systèmes industriels sont mis en production sans validation formelle de leur niveau de sécurité, laissant des vulnérabilités non détectées",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de recette de sécurité",
+        "Mise en production sans validation",
+        "Tests de sécurité non réalisés"
+      ],
+      "impact_potentiel": "Vulnérabilités présentes en production, facilitant les attaques",
+      "notes": "L'homologation cybersécurité devrait inclure des tests de FAT et SAT spécifiques",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.8)",
+      "categorie": "audit_conformite"
+    },
+    "r073": {
+      "id": "r073",
+      "nom": "Absence de gouvernance et de politique de sécurité des systèmes industriels (PSSI OT)",
+      "description": "L'organisation n'a pas défini de structure, de rôles et de responsabilités pour la sécurité des systèmes OT, rendant la coordination impossible",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de responsable OT",
+        "Rôles non définis",
+        "Absence de pilotage"
+      ],
+      "impact_potentiel": "Actions non coordonnées, absence de décisions, inefficacité des mesures",
+      "notes": "La gouvernance est le pilier de toute démarche de cybersécurité OT (IEC 62443) [Fusionné avec l'ancien risque sur l'absence de PSSI OT, même gouvernance manquante.]",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)",
+      "categorie": "audit_conformite"
+    },
+    "r074": {
+      "id": "r074",
+      "nom": "Manque de coordination entre les directions (OT, IT, sécurité, exploitation)",
+      "description": "Les différentes directions (automatismes, informatique, sécurité, production) ne communiquent pas, créant des angles morts et des conflits",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Silos organisationnels",
+        "Absence de comité de coordination",
+        "Conflits d'objectifs"
+      ],
+      "impact_potentiel": "Mesures contradictoires, absence de vision globale, incidents non gérés",
+      "notes": "La coordination entre les directions est un facteur clé de succès de la cybersécurité OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.3)",
+      "categorie": "audit_conformite"
+    },
+    "r075": {
+      "id": "r075",
+      "nom": "Absence de plan de continuité et reprise d'activité OT (PCA/PRA OT)",
+      "description": "Les systèmes industriels critiques n'ont pas de plans de reprise spécifiques, rendant la reconstruction impossible en cas d'incident majeur",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de PCA/PRA OT",
+        "Plans IT non adaptés",
+        "Non testé"
+      ],
+      "impact_potentiel": "Arrêt prolongé de la production, impacts humains et environnementaux",
+      "notes": "Les PCA/PRA OT doivent prendre en compte les spécificités des systèmes industriels (redémarrage progressif, modes dégradés)",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.11)",
+      "categorie": "audit_conformite"
+    },
+    "r076": {
+      "id": "r076",
+      "nom": "Absence d'exercices de gestion de crise OT",
+      "description": "Les procédures de réponse à incident ne sont jamais testées, réduisant leur efficacité en situation réelle",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Plan rédigé mais non testé",
+        "Manque de budget",
+        "Crainte de perturber la production"
+      ],
+      "impact_potentiel": "Réaction chaotique, allongement du temps de rétablissement",
+      "notes": "Les exercices de crise OT doivent être réalisés avec les équipes de production pour valider les modes dégradés",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.11)",
+      "categorie": "audit_conformite"
+    },
+    "r077": {
+      "id": "r077",
+      "nom": "Absence de plan de formation et sensibilisation OT",
+      "description": "Les équipes (maintenance, exploitation, sécurité) ne sont pas formées aux risques cyber et bonnes pratiques spécifiques aux systèmes industriels",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de formation OT",
+        "Formation uniquement IT",
+        "Personnel non sensibilisé"
+      ],
+      "impact_potentiel": "Erreurs humaines, non-détection des anomalies, actions incorrectes",
+      "notes": "La formation OT doit couvrir les protocoles industriels, les risques spécifiques et les bonnes pratiques",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "audit_conformite"
+    },
+    "r078": {
+      "id": "r078",
+      "nom": "Absence de processus formalisé de gestion des correctifs OT",
+      "description": "Les mises à jour de sécurité des équipements industriels ne sont pas planifiées ni suivies, laissant des vulnérabilités non corrigées",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de planning de patchs",
+        "Correctifs ad hoc",
+        "Non priorisation"
+      ],
+      "impact_potentiel": "Exploitation de failles connues non corrigées",
+      "notes": "La gestion des correctifs OT est complexe car les mises à jour nécessitent souvent des arrêts de production",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "audit_conformite"
+    },
+    "r079": {
+      "id": "r079",
+      "nom": "Absence de gestion des accès physiques aux équipements OT",
+      "description": "Les armoires, salles serveurs et locaux techniques ne sont pas protégés contre les accès physiques non autorisés",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Portes non verrouillées",
+        "Accès public",
+        "Absence de vidéosurveillance"
+      ],
+      "impact_potentiel": "Accès physique aux automates, insertion de clés USB infectées, sabotage",
+      "notes": "La sécurité physique est une couche de protection essentielle pour les systèmes industriels souvent situés dans des zones accessibles",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "physiques_environnementaux"
+    },
+    "r080": {
+      "id": "r080",
+      "nom": "Absence de maintenance en conditions de sécurité (MCS OT)",
+      "description": "Les dispositifs de sécurité ne sont pas maintenus dans le temps, réduisant leur efficacité face à l'évolution des menaces",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "MCS non défini",
+        "Pas de veille",
+        "Dispositifs obsolètes"
+      ],
+      "impact_potentiel": "Affaiblissement progressif des mesures de sécurité",
+      "notes": "Le MCS OT doit inclure la veille, les mises à jour, les revues de configuration et les audits",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.10)",
+      "categorie": "audit_conformite"
+    },
+    "r081": {
+      "id": "r081",
+      "nom": "Absence d'audit cybersécurité OT périodique",
+      "description": "Les systèmes industriels ne font pas l'objet d'audits réguliers pour évaluer leur niveau de sécurité et identifier les vulnérabilités",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas d'audit OT",
+        "Audits uniquement IT",
+        "Non renouvelé"
+      ],
+      "impact_potentiel": "Non-détection des failles, dégradation du niveau de sécurité",
+      "notes": "Les audits OT doivent être réalisés par des prestataires qualifiés (PASSI) ou internes, avec une périodicité de 1 à 3 ans",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.12)",
+      "categorie": "audit_conformite"
+    },
+    "r082": {
+      "id": "r082",
+      "nom": "Absence de surveillance SOC OT externe/interne",
+      "description": "Aucun centre opérationnel de sécurité ne surveille les systèmes industriels, retardant la détection et la réponse aux incidents",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "Industrie",
+        "Énergie",
+        "Transport",
+        "tous avec systèmes OT"
+      ],
+      "facteurs_risque": [
+        "Pas de SOC OT",
+        "SOC uniquement IT",
+        "Pas d'analystes OT"
+      ],
+      "impact_potentiel": "Détection tardive des attaques, propagation non maîtrisée",
+      "notes": "Un SOC OT doit comprendre des analystes formés aux protocoles industriels et aux spécificités des systèmes OT",
+      "source_guide": "Clusif - Guide Cybersécurité des systèmes industriels 2025 (Ch.13)",
+      "categorie": "audit_conformite"
+    },
+    "r083": {
+      "id": "r083",
+      "nom": "Fatalisme culturel face aux risques SI",
+      "description": "Attitude fataliste (\"Maktoub\") chez certains dirigeants marocains qui perçoivent les risques comme inévitables ou hors de contrôle, conduisant à une approche passive de la gestion des risques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8.2"
+    },
+    "r084": {
+      "id": "r084",
+      "nom": "Résistance culturelle au changement dans les pratiques de sécurité SI",
+      "description": "Réticence à modifier les habitudes de travail et à investir dans de nouvelles technologies de sécurité, freinant l'adoption des bonnes pratiques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8.1"
+    },
+    "r085": {
+      "id": "r085",
+      "nom": "Faible contrôle de l'incertitude dans la culture organisationnelle marocaine",
+      "description": "La culture nationale tend à atténuer l'anxiété face aux événements imprévisibles, impactant la volonté d'investir dans des mesures de prévention proactive",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8.2"
+    },
+    "r086": {
+      "id": "r086",
+      "nom": "Confiance interpersonnelle privilégiée sur les systèmes formels de sécurité",
+      "description": "Les employés sont plus enclins à suivre des directives de sécurité émanant de personnes en qui ils ont confiance plutôt que de se conformer strictement à des politiques formelles",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8.2"
+    },
+    "r087": {
+      "id": "r087",
+      "nom": "Absence d'intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+      "description": "La gestion des risques SI n'est pas intégrée dans les processus plus larges de gouvernance et de gestion des risques de l'entreprise",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 9"
+    },
+    "r088": {
+      "id": "r088",
+      "nom": "Disparités sectorielles dans l'adoption des pratiques de gestion des risques SI",
+      "description": "Les secteurs non réglementés (transport, services) ont une maturité très faible, voire absente, en matière de gestion des risques SI",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 7.3"
+    },
+    "r089": {
+      "id": "r089",
+      "nom": "Conformité sélective aux exigences réglementaires",
+      "description": "Les organisations tendent à se conformer aux aspects les plus visibles ou strictement contrôlés de la réglementation, négligeant des aspects subtils mais importants",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 7.3"
+    },
+    "r090": {
+      "id": "r090",
+      "nom": "Absence de processus formalisés de gestion des risques SI dans les grandes entreprises",
+      "description": "Même dans les grandes entreprises, on observe l'absence fréquente de processus formalisés de gestion des risques, entravant l'identification et le traitement efficaces des risques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 7.1"
+    },
+    "r091": {
+      "id": "r091",
+      "nom": "Privilège des résultats à court terme sur les investissements sécurité SI",
+      "description": "Tendance à privilégier les résultats à court terme, entrant en conflit avec la nature à long terme des investissements en sécurité des SI",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8.2"
+    },
+    "r092": {
+      "id": "r092",
+      "nom": "Manque de personnel qualifié en cybersécurité au Maroc",
+      "description": "Pénurie de compétences locales en cybersécurité, limitant la capacité des organisations à mettre en œuvre des mesures efficaces",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8.3"
+    },
+    "r093": {
+      "id": "r093",
+      "nom": "Coût élevé des technologies de sécurité perçu comme un frein",
+      "description": "Les coûts d'acquisition et de mise en œuvre des technologies de sécurité sont souvent perçus comme prohibitifs, particulièrement pour les PME",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 7.2"
+    },
+    "r094": {
+      "id": "r094",
+      "nom": "Absence de formation continue en cybersécurité dans les entreprises marocaines",
+      "description": "La proportion des entreprises offrant une formation continue à leurs employés en cybersécurité reste faible",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 8.3"
+    },
+    "r095": {
+      "id": "r095",
+      "nom": "Processus de mise à jour des référentiels nationaux peu structuré",
+      "description": "Le processus de révision des normes et référentiels marocains semble moins systématique que les standards internationaux, limitant leur capacité à suivre l'évolution rapide des risques",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Facteur culturel/organisationnel national, non spécifique à un secteur"
+      ],
+      "impact_potentiel": "Frein structurel à l'adoption des bonnes pratiques de cybersécurité, indépendamment des solutions techniques disponibles",
+      "notes": "Risque de nature socio-organisationnelle (contexte marocain), distinct des risques techniques classiques. Catégorie: culture_organisationnelle",
+      "source_guide": "Article académique : \"Management des risques des SI au Maroc : Entre ambition réglementaire et défis culturels - Une analyse critique de l'état des lieux\", International Journal of Accounting, Finance, Auditing, Management and Economics (IJAFAME), ISSN 2658-8455, Vol.5, Issue 10 (2024), pp.317-346 - Section 6.3"
     }
   }
 }
