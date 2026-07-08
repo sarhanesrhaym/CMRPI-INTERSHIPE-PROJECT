@@ -865,6 +865,246 @@
       "impact_potentiel": "Erreurs de manipulation, introduction de vulnérabilités, non-respect des procédures de l'entreprise",
       "notes": "La DNSSI exige que les relations fournisseurs incluent la sensibilisation",
       "source_guide": "DGSSI/DNSSI - Chapitre Relations avec les fournisseurs (FOURNIS-REL-SECU)"
+    },
+        "r050": {
+      "id": "r050",
+      "nom": "Absence de gestion centralisée des actifs informatiques",
+      "description": "L'entreprise ne dispose pas d'un inventaire complet et à jour de tous ses actifs (physiques, virtuels, cloud, mobiles), rendant impossible la protection de ce qu'elle ne connaît pas",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Pas d'outil d'inventaire",
+        "Mise à jour manuelle et irrégulière",
+        "Multiplicité des environnements (cloud, on‑premise)"
+      ],
+      "impact_potentiel": "Incapacité à prioriser les mesures de sécurité, angles morts non identifiés, accès résiduels non détectés",
+      "notes": "Selon CIS Control 1, l'inventaire des actifs est la base de toute sécurité. Sans lui, les autres contrôles sont inefficaces.",
+      "source_guide": "CIS Controls v8.1 - Control 1 (Inventory and Control of Enterprise Assets)"
+    },
+    "r051": {
+      "id": "r051",
+      "nom": "Logiciels non autorisés ou non gérés installés sur le réseau",
+      "description": "Des logiciels non approuvés sont installés et exécutés sur les postes, créant des vulnérabilités non maîtrisées et des risques de licence",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Absence de liste blanche (whitelisting)",
+        "Téléchargements libres",
+        "Pas de surveillance des installations"
+      ],
+      "impact_potentiel": "Introduction de malwares, exploitation de failles inconnues, non‑conformité logicielle",
+      "notes": "CIS Control 2 recommande de n'autoriser que les logiciels approuvés et de bloquer les autres.",
+      "source_guide": "CIS Controls v8.1 - Control 2 (Inventory and Control of Software Assets)"
+    },
+    "r052": {
+      "id": "r052",
+      "nom": "Absence de classification et de protection des données sensibles",
+      "description": "Les données ne sont pas identifiées, classifiées ou protégées selon leur niveau de sensibilité, exposant les informations critiques",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Pas de politique de classification",
+        "Stockage non chiffré",
+        "Accès non différencié"
+      ],
+      "impact_potentiel": "Fuite de données personnelles ou stratégiques, non‑conformité (loi 09‑08), atteinte à la réputation",
+      "notes": "CIS Control 3 recommande de classifier et de protéger les données en fonction de leur criticité.",
+      "source_guide": "CIS Controls v8.1 - Control 3 (Data Protection)"
+    },
+    "r053": {
+      "id": "r053",
+      "nom": "Mauvaise gestion des comptes de service et administrateurs",
+      "description": "Les comptes privilégiés (admin, service) ne sont pas gérés de manière structurée, augmentant les risques de compromission",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Comptes admin partagés",
+        "Mots de passe par défaut",
+        "Absence de revue des privilèges"
+      ],
+      "impact_potentiel": "Prise de contrôle totale du système, propagation latérale, exfiltration de données",
+      "notes": "CIS Control 5 recommande une gestion rigoureuse des comptes privilégiés, y compris les comptes de service.",
+      "source_guide": "CIS Controls v8.1 - Control 5 (Account Management)"
+    },
+    "r054": {
+      "id": "r054",
+      "nom": "Absence de gestion centralisée des droits d'accès",
+      "description": "Les processus de création, modification et révocation des accès ne sont pas formalisés, entraînant des accès obsolètes ou excessifs",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Gestion manuelle",
+        "Pas de revue périodique",
+        "Absence de matrice d'habilitation"
+      ],
+      "impact_potentiel": "Accès non autorisés, fuites internes, violation du principe du moindre privilège",
+      "notes": "CIS Control 6 impose un processus formalisé pour gérer les droits d'accès avec des revues régulières.",
+      "source_guide": "CIS Controls v8.1 - Control 6 (Access Control Management)"
+    },
+    "r055": {
+      "id": "r055",
+      "nom": "Absence de surveillance des logs de sécurité",
+      "description": "Les journaux d'audit ne sont pas collectés, analysés ou conservés, rendant impossible la détection précoce et l'investigation post‑incident",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Pas de solution SIEM",
+        "Logs désactivés",
+        "Conservation insuffisante"
+      ],
+      "impact_potentiel": "Retard dans la détection des attaques, impossibilité de tracer les actions malveillantes",
+      "notes": "CIS Control 8 exige une centralisation et une conservation des logs (au moins 90 jours) avec des alertes.",
+      "source_guide": "CIS Controls v8.1 - Control 8 (Audit Log Management)"
+    },
+    "r056": {
+      "id": "r056",
+      "nom": "Vulnérabilité des messageries et navigateurs web",
+      "description": "Les emails et navigateurs sont des vecteurs d'attaque privilégiés par les cybercriminels, sans protections adéquates (filtrage, sandboxing)",
+      "severite": "CRITIQUE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Pas de filtrage anti‑phishing",
+        "Extensions non sécurisées",
+        "Absence de sandboxing"
+      ],
+      "impact_potentiel": "Hameçonnage, distribution de malwares, compromission des comptes",
+      "notes": "CIS Control 9 recommande de renforcer la sécurité des messageries et navigateurs pour bloquer les menaces.",
+      "source_guide": "CIS Controls v8.1 - Control 9 (Email and Web Browser Protections)"
+    },
+    "r057": {
+      "id": "r057",
+      "nom": "Absence de formation technique continue des équipes IT",
+      "description": "Les équipes techniques (administrateurs, développeurs) ne reçoivent pas de formation régulière sur les menaces émergentes et les bonnes pratiques, limitant leur capacité à protéger l'infrastructure",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Formation uniquement à l'embauche",
+        "Pas de veille technologique",
+        "Budget formation insuffisant"
+      ],
+      "impact_potentiel": "Mauvaise configuration, réponse inefficace aux incidents, exposition à des failles connues",
+      "notes": "CIS Control 14 inclut la formation technique pour les équipes informatiques, pas seulement les utilisateurs.",
+      "source_guide": "CIS Controls v8.1 - Control 14 (Security Awareness and Skills Training)"
+    },
+    "r058": {
+      "id": "r058",
+      "nom": "Prestataires externes non évalués ni supervisés",
+      "description": "Les fournisseurs ayant accès aux données sensibles ou à l'infrastructure ne font pas l'objet d'une évaluation de sécurité, exposant l'entreprise à des risques par procuration",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Contrats sans clauses de sécurité",
+        "Pas d'audit des prestataires",
+        "Accès non révoqué en fin de mission"
+      ],
+      "impact_potentiel": "Fuite de données via un tiers, non‑conformité, dépendance dangereuse",
+      "notes": "CIS Control 15 impose l'évaluation et la supervision des prestataires de services.",
+      "source_guide": "CIS Controls v8.1 - Control 15 (Service Provider Management)"
+    },
+    "r059": {
+      "id": "r059",
+      "nom": "Absence de gestion du cycle de vie sécurisé des applications",
+      "description": "Les applications (développées ou acquises) ne sont pas sécurisées tout au long de leur cycle de vie, de la conception à la maintenance",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous ayant des applications métier"],
+      "facteurs_risque": [
+        "Pas de revue de code",
+        "Pas de tests de sécurité",
+        "Absence de politiques de développement sécurisé"
+      ],
+      "impact_potentiel": "Vulnérabilités persistantes, difficulté à patcher, coût de correction élevé",
+      "notes": "CIS Control 16 recommande d'intégrer la sécurité dans toutes les phases du cycle de vie des applications.",
+      "source_guide": "CIS Controls v8.1 - Control 16 (Application Software Security)"
+    },
+    "r060": {
+      "id": "r060",
+      "nom": "Absence de tests d'intrusion réguliers",
+      "description": "Les vulnérabilités des actifs ne sont pas testées par des simulations d'attaques, laissant des failles inconnues exploitables",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Tests ponctuels ou inexistants",
+        "Pas de budget",
+        "Méconnaissance des méthodes"
+      ],
+      "impact_potentiel": "Exploitation de failles non détectées, prise de contrôle du système",
+      "notes": "CIS Control 18 préconise des tests d'intrusion externes et internes au moins annuels.",
+      "source_guide": "CIS Controls v8.1 - Control 18 (Penetration Testing)"
+    },
+    "r061": {
+      "id": "r061",
+      "nom": "Absence de gestion des vulnérabilités des fournisseurs externes",
+      "description": "Les prestataires critiques ne sont pas évalués pour leur capacité à protéger les données et plateformes de l'entreprise, malgré les risques de la chaîne d'approvisionnement",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Pas de due diligence",
+        "Contrats sans exigences de sécurité",
+        "Pas de suivi des correctifs chez les fournisseurs"
+      ],
+      "impact_potentiel": "Compromission via un tiers, non‑conformité, arrêt de service",
+      "notes": "CIS Control 15 exige une évaluation des risques liés aux fournisseurs, incluant leurs vulnérabilités.",
+      "source_guide": "CIS Controls v8.1 - Control 15 (Service Provider Management)"
+    },
+    "r067": {
+      "id": "r067",
+      "nom": "Absence d'exercices de réponse aux incidents (tabletop)",
+      "description": "Le plan de réponse aux incidents n'est jamais testé via des exercices de simulation, réduisant son efficacité en situation réelle",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Plan rédigé mais jamais éprouvé",
+        "Manque de temps ou de budget",
+        "Crainte de perturber l'activité"
+      ],
+      "impact_potentiel": "Réaction chaotique lors d'une vraie crise, allongement du temps de rétablissement",
+      "notes": "Les exercices tabletop sont préconisés par le NIST CSF et par de nombreux référentiels pour tester la préparation.",
+      "source_guide": "Article Sudip Maity - Phase 2 (Exercices de réponse aux incidents)"
+    },
+    "r070": {
+      "id": "r070",
+      "nom": "Absence de durcissement des serveurs (hardening)",
+      "description": "Les serveurs ne sont pas configurés selon des bases sécurisées (CIS benchmarks), laissant des ports, services et comptes par défaut ouverts",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Configuration par défaut",
+        "Pas de base de référence",
+        "Services inutiles activés"
+      ],
+      "impact_potentiel": "Augmentation de la surface d'attaque, exploitation de failles de configuration",
+      "notes": "Le durcissement (hardening) est une pratique essentielle recommandée par le NIST et le CIS.",
+      "source_guide": "Article Sudip Maity - Phase 3 (Durcissement des serveurs)"
+    },
+    "r071": {
+      "id": "r071",
+      "nom": "Absence de protection avancée des endpoints (EDR)",
+      "description": "Les postes de travail ne disposent pas de solutions de détection et réponse aux menaces au‑delà de l'antivirus classique, laissant passer des attaques sophistiquées",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": ["tous"],
+      "facteurs_risque": [
+        "Antivirus basique uniquement",
+        "Pas de surveillance comportementale",
+        "Absence de réponse automatisée"
+      ],
+      "impact_potentiel": "Infection non détectée, propagation de malwares, exfiltration de données",
+      "notes": "L'EDR complète l'antivirus en détectant les comportements anormaux et en permettant une réponse rapide.",
+      "source_guide": "Article Sudip Maity - Phase 2 (Protection avancée des endpoints)"
     }
   }
 }
