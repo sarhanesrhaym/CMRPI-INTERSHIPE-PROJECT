@@ -5,15 +5,21 @@
       "solutions": [
         {
           "solution_id": "sol001",
-          "solution_nom": "VPN",
-          "efficacite": "Élevée",
-          "justification": "Chiffre la connexion de bout en bout, neutralise l'interception même sur réseau public"
+          "solution_nom": "VPN pour connexions distantes et Wi-Fi public",
+          "efficacite": "Moyenne",
+          "justification": "Protège les données en déplacement, simple à déployer"
         },
         {
-          "solution_id": "sol006",
-          "solution_nom": "Verrouillage automatique de session",
-          "efficacite": "Faible",
-          "justification": "Réduit l'exposition si l'appareil est laissé sans surveillance, mais n'empêche pas l'interception réseau"
+          "solution_id": "sol026",
+          "solution_nom": "Anonymisation des données de production utilisées en test",
+          "efficacite": "Moyenne",
+          "justification": "Élimine le risque de fuite de données réelles via un environnement moins sécurisé"
+        },
+        {
+          "solution_id": "sol076",
+          "solution_nom": "Politique de gestion des mots de passe OT",
+          "efficacite": "Moyenne",
+          "justification": "Protège contre l'utilisation des identifiants par défaut Applique le moindre privilège"
         }
       ]
     },
@@ -21,16 +27,22 @@
       "risque_nom": "Injection de code sur le site web (SQL injection, XSS)",
       "solutions": [
         {
-          "solution_id": "sol003",
-          "solution_nom": "Mise à jour régulière CMS/plugins",
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
           "efficacite": "Élevée",
-          "justification": "Ferme les failles connues exploitées par ce type d'attaque"
+          "justification": "Restauration rapide en cas d'attaque ou d'erreur"
         },
         {
-          "solution_id": "sol002",
-          "solution_nom": "Certificat SSL/TLS + chiffrement stockage",
-          "efficacite": "Moyenne",
-          "justification": "Sécurise le transport des données mais n'empêche pas l'injection elle-même"
+          "solution_id": "sol052",
+          "solution_nom": "Systématisation de la validation des entrées (input validation)",
+          "efficacite": "Faible",
+          "justification": "Élimine la grande majorité des failles d'injection (SQL, XSS, Command Injection), conforme aux bonnes pratiques OWASP"
+        },
+        {
+          "solution_id": "sol003",
+          "solution_nom": "Mise à jour régulière CMS, plugins et infrastructure web",
+          "efficacite": "Faible",
+          "justification": "Ferme la majorité des failles connues"
         }
       ]
     },
@@ -39,32 +51,44 @@
       "solutions": [
         {
           "solution_id": "sol003",
-          "solution_nom": "Mise à jour régulière CMS/plugins",
-          "efficacite": "Élevée",
-          "justification": "Corrige directement les paramétrages par défaut et versions vulnérables"
+          "solution_nom": "Mise à jour régulière CMS, plugins et infrastructure web",
+          "efficacite": "Moyenne",
+          "justification": "Ferme la majorité des failles connues"
         },
         {
-          "solution_id": "sol010",
-          "solution_nom": "Gestion stricte des permissions d'accès",
+          "solution_id": "sol055",
+          "solution_nom": "Adoption d'une politique de 'Secure by Default'",
           "efficacite": "Moyenne",
-          "justification": "Limite l'impact d'une mauvaise configuration en restreignant les accès"
+          "justification": "Réduit la surface d'attaque dès le premier jour, évite les erreurs de configuration courantes"
+        },
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
         }
       ]
     },
     "r004": {
-      "risque_nom": "Perte ou vol de matériel nomade",
+      "risque_nom": "Perte ou vol de matériel nomade (laptop, smartphone, clé USB)",
       "solutions": [
         {
           "solution_id": "sol005",
           "solution_nom": "Chiffrement des équipements nomades",
-          "efficacite": "Élevée",
-          "justification": "Rend les données illisibles même si l'appareil est perdu/volé"
+          "efficacite": "Moyenne",
+          "justification": "Données illisibles en cas de perte/vol du matériel"
         },
         {
-          "solution_id": "sol001",
-          "solution_nom": "VPN",
+          "solution_id": "sol041",
+          "solution_nom": "Protection physique renforcée pour le nomadisme (filtre écran, BIOS, secure boot)",
+          "efficacite": "Moyenne",
+          "justification": "Protège contre l'espionnage visuel et le piégeage matériel de bas niveau lors des déplacements"
+        },
+        {
+          "solution_id": "sol059",
+          "solution_nom": "Classification et protection des données",
           "efficacite": "Faible",
-          "justification": "Protège la connexion mais pas les données déjà stockées sur l'appareil"
+          "justification": "Protection proportionnelle à la criticité, conformité à la loi 09‑08, réduction des risques de fuite"
         }
       ]
     },
@@ -74,8 +98,20 @@
         {
           "solution_id": "sol011",
           "solution_nom": "Antivirus avec scan automatique des supports externes",
-          "efficacite": "Élevée",
-          "justification": "Détecte le logiciel malveillant avant exécution lors du branchement"
+          "efficacite": "Moyenne",
+          "justification": "Bloque l'infection via clé USB avant qu'elle ne se propage"
+        },
+        {
+          "solution_id": "sol024",
+          "solution_nom": "Centralisation et conservation des journaux d'événements",
+          "efficacite": "Faible",
+          "justification": "Permet l'investigation après incident, obligatoire pour toute analyse forensique fiable"
+        },
+        {
+          "solution_id": "sol017",
+          "solution_nom": "Checklist de vérification avant paiement en ligne",
+          "efficacite": "Faible",
+          "justification": "Gratuit, réduit fortement le risque de fraude au paiement"
         }
       ]
     },
@@ -83,15 +119,21 @@
       "risque_nom": "Mot de passe faible, partagé ou jamais renouvelé",
       "solutions": [
         {
-          "solution_id": "sol004",
-          "solution_nom": "Politique de mots de passe stricte",
-          "efficacite": "Élevée",
-          "justification": "Impose directement la complexité et le renouvellement, cause racine du risque"
+          "solution_id": "sol076",
+          "solution_nom": "Politique de gestion des mots de passe OT",
+          "efficacite": "Moyenne",
+          "justification": "Protège contre l'utilisation des identifiants par défaut Applique le moindre privilège"
+        },
+        {
+          "solution_id": "sol060",
+          "solution_nom": "Gestion structurée des comptes privilégiés",
+          "efficacite": "Moyenne",
+          "justification": "Réduit le risque de compromission des comptes admin, limite la propagation en cas d'attaque"
         },
         {
           "solution_id": "sol016",
-          "solution_nom": "Séparation email pro/perso + mot de passe dédié",
-          "efficacite": "Moyenne",
+          "solution_nom": "Séparation email professionnel/personnel + mot de passe dédié",
+          "efficacite": "Faible",
           "justification": "Limite la propagation en cas de compromission d'un compte"
         }
       ]
@@ -102,14 +144,20 @@
         {
           "solution_id": "sol007",
           "solution_nom": "Charte d'usage d'Internet formalisée",
-          "efficacite": "Élevée",
-          "justification": "Cadre directement le comportement attendu et sert de base disciplinaire"
+          "efficacite": "Moyenne",
+          "justification": "Cadre clair, base légale en cas de sanction, sensibilisation"
         },
         {
-          "solution_id": "sol008",
-          "solution_nom": "Extension navigateur de réputation de site",
+          "solution_id": "sol079",
+          "solution_nom": "Postes de maintenance dédiés et durcis",
+          "efficacite": "Moyenne",
+          "justification": "Limite les risques d'introduction de malwares Assure un environnement de maintenance contrôlé"
+        },
+        {
+          "solution_id": "sol034",
+          "solution_nom": "Séparation stricte des comptes utilisateur et administrateur",
           "efficacite": "Faible",
-          "justification": "Aide ponctuellement mais ne remplace pas la sensibilisation"
+          "justification": "Réduit fortement le risque qu'un malware obtienne un contrôle total du poste"
         }
       ]
     },
@@ -119,14 +167,20 @@
         {
           "solution_id": "sol010",
           "solution_nom": "Gestion stricte des permissions d'accès",
-          "efficacite": "Élevée",
-          "justification": "Applique le moindre privilège directement sur les fichiers sensibles"
+          "efficacite": "Moyenne",
+          "justification": "Réduit fortement la surface d'attaque interne"
         },
         {
-          "solution_id": "sol006",
-          "solution_nom": "Verrouillage automatique de session",
-          "efficacite": "Moyenne",
-          "justification": "Réduit la fenêtre d'exposition en cas d'absence de l'utilisateur"
+          "solution_id": "sol072",
+          "solution_nom": "Inventaire et cartographie des actifs OT",
+          "efficacite": "Faible",
+          "justification": "Permet de savoir ce qui doit être protégé Facilite la gestion des vulnérabilités Base de toute démarche de sécurité OT"
+        },
+        {
+          "solution_id": "sol076",
+          "solution_nom": "Politique de gestion des mots de passe OT",
+          "efficacite": "Faible",
+          "justification": "Protège contre l'utilisation des identifiants par défaut Applique le moindre privilège"
         }
       ]
     },
@@ -137,7 +191,19 @@
           "solution_id": "sol009",
           "solution_nom": "Sauvegarde régulière et sécurisée du site web",
           "efficacite": "Élevée",
-          "justification": "Réponse directe et complète à ce risque"
+          "justification": "Restauration rapide en cas d'attaque ou d'erreur"
+        },
+        {
+          "solution_id": "sol078",
+          "solution_nom": "Sauvegarde hors-ligne des configurations OT (3-2-1 OT)",
+          "efficacite": "Faible",
+          "justification": "Permet la reconstruction après ransomware Protège les sauvegardes contre le chiffrement"
+        },
+        {
+          "solution_id": "sol010",
+          "solution_nom": "Gestion stricte des permissions d'accès",
+          "efficacite": "Faible",
+          "justification": "Réduit fortement la surface d'attaque interne"
         }
       ]
     },
@@ -147,14 +213,20 @@
         {
           "solution_id": "sol007",
           "solution_nom": "Charte d'usage d'Internet formalisée",
-          "efficacite": "Moyenne",
-          "justification": "Sensibilise et formalise les règles de communication externe"
+          "efficacite": "Faible",
+          "justification": "Cadre clair, base légale en cas de sanction, sensibilisation"
         },
         {
-          "solution_id": "sol015",
-          "solution_nom": "Vigilance et vérification des emails suspects",
+          "solution_id": "sol079",
+          "solution_nom": "Postes de maintenance dédiés et durcis",
           "efficacite": "Faible",
-          "justification": "Concerne surtout le canal email, pas les forums/réseaux sociaux"
+          "justification": "Limite les risques d'introduction de malwares Assure un environnement de maintenance contrôlé"
+        },
+        {
+          "solution_id": "sol119",
+          "solution_nom": "Collaboration public-privé renforcée pour le partage des bonnes pratiques",
+          "efficacite": "Faible",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
         }
       ]
     },
@@ -162,10 +234,22 @@
       "risque_nom": "Ver informatique (worm)",
       "solutions": [
         {
-          "solution_id": "sol011",
-          "solution_nom": "Antivirus avec scan automatique des supports externes",
-          "efficacite": "Élevée",
-          "justification": "Détecte et bloque la propagation avant infection du réseau"
+          "solution_id": "sol079",
+          "solution_nom": "Postes de maintenance dédiés et durcis",
+          "efficacite": "Moyenne",
+          "justification": "Limite les risques d'introduction de malwares Assure un environnement de maintenance contrôlé"
+        },
+        {
+          "solution_id": "sol039",
+          "solution_nom": "Stratégie de mitigation DDoS",
+          "efficacite": "Faible",
+          "justification": "Réduit fortement l'impact d'une attaque par déni de service, maintient la disponibilité des services critiques"
+        },
+        {
+          "solution_id": "sol055",
+          "solution_nom": "Adoption d'une politique de 'Secure by Default'",
+          "efficacite": "Faible",
+          "justification": "Réduit la surface d'attaque dès le premier jour, évite les erreurs de configuration courantes"
         }
       ]
     },
@@ -173,16 +257,22 @@
       "risque_nom": "Cheval de Troie (trojan)",
       "solutions": [
         {
-          "solution_id": "sol011",
-          "solution_nom": "Antivirus avec scan automatique des supports externes",
-          "efficacite": "Élevée",
-          "justification": "Détecte le programme malveillant caché dans le vecteur légitime"
+          "solution_id": "sol013",
+          "solution_nom": "Logiciel antispyware",
+          "efficacite": "Moyenne",
+          "justification": "Protège la vie privée et les données de navigation"
         },
         {
-          "solution_id": "sol015",
-          "solution_nom": "Vigilance et vérification des emails suspects",
-          "efficacite": "Moyenne",
-          "justification": "Réduit le risque de télécharger/exécuter le vecteur d'infiltration"
+          "solution_id": "sol012",
+          "solution_nom": "Logiciel antispam pour la messagerie",
+          "efficacite": "Faible",
+          "justification": "Réduit fortement le volume de phishing/spam reçu"
+        },
+        {
+          "solution_id": "sol079",
+          "solution_nom": "Postes de maintenance dédiés et durcis",
+          "efficacite": "Faible",
+          "justification": "Limite les risques d'introduction de malwares Assure un environnement de maintenance contrôlé"
         }
       ]
     },
@@ -192,8 +282,20 @@
         {
           "solution_id": "sol014",
           "solution_nom": "Logiciel anti-keylogger",
-          "efficacite": "Élevée",
-          "justification": "Solution ciblée spécifiquement conçue contre ce vecteur"
+          "efficacite": "Moyenne",
+          "justification": "Protection ciblée contre le vol de saisie clavier"
+        },
+        {
+          "solution_id": "sol013",
+          "solution_nom": "Logiciel antispyware",
+          "efficacite": "Moyenne",
+          "justification": "Protège la vie privée et les données de navigation"
+        },
+        {
+          "solution_id": "sol001",
+          "solution_nom": "VPN pour connexions distantes et Wi-Fi public",
+          "efficacite": "Faible",
+          "justification": "Protège les données en déplacement, simple à déployer"
         }
       ]
     },
@@ -203,8 +305,20 @@
         {
           "solution_id": "sol013",
           "solution_nom": "Logiciel antispyware",
-          "efficacite": "Élevée",
-          "justification": "Solution ciblée spécifiquement conçue contre ce vecteur"
+          "efficacite": "Moyenne",
+          "justification": "Protège la vie privée et les données de navigation"
+        },
+        {
+          "solution_id": "sol026",
+          "solution_nom": "Anonymisation des données de production utilisées en test",
+          "efficacite": "Moyenne",
+          "justification": "Élimine le risque de fuite de données réelles via un environnement moins sécurisé"
+        },
+        {
+          "solution_id": "sol042",
+          "solution_nom": "Procédure de déclaration d'incident conforme",
+          "efficacite": "Faible",
+          "justification": "Assure la conformité légale et bénéficie d'un support/coordination officielle en cas d'incident majeur"
         }
       ]
     },
@@ -212,24 +326,41 @@
       "risque_nom": "Spoofing (usurpation d'identité électronique)",
       "solutions": [
         {
-          "solution_id": "sol015",
-          "solution_nom": "Vigilance et vérification des emails suspects",
+          "solution_id": "sol037",
+          "solution_nom": "Authentification des emails sortants (SPF/DKIM)",
           "efficacite": "Moyenne",
-          "justification": "Vérifier la cohérence expéditeur/contenu permet de détecter une usurpation"
+          "justification": "Réduit fortement les usurpations d'identité par email (spoofing) visant l'entreprise ou ses partenaires"
         },
         {
-          "solution_id": "sol012",
-          "solution_nom": "Logiciel antispam pour la messagerie",
-          "efficacite": "Moyenne",
-          "justification": "Filtre une partie des tentatives de spoofing par email"
+          "solution_id": "sol017",
+          "solution_nom": "Checklist de vérification avant paiement en ligne",
+          "efficacite": "Faible",
+          "justification": "Gratuit, réduit fortement le risque de fraude au paiement"
+        },
+        {
+          "solution_id": "sol015",
+          "solution_nom": "Vigilance et vérification des emails suspects",
+          "efficacite": "Faible",
+          "justification": "Gratuit, réduit le risque humain principal"
         }
       ]
     },
     "r016": {
       "risque_nom": "Implication involontaire dans un circuit de blanchiment via monnaies virtuelles",
-      "solutions": [],
-      "couverture": "aucune_solution_dediee",
-      "note": "Le guide CMRPI décrit ce risque (section 3.3.3) sans proposer de mesure de protection technique correspondante. Une vraie réponse nécessiterait une procédure KYC/AML et un conseil juridique spécialisé, hors périmètre du guide consulté."
+      "solutions": [
+        {
+          "solution_id": "sol017",
+          "solution_nom": "Checklist de vérification avant paiement en ligne",
+          "efficacite": "Faible",
+          "justification": "Gratuit, réduit fortement le risque de fraude au paiement"
+        },
+        {
+          "solution_id": "sol015",
+          "solution_nom": "Vigilance et vérification des emails suspects",
+          "efficacite": "Faible",
+          "justification": "Gratuit, réduit le risque humain principal"
+        }
+      ]
     },
     "r017": {
       "risque_nom": "Interception de coordonnées bancaires lors de paiements en ligne",
@@ -237,14 +368,20 @@
         {
           "solution_id": "sol017",
           "solution_nom": "Checklist de vérification avant paiement en ligne",
-          "efficacite": "Élevée",
-          "justification": "Réponse directe et documentée dans le guide (section 3.3.4)"
+          "efficacite": "Moyenne",
+          "justification": "Gratuit, réduit fortement le risque de fraude au paiement"
         },
         {
-          "solution_id": "sol002",
-          "solution_nom": "Certificat SSL/TLS + chiffrement stockage",
-          "efficacite": "Moyenne",
-          "justification": "Sécurise le canal mais dépend aussi du comportement de l'utilisateur"
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "efficacite": "Faible",
+          "justification": "Restauration rapide en cas d'attaque ou d'erreur"
+        },
+        {
+          "solution_id": "sol020",
+          "solution_nom": "Mise en conformité loi 09-08 (protection données personnelles)",
+          "efficacite": "Faible",
+          "justification": "Conformité légale, évite les amendes CNSPDP"
         }
       ]
     },
@@ -252,14 +389,24 @@
       "risque_nom": "Extorsion numérique par DDoS avec demande de rançon",
       "solutions": [
         {
-          "solution_id": "sol009",
-          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "solution_id": "sol036",
+          "solution_nom": "Plan de réponse à incident structuré en 6 phases",
           "efficacite": "Faible",
-          "justification": "Aide à la reprise après incident mais ne prévient pas l'attaque elle-même"
+          "justification": "Réduit le temps de détection et de réponse, structure une réaction sous pression plutôt que de l'improviser"
+        },
+        {
+          "solution_id": "sol014",
+          "solution_nom": "Logiciel anti-keylogger",
+          "efficacite": "Faible",
+          "justification": "Protection ciblée contre le vol de saisie clavier"
+        },
+        {
+          "solution_id": "sol069",
+          "solution_nom": "Exercices annuels de réponse aux incidents (tabletop)",
+          "efficacite": "Faible",
+          "justification": "Permet de valider le plan, d'entraîner les équipes, d'identifier les lacunes avant une vraie crise"
         }
-      ],
-      "couverture": "partielle",
-      "note": "Le guide mentionne l'extorsion par DDoS comme définition (section 3.3.1) mais ne détaille pas de mesure de protection technique dédiée (ex: anti-DDoS, WAF) dans les extraits consultés."
+      ]
     },
     "r019": {
       "risque_nom": "Shadow IT — usage non approuvé d'outils cloud grand public",
@@ -268,13 +415,19 @@
           "solution_id": "sol018",
           "solution_nom": "Solution centralisée et sécurisée de partage de fichiers",
           "efficacite": "Élevée",
-          "justification": "Réponse directe recommandée par le guide (section 3.4.4)"
+          "justification": "Reprend le contrôle IT sur les données partagées"
         },
         {
-          "solution_id": "sol007",
-          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "solution_id": "sol048",
+          "solution_nom": "Politique formelle de conservation des données",
           "efficacite": "Moyenne",
-          "justification": "Encadre l'usage des outils non approuvés par une règle claire"
+          "justification": "Conformité à la loi 09-08, réduction de la surface d'exposition en cas de fuite, optimisation des espaces de stockage"
+        },
+        {
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "efficacite": "Faible",
+          "justification": "Restauration rapide en cas d'attaque ou d'erreur"
         }
       ]
     },
@@ -283,9 +436,21 @@
       "solutions": [
         {
           "solution_id": "sol019",
-          "solution_nom": "Chiffrement pré-cloud + choix contractuel rigoureux",
+          "solution_nom": "Chiffrement pré-cloud + choix contractuel rigoureux du prestataire",
           "efficacite": "Élevée",
-          "justification": "Réponse directe recommandée par le guide (section 3.5.2)"
+          "justification": "Réduit les risques juridiques et de confidentialité liés au cloud"
+        },
+        {
+          "solution_id": "sol027",
+          "solution_nom": "Clauses de sécurité et de réversibilité dans les contrats fournisseurs",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la dépendance dangereuse à un prestataire et encadre juridiquement les risques de sous-traitance"
+        },
+        {
+          "solution_id": "sol093",
+          "solution_nom": "Contractualisation sécurisée des sous-traitants OT",
+          "efficacite": "Moyenne",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
         }
       ]
     },
@@ -294,9 +459,1711 @@
       "solutions": [
         {
           "solution_id": "sol020",
-          "solution_nom": "Mise en conformité loi 09-08",
+          "solution_nom": "Mise en conformité loi 09-08 (protection données personnelles)",
           "efficacite": "Élevée",
-          "justification": "Réponse directe et complète aux 6 règles d'or citées dans le guide (section 3.5.4)"
+          "justification": "Conformité légale, évite les amendes CNSPDP"
+        },
+        {
+          "solution_id": "sol042",
+          "solution_nom": "Procédure de déclaration d'incident conforme",
+          "efficacite": "Moyenne",
+          "justification": "Assure la conformité légale et bénéficie d'un support/coordination officielle en cas d'incident majeur"
+        },
+        {
+          "solution_id": "sol024",
+          "solution_nom": "Centralisation et conservation des journaux d'événements",
+          "efficacite": "Faible",
+          "justification": "Permet l'investigation après incident, obligatoire pour toute analyse forensique fiable"
+        }
+      ]
+    },
+    "r022": {
+      "risque_nom": "Absence de plan de continuité et de reprise d'activité (PCA/PRA)",
+      "solutions": [
+        {
+          "solution_id": "sol021",
+          "solution_nom": "Plan de Continuité et de Reprise d'Activité (PCA/PRA)",
+          "efficacite": "Élevée",
+          "justification": "Réduit drastiquement le temps d'arrêt en cas de sinistre majeur, structure la réponse plutôt que de l'improviser"
+        },
+        {
+          "solution_id": "sol094",
+          "solution_nom": "Plan de Continuité d'Activité OT (PCA OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        },
+        {
+          "solution_id": "sol089",
+          "solution_nom": "Plan de continuité OT (PCA/PRA adapté)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        }
+      ]
+    },
+    "r023": {
+      "risque_nom": "Comptes utilisateurs non révoqués après départ d'un employé",
+      "solutions": [
+        {
+          "solution_id": "sol022",
+          "solution_nom": "Procédure formalisée de gestion des départs et mutations",
+          "efficacite": "Élevée",
+          "justification": "Élimine le risque d'accès résiduel après un départ, peu coûteux à mettre en place"
+        },
+        {
+          "solution_id": "sol027",
+          "solution_nom": "Clauses de sécurité et de réversibilité dans les contrats fournisseurs",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la dépendance dangereuse à un prestataire et encadre juridiquement les risques de sous-traitance"
+        },
+        {
+          "solution_id": "sol033",
+          "solution_nom": "Inventaire complet et à jour des actifs informatiques",
+          "efficacite": "Faible",
+          "justification": "Base indispensable de toute démarche de sécurité, permet d'identifier les biens critiques et les accès résiduels"
+        }
+      ]
+    },
+    "r024": {
+      "risque_nom": "Utilisation de logiciels sans licence valide",
+      "solutions": [
+        {
+          "solution_id": "sol023",
+          "solution_nom": "Inventaire et conformité des licences logicielles",
+          "efficacite": "Élevée",
+          "justification": "Évite les risques juridiques et réduit l'exposition aux malwares distribués via logiciels piratés"
+        },
+        {
+          "solution_id": "sol058",
+          "solution_nom": "Gestion des logiciels autorisés (whitelisting)",
+          "efficacite": "Faible",
+          "justification": "Réduit fortement les risques de malwares, assure la conformité des licences, renforce le contrôle IT"
+        },
+        {
+          "solution_id": "sol084",
+          "solution_nom": "Intégration de la sécurité dans les projets OT (Security by Design)",
+          "efficacite": "Faible",
+          "justification": "Réduit les coûts de correction Anticipe les risques Facilite l'homologation"
+        }
+      ]
+    },
+    "r025": {
+      "risque_nom": "Absence de journalisation et de traçabilité des événements de sécurité",
+      "solutions": [
+        {
+          "solution_id": "sol024",
+          "solution_nom": "Centralisation et conservation des journaux d'événements",
+          "efficacite": "Élevée",
+          "justification": "Permet l'investigation après incident, obligatoire pour toute analyse forensique fiable"
+        },
+        {
+          "solution_id": "sol082",
+          "solution_nom": "Centralisation des logs OT (puits de logs)",
+          "efficacite": "Moyenne",
+          "justification": "Permet l'investigation post-incident Facilite la détection Assure la traçabilité"
+        },
+        {
+          "solution_id": "sol062",
+          "solution_nom": "Solution SIEM de surveillance des logs",
+          "efficacite": "Moyenne",
+          "justification": "Permet la détection précoce des incidents, facilite l'investigation, répond aux exigences de traçabilité"
+        }
+      ]
+    },
+    "r026": {
+      "risque_nom": "Absence de séparation des environnements de développement, test et production",
+      "solutions": [
+        {
+          "solution_id": "sol025",
+          "solution_nom": "Séparation des environnements de développement, test et production",
+          "efficacite": "Élevée",
+          "justification": "Réduit le risque d'incidents en production liés à des tests ou développements non aboutis"
+        },
+        {
+          "solution_id": "sol026",
+          "solution_nom": "Anonymisation des données de production utilisées en test",
+          "efficacite": "Moyenne",
+          "justification": "Élimine le risque de fuite de données réelles via un environnement moins sécurisé"
+        },
+        {
+          "solution_id": "sol066",
+          "solution_nom": "Gestion du cycle de vie sécurisé des applications",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les vulnérabilités dès la conception, économise les coûts de correction en production, répond aux exigences de la DNSSI"
+        }
+      ]
+    },
+    "r027": {
+      "risque_nom": "Données de production utilisées en test sans anonymisation",
+      "solutions": [
+        {
+          "solution_id": "sol026",
+          "solution_nom": "Anonymisation des données de production utilisées en test",
+          "efficacite": "Élevée",
+          "justification": "Élimine le risque de fuite de données réelles via un environnement moins sécurisé"
+        },
+        {
+          "solution_id": "sol048",
+          "solution_nom": "Politique formelle de conservation des données",
+          "efficacite": "Moyenne",
+          "justification": "Conformité à la loi 09-08, réduction de la surface d'exposition en cas de fuite, optimisation des espaces de stockage"
+        },
+        {
+          "solution_id": "sol042",
+          "solution_nom": "Procédure de déclaration d'incident conforme",
+          "efficacite": "Moyenne",
+          "justification": "Assure la conformité légale et bénéficie d'un support/coordination officielle en cas d'incident majeur"
+        }
+      ]
+    },
+    "r028": {
+      "risque_nom": "Risques liés aux prestataires/fournisseurs non encadrés contractuellement",
+      "solutions": [
+        {
+          "solution_id": "sol027",
+          "solution_nom": "Clauses de sécurité et de réversibilité dans les contrats fournisseurs",
+          "efficacite": "Élevée",
+          "justification": "Réduit la dépendance dangereuse à un prestataire et encadre juridiquement les risques de sous-traitance"
+        },
+        {
+          "solution_id": "sol068",
+          "solution_nom": "Gestion des vulnérabilités des fournisseurs",
+          "efficacite": "Élevée",
+          "justification": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur"
+        },
+        {
+          "solution_id": "sol088",
+          "solution_nom": "Clauses contractuelles de sécurité pour la sous-traitance OT",
+          "efficacite": "Élevée",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
+        }
+      ]
+    },
+    "r029": {
+      "risque_nom": "Absence de cloisonnement du réseau interne",
+      "solutions": [
+        {
+          "solution_id": "sol028",
+          "solution_nom": "Cloisonnement du réseau en zones de sécurité",
+          "efficacite": "Élevée",
+          "justification": "Limite fortement la propagation d'une attaque au sein du réseau interne"
+        },
+        {
+          "solution_id": "sol074",
+          "solution_nom": "Segmentation du réseau OT (zones ISA 62443)",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation des attaques Isole les systèmes obsolètes Réduit la surface d'attaque"
+        },
+        {
+          "solution_id": "sol024",
+          "solution_nom": "Centralisation et conservation des journaux d'événements",
+          "efficacite": "Faible",
+          "justification": "Permet l'investigation après incident, obligatoire pour toute analyse forensique fiable"
+        }
+      ]
+    },
+    "r030": {
+      "risque_nom": "Gestion non structurée des vulnérabilités et des correctifs",
+      "solutions": [
+        {
+          "solution_id": "sol029",
+          "solution_nom": "Processus structuré de gestion des vulnérabilités et des correctifs",
+          "efficacite": "Moyenne",
+          "justification": "Réduit fortement la fenêtre d'exposition aux failles connues"
+        },
+        {
+          "solution_id": "sol097",
+          "solution_nom": "Processus formel de gestion des correctifs OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les vulnérabilités Assure la continuité Traçabilité"
+        },
+        {
+          "solution_id": "sol057",
+          "solution_nom": "Inventaire centralisé des actifs",
+          "efficacite": "Moyenne",
+          "justification": "Permet de savoir précisément ce qui doit être protégé, facilite la gestion des correctifs et des accès"
+        }
+      ]
+    },
+    "r031": {
+      "risque_nom": "Risques physiques et environnementaux sur les salles serveurs",
+      "solutions": [
+        {
+          "solution_id": "sol030",
+          "solution_nom": "Mesures de sécurité physique et environnementale des salles serveurs",
+          "efficacite": "Élevée",
+          "justification": "Protège contre les sinistres accidentels, complète la sécurité logique"
+        },
+        {
+          "solution_id": "sol098",
+          "solution_nom": "Gestion des accès physiques aux équipements OT",
+          "efficacite": "Moyenne",
+          "justification": "Protège contre les intrusions physiques Prévient les accès non autorisés"
+        },
+        {
+          "solution_id": "sol041",
+          "solution_nom": "Protection physique renforcée pour le nomadisme (filtre écran, BIOS, secure boot)",
+          "efficacite": "Faible",
+          "justification": "Protège contre l'espionnage visuel et le piégeage matériel de bas niveau lors des déplacements"
+        }
+      ]
+    },
+    "r032": {
+      "risque_nom": "Absence d'inventaire des actifs informatiques",
+      "solutions": [
+        {
+          "solution_id": "sol033",
+          "solution_nom": "Inventaire complet et à jour des actifs informatiques",
+          "efficacite": "Élevée",
+          "justification": "Base indispensable de toute démarche de sécurité, permet d'identifier les biens critiques et les accès résiduels"
+        },
+        {
+          "solution_id": "sol057",
+          "solution_nom": "Inventaire centralisé des actifs",
+          "efficacite": "Moyenne",
+          "justification": "Permet de savoir précisément ce qui doit être protégé, facilite la gestion des correctifs et des accès"
+        },
+        {
+          "solution_id": "sol072",
+          "solution_nom": "Inventaire et cartographie des actifs OT",
+          "efficacite": "Moyenne",
+          "justification": "Permet de savoir ce qui doit être protégé Facilite la gestion des vulnérabilités Base de toute démarche de sécurité OT"
+        }
+      ]
+    },
+    "r033": {
+      "risque_nom": "Redirection de messages professionnels vers une messagerie personnelle",
+      "solutions": [
+        {
+          "solution_id": "sol022",
+          "solution_nom": "Procédure formalisée de gestion des départs et mutations",
+          "efficacite": "Faible",
+          "justification": "Élimine le risque d'accès résiduel après un départ, peu coûteux à mettre en place"
+        },
+        {
+          "solution_id": "sol037",
+          "solution_nom": "Authentification des emails sortants (SPF/DKIM)",
+          "efficacite": "Faible",
+          "justification": "Réduit fortement les usurpations d'identité par email (spoofing) visant l'entreprise ou ses partenaires"
+        },
+        {
+          "solution_id": "sol007",
+          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "efficacite": "Faible",
+          "justification": "Cadre clair, base légale en cas de sanction, sensibilisation"
+        }
+      ]
+    },
+    "r034": {
+      "risque_nom": "Navigation Internet avec un compte disposant de privilèges d'administrateur",
+      "solutions": [
+        {
+          "solution_id": "sol034",
+          "solution_nom": "Séparation stricte des comptes utilisateur et administrateur",
+          "efficacite": "Élevée",
+          "justification": "Réduit fortement le risque qu'un malware obtienne un contrôle total du poste"
+        },
+        {
+          "solution_id": "sol016",
+          "solution_nom": "Séparation email professionnel/personnel + mot de passe dédié",
+          "efficacite": "Faible",
+          "justification": "Limite la propagation en cas de compromission d'un compte"
+        },
+        {
+          "solution_id": "sol013",
+          "solution_nom": "Logiciel antispyware",
+          "efficacite": "Faible",
+          "justification": "Protège la vie privée et les données de navigation"
+        }
+      ]
+    },
+    "r035": {
+      "risque_nom": "Défiguration de site web (website defacement)",
+      "solutions": [
+        {
+          "solution_id": "sol038",
+          "solution_nom": "Vérification d'intégrité des fichiers du site web",
+          "efficacite": "Moyenne",
+          "justification": "Permet de détecter rapidement une défiguration ou une altération malveillante du site"
+        },
+        {
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "efficacite": "Faible",
+          "justification": "Restauration rapide en cas d'attaque ou d'erreur"
+        },
+        {
+          "solution_id": "sol010",
+          "solution_nom": "Gestion stricte des permissions d'accès",
+          "efficacite": "Faible",
+          "justification": "Réduit fortement la surface d'attaque interne"
+        }
+      ]
+    },
+    "r036": {
+      "risque_nom": "Exposition directe d'applications métier sensibles sur Internet sans VPN",
+      "solutions": [
+        {
+          "solution_id": "sol068",
+          "solution_nom": "Gestion des vulnérabilités des fournisseurs",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur"
+        },
+        {
+          "solution_id": "sol055",
+          "solution_nom": "Adoption d'une politique de 'Secure by Default'",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque dès le premier jour, évite les erreurs de configuration courantes"
+        },
+        {
+          "solution_id": "sol059",
+          "solution_nom": "Classification et protection des données",
+          "efficacite": "Moyenne",
+          "justification": "Protection proportionnelle à la criticité, conformité à la loi 09‑08, réduction des risques de fuite"
+        }
+      ]
+    },
+    "r037": {
+      "risque_nom": "Absence de couverture assurantielle contre le risque cyber",
+      "solutions": [
+        {
+          "solution_id": "sol040",
+          "solution_nom": "Souscription d'une police d'assurance cyber",
+          "efficacite": "Élevée",
+          "justification": "Permet d'absorber financièrement les conséquences d'un incident grave que l'entreprise ne pourrait pas supporter seule"
+        }
+      ]
+    },
+    "r038": {
+      "risque_nom": "Absence de déclaration d'incident à l'autorité compétente",
+      "solutions": [
+        {
+          "solution_id": "sol042",
+          "solution_nom": "Procédure de déclaration d'incident conforme",
+          "efficacite": "Élevée",
+          "justification": "Assure la conformité légale et bénéficie d'un support/coordination officielle en cas d'incident majeur"
+        },
+        {
+          "solution_id": "sol020",
+          "solution_nom": "Mise en conformité loi 09-08 (protection données personnelles)",
+          "efficacite": "Moyenne",
+          "justification": "Conformité légale, évite les amendes CNSPDP"
+        },
+        {
+          "solution_id": "sol007",
+          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "efficacite": "Faible",
+          "justification": "Cadre clair, base légale en cas de sanction, sensibilisation"
+        }
+      ]
+    },
+    "r039": {
+      "risque_nom": "Absence de formation continue en sécurité",
+      "solutions": [
+        {
+          "solution_id": "sol043",
+          "solution_nom": "Programme de formation continue en cybersécurité",
+          "efficacite": "Élevée",
+          "justification": "Réduit l'erreur humaine, améliore la détection des tentatives d'hameçonnage, conforme aux exigences DNSSI et Stratégie 2030"
+        },
+        {
+          "solution_id": "sol064",
+          "solution_nom": "Programme de formation technique continue",
+          "efficacite": "Moyenne",
+          "justification": "Maintient à jour les compétences des équipes, réduit les erreurs de configuration et améliore la réponse aux incidents"
+        },
+        {
+          "solution_id": "sol096",
+          "solution_nom": "Programme de formation et sensibilisation OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit l'erreur humaine Améliore la détection Renforce la culture sécurité"
+        }
+      ]
+    },
+    "r040": {
+      "risque_nom": "Non-prise en compte du cycle de vie sécurisé du logiciel",
+      "solutions": [
+        {
+          "solution_id": "sol044",
+          "solution_nom": "Intégration de la sécurité dans le cycle de vie SDLC",
+          "efficacite": "Élevée",
+          "justification": "Réduction drastique des vulnérabilités, économie de coûts (30x moins cher de corriger en conception), conformité aux exigences DNSSI"
+        },
+        {
+          "solution_id": "sol066",
+          "solution_nom": "Gestion du cycle de vie sécurisé des applications",
+          "efficacite": "Élevée",
+          "justification": "Réduit les vulnérabilités dès la conception, économise les coûts de correction en production, répond aux exigences de la DNSSI"
+        },
+        {
+          "solution_id": "sol084",
+          "solution_nom": "Intégration de la sécurité dans les projets OT (Security by Design)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les coûts de correction Anticipe les risques Facilite l'homologation"
+        }
+      ]
+    },
+    "r041": {
+      "risque_nom": "Absence de tests de sécurité automatisés (SAST/DAST)",
+      "solutions": [
+        {
+          "solution_id": "sol045",
+          "solution_nom": "Déploiement d'outils SAST/DAST dans la chaîne CI/CD",
+          "efficacite": "Élevée",
+          "justification": "Détection automatique des failles de sécurité, correction avant production, gain de temps par rapport aux tests manuels"
+        },
+        {
+          "solution_id": "sol085",
+          "solution_nom": "Recette de cybersécurité OT (FAT/SAT)",
+          "efficacite": "Moyenne",
+          "justification": "Détecte les vulnérabilités avant la production Valide la conformité"
+        },
+        {
+          "solution_id": "sol066",
+          "solution_nom": "Gestion du cycle de vie sécurisé des applications",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les vulnérabilités dès la conception, économise les coûts de correction en production, répond aux exigences de la DNSSI"
+        }
+      ]
+    },
+    "r042": {
+      "risque_nom": "Dépendance non contrôlée à des bibliothèques open-source",
+      "solutions": [
+        {
+          "solution_id": "sol046",
+          "solution_nom": "Mise en place d'une analyse SCA (Software Composition Analysis)",
+          "efficacite": "Élevée",
+          "justification": "Détection des failles connues (CVEs) dans les dépendances, conformité des licences, réduction de la surface d'attaque"
+        },
+        {
+          "solution_id": "sol023",
+          "solution_nom": "Inventaire et conformité des licences logicielles",
+          "efficacite": "Moyenne",
+          "justification": "Évite les risques juridiques et réduit l'exposition aux malwares distribués via logiciels piratés"
+        },
+        {
+          "solution_id": "sol068",
+          "solution_nom": "Gestion des vulnérabilités des fournisseurs",
+          "efficacite": "Faible",
+          "justification": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur"
+        }
+      ]
+    },
+    "r043": {
+      "risque_nom": "Absence de qualification des prestataires cybersécurité",
+      "solutions": [
+        {
+          "solution_id": "sol047",
+          "solution_nom": "Vérification systématique de la qualification des prestataires",
+          "efficacite": "Élevée",
+          "justification": "Garantie de compétence et de qualité, conformité à la loi 05-20, traçabilité et recours"
+        },
+        {
+          "solution_id": "sol100",
+          "solution_nom": "Audit cybersécurité OT périodique",
+          "efficacite": "Moyenne",
+          "justification": "Évalue le niveau de sécurité Identifie les vulnérabilités Renforce la conformité"
+        },
+        {
+          "solution_id": "sol068",
+          "solution_nom": "Gestion des vulnérabilités des fournisseurs",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur"
+        }
+      ]
+    },
+    "r044": {
+      "risque_nom": "Non-respect des durées de conservation des données personnelles",
+      "solutions": [
+        {
+          "solution_id": "sol020",
+          "solution_nom": "Mise en conformité loi 09-08 (protection données personnelles)",
+          "efficacite": "Élevée",
+          "justification": "Conformité légale, évite les amendes CNSPDP"
+        },
+        {
+          "solution_id": "sol048",
+          "solution_nom": "Politique formelle de conservation des données",
+          "efficacite": "Moyenne",
+          "justification": "Conformité à la loi 09-08, réduction de la surface d'exposition en cas de fuite, optimisation des espaces de stockage"
+        },
+        {
+          "solution_id": "sol059",
+          "solution_nom": "Classification et protection des données",
+          "efficacite": "Faible",
+          "justification": "Protection proportionnelle à la criticité, conformité à la loi 09‑08, réduction des risques de fuite"
+        }
+      ]
+    },
+    "r045": {
+      "risque_nom": "Manque d'exercices de gestion de crise cyber",
+      "solutions": [
+        {
+          "solution_id": "sol069",
+          "solution_nom": "Exercices annuels de réponse aux incidents (tabletop)",
+          "efficacite": "Moyenne",
+          "justification": "Permet de valider le plan, d'entraîner les équipes, d'identifier les lacunes avant une vraie crise"
+        },
+        {
+          "solution_id": "sol049",
+          "solution_nom": "Exercices annuels de gestion de crise cyber",
+          "efficacite": "Moyenne",
+          "justification": "Teste et améliore le plan de réponse, entraîne les équipes en conditions réalistes, identifie les angles morts du plan"
+        },
+        {
+          "solution_id": "sol021",
+          "solution_nom": "Plan de Continuité et de Reprise d'Activité (PCA/PRA)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit drastiquement le temps d'arrêt en cas de sinistre majeur, structure la réponse plutôt que de l'improviser"
+        }
+      ]
+    },
+    "r046": {
+      "risque_nom": "Absence d'analyse de risques formelle (EBIOS, etc.)",
+      "solutions": [
+        {
+          "solution_id": "sol050",
+          "solution_nom": "Réalisation d'une analyse de risques EBIOS ou équivalent",
+          "efficacite": "Élevée",
+          "justification": "Identification des actifs critiques, évaluation objective des menaces, priorisation des actions de sécurité"
+        },
+        {
+          "solution_id": "sol087",
+          "solution_nom": "Analyse de risques OT (EBIOS RM adapté)",
+          "efficacite": "Moyenne",
+          "justification": "Identifie les risques spécifiques OT Priorise les actions Sensibilise la direction"
+        },
+        {
+          "solution_id": "sol068",
+          "solution_nom": "Gestion des vulnérabilités des fournisseurs",
+          "efficacite": "Faible",
+          "justification": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur"
+        }
+      ]
+    },
+    "r047": {
+      "risque_nom": "Segmentation réseau insuffisante au niveau applicatif",
+      "solutions": [
+        {
+          "solution_id": "sol028",
+          "solution_nom": "Cloisonnement du réseau en zones de sécurité",
+          "efficacite": "Moyenne",
+          "justification": "Limite fortement la propagation d'une attaque au sein du réseau interne"
+        },
+        {
+          "solution_id": "sol051",
+          "solution_nom": "Mise en place d'une architecture Zero Trust applicative",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation latérale des attaques, réduit la surface d'attaque, renforce la confidentialité"
+        },
+        {
+          "solution_id": "sol074",
+          "solution_nom": "Segmentation du réseau OT (zones ISA 62443)",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation des attaques Isole les systèmes obsolètes Réduit la surface d'attaque"
+        }
+      ]
+    },
+    "r048": {
+      "risque_nom": "Absence de validation des entrées sur les formulaires web",
+      "solutions": [
+        {
+          "solution_id": "sol052",
+          "solution_nom": "Systématisation de la validation des entrées (input validation)",
+          "efficacite": "Moyenne",
+          "justification": "Élimine la grande majorité des failles d'injection (SQL, XSS, Command Injection), conforme aux bonnes pratiques OWASP"
+        },
+        {
+          "solution_id": "sol013",
+          "solution_nom": "Logiciel antispyware",
+          "efficacite": "Faible",
+          "justification": "Protège la vie privée et les données de navigation"
+        },
+        {
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "efficacite": "Faible",
+          "justification": "Restauration rapide en cas d'attaque ou d'erreur"
+        }
+      ]
+    },
+    "r049": {
+      "risque_nom": "Manque de sensibilisation des sous-traitants externes",
+      "solutions": [
+        {
+          "solution_id": "sol053",
+          "solution_nom": "Clauses de sensibilisation dans les contrats fournisseurs",
+          "efficacite": "Moyenne",
+          "justification": "Garantit que les sous-traitants respectent les mêmes standards de sécurité, réduit les risques d'erreur humaine"
+        },
+        {
+          "solution_id": "sol093",
+          "solution_nom": "Contractualisation sécurisée des sous-traitants OT",
+          "efficacite": "Moyenne",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
+        },
+        {
+          "solution_id": "sol064",
+          "solution_nom": "Programme de formation technique continue",
+          "efficacite": "Moyenne",
+          "justification": "Maintient à jour les compétences des équipes, réduit les erreurs de configuration et améliore la réponse aux incidents"
+        }
+      ]
+    },
+    "r050": {
+      "risque_nom": "Logiciels non autorisés ou non gérés installés sur le réseau",
+      "solutions": [
+        {
+          "solution_id": "sol058",
+          "solution_nom": "Gestion des logiciels autorisés (whitelisting)",
+          "efficacite": "Élevée",
+          "justification": "Réduit fortement les risques de malwares, assure la conformité des licences, renforce le contrôle IT"
+        },
+        {
+          "solution_id": "sol023",
+          "solution_nom": "Inventaire et conformité des licences logicielles",
+          "efficacite": "Moyenne",
+          "justification": "Évite les risques juridiques et réduit l'exposition aux malwares distribués via logiciels piratés"
+        },
+        {
+          "solution_id": "sol079",
+          "solution_nom": "Postes de maintenance dédiés et durcis",
+          "efficacite": "Moyenne",
+          "justification": "Limite les risques d'introduction de malwares Assure un environnement de maintenance contrôlé"
+        }
+      ]
+    },
+    "r051": {
+      "risque_nom": "Absence de classification et de protection des données sensibles",
+      "solutions": [
+        {
+          "solution_id": "sol059",
+          "solution_nom": "Classification et protection des données",
+          "efficacite": "Élevée",
+          "justification": "Protection proportionnelle à la criticité, conformité à la loi 09‑08, réduction des risques de fuite"
+        },
+        {
+          "solution_id": "sol068",
+          "solution_nom": "Gestion des vulnérabilités des fournisseurs",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur"
+        },
+        {
+          "solution_id": "sol048",
+          "solution_nom": "Politique formelle de conservation des données",
+          "efficacite": "Moyenne",
+          "justification": "Conformité à la loi 09-08, réduction de la surface d'exposition en cas de fuite, optimisation des espaces de stockage"
+        }
+      ]
+    },
+    "r052": {
+      "risque_nom": "Mauvaise gestion des comptes de service et administrateurs",
+      "solutions": [
+        {
+          "solution_id": "sol060",
+          "solution_nom": "Gestion structurée des comptes privilégiés",
+          "efficacite": "Élevée",
+          "justification": "Réduit le risque de compromission des comptes admin, limite la propagation en cas d'attaque"
+        },
+        {
+          "solution_id": "sol076",
+          "solution_nom": "Politique de gestion des mots de passe OT",
+          "efficacite": "Moyenne",
+          "justification": "Protège contre l'utilisation des identifiants par défaut Applique le moindre privilège"
+        },
+        {
+          "solution_id": "sol016",
+          "solution_nom": "Séparation email professionnel/personnel + mot de passe dédié",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation en cas de compromission d'un compte"
+        }
+      ]
+    },
+    "r053": {
+      "risque_nom": "Absence de gestion centralisée des droits d'accès",
+      "solutions": [
+        {
+          "solution_id": "sol061",
+          "solution_nom": "Processus formalisé de gestion des accès",
+          "efficacite": "Élevée",
+          "justification": "Applique le principe du moindre privilège, réduit les accès obsolètes, facilite la conformité"
+        },
+        {
+          "solution_id": "sol031",
+          "solution_nom": "Matrice d'habilitations avec revue annuelle des droits d'accès",
+          "efficacite": "Élevée",
+          "justification": "Renforce et formalise le principe du moindre privilège dans la durée"
+        },
+        {
+          "solution_id": "sol010",
+          "solution_nom": "Gestion stricte des permissions d'accès",
+          "efficacite": "Moyenne",
+          "justification": "Réduit fortement la surface d'attaque interne"
+        }
+      ]
+    },
+    "r054": {
+      "risque_nom": "Absence de tests d'intrusion réguliers",
+      "solutions": [
+        {
+          "solution_id": "sol067",
+          "solution_nom": "Programme de tests d'intrusion réguliers",
+          "efficacite": "Élevée",
+          "justification": "Identifie les failles exploitables, valide l'efficacité des contrôles, répond aux exigences de conformité"
+        },
+        {
+          "solution_id": "sol085",
+          "solution_nom": "Recette de cybersécurité OT (FAT/SAT)",
+          "efficacite": "Faible",
+          "justification": "Détecte les vulnérabilités avant la production Valide la conformité"
+        },
+        {
+          "solution_id": "sol100",
+          "solution_nom": "Audit cybersécurité OT périodique",
+          "efficacite": "Faible",
+          "justification": "Évalue le niveau de sécurité Identifie les vulnérabilités Renforce la conformité"
+        }
+      ]
+    },
+    "r055": {
+      "risque_nom": "Absence de gestion des vulnérabilités des fournisseurs externes",
+      "solutions": [
+        {
+          "solution_id": "sol068",
+          "solution_nom": "Gestion des vulnérabilités des fournisseurs",
+          "efficacite": "Élevée",
+          "justification": "Réduit les risques de la chaîne d'approvisionnement, assure la conformité, facilite la réaction en cas d'incident chez le fournisseur"
+        },
+        {
+          "solution_id": "sol065",
+          "solution_nom": "Évaluation et supervision des prestataires externes",
+          "efficacite": "Élevée",
+          "justification": "Réduit les risques liés à la sous‑traitance, assure la conformité, facilite la réversibilité"
+        },
+        {
+          "solution_id": "sol088",
+          "solution_nom": "Clauses contractuelles de sécurité pour la sous-traitance OT",
+          "efficacite": "Moyenne",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
+        }
+      ]
+    },
+    "r056": {
+      "risque_nom": "Absence de protection avancée des endpoints (EDR)",
+      "solutions": [
+        {
+          "solution_id": "sol071",
+          "solution_nom": "Déploiement d'une solution EDR (Endpoint Detection and Response)",
+          "efficacite": "Moyenne",
+          "justification": "Complète l'antivirus en détectant les comportements anormaux, permet une réponse rapide, réduit le temps de détection (MTTD)"
+        },
+        {
+          "solution_id": "sol002",
+          "solution_nom": "Certificat SSL/TLS + chiffrement du stockage",
+          "efficacite": "Faible",
+          "justification": "Protection basique et peu coûteuse des échanges web"
+        },
+        {
+          "solution_id": "sol011",
+          "solution_nom": "Antivirus avec scan automatique des supports externes",
+          "efficacite": "Faible",
+          "justification": "Bloque l'infection via clé USB avant qu'elle ne se propage"
+        }
+      ]
+    },
+    "r057": {
+      "risque_nom": "Absence d'inventaire des équipements industriels connectés",
+      "solutions": [
+        {
+          "solution_id": "sol072",
+          "solution_nom": "Inventaire et cartographie des actifs OT",
+          "efficacite": "Élevée",
+          "justification": "Permet de savoir ce qui doit être protégé Facilite la gestion des vulnérabilités Base de toute démarche de sécurité OT"
+        },
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        },
+        {
+          "solution_id": "sol077",
+          "solution_nom": "Protection des ports physiques (USB, série, RJ45)",
+          "efficacite": "Moyenne",
+          "justification": "Prévient les infections via USB Empêche les connexions non autorisées"
+        }
+      ]
+    },
+    "r058": {
+      "risque_nom": "Utilisation de protocoles industriels non sécurisés",
+      "solutions": [
+        {
+          "solution_id": "sol081",
+          "solution_nom": "Déploiement d'IDS/IPS industriels (N-IDS)",
+          "efficacite": "Élevée",
+          "justification": "Détection des attaques ciblées Analyse des comportements anormaux"
+        },
+        {
+          "solution_id": "sol096",
+          "solution_nom": "Programme de formation et sensibilisation OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit l'erreur humaine Améliore la détection Renforce la culture sécurité"
+        },
+        {
+          "solution_id": "sol102",
+          "solution_nom": "Procédure d'homologation cybersécurité OT",
+          "efficacite": "Moyenne",
+          "justification": "Valide la sécurité avant mise en production Évite les vulnérabilités"
+        }
+      ]
+    },
+    "r059": {
+      "risque_nom": "Absence de segmentation IT/OT (réseau plat)",
+      "solutions": [
+        {
+          "solution_id": "sol074",
+          "solution_nom": "Segmentation du réseau OT (zones ISA 62443)",
+          "efficacite": "Élevée",
+          "justification": "Limite la propagation des attaques Isole les systèmes obsolètes Réduit la surface d'attaque"
+        },
+        {
+          "solution_id": "sol073",
+          "solution_nom": "Mise en place d'une DMZ IT/OT",
+          "efficacite": "Moyenne",
+          "justification": "Sépare les environnements IT et OT Filtre les flux Réduit la surface d'attaque"
+        },
+        {
+          "solution_id": "sol078",
+          "solution_nom": "Sauvegarde hors-ligne des configurations OT (3-2-1 OT)",
+          "efficacite": "Moyenne",
+          "justification": "Permet la reconstruction après ransomware Protège les sauvegardes contre le chiffrement"
+        }
+      ]
+    },
+    "r060": {
+      "risque_nom": "Absence de DMZ (zone démilitarisée) entre IT et OT",
+      "solutions": [
+        {
+          "solution_id": "sol073",
+          "solution_nom": "Mise en place d'une DMZ IT/OT",
+          "efficacite": "Élevée",
+          "justification": "Sépare les environnements IT et OT Filtre les flux Réduit la surface d'attaque"
+        },
+        {
+          "solution_id": "sol074",
+          "solution_nom": "Segmentation du réseau OT (zones ISA 62443)",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation des attaques Isole les systèmes obsolètes Réduit la surface d'attaque"
+        },
+        {
+          "solution_id": "sol072",
+          "solution_nom": "Inventaire et cartographie des actifs OT",
+          "efficacite": "Moyenne",
+          "justification": "Permet de savoir ce qui doit être protégé Facilite la gestion des vulnérabilités Base de toute démarche de sécurité OT"
+        }
+      ]
+    },
+    "r061": {
+      "risque_nom": "Comptes et mots de passe par défaut sur les équipements industriels",
+      "solutions": [
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Élevée",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        },
+        {
+          "solution_id": "sol076",
+          "solution_nom": "Politique de gestion des mots de passe OT",
+          "efficacite": "Élevée",
+          "justification": "Protège contre l'utilisation des identifiants par défaut Applique le moindre privilège"
+        },
+        {
+          "solution_id": "sol072",
+          "solution_nom": "Inventaire et cartographie des actifs OT",
+          "efficacite": "Moyenne",
+          "justification": "Permet de savoir ce qui doit être protégé Facilite la gestion des vulnérabilités Base de toute démarche de sécurité OT"
+        }
+      ]
+    },
+    "r062": {
+      "risque_nom": "Services inutiles activés sur les équipements industriels",
+      "solutions": [
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Élevée",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        },
+        {
+          "solution_id": "sol055",
+          "solution_nom": "Adoption d'une politique de 'Secure by Default'",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque dès le premier jour, évite les erreurs de configuration courantes"
+        },
+        {
+          "solution_id": "sol070",
+          "solution_nom": "Durcissement des serveurs (CIS benchmarks)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit drastiquement la surface d'attaque, protège contre les exploits de configuration, assure une base cohérente"
+        }
+      ]
+    },
+    "r063": {
+      "risque_nom": "Absence de durcissement des postes de maintenance OT",
+      "solutions": [
+        {
+          "solution_id": "sol079",
+          "solution_nom": "Postes de maintenance dédiés et durcis",
+          "efficacite": "Élevée",
+          "justification": "Limite les risques d'introduction de malwares Assure un environnement de maintenance contrôlé"
+        },
+        {
+          "solution_id": "sol103",
+          "solution_nom": "Plan de gestion des obsolescences OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques liés aux systèmes obsolètes Anticipe les coûts"
+        },
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        }
+      ]
+    },
+    "r064": {
+      "risque_nom": "Obsolescence critique des équipements industriels",
+      "solutions": [
+        {
+          "solution_id": "sol103",
+          "solution_nom": "Plan de gestion des obsolescences OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques liés aux systèmes obsolètes Anticipe les coûts"
+        },
+        {
+          "solution_id": "sol091",
+          "solution_nom": "Élaboration d'une PSSI OT (Politique de sécurité OT)",
+          "efficacite": "Moyenne",
+          "justification": "Cadre de référence Opposable aux équipes Base des procédures"
+        },
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        }
+      ]
+    },
+    "r065": {
+      "risque_nom": "Absence de sauvegardes hors-ligne des configurations OT",
+      "solutions": [
+        {
+          "solution_id": "sol078",
+          "solution_nom": "Sauvegarde hors-ligne des configurations OT (3-2-1 OT)",
+          "efficacite": "Élevée",
+          "justification": "Permet la reconstruction après ransomware Protège les sauvegardes contre le chiffrement"
+        },
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        },
+        {
+          "solution_id": "sol035",
+          "solution_nom": "Règle de sauvegarde 3-2-1",
+          "efficacite": "Moyenne",
+          "justification": "Protège spécifiquement contre les rançongiciels qui chiffrent aussi les sauvegardes connectées au réseau"
+        }
+      ]
+    },
+    "r066": {
+      "risque_nom": "Accès distant non sécurisé (télémaintenance)",
+      "solutions": [
+        {
+          "solution_id": "sol080",
+          "solution_nom": "Protection des accès distants OT (VPN + MFA + bastion)",
+          "efficacite": "Élevée",
+          "justification": "Protège les accès distants Trace les interventions Limite l'exposition des automates"
+        },
+        {
+          "solution_id": "sol102",
+          "solution_nom": "Procédure d'homologation cybersécurité OT",
+          "efficacite": "Moyenne",
+          "justification": "Valide la sécurité avant mise en production Évite les vulnérabilités"
+        },
+        {
+          "solution_id": "sol089",
+          "solution_nom": "Plan de continuité OT (PCA/PRA adapté)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        }
+      ]
+    },
+    "r067": {
+      "risque_nom": "Absence de surveillance spécifique aux flux OT (IDS industriel)",
+      "solutions": [
+        {
+          "solution_id": "sol081",
+          "solution_nom": "Déploiement d'IDS/IPS industriels (N-IDS)",
+          "efficacite": "Élevée",
+          "justification": "Détection des attaques ciblées Analyse des comportements anormaux"
+        },
+        {
+          "solution_id": "sol074",
+          "solution_nom": "Segmentation du réseau OT (zones ISA 62443)",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation des attaques Isole les systèmes obsolètes Réduit la surface d'attaque"
+        },
+        {
+          "solution_id": "sol073",
+          "solution_nom": "Mise en place d'une DMZ IT/OT",
+          "efficacite": "Moyenne",
+          "justification": "Sépare les environnements IT et OT Filtre les flux Réduit la surface d'attaque"
+        }
+      ]
+    },
+    "r068": {
+      "risque_nom": "Absence de journalisation des événements sur les équipements OT",
+      "solutions": [
+        {
+          "solution_id": "sol082",
+          "solution_nom": "Centralisation des logs OT (puits de logs)",
+          "efficacite": "Élevée",
+          "justification": "Permet l'investigation post-incident Facilite la détection Assure la traçabilité"
+        },
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        },
+        {
+          "solution_id": "sol103",
+          "solution_nom": "Plan de gestion des obsolescences OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques liés aux systèmes obsolètes Anticipe les coûts"
+        }
+      ]
+    },
+    "r069": {
+      "risque_nom": "Ports USB/série non protégés sur les équipements industriels",
+      "solutions": [
+        {
+          "solution_id": "sol077",
+          "solution_nom": "Protection des ports physiques (USB, série, RJ45)",
+          "efficacite": "Élevée",
+          "justification": "Prévient les infections via USB Empêche les connexions non autorisées"
+        },
+        {
+          "solution_id": "sol072",
+          "solution_nom": "Inventaire et cartographie des actifs OT",
+          "efficacite": "Moyenne",
+          "justification": "Permet de savoir ce qui doit être protégé Facilite la gestion des vulnérabilités Base de toute démarche de sécurité OT"
+        },
+        {
+          "solution_id": "sol075",
+          "solution_nom": "Durcissement des équipements industriels (CIS benchmarks OT)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit la surface d'attaque Protège contre les exploitations de configuration"
+        }
+      ]
+    },
+    "r070": {
+      "risque_nom": "Absence d'analyse de risques OT spécifique",
+      "solutions": [
+        {
+          "solution_id": "sol087",
+          "solution_nom": "Analyse de risques OT (EBIOS RM adapté)",
+          "efficacite": "Élevée",
+          "justification": "Identifie les risques spécifiques OT Priorise les actions Sensibilise la direction"
+        },
+        {
+          "solution_id": "sol102",
+          "solution_nom": "Procédure d'homologation cybersécurité OT",
+          "efficacite": "Élevée",
+          "justification": "Valide la sécurité avant mise en production Évite les vulnérabilités"
+        },
+        {
+          "solution_id": "sol103",
+          "solution_nom": "Plan de gestion des obsolescences OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques liés aux systèmes obsolètes Anticipe les coûts"
+        }
+      ]
+    },
+    "r071": {
+      "risque_nom": "Sous-traitants non encadrés pour la maintenance OT",
+      "solutions": [
+        {
+          "solution_id": "sol093",
+          "solution_nom": "Contractualisation sécurisée des sous-traitants OT",
+          "efficacite": "Élevée",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
+        },
+        {
+          "solution_id": "sol088",
+          "solution_nom": "Clauses contractuelles de sécurité pour la sous-traitance OT",
+          "efficacite": "Élevée",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
+        },
+        {
+          "solution_id": "sol027",
+          "solution_nom": "Clauses de sécurité et de réversibilité dans les contrats fournisseurs",
+          "efficacite": "Élevée",
+          "justification": "Réduit la dépendance dangereuse à un prestataire et encadre juridiquement les risques de sous-traitance"
+        }
+      ]
+    },
+    "r072": {
+      "risque_nom": "Absence de procédures d'homologation cybersécurité OT",
+      "solutions": [
+        {
+          "solution_id": "sol102",
+          "solution_nom": "Procédure d'homologation cybersécurité OT",
+          "efficacite": "Élevée",
+          "justification": "Valide la sécurité avant mise en production Évite les vulnérabilités"
+        },
+        {
+          "solution_id": "sol085",
+          "solution_nom": "Recette de cybersécurité OT (FAT/SAT)",
+          "efficacite": "Élevée",
+          "justification": "Détecte les vulnérabilités avant la production Valide la conformité"
+        },
+        {
+          "solution_id": "sol100",
+          "solution_nom": "Audit cybersécurité OT périodique",
+          "efficacite": "Élevée",
+          "justification": "Évalue le niveau de sécurité Identifie les vulnérabilités Renforce la conformité"
+        }
+      ]
+    },
+    "r073": {
+      "risque_nom": "Absence de gouvernance et de politique de sécurité des systèmes industriels (PSSI OT)",
+      "solutions": [
+        {
+          "solution_id": "sol090",
+          "solution_nom": "Mise en place d'une gouvernance OT avec RACI",
+          "efficacite": "Élevée",
+          "justification": "Structure les actions Clarifie les responsabilités Assure le pilotage"
+        },
+        {
+          "solution_id": "sol091",
+          "solution_nom": "Élaboration d'une PSSI OT (Politique de sécurité OT)",
+          "efficacite": "Élevée",
+          "justification": "Cadre de référence Opposable aux équipes Base des procédures"
+        },
+        {
+          "solution_id": "sol092",
+          "solution_nom": "Création d'un comité de coordination OT/IT/Sécurité",
+          "efficacite": "Moyenne",
+          "justification": "Coordonne les actions Résout les conflits Assure le partage d'information"
+        }
+      ]
+    },
+    "r074": {
+      "risque_nom": "Manque de coordination entre les directions (OT, IT, sécurité, exploitation)",
+      "solutions": [
+        {
+          "solution_id": "sol092",
+          "solution_nom": "Création d'un comité de coordination OT/IT/Sécurité",
+          "efficacite": "Élevée",
+          "justification": "Coordonne les actions Résout les conflits Assure le partage d'information"
+        },
+        {
+          "solution_id": "sol086",
+          "solution_nom": "Gestion des fenêtres de maintenance OT",
+          "efficacite": "Moyenne",
+          "justification": "Permet les interventions sans perturber la production Anticipe les actions"
+        },
+        {
+          "solution_id": "sol102",
+          "solution_nom": "Procédure d'homologation cybersécurité OT",
+          "efficacite": "Moyenne",
+          "justification": "Valide la sécurité avant mise en production Évite les vulnérabilités"
+        }
+      ]
+    },
+    "r075": {
+      "risque_nom": "Absence de plan de continuité et reprise d'activité OT (PCA/PRA OT)",
+      "solutions": [
+        {
+          "solution_id": "sol094",
+          "solution_nom": "Plan de Continuité d'Activité OT (PCA OT)",
+          "efficacite": "Élevée",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        },
+        {
+          "solution_id": "sol089",
+          "solution_nom": "Plan de continuité OT (PCA/PRA adapté)",
+          "efficacite": "Élevée",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        },
+        {
+          "solution_id": "sol087",
+          "solution_nom": "Analyse de risques OT (EBIOS RM adapté)",
+          "efficacite": "Élevée",
+          "justification": "Identifie les risques spécifiques OT Priorise les actions Sensibilise la direction"
+        }
+      ]
+    },
+    "r076": {
+      "risque_nom": "Absence d'exercices de gestion de crise OT",
+      "solutions": [
+        {
+          "solution_id": "sol095",
+          "solution_nom": "Exercices annuels de gestion de crise OT",
+          "efficacite": "Élevée",
+          "justification": "Teste les procédures Entraîne les équipes Identifie les lacunes"
+        },
+        {
+          "solution_id": "sol089",
+          "solution_nom": "Plan de continuité OT (PCA/PRA adapté)",
+          "efficacite": "Élevée",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        },
+        {
+          "solution_id": "sol094",
+          "solution_nom": "Plan de Continuité d'Activité OT (PCA OT)",
+          "efficacite": "Élevée",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        }
+      ]
+    },
+    "r077": {
+      "risque_nom": "Absence de plan de formation et sensibilisation OT",
+      "solutions": [
+        {
+          "solution_id": "sol096",
+          "solution_nom": "Programme de formation et sensibilisation OT",
+          "efficacite": "Élevée",
+          "justification": "Réduit l'erreur humaine Améliore la détection Renforce la culture sécurité"
+        },
+        {
+          "solution_id": "sol086",
+          "solution_nom": "Gestion des fenêtres de maintenance OT",
+          "efficacite": "Moyenne",
+          "justification": "Permet les interventions sans perturber la production Anticipe les actions"
+        },
+        {
+          "solution_id": "sol089",
+          "solution_nom": "Plan de continuité OT (PCA/PRA adapté)",
+          "efficacite": "Moyenne",
+          "justification": "Réduit le temps d'arrêt Assure la reprise contrôlée Sécurise la production"
+        }
+      ]
+    },
+    "r078": {
+      "risque_nom": "Absence de processus formalisé de gestion des correctifs OT",
+      "solutions": [
+        {
+          "solution_id": "sol097",
+          "solution_nom": "Processus formel de gestion des correctifs OT",
+          "efficacite": "Élevée",
+          "justification": "Réduit les vulnérabilités Assure la continuité Traçabilité"
+        },
+        {
+          "solution_id": "sol103",
+          "solution_nom": "Plan de gestion des obsolescences OT",
+          "efficacite": "Élevée",
+          "justification": "Réduit les risques liés aux systèmes obsolètes Anticipe les coûts"
+        },
+        {
+          "solution_id": "sol029",
+          "solution_nom": "Processus structuré de gestion des vulnérabilités et des correctifs",
+          "efficacite": "Élevée",
+          "justification": "Réduit fortement la fenêtre d'exposition aux failles connues"
+        }
+      ]
+    },
+    "r079": {
+      "risque_nom": "Absence de gestion des accès physiques aux équipements OT",
+      "solutions": [
+        {
+          "solution_id": "sol098",
+          "solution_nom": "Gestion des accès physiques aux équipements OT",
+          "efficacite": "Élevée",
+          "justification": "Protège contre les intrusions physiques Prévient les accès non autorisés"
+        },
+        {
+          "solution_id": "sol072",
+          "solution_nom": "Inventaire et cartographie des actifs OT",
+          "efficacite": "Moyenne",
+          "justification": "Permet de savoir ce qui doit être protégé Facilite la gestion des vulnérabilités Base de toute démarche de sécurité OT"
+        },
+        {
+          "solution_id": "sol080",
+          "solution_nom": "Protection des accès distants OT (VPN + MFA + bastion)",
+          "efficacite": "Moyenne",
+          "justification": "Protège les accès distants Trace les interventions Limite l'exposition des automates"
+        }
+      ]
+    },
+    "r080": {
+      "risque_nom": "Absence de maintenance en conditions de sécurité (MCS OT)",
+      "solutions": [
+        {
+          "solution_id": "sol099",
+          "solution_nom": "Maintien en Conditions de Sécurité (MCS OT)",
+          "efficacite": "Élevée",
+          "justification": "Maintient le niveau de sécurité dans le temps Anticipe les évolutions"
+        },
+        {
+          "solution_id": "sol088",
+          "solution_nom": "Clauses contractuelles de sécurité pour la sous-traitance OT",
+          "efficacite": "Moyenne",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
+        },
+        {
+          "solution_id": "sol093",
+          "solution_nom": "Contractualisation sécurisée des sous-traitants OT",
+          "efficacite": "Moyenne",
+          "justification": "Responsabilise les prestataires Permet les audits Assure la réversibilité"
+        }
+      ]
+    },
+    "r081": {
+      "risque_nom": "Absence d'audit cybersécurité OT périodique",
+      "solutions": [
+        {
+          "solution_id": "sol100",
+          "solution_nom": "Audit cybersécurité OT périodique",
+          "efficacite": "Élevée",
+          "justification": "Évalue le niveau de sécurité Identifie les vulnérabilités Renforce la conformité"
+        },
+        {
+          "solution_id": "sol102",
+          "solution_nom": "Procédure d'homologation cybersécurité OT",
+          "efficacite": "Élevée",
+          "justification": "Valide la sécurité avant mise en production Évite les vulnérabilités"
+        },
+        {
+          "solution_id": "sol084",
+          "solution_nom": "Intégration de la sécurité dans les projets OT (Security by Design)",
+          "efficacite": "Élevée",
+          "justification": "Réduit les coûts de correction Anticipe les risques Facilite l'homologation"
+        }
+      ]
+    },
+    "r082": {
+      "risque_nom": "Absence de surveillance SOC OT externe/interne",
+      "solutions": [
+        {
+          "solution_id": "sol101",
+          "solution_nom": "Mise en place d'un SOC OT (interne ou externe)",
+          "efficacite": "Élevée",
+          "justification": "Détecte les incidents rapidement Améliore le temps de réponse Protège la production"
+        },
+        {
+          "solution_id": "sol083",
+          "solution_nom": "Procédure de gestion des modifications OT",
+          "efficacite": "Moyenne",
+          "justification": "Réduit les risques d'incidents Assure la traçabilité Facilite les audits"
+        },
+        {
+          "solution_id": "sol074",
+          "solution_nom": "Segmentation du réseau OT (zones ISA 62443)",
+          "efficacite": "Moyenne",
+          "justification": "Limite la propagation des attaques Isole les systèmes obsolètes Réduit la surface d'attaque"
+        }
+      ]
+    },
+    "r083": {
+      "risque_nom": "Fatalisme culturel face aux risques SI",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r084": {
+      "risque_nom": "Résistance culturelle au changement dans les pratiques de sécurité SI",
+      "solutions": [
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r085": {
+      "risque_nom": "Faible contrôle de l'incertitude dans la culture organisationnelle marocaine",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r086": {
+      "risque_nom": "Confiance interpersonnelle privilégiée sur les systèmes formels de sécurité",
+      "solutions": [
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r087": {
+      "risque_nom": "Absence d'intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r088": {
+      "risque_nom": "Disparités sectorielles dans l'adoption des pratiques de gestion des risques SI",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r089": {
+      "risque_nom": "Conformité sélective aux exigences réglementaires",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r090": {
+      "risque_nom": "Absence de processus formalisés de gestion des risques SI dans les grandes entreprises",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r091": {
+      "risque_nom": "Privilège des résultats à court terme sur les investissements sécurité SI",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r092": {
+      "risque_nom": "Manque de personnel qualifié en cybersécurité au Maroc",
+      "solutions": [
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r093": {
+      "risque_nom": "Coût élevé des technologies de sécurité perçu comme un frein",
+      "solutions": [
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r094": {
+      "risque_nom": "Absence de formation continue en cybersécurité dans les entreprises marocaines",
+      "solutions": [
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol109",
+          "solution_nom": "Création de mécanismes d'incitation financière pour l'adoption des pratiques de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        }
+      ]
+    },
+    "r095": {
+      "risque_nom": "Processus de mise à jour des référentiels nationaux peu structuré",
+      "solutions": [
+        {
+          "solution_id": "sol113",
+          "solution_nom": "Mise en place d'un processus structuré de révision des référentiels nationaux",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol106",
+          "solution_nom": "Intégration de la gestion des risques SI dans la gouvernance d'entreprise",
+          "efficacite": "Élevée",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
+        },
+        {
+          "solution_id": "sol105",
+          "solution_nom": "Adaptation culturelle des stratégies de gestion des risques SI",
+          "efficacite": "Moyenne",
+          "justification": "Traite les freins structurels/culturels que les solutions purement techniques ne peuvent pas résoudre"
         }
       ]
     }
