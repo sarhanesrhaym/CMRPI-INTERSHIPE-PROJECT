@@ -383,6 +383,9 @@
       "sources_statistiques": [
         "Les cyberattaques sur les systèmes OT ont augmenté de 47% en 2025",
         "Plus de 60% des industriels n'ont pas de plan de continuité OT"
+      ],
+      "_anomalies_detectees": [
+        "risques_principaux contient 'r096', hors plage valide (r001-r095 dans 01_risques.json) — résidu probable d'une numérotation antérieure, à corriger manuellement."
       ]
     },
     "pme011": {
@@ -1223,6 +1226,9 @@
       "sources_statistiques": [
         "Les bâtiments connectés sont de plus en plus nombreux au Maroc",
         "Les systèmes GTB sont souvent mal sécurisés (mots de passe par défaut)"
+      ],
+      "_anomalies_detectees": [
+        "risques_principaux contient 'r097', hors plage valide (r001-r095 dans 01_risques.json) — résidu probable d'une numérotation antérieure, à corriger manuellement."
       ]
     },
     "pme030": {
@@ -1773,5 +1779,6 @@
         "Les données de santé sont la cible numéro 1 des cybercriminels",
         "La CNDP applique des sanctions renforcées pour le secteur santé"
       ]
-    },
- 
+    }
+  }
+}
