@@ -31,7 +31,7 @@ Dernière mise à jour : Jour 1 (à compléter au fil du stage)
 ───────────────────────────────────────────
 2. CONTACTS PME MAROCAINES À TESTER
 ───────────────────────────────────────────
-(à remplir avec de vrais contacts au fur et à mesure — objectif : 
+(à remplir avec de vrais contacts au fur et à mesure — objectif :
 au moins 1 PME par secteur pour la phase de tests pilotes S7)
 
 - Secteur E-commerce      : [Nom PME] - [Contact] - [Ville]
@@ -87,6 +87,56 @@ Contacts encadrants du stage :
 - RGPD (règlement européen, impact extraterritorial sur PME marocaines exportatrices/sous-traitantes)
 
 ───────────────────────────────────────────
+5. ÉTAT D'AVANCEMENT DES LIVRABLES S1-S2
+───────────────────────────────────────────
+Rappel objectif du plan : 15-20 risques, 15-20 solutions, 4-5 profils PME,
+matrice risques-solutions, 3-4 règles de recommandation de base.
+
+┌─────────────────────────────────┬──────────┬────────────────────────────────────────┐
+│ Livrable                        │ Statut   │ Contenu actuel                          │
+├─────────────────────────────────┼──────────┼──────────────────────────────────────────┤
+│ 01_risques.json                 │ ✅ Fait  │ 95 risques (voir détail ci-dessous)     │
+│ 02_solutions.json               │ ✅ Fait  │ 119 solutions (voir détail ci-dessous)  │
+│ 03_profils_pme.json             │ ✅ Fait  │ 5 profils PME (1 par secteur cible)     │
+│ 04_matrice_risques_solutions    │ 🟡 Ébauche │ Correspondance auto par mots-clés,    │
+│      .json                      │          │ à valider — pas encore le livrable final│
+│ 05_regles_recommandation.json   │ ⬜ À faire │ —                                      │
+│ README.md                       │ ⬜ À faire │ —                                      │
+└─────────────────────────────────┴──────────┴────────────────────────────────────────┘
+
+⚠️ Écart avec le plan initial : 95 risques et 119 solutions au lieu de 15-20 prévus.
+   À trancher avant de construire la matrice 04 : garder ce niveau de détail (matrice
+   lourde, ~95×119 lignes potentielles) ou réduire à un sous-ensemble prioritaire
+   (15-20/15-20) plus proche de l'esprit "MVP" du plan S1-2.
+
+── 01_risques.json — répartition ──
+  Total : 95 risques
+  Par sévérité   : CRITIQUE 13 | ÉLEVÉE 71 | MOYENNE 11
+  Par probabilité: TRÈS ÉLEVÉE 2 | ÉLEVÉE 46 | MOYENNE 40 | FAIBLE-MOYENNE 4 | FAIBLE 3
+  Par catégorie  : audit_conformite 13 | systemes_postes 6 | reseau_infrastructure 5 |
+                   physiques_environnementaux 2 | non catégorisé 69 (à catégoriser)
+
+── 02_solutions.json — répartition ──
+  Total : 119 solutions
+  Par type (principaux) : Technique 45 | Organisationnel 36 | Organisationnel/Technique 10 |
+                           Humain/Organisationnel 7 | Humain 4 | Légal/Organisationnel 4 |
+                           Organisationnel/Légal 4 | autres types mixtes 9
+
+── 03_profils_pme.json — profils ──
+  Total : 5 profils, un par secteur cible du plan
+  1. AtlasDistrib        — Distribution / Commerce — Casablanca — 25 employés — maturité Faible
+  2. MedCare Rabat        — Santé                   — Rabat       — 12 employés — maturité Très Faible
+  3. Change Rif Finance   — Finance                  — Marrakech   — 18 employés — maturité Moyenne
+  4. Textile Souss Essaouira — Industrie             — Essaouira   — 60 employés — maturité Moyenne à Bonne
+  5. Boulangerie Zahrah   — PME Généraliste           — Fès         — 6 employés  — maturité Très Faible
+
+── Registre consolidé NIST CSF 2.0 (travail complémentaire) ──
+  registre_risques_pme_final.xlsx — 7 onglets : Synthèse, Registre des risques (106,
+  cadre NIST CSF 2.0), Profils PME, PME x Risques, Catalogue risques (95), Catalogue
+  solutions (119), Risques → Solutions (suggestions auto à valider).
+  Utile comme vue de travail/exploration, distinct des livrables JSON du plan de stage.
+
+───────────────────────────────────────────
 NOTES DIVERSES
 ───────────────────────────────────────────
 - Le plan S1-2 prévoit un livrable par jour (voir PLAN_DETAILLE_S1-S2_JOUR_PAR_JOUR.docx) :
@@ -94,3 +144,5 @@ NOTES DIVERSES
   04_matrice_risques_solutions.json, 05_regles_recommandation.json, README.md
 - Objectif final S1-2 : 15-20 risques, 15-20 solutions, 4-5 profils PME,
   matrice risques-solutions, 3-4 règles de recommandation de base.
+- Décision à prendre avant 04 : garder 95/119 (détail riche) ou réduire à 15-20/15-20
+  (conforme au plan initial, plus simple à valider manuellement).
