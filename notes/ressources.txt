@@ -36,10 +36,6 @@ au moins 1 PME par secteur pour la phase de tests pilotes S7)
 - Secteur Généraliste      : [Nom PME] - [Contact] - [Ville]
 - Secteur Industrie        : [Nom PME] - [Contact] - [Ville]
 
-Contacts encadrants du stage :
-- Pr. Mehdia Ajana (Cybersécurité & IA, encadrant principal) — mehdia.ajana@gmail.com
-- Pr. Zakia Errabih (Cybersécurité des PME)
-
 ───────────────────────────────────────────
 3. DOCUMENTS CYBERSÉCURITÉ TROUVÉS
 ───────────────────────────────────────────
@@ -91,16 +87,16 @@ matrice risques-solutions, 3-4 règles de recommandation de base.
 ┌─────────────────────────────────┬──────────┬────────────────────────────────────────┐
 │ Livrable                        │ Statut   │ Contenu actuel                          │
 ├─────────────────────────────────┼──────────┼──────────────────────────────────────────┤
-│ 01_risques.json                 │ ✅ Fait  │ 95 risques (voir détail ci-dessous)     │
-│ 02_solutions.json               │ ✅ Fait  │ 119 solutions (voir détail ci-dessous)  │
-│ 03_profils_pme.json             │ ✅ Fait  │ 5 profils PME (1 par secteur cible)     │
-│ 04_matrice_risques_solutions    │ 🟡 Ébauche │ Correspondance auto par mots-clés,    │
+│ 01_risques.json                 │  Fait  │ 95 risques (voir détail ci-dessous)     │
+│ 02_solutions.json               │  Fait  │ 119 solutions (voir détail ci-dessous)  │
+│ 03_profils_pme.json             │  Fait  │ 5 profils PME (1 par secteur cible)     │
+│ 04_matrice_risques_solutions    │  Ébauche │ Correspondance auto par mots-clés,    │
 │      .json                      │          │ à valider — pas encore le livrable final│
 │ 05_regles_recommandation.json   │ ⬜ À faire │ —                                      │
 │ README.md                       │ ⬜ À faire │ —                                      │
 └─────────────────────────────────┴──────────┴────────────────────────────────────────┘
 
-⚠️ Écart avec le plan initial : 95 risques et 119 solutions au lieu de 15-20 prévus.
+ Écart avec le plan initial : 95 risques et 119 solutions au lieu de 15-20 prévus.
    À trancher avant de construire la matrice 04 : garder ce niveau de détail (matrice
    lourde, ~95×119 lignes potentielles) ou réduire à un sous-ensemble prioritaire
    (15-20/15-20) plus proche de l'esprit "MVP" du plan S1-2.
