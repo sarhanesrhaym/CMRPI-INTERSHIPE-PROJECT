@@ -128,13 +128,11 @@ matrice risques-solutions, 3-4 règles de recommandation de base.
   solutions (119), Risques → Solutions (suggestions auto à valider).
   Utile comme vue de travail/exploration, distinct des livrables JSON du plan de stage.
 
+──
+
 ───────────────────────────────────────────
 NOTES DIVERSES
-───────────────────────────────────────────
-- Le plan S1-2 prévoit un livrable par jour (voir PLAN_DETAILLE_S1-S2_JOUR_PAR_JOUR.docx) :
+────────────────────────────────────────────────────────────────────────────────────
+Le plan S1-2 prévoit un livrable par jour (voir PLAN_DETAILLE_S1-S2_JOUR_PAR_JOUR.docx) :
   01_risques.json, 02_solutions.json, 03_profils_pme.json,
   04_matrice_risques_solutions.json, 05_regles_recommandation.json, README.md
-- Objectif final S1-2 : 15-20 risques, 15-20 solutions, 4-5 profils PME,
-  matrice risques-solutions, 3-4 règles de recommandation de base.
-- Décision à prendre avant 04 : garder 95/119 (détail riche) ou réduire à 15-20/15-20
-  (conforme au plan initial, plus simple à valider manuellement).
