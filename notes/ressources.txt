@@ -1,8 +1,4 @@
 ═══════════════════════════════════════════════════════════════
-RESSOURCES DU PROJET — Système de recommandation IA
-Cyber-résilience des PME marocaines (Projet N°13 - CMRPI)
-═══════════════════════════════════════════════════════════════
-Dernière mise à jour : Jour 1 (à compléter au fil du stage)
 
 ───────────────────────────────────────────
 1. LIEN GUIDE CMRPI (base de connaissances)
