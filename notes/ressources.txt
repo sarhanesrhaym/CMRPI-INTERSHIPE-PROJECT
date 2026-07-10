@@ -84,19 +84,23 @@ au moins 1 PME par secteur pour la phase de tests pilotes S7)
 Rappel objectif du plan : 15-20 risques, 15-20 solutions, 4-5 profils PME,
 matrice risques-solutions, 3-4 règles de recommandation de base.
 
-┌─────────────────────────────────┬──────────┬────────────────────────────────────────┐
-│ Livrable                        │ Statut   │ Contenu actuel                          │
-├─────────────────────────────────┼──────────┼──────────────────────────────────────────┤
-│ 01_risques.json                 │  Fait  │ 95 risques (voir détail ci-dessous)     │
-│ 02_solutions.json               │  Fait  │ 119 solutions (voir détail ci-dessous)  │
-│ 03_profils_pme.json             │  Fait  │ 40 profils PME (1 par secteur cible)     │
-│ 04_matrice_risques_solutions    │  Ébauche │ Correspondance auto par mots-clés,    │
-│      .json                      │          │ à valider — pas encore le livrable final│
-│ 05_regles_recommandation.json   │ ⬜ À faire │ —                                      │
-│ README.md                       │ ⬜ À faire │ —                                      │
-└─────────────────────────────────┴──────────┴────────────────────────────────────────┘
+┌─────────────────────────────────┬───────────┬──────────────────────────────────────────┐
+│ Livrable                        │ Statut    │ Contenu actuel                            │
+├─────────────────────────────────┼───────────┼────────────────────────────────────────────┤
+│ 01_risques.json                 │ [FAIT]    │ 95 risques                                │
+│ 02_solutions.json               │ [FAIT]    │ 119 solutions                             │
+│ 03_profils_pme.json             │ [FAIT]    │ 40 profils PME (1 par secteur/sous-secteur)│
+│ 04_matrice_risques_solutions    │ [FAIT]    │ 95 entrées, ~3 solutions/risque en moyenne│
+│      .json                      │           │ (méthode : similarité de contenu)         │
+│ 05_regles_recommandation.json   │ [FAIT]    │ 95 règles de recommandation + méta        │
+│ README.md                       │ [A FAIRE] │ —                                          │
+└─────────────────────────────────┴───────────┴──────────────────────────────────────────┘
 
-
+Écart persistant avec le plan initial : le jeu de données a été construit à l'échelle
+   complète (95 risques / 119 solutions / 40 profils / 95 règles) plutôt que sur le
+   sous-ensemble MVP prévu (15-20 / 15-20 / 4-5 / 3-4). Décision à prendre : garder ce
+   niveau de détail pour la suite du projet, ou en extraire un sous-ensemble prioritaire
+   pour les démonstrations / tests pilotes S7.
 
 ── 01_risques.json — répartition ──
   Total : 95 risques
@@ -112,24 +116,44 @@ matrice risques-solutions, 3-4 règles de recommandation de base.
                            Organisationnel/Légal 4 | autres types mixtes 9
 
 ── 03_profils_pme.json — profils ──
-  Total : 40 profils, un par secteur cible du plan
-  1. AtlasDistrib        — Distribution / Commerce — Casablanca — 25 employés — maturité Faible
-  2. MedCare Rabat        — Santé                   — Rabat       — 12 employés — maturité Très Faible
-  3. Change Rif Finance   — Finance                  — Marrakech   — 18 employés — maturité Moyenne
-  4. Textile Souss Essaouira — Industrie             — Essaouira   — 60 employés — maturité Moyenne à Bonne
-  5. Boulangerie Zahrah   — PME Généraliste           — Fès         — 6 employés  — maturité Très Faible
+  Total : 40 profils, un par secteur/sous-secteur (couverture bien plus large que les
+  5 secteurs cibles initiaux : Distribution, Santé, Finance, Industrie, Généraliste)
+  Nouveaux secteurs couverts : Services IT/Conseil, Agriculture/Agroalimentaire,
+  Transport/Logistique, BTP/Ingénierie, Éducation, Énergie, Fintech, Tourisme,
+  Assurance, Immobilier, Automobile, Médias, Événementiel, Recherche/Innovation, etc.
+  Par maturité IT : Moyenne 14 | Faible 13 | Très Faible 6 | Bonne 4 | autres 3
+  Budget cyber dédié : Non 32 | Oui 8 (20% seulement — cohérent avec la stat CGEM <15%)
 
-── Registre consolidé NIST CSF 2.0 (travail complémentaire) ──
+── 04_matrice_risques_solutions.json — couverture ──
+  Total : 95 entrées (1 par risque, couverture complète — aucun risque orphelin)
+  Moyenne : ~3 solutions proposées par risque (entre 1 et 3)
+  Méthode déclarée : similarité de contenu (mots-clés partagés) entre risques et solutions
+
+── 05_regles_recommandation.json — répartition ──
+  Total : 95 règles (1 par risque, aucun risque sans règle — cf. meta.risques_sans_regle: [])
+  Par priorité : Haute 71 | Critique 13 | Moyenne 11
+  Par phase    : Phase 1 - Urgence (quick win) 48 | Phase 2 - Structuration 30 |
+                 Phase 3 - Maturité avancée 17
+     Méthodologie déclarée dans le fichier (champ meta.methodologie) : règles générées
+  automatiquement à partir de la matrice 04, elle-même construite par similarité de
+  mots-clés — précision variable selon les cas, revue manuelle recommandée en priorité
+  sur les risques classés "Critique" (13 règles concernées).
+
+── Registre consolidé NIST CSF 2.0 (travail complémentaire, hors plan de stage) ──
   registre_risques_pme_final.xlsx — 7 onglets : Synthèse, Registre des risques (106,
-  cadre NIST CSF 2.0), Profils PME, PME x Risques, Catalogue risques (95), Catalogue
-  solutions (119), Risques → Solutions (suggestions auto à valider).
-  Utile comme vue de travail/exploration, distinct des livrables JSON du plan de stage.
-
-──
+  cadre NIST CSF 2.0), Profils PME (ancienne version à 5), PME x Risques, Catalogue
+  risques (95), Catalogue solutions (119), Risques → Solutions (ébauche par mots-clés,
+  antérieure à la version officielle 04/05 ci-dessus).
+     Ce classeur n'a pas encore été mis à jour avec les 40 profils PME ni la matrice/
+  les règles officielles — à faire si ce fichier reste utile pour la suite.
 
 ───────────────────────────────────────────
 NOTES DIVERSES
-────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────
 Le plan S1-2 prévoit un livrable par jour (voir PLAN_DETAILLE_S1-S2_JOUR_PAR_JOUR.docx) :
   01_risques.json, 02_solutions.json, 03_profils_pme.json,
   04_matrice_risques_solutions.json, 05_regles_recommandation.json, README.md
+- Seul le README.md reste à produire pour clore la liste des livrables S1-2.
+- 69 des 95 risques n'ont toujours pas de "categorie" renseignée dans 01_risques.json.
+- Les 13 règles de priorité "Critique" dans 05_regles_recommandation.json sont les
+  candidates prioritaires pour une revue manuelle avant tout usage en production/démo.
