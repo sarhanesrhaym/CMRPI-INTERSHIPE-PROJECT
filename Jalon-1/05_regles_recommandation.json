@@ -1,0 +1,288 @@
+{
+  "regles_recommandation": {
+    "regle_001": {
+      "id": "regle_001",
+      "condition": {
+        "type": "toujours"
+      },
+      "condition_lisible": "toujours",
+      "recommandations": [
+        {
+          "risque_id": "r006",
+          "risque_nom": "Mot de passe faible, partagé ou jamais renouvelé",
+          "solution_id": "sol004",
+          "solution_nom": "Politique de mots de passe stricte formalisée",
+          "solution_description": "Règles écrites : 8+ caractères, majuscules/minuscules/chiffres/caractères spéciaux, renouvellement trimestriel, interdiction de réutilisation",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r005",
+          "risque_nom": "Compromission via périphérique USB non fiable",
+          "solution_id": "sol011",
+          "solution_nom": "Antivirus avec scan automatique des supports externes",
+          "solution_description": "Antivirus configuré pour scanner systématiquement tout support externe connecté et refuser les connexions non reconnues",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r011",
+          "risque_nom": "Ver informatique (worm)",
+          "solution_id": "sol011",
+          "solution_nom": "Antivirus avec scan automatique des supports externes",
+          "solution_description": "Antivirus configuré pour scanner systématiquement tout support externe connecté et refuser les connexions non reconnues",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r012",
+          "risque_nom": "Cheval de Troie (trojan)",
+          "solution_id": "sol011",
+          "solution_nom": "Antivirus avec scan automatique des supports externes",
+          "solution_description": "Antivirus configuré pour scanner systématiquement tout support externe connecté et refuser les connexions non reconnues",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r008",
+          "risque_nom": "Accès non protégé aux fichiers systèmes sensibles",
+          "solution_id": "sol006",
+          "solution_nom": "Verrouillage automatique de session après inactivité",
+          "solution_description": "Configuration système pour verrouiller la session après un délai d'inactivité",
+          "priorite": "Moyenne"
+        },
+        {
+          "risque_id": "r007",
+          "risque_nom": "Non-respect de la charte d'usage d'Internet",
+          "solution_id": "sol007",
+          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "solution_description": "Document officiel listant les règles à faire/ne pas faire pour l'usage d'Internet en entreprise, signé par les employés",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r010",
+          "risque_nom": "Divulgation d'informations sensibles sur Internet par un collaborateur",
+          "solution_id": "sol007",
+          "solution_nom": "Charte d'usage d'Internet formalisée",
+          "solution_description": "Document officiel listant les règles à faire/ne pas faire pour l'usage d'Internet en entreprise, signé par les employés",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r014",
+          "risque_nom": "Spyware (logiciel espion)",
+          "solution_id": "sol013",
+          "solution_nom": "Logiciel antispyware",
+          "solution_description": "Détecter et supprimer les logiciels espions collectant des données à l'insu de l'utilisateur",
+          "priorite": "Moyenne"
+        },
+        {
+          "risque_id": "r012",
+          "risque_nom": "Cheval de Troie (trojan)",
+          "solution_id": "sol015",
+          "solution_nom": "Vigilance et vérification des emails suspects",
+          "solution_description": "Procédure de vérification systématique de la cohérence expéditeur/contenu avant d'ouvrir une pièce jointe ou de cliquer un lien",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r015",
+          "risque_nom": "Spoofing (usurpation d'identité électronique)",
+          "solution_id": "sol015",
+          "solution_nom": "Vigilance et vérification des emails suspects",
+          "solution_description": "Procédure de vérification systématique de la cohérence expéditeur/contenu avant d'ouvrir une pièce jointe ou de cliquer un lien",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r015",
+          "risque_nom": "Spoofing (usurpation d'identité électronique)",
+          "solution_id": "sol012",
+          "solution_nom": "Logiciel antispam pour la messagerie",
+          "solution_description": "Filtrer et bloquer les emails indésirables ou frauduleux avant qu'ils n'atteignent l'utilisateur",
+          "priorite": "Moyenne"
+        }
+      ]
+    },
+    "regle_002": {
+      "id": "regle_002",
+      "condition": {
+        "type": "reponse_egale",
+        "question": "site_web",
+        "valeur": "Oui"
+      },
+      "condition_lisible": "site_web == Oui",
+      "recommandations": [
+        {
+          "risque_id": "r002",
+          "risque_nom": "Injection de code sur le site web (SQL injection, XSS)",
+          "solution_id": "sol003",
+          "solution_nom": "Mise à jour régulière CMS, plugins et infrastructure web",
+          "solution_description": "Maintenir à jour le serveur web, le CMS et les extensions installées",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r003",
+          "risque_nom": "Mauvaise configuration de sécurité (serveur, CMS, plugins)",
+          "solution_id": "sol003",
+          "solution_nom": "Mise à jour régulière CMS, plugins et infrastructure web",
+          "solution_description": "Maintenir à jour le serveur web, le CMS et les extensions installées",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r009",
+          "risque_nom": "Absence de sauvegarde du site web de l'entreprise",
+          "solution_id": "sol009",
+          "solution_nom": "Sauvegarde régulière et sécurisée du site web",
+          "solution_description": "Sauvegarder le site web (fichiers + base de données) de façon régulière et automatisée",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r017",
+          "risque_nom": "Interception de coordonnées bancaires lors de paiements en ligne",
+          "solution_id": "sol017",
+          "solution_nom": "Checklist de vérification avant paiement en ligne",
+          "solution_description": "Procédure de contrôle avant tout paiement : cadenas, https, orthographe URL, confirmation SMS, ne jamais transmettre le code carte",
+          "priorite": "Haute"
+        }
+      ]
+    },
+    "regle_003": {
+      "id": "regle_003",
+      "condition": {
+        "type": "reponse_egale",
+        "question": "employes_nomades",
+        "valeur": "Oui"
+      },
+      "condition_lisible": "employes_nomades == Oui",
+      "recommandations": [
+        {
+          "risque_id": "r001",
+          "risque_nom": "Connexion via réseau Wi-Fi public/non sécurisé",
+          "solution_id": "sol001",
+          "solution_nom": "VPN pour connexions distantes et Wi-Fi public",
+          "solution_description": "Réseau privé virtuel chiffrant les connexions lors des déplacements ou du télétravail",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r004",
+          "risque_nom": "Perte ou vol de matériel nomade (laptop, smartphone, clé USB)",
+          "solution_id": "sol005",
+          "solution_nom": "Chiffrement des équipements nomades",
+          "solution_description": "Chiffrer disques et données des ordinateurs/téléphones emportés en mission",
+          "priorite": "Haute"
+        }
+      ]
+    },
+    "regle_004": {
+      "id": "regle_004",
+      "condition": {
+        "type": "reponse_egale",
+        "question": "personne_it",
+        "valeur": "Oui"
+      },
+      "condition_lisible": "personne_it == Oui",
+      "recommandations": [
+        {
+          "risque_id": "r008",
+          "risque_nom": "Accès non protégé aux fichiers systèmes sensibles",
+          "solution_id": "sol010",
+          "solution_nom": "Gestion stricte des permissions d'accès",
+          "solution_description": "Appliquer le principe du moindre privilège sur les fichiers, répertoires et comptes",
+          "priorite": "Moyenne"
+        },
+        {
+          "risque_id": "r019",
+          "risque_nom": "Shadow IT — usage non approuvé d'outils cloud grand public",
+          "solution_id": "sol018",
+          "solution_nom": "Solution centralisée et sécurisée de partage de fichiers",
+          "solution_description": "Remplacer les outils cloud grand public non approuvés par une solution web sécurisée validée par l'IT",
+          "priorite": "Moyenne"
+        },
+        {
+          "risque_id": "r020",
+          "risque_nom": "Risques liés à l'externalisation cloud (confidentialité, juridique, réversibilité)",
+          "solution_id": "sol019",
+          "solution_nom": "Chiffrement pré-cloud + choix contractuel rigoureux du prestataire",
+          "solution_description": "Chiffrer les données avant envoi vers le cloud et choisir un prestataire offrant des garanties contractuelles sur la localisation et la réversibilité",
+          "priorite": "Moyenne"
+        }
+      ]
+    },
+    "regle_005": {
+      "id": "regle_005",
+      "condition": {
+        "type": "reponse_egale",
+        "question": "donnees_personnelles",
+        "valeur": "Oui"
+      },
+      "condition_lisible": "donnees_personnelles == Oui",
+      "recommandations": [
+        {
+          "risque_id": "r021",
+          "risque_nom": "Non-conformité à la loi 09-08 (collecte de données personnelles)",
+          "solution_id": "sol020",
+          "solution_nom": "Mise en conformité loi 09-08 (protection données personnelles)",
+          "solution_description": "Respecter les 6 règles d'or : sécurité des fichiers, confidentialité, droits des personnes, autorisation CNDP, durée de conservation raisonnable, finalité précise",
+          "priorite": "Haute"
+        },
+        {
+          "risque_id": "r022",
+          "risque_nom": "Non-respect des durées de conservation des données personnelles",
+          "solution_id": "sol021",
+          "solution_nom": "Politique formelle de conservation des données",
+          "solution_description": "Définir et appliquer des durées maximales de conservation par catégorie de données (clients, employés, prospects), avec des procédures de purge automatisée ou manuelle régulière",
+          "priorite": "Moyenne"
+        }
+      ]
+    },
+    "regle_006": {
+      "id": "regle_006",
+      "condition": {
+        "type": "valeur_parmi",
+        "question": "secteur",
+        "valeurs": [
+          "Finance",
+          "E-commerce"
+        ]
+      },
+      "condition_lisible": "secteur in [Finance, E-commerce]",
+      "recommandations": [
+        {
+          "risque_id": "r013",
+          "risque_nom": "Keylogger",
+          "solution_id": "sol014",
+          "solution_nom": "Logiciel anti-keylogger",
+          "solution_description": "Détecter et bloquer les programmes qui enregistrent les frappes clavier",
+          "priorite": "Moyenne"
+        }
+      ]
+    }
+  },
+  "questions": {
+    "secteur": {
+      "type": "choix",
+      "options": [
+        "Généraliste",
+        "E-commerce",
+        "Finance",
+        "Santé",
+        "Industrie"
+      ]
+    },
+    "nb_employes": {
+      "type": "choix",
+      "options": [
+        "moins de 10",
+        "10 à 50",
+        "plus de 50"
+      ]
+    },
+    "site_web": {
+      "type": "oui_non"
+    },
+    "personne_it": {
+      "type": "oui_non"
+    },
+    "employes_nomades": {
+      "type": "oui_non"
+    },
+    "donnees_personnelles": {
+      "type": "oui_non"
+    }
+  },
+  "note_jalon2": "Chaque regle.condition est structurée (type: toujours / reponse_egale / valeur_parmi) pour être traduite directement en if/elif Python au Jalon 2, sans réinterprétation manuelle du texte."
+}

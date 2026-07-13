@@ -1,0 +1,69 @@
+{
+  "profils_exemple": {
+    "exemple001": {
+      "id": "exemple001",
+      "nom_fictif": "Boutique Zahra (exemple)",
+      "reponses": {
+        "secteur": "Généraliste",
+        "nb_employes": "moins de 10",
+        "site_web": "Non",
+        "personne_it": "Non",
+        "employes_nomades": "Non",
+        "donnees_personnelles": "Non"
+      },
+      "usage": "Cas simple : profil minimal, doit recevoir uniquement les recommandations universelles"
+    },
+    "exemple002": {
+      "id": "exemple002",
+      "nom_fictif": "Boutique en ligne ShopMaroc (exemple)",
+      "reponses": {
+        "secteur": "E-commerce",
+        "nb_employes": "10 à 50",
+        "site_web": "Oui",
+        "personne_it": "Non",
+        "employes_nomades": "Non",
+        "donnees_personnelles": "Oui"
+      },
+      "usage": "Cas site web + données personnelles, sans IT dédié : teste les recommandations Q3 et Q6 sans celles de Q4"
+    },
+    "exemple003": {
+      "id": "exemple003",
+      "nom_fictif": "Cabinet de change Rif Finance (exemple)",
+      "reponses": {
+        "secteur": "Finance",
+        "nb_employes": "10 à 50",
+        "site_web": "Non",
+        "personne_it": "Oui",
+        "employes_nomades": "Oui",
+        "donnees_personnelles": "Oui"
+      },
+      "usage": "Cas secteur sensible avec IT dédié et mobilité : teste Q1 (Finance), Q4, Q5 et Q6 ensemble"
+    },
+    "exemple004": {
+      "id": "exemple004",
+      "nom_fictif": "Cabinet médical MedCare (exemple)",
+      "reponses": {
+        "secteur": "Santé",
+        "nb_employes": "moins de 10",
+        "site_web": "Non",
+        "personne_it": "Non",
+        "employes_nomades": "Non",
+        "donnees_personnelles": "Oui"
+      },
+      "usage": "Cas données personnelles sensibles sans aucune ressource IT : vérifie que les recommandations Q6 restent proposées même sans personne IT"
+    },
+    "exemple005": {
+      "id": "exemple005",
+      "nom_fictif": "Atelier textile Souss (exemple)",
+      "reponses": {
+        "secteur": "Industrie",
+        "nb_employes": "plus de 50",
+        "site_web": "Oui",
+        "personne_it": "Oui",
+        "employes_nomades": "Oui",
+        "donnees_personnelles": "Oui"
+      },
+      "usage": "Cas complet : toutes les réponses à Oui, doit déclencher l'ensemble de la grille (universelles + toutes les conditionnelles)"
+    }
+  }
+}
