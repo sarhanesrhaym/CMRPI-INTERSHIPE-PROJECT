@@ -1,7 +1,4 @@
 
-filtrage.py — Module 1 : Filtrage (profil -> risques / règles / solutions applicables)
-Projet N°13 — CMRPI, Espace Maroc Cyberconfiance
-Responsable : Fatima Zahraa El-Ouali
 
 Rôle dans le pipeline :
     Étant donné un profil PME, ce module détermine :
