@@ -1,7 +1,4 @@
 """
-filtrage.py — Module 1 : Filtrage (profil -> risques / règles / solutions applicables)
-Projet N°13 — CMRPI, Espace Maroc Cyberconfiance
-Responsable : Fatima Zahraa El-Ouali
 
 Rôle dans le pipeline :
     Étant donné un profil PME, ce module détermine :
@@ -110,10 +107,7 @@ def get_risques_profil(
     (voir 03_profils_pme.json). On récupère les objets risque complets
     correspondants.
 
-    TODO (Fatima Zahraa) : évaluer si on veut aussi élargir automatiquement
-    via `secteurs_affectes` des 95 risques (couverture plus large mais
-    moins précise que la sélection curée par profil). Pour l'instant on
-    reste strict sur risques_principaux, qui est la donnée la plus fiable.
+
     """
     risques_ids = profil.get("risques_principaux", [])
     risques = []
@@ -150,7 +144,6 @@ def secteur_correspond(secteur_profil: str, secteurs_cibles: List[str]) -> bool:
     if secteur_profil.strip().lower() in secteurs_cibles_norm:
         return True
 
-    # TODO (Fatima Zahraa) : gérer les libellés génériques du type
     # "tous avec site web" / "tous avec paiement en ligne", qui ne sont
     # pas des secteurs à proprement parler mais des conditions
     # d'infrastructure. Piste : croiser avec infrastructure_it.outils du
