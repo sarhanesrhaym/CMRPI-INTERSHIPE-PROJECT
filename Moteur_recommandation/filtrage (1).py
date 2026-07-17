@@ -72,11 +72,11 @@ def charger_donnees(dossier: str | Path) -> Dict[str, Any]:
             return json.load(f)[cle]
 
     return {
-        "risques": _load("01_risques__1_.json", "risques"),
-        "solutions": _load("02_solutions__1_.json", "solutions"),
-        "profils": _load("03_profils_pme__1_.json", "profils_pme"),
-        "matrice": _load("04_matrice_risques_solutions__1_.json", "matrice_risques_solutions"),
-        "regles": _load("05_regles_recommandation__1_.json", "regles_recommandation"),
+        "risques": _load("01_risques.json", "risques"),
+        "solutions": _load("02_solutions.json", "solutions"),
+        "profils": _load("03_profils_pme.json", "profils_pme"),
+        "matrice": _load("04_matrice_risques_solutions.json", "matrice_risques_solutions"),
+        "regles": _load("05_regles_recommandation.json", "regles_recommandation"),
     }
 
 
@@ -291,7 +291,7 @@ if __name__ == "__main__":
     # Test manuel sur des vraies données. À remplacer par de vrais tests
     # pytest au J8 (voir dependances.py / allocation_phases.py / strategies.py
     # pour les cas limites : profil sans solution éligible, etc.)
-    DOSSIER_DONNEES = "/mnt/user-data/uploads"  # adapter selon l'emplacement réel
+    DOSSIER_DONNEES = str(Path(__file__).parent.parent / "data")
 
     data = charger_donnees(DOSSIER_DONNEES)
 
