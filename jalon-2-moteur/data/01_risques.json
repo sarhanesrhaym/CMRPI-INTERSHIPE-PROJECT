@@ -1,0 +1,405 @@
+{
+  "risques": {
+    "r001": {
+      "id": "r001",
+      "nom": "Connexion via réseau Wi-Fi public/non sécurisé",
+      "description": "Utilisation de réseaux Wi-Fi publics ou pièges créés par des cybercriminels pour intercepter des données",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de VPN",
+        "Wi-Fi public sans mot de passe",
+        "Connexion automatique aux réseaux inconnus"
+      ],
+      "impact_potentiel": "Interception de données, vol d'identifiants",
+      "notes": "Risque fréquent pour collaborateurs mobiles/en mission",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r002": {
+      "id": "r002",
+      "nom": "Injection de code sur le site web (SQL injection, XSS)",
+      "description": "Attaque exploitant une faille du site web pour exécuter du code malveillant",
+      "severite": "CRITIQUE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "Services web",
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "CMS/plugins obsolètes",
+        "Pas de validation des entrées",
+        "Pas de WAF"
+      ],
+      "impact_potentiel": "Vol de base de données, défacement du site, prise de contrôle serveur",
+      "notes": "Cause n°1 des attaques web selon le guide CMRPI",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r003": {
+      "id": "r003",
+      "nom": "Mauvaise configuration de sécurité (serveur, CMS, plugins)",
+      "description": "Paramétrage par défaut ou incorrect du serveur web, CMS ou extensions",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "Pas de mise à jour CMS/plugins",
+        "Comptes admin par défaut",
+        "Ports/services inutiles ouverts"
+      ],
+      "impact_potentiel": "Porte d'entrée pour attaques sophistiquées",
+      "notes": "Distinct de l'infrastructure obsolète : ici c'est un problème de configuration, pas d'âge du matériel",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r004": {
+      "id": "r004",
+      "nom": "Perte ou vol de matériel nomade (laptop, smartphone, clé USB)",
+      "description": "Vol ou perte d'équipement lors de déplacements professionnels",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de chiffrement du disque",
+        "Pas de mot de passe de boot",
+        "Voyage avec données sensibles non nécessaires"
+      ],
+      "impact_potentiel": "Exposition de données sensibles, perte de matériel",
+      "notes": "Spécifique aux employés en mission/voyage",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r005": {
+      "id": "r005",
+      "nom": "Compromission via périphérique USB non fiable",
+      "description": "Clé USB offerte, trouvée ou de provenance inconnue contenant un logiciel malveillant",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de politique de contrôle des supports amovibles",
+        "Antivirus non configuré pour scanner l'USB automatiquement"
+      ],
+      "impact_potentiel": "Infection du poste ou du réseau interne",
+      "notes": "Vecteur classique et sous-estimé",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r006": {
+      "id": "r006",
+      "nom": "Mot de passe faible, partagé ou jamais renouvelé",
+      "description": "Employés utilisant des mots de passe faciles à deviner, réutilisés sur plusieurs services, ou jamais changés",
+      "severite": "ÉLEVÉE",
+      "probabilite": "TRÈS ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de politique de mots de passe",
+        "Pas de gestionnaire de mots de passe",
+        "Mots de passe notés sur papier/post-it"
+      ],
+      "impact_potentiel": "Compromission en cascade de plusieurs comptes/systèmes",
+      "notes": "Cause racine derrière beaucoup de vols d'identifiants (r002)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r007": {
+      "id": "r007",
+      "nom": "Non-respect de la charte d'usage d'Internet",
+      "description": "Navigation sur sites douteux, téléchargements illégaux, désactivation de l'antivirus/pare-feu par l'employé",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Absence de charte formalisée",
+        "Pas de sensibilisation",
+        "Pas de contrôle/supervision"
+      ],
+      "impact_potentiel": "Introduction de malwares, fuite d'informations, sanctions disciplinaires",
+      "notes": "Risque organisationnel/humain, facilement réductible par une charte",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r008": {
+      "id": "r008",
+      "nom": "Accès non protégé aux fichiers systèmes sensibles",
+      "description": "Fichiers utilisateurs/mots de passe (/etc/passwd, base de registre Windows) mal protégés dans le réseau local",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "tous avec réseau LAN"
+      ],
+      "facteurs_risque": [
+        "Pas de fichier shadow (Unix)",
+        "Accès non restreint à poledit/regedit (Windows)",
+        "Comptes guest/anonymous actifs"
+      ],
+      "impact_potentiel": "Piratage des comptes systèmes, prise de contrôle du LAN",
+      "notes": "Complète le risque d'accès physique (r006) côté logique/système",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r009": {
+      "id": "r009",
+      "nom": "Absence de sauvegarde du site web de l'entreprise",
+      "description": "Le site vitrine/e-commerce n'est pas sauvegardé régulièrement",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "tous avec site web"
+      ],
+      "facteurs_risque": [
+        "Pas de politique de backup web",
+        "Hébergeur ne propose pas de backup automatique"
+      ],
+      "impact_potentiel": "Perte totale du site en cas d'attaque, coût de reconstruction",
+      "notes": "Distinct de la perte de données générale (r003) : spécifique au site web",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r010": {
+      "id": "r010",
+      "nom": "Divulgation d'informations sensibles sur Internet par un collaborateur",
+      "description": "Partage d'informations confidentielles sur forums, réseaux sociaux, ou via formulaires non sécurisés",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de sensibilisation",
+        "Pas de liste de personnes habilitées à communiquer",
+        "Formulaires web non sécurisés (pas HTTPS)"
+      ],
+      "impact_potentiel": "Fuite d'informations stratégiques ou personnelles, atteinte à l'image",
+      "notes": "Risque humain lié à l'usage quotidien du web, pas au piratage",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r011": {
+      "id": "r011",
+      "nom": "Ver informatique (worm)",
+      "description": "Logiciel malveillant qui se reproduit sur plusieurs ordinateurs via le réseau et sature la bande passante",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas d'antivirus à jour",
+        "Réseau non segmenté",
+        "Postes non patchés"
+      ],
+      "impact_potentiel": "Saturation réseau, indisponibilité des services internes",
+      "notes": "Sous-catégorie de malware distincte du virus classique",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r012": {
+      "id": "r012",
+      "nom": "Cheval de Troie (trojan)",
+      "description": "Programme d'apparence légitime servant de vecteur pour installer un autre programme malveillant à l'insu de l'utilisateur",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Téléchargement depuis sites douteux",
+        "Pas d'antivirus",
+        "Employés non sensibilisés"
+      ],
+      "impact_potentiel": "Accès frauduleux aux ressources, installation de logiciels espions",
+      "notes": "Souvent confondu avec un virus, mais mécanisme différent (véhicule d'infiltration)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r013": {
+      "id": "r013",
+      "nom": "Keylogger",
+      "description": "Programme espion qui enregistre tout ce que l'utilisateur saisit au clavier (mots de passe, données bancaires)",
+      "severite": "CRITIQUE",
+      "probabilite": "FAIBLE-MOYENNE",
+      "secteurs_affectes": [
+        "Finance",
+        "E-commerce",
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de logiciel anti-keylogger",
+        "Poste infecté par un cheval de Troie",
+        "Clavier virtuel non utilisé pour saisies sensibles"
+      ],
+      "impact_potentiel": "Vol de mots de passe, vol de données bancaires",
+      "notes": "Vecteur précis et particulièrement dangereux pour données financières",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r014": {
+      "id": "r014",
+      "nom": "Spyware (logiciel espion)",
+      "description": "Logiciel parasite qui collecte et transmet à des tiers des informations sur la navigation ou des données personnelles",
+      "severite": "MOYENNE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Téléchargements non contrôlés",
+        "Pas d'antispyware",
+        "Navigation sur sites douteux"
+      ],
+      "impact_potentiel": "Fuite de données personnelles, utilisation commerciale malhonnête des données",
+      "notes": "Souvent indétectable, impact plus discret mais réel",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r015": {
+      "id": "r015",
+      "nom": "Spoofing (usurpation d'identité électronique)",
+      "description": "Usurpation de l'identité d'un utilisateur ou d'un système pour faire croire que des actions/communications viennent d'une autre source",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de vérification d'identité de l'expéditeur",
+        "Absence de protocoles d'authentification email (SPF/DKIM)"
+      ],
+      "impact_potentiel": "Fraude financière, atteinte à la réputation, actions illégitimes attribuées à l'entreprise",
+      "notes": "Distinct du phishing : ici la technique consiste à usurper une identité plutôt qu'à manipuler la victime",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r016": {
+      "id": "r016",
+      "nom": "Implication involontaire dans un circuit de blanchiment via monnaies virtuelles",
+      "description": "La PME accepte ou manipule des monnaies virtuelles sans contrôle suffisant, risquant d'être utilisée dans un blanchiment de fonds",
+      "severite": "ÉLEVÉE",
+      "probabilite": "FAIBLE",
+      "secteurs_affectes": [
+        "Finance",
+        "E-commerce"
+      ],
+      "facteurs_risque": [
+        "Pas de politique KYC/AML",
+        "Acceptation de cryptomonnaies sans vérification",
+        "Manque de formation juridique"
+      ],
+      "impact_potentiel": "Poursuites légales, gel d'avoirs, atteinte réputationnelle grave",
+      "notes": "Risque émergent, spécifique aux PME manipulant des paiements alternatifs",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r017": {
+      "id": "r017",
+      "nom": "Interception de coordonnées bancaires lors de paiements en ligne",
+      "description": "Coordonnées bancaires interceptées sur le poste client ou dans les fichiers du site marchand",
+      "severite": "CRITIQUE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "Finance"
+      ],
+      "facteurs_risque": [
+        "Pas de HTTPS",
+        "Stockage non chiffré des données de paiement",
+        "Pas de conformité PCI-DSS"
+      ],
+      "impact_potentiel": "Fraude bancaire, perte de confiance client, sanctions PCI-DSS",
+      "notes": "Risque central pour tout site marchand marocain",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r018": {
+      "id": "r018",
+      "nom": "Extorsion numérique par DDoS avec demande de rançon",
+      "description": "Attaque DDoS ciblée suivie d'une demande de rançon pour cesser l'attaque",
+      "severite": "CRITIQUE",
+      "probabilite": "FAIBLE",
+      "secteurs_affectes": [
+        "E-commerce",
+        "Finance",
+        "Services web"
+      ],
+      "facteurs_risque": [
+        "Pas de protection anti-DDoS",
+        "Pas de plan de réponse aux incidents"
+      ],
+      "impact_potentiel": "Indisponibilité prolongée, pression financière, précédent dangereux si rançon payée",
+      "notes": "Version aggravée du DDoS (r004) avec intention d'extorsion explicite",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r019": {
+      "id": "r019",
+      "nom": "Shadow IT — usage non approuvé d'outils cloud grand public",
+      "description": "Employés utilisant des services comme Dropbox ou Google Docs à usage personnel pour partager des fichiers professionnels, sans validation IT",
+      "severite": "ÉLEVÉE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Pas de solution de partage sécurisée fournie par l'entreprise",
+        "Pas de politique claire",
+        "Pas de supervision IT"
+      ],
+      "impact_potentiel": "Fuite de données hors du contrôle de l'entreprise, non-conformité",
+      "notes": "Près de 50% des entreprises jugent ces outils grand public inadaptés à l'usage professionnel (étude Axway citée dans le guide)",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r020": {
+      "id": "r020",
+      "nom": "Risques liés à l'externalisation cloud (confidentialité, juridique, réversibilité)",
+      "description": "Risques pour la confidentialité, incertitude sur la localisation des données, disponibilité/intégrité, et irréversibilité contractuelle lors du recours au cloud",
+      "severite": "ÉLEVÉE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous"
+      ],
+      "facteurs_risque": [
+        "Contrats génériques non adaptés",
+        "Pas de conseil juridique/technique avant contractualisation",
+        "Pas de chiffrement avant envoi au cloud"
+      ],
+      "impact_potentiel": "Perte de contrôle des données, litiges contractuels, blocage en cas de changement de prestataire",
+      "notes": "Pertinent pour les PME migrant vers le cloud sans accompagnement",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r021": {
+      "id": "r021",
+      "nom": "Non-conformité à la loi 09-08 (collecte de données personnelles)",
+      "description": "Collecte de données personnelles sans respecter les 6 règles d'or : sécurité des fichiers, confidentialité, droits des personnes, autorisation CNDP, durée de conservation, finalité définie",
+      "severite": "CRITIQUE",
+      "probabilite": "MOYENNE",
+      "secteurs_affectes": [
+        "tous collectant des données personnelles"
+      ],
+      "facteurs_risque": [
+        "Pas de déclaration/autorisation CNDP",
+        "Pas de finalité précise définie",
+        "Conservation illimitée des données"
+      ],
+      "impact_potentiel": "Sanctions CNDP, atteinte réputationnelle, plaintes de personnes concernées",
+      "notes": "Précise et complète le risque de conformité générale r005",
+      "source_guide": "Guide de bonnes pratiques cybersécurité CMRPI/AUSIM"
+    },
+    "r022": {
+      "id": "r022",
+      "nom": "Non-respect des durées de conservation des données personnelles",
+      "description": "Conservation des données personnelles au-delà des délais légaux, sans justification de finalité, exposant à des amendes CNDP et à des risques de fuite",
+      "severite": "MOYENNE",
+      "probabilite": "ÉLEVÉE",
+      "secteurs_affectes": [
+        "tous collectant des données personnelles"
+      ],
+      "facteurs_risque": [
+        "Absence de politique de conservation",
+        "Stockage illimité par défaut",
+        "Pas de processus de purge automatique"
+      ],
+      "impact_potentiel": "Sanctions CNDP (amendes), atteinte aux droits des personnes, exposition accrue en cas de fuite",
+      "notes": "Principe fondamental de la loi 09-08 : conserver uniquement le temps nécessaire à la finalité déclarée",
+      "source_guide": "DGSSI - Guide bonnes pratiques CMRPI/AUSIM (Loi 09-08), DNSSI - Conformité"
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "grille": [
+    {
+      "id": "g001",
+      "condition": "toujours",
+      "risque": "r006",
+      "solution": "sol004",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g002",
+      "condition": "toujours",
+      "risque": "r005",
+      "solution": "sol011",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g003",
+      "condition": "toujours",
+      "risque": "r011",
+      "solution": "sol011",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g004",
+      "condition": "toujours",
+      "risque": "r012",
+      "solution": "sol011",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g005",
+      "condition": "toujours",
+      "risque": "r008",
+      "solution": "sol006",
+      "priorite": "Moyenne"
+    },
+    {
+      "id": "g006",
+      "condition": "toujours",
+      "risque": "r007",
+      "solution": "sol007",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g007",
+      "condition": "toujours",
+      "risque": "r010",
+      "solution": "sol007",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g008",
+      "condition": "toujours",
+      "risque": "r014",
+      "solution": "sol013",
+      "priorite": "Moyenne"
+    },
+    {
+      "id": "g009",
+      "condition": "toujours",
+      "risque": "r012",
+      "solution": "sol015",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g010",
+      "condition": "toujours",
+      "risque": "r015",
+      "solution": "sol015",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g011",
+      "condition": "toujours",
+      "risque": "r015",
+      "solution": "sol012",
+      "priorite": "Moyenne"
+    },
+    {
+      "id": "g012",
+      "condition": "site_web == Oui",
+      "risque": "r002",
+      "solution": "sol003",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g013",
+      "condition": "site_web == Oui",
+      "risque": "r003",
+      "solution": "sol003",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g014",
+      "condition": "site_web == Oui",
+      "risque": "r009",
+      "solution": "sol009",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g015",
+      "condition": "site_web == Oui",
+      "risque": "r017",
+      "solution": "sol017",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g016",
+      "condition": "employes_nomades == Oui",
+      "risque": "r001",
+      "solution": "sol001",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g017",
+      "condition": "employes_nomades == Oui",
+      "risque": "r004",
+      "solution": "sol005",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g018",
+      "condition": "personne_it == Oui",
+      "risque": "r008",
+      "solution": "sol010",
+      "priorite": "Moyenne"
+    },
+    {
+      "id": "g019",
+      "condition": "personne_it == Oui",
+      "risque": "r019",
+      "solution": "sol018",
+      "priorite": "Moyenne"
+    },
+    {
+      "id": "g020",
+      "condition": "personne_it == Oui",
+      "risque": "r020",
+      "solution": "sol019",
+      "priorite": "Moyenne"
+    },
+    {
+      "id": "g021",
+      "condition": "donnees_personnelles == Oui",
+      "risque": "r021",
+      "solution": "sol020",
+      "priorite": "Haute"
+    },
+    {
+      "id": "g022",
+      "condition": "donnees_personnelles == Oui",
+      "risque": "r022",
+      "solution": "sol021",
+      "priorite": "Moyenne"
+    },
+    {
+      "id": "g023",
+      "condition": "secteur in [Finance, E-commerce]",
+      "risque": "r013",
+      "solution": "sol014",
+      "priorite": "Moyenne"
+    }
+  ],
+  "meta": {
+    "risques_sans_solution_dediee": {
+      "r016": "Blanchiment via monnaies virtuelles : le guide CMRPI/AUSIM décrit le risque sans proposer de contre-mesure technique.",
+      "r018": "Extorsion numérique par DDoS : le guide définit le risque sans détailler de solution accessible à une PME."
+    },
+    "questions_reference": {
+      "secteur": "Généraliste / E-commerce / Finance / Santé / Industrie",
+      "nb_employes": "moins de 10 / 10 à 50 / plus de 50",
+      "site_web": "Oui / Non",
+      "personne_it": "Oui / Non",
+      "employes_nomades": "Oui / Non",
+      "donnees_personnelles": "Oui / Non"
+    }
+  }
+}
