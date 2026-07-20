@@ -16,7 +16,9 @@ import os
 
 # Dossier où se trouvent les 5 fichiers JSON. On part du principe
 # qu'ils sont dans un sous-dossier "data" a cote de ce script.
-DOSSIER_DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+DOSSIER_MOTEUR = os.path.dirname(os.path.abspath(__file__))
+RACINE_JALON2 = os.path.dirname(DOSSIER_MOTEUR)
+DOSSIER_DATA = os.path.join(RACINE_JALON2, "data")
 
 
 def _charger_json(nom_fichier):
