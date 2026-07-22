@@ -1,6 +1,4 @@
 from load_data import charger_donnees
-
-
 def _recommandations_de(donnees, condition_lisible):
 
     for id_regle, regle in donnees["regles"].items():
