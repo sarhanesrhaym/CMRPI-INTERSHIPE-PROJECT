@@ -2,7 +2,7 @@
 
 
 
-# Profil 1 : Boutique Zahra (exemple)
+
 
 
 profil_exemple001 = {
@@ -15,7 +15,6 @@ profil_exemple001 = {
 }
 
 
-# Profil 2 : Boutique en ligne ShopMaroc (exemple)
 
 profil_exemple002 = {
     "secteur": "E-commerce",
@@ -26,7 +25,7 @@ profil_exemple002 = {
     "donnees_personnelles": "Oui"
 }
 
-# Profil 3 : Cabinet de change Rif Finance (exemple)
+
 
 profil_exemple003 = {
     "secteur": "Finance",
@@ -38,7 +37,6 @@ profil_exemple003 = {
 }
 
 
-# Profil 4 : Cabinet médical MedCare (exemple)
 
 profil_exemple004 = {
     "secteur": "Santé",
@@ -50,7 +48,6 @@ profil_exemple004 = {
 }
 
 
-# Profil 5 : Atelier textile Souss (exemple)
 
 profil_exemple005 = {
     "secteur": "Industrie",
@@ -62,7 +59,7 @@ profil_exemple005 = {
 }
 
 
-# Regroupement de tous les profils dans un seul dictionnaire
+
 
 PROFILS_EXEMPLE = {
     "exemple001": profil_exemple001,
@@ -99,7 +96,6 @@ def liste_profils() -> list:
 
 
 
-# Test rapide si le fichier est exécuté directement
 
 if __name__ == "__main__":
     for pid, profil in PROFILS_EXEMPLE.items():
