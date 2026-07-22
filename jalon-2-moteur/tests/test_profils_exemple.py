@@ -1,22 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-test_profils_exemple.py — Jour 7 : Test avec les 5 profils exemple
-=====================================================================
-
-Ce script fait tourner le moteur sur les 5 profils de profil.py et
-verifie que le NOMBRE de recommandations obtenu correspond bien a ce
-qu'on a calcule a la main a partir de la grille du Jalon 1.
-
-Objectif : detecter une erreur de traduction entre le tableau Word et
-le code (une condition inversee, un bloc oublie, etc.) avant de montrer
-le moteur a l'encadrante.
-"""
-
 import sys
 import os
 
-# tests/ est un dossier a cote de moteur/, pas dedans : on ajoute
-# le dossier moteur/ au chemin de recherche des imports Python.
+
 DOSSIER_TESTS = os.path.dirname(os.path.abspath(__file__))
 RACINE_JALON2 = os.path.dirname(DOSSIER_TESTS)
 DOSSIER_MOTEUR = os.path.join(RACINE_JALON2, "moteur")
@@ -27,21 +13,17 @@ from moteur import recommander
 from profil import PROFILS_EXEMPLE
 
 
-# Totaux attendus, calcules a la main a partir de la grille du Jalon 1
-# (Word "Grille_correspondance_Jalon1.docx"). Si un de ces chiffres
-# change apres une correction de regle, il faut mettre ce dictionnaire
-# a jour en meme temps que la grille, pas seulement le code.
 TOTAUX_ATTENDUS = {
-    "exemple001": 11,  # profil minimal : universelles seules
-    "exemple002": 18,  # E-commerce : universelles + site web + donnees + secteur
-    "exemple003": 19,  # Finance : universelles + mobilite + IT + donnees + secteur
-    "exemple004": 13,  # Sante : universelles + donnees personnelles
-    "exemple005": 22,  # Industrie : toutes les conditions reunies
+    "exemple001": 11,  # profil minimal 
+    "exemple002": 18,  # E-commerce 
+    "exemple003": 19,  # Finance 
+    "exemple004": 13,  # Sante 
+    "exemple005": 22,  # Industrie
 }
 
 
 def tester_un_profil(profil_id, profil, donnees):
-    """Teste un profil et affiche PASS ou ECHEC selon le total attendu."""
+   
     resultats = recommander(profil, donnees=donnees)
     total_obtenu = len(resultats)
     total_attendu = TOTAUX_ATTENDUS.get(profil_id)
