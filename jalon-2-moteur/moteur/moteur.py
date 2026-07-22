@@ -57,11 +57,11 @@ def afficher_recommandations(recommandations, titre="Recommandations pour ce pro
         print(f"      -> couvre : {risques_str}")
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     from profil import PROFILS_EXEMPLE
 
     donnees = charger_donnees()
 
-    for profil_id, profil in PROFILS_EXEMPLE.items():
-        resultats = recommander(profil, donnees=donnees)
-        afficher_recommandations(resultats, titre=f"Profil {profil_id} ({profil['secteur']})")
+    profil_demo = PROFILS_EXEMPLE["exemple002"]
+    resultats = recommander(profil_demo, donnees=donnees)
+    afficher_recommandations(resultats, titre="Démonstration (profil exemple002)")
