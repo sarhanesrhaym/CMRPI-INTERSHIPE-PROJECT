@@ -1,11 +1,10 @@
 """
 profil.py
 ---------
-Jalon 2 - Moteur de règles
-Auteur : Fatima (J2)
+
 
 Ce module contient les profils PME extraits du fichier
-03_profils_pme.json (Jalon 1), sous forme de dictionnaires Python
+05_profils_pme.json (Jalon 1), sous forme de dictionnaires Python
 directement utilisables par le moteur de règles.
 
 Chaque profil correspond aux réponses données au questionnaire :
