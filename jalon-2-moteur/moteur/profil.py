@@ -1,25 +1,10 @@
-"""
-profil.py
----------
 
 
-Ce module contient les profils PME extraits du fichier
-05_profils_pme.json (Jalon 1), sous forme de dictionnaires Python
-directement utilisables par le moteur de règles.
 
-Chaque profil correspond aux réponses données au questionnaire :
-    - secteur
-    - nb_employes
-    - site_web
-    - personne_it
-    - employes_nomades
-    - donnees_personnelles
-"""
 
-# ---------------------------------------------------------------------------
 # Profil 1 : Boutique Zahra (exemple)
-# Usage : Cas simple -> uniquement les recommandations universelles
-# ---------------------------------------------------------------------------
+
+
 profil_exemple001 = {
     "secteur": "Généraliste",
     "nb_employes": "moins de 10",
@@ -29,10 +14,9 @@ profil_exemple001 = {
     "donnees_personnelles": "Non"
 }
 
-# ---------------------------------------------------------------------------
+
 # Profil 2 : Boutique en ligne ShopMaroc (exemple)
-# Usage : Site web + données personnelles, sans IT dédié -> teste Q3 et Q6
-# ---------------------------------------------------------------------------
+
 profil_exemple002 = {
     "secteur": "E-commerce",
     "nb_employes": "10 à 50",
@@ -42,10 +26,8 @@ profil_exemple002 = {
     "donnees_personnelles": "Oui"
 }
 
-# ---------------------------------------------------------------------------
 # Profil 3 : Cabinet de change Rif Finance (exemple)
-# Usage : Secteur sensible + IT dédié + mobilité -> teste Q1, Q4, Q5, Q6
-# ---------------------------------------------------------------------------
+
 profil_exemple003 = {
     "secteur": "Finance",
     "nb_employes": "10 à 50",
@@ -55,10 +37,9 @@ profil_exemple003 = {
     "donnees_personnelles": "Oui"
 }
 
-# ---------------------------------------------------------------------------
+
 # Profil 4 : Cabinet médical MedCare (exemple)
-# Usage : Données sensibles sans aucune ressource IT -> Q6 doit rester active
-# ---------------------------------------------------------------------------
+
 profil_exemple004 = {
     "secteur": "Santé",
     "nb_employes": "moins de 10",
@@ -68,10 +49,9 @@ profil_exemple004 = {
     "donnees_personnelles": "Oui"
 }
 
-# ---------------------------------------------------------------------------
+
 # Profil 5 : Atelier textile Souss (exemple)
-# Usage : Cas complet -> déclenche toute la grille (universelles + conditionnelles)
-# ---------------------------------------------------------------------------
+
 profil_exemple005 = {
     "secteur": "Industrie",
     "nb_employes": "plus de 50",
@@ -81,10 +61,9 @@ profil_exemple005 = {
     "donnees_personnelles": "Oui"
 }
 
-# ---------------------------------------------------------------------------
+
 # Regroupement de tous les profils dans un seul dictionnaire
-# Clé = id du profil, Valeur = dictionnaire des réponses
-# ---------------------------------------------------------------------------
+
 PROFILS_EXEMPLE = {
     "exemple001": profil_exemple001,
     "exemple002": profil_exemple002,
@@ -119,9 +98,9 @@ def liste_profils() -> list:
     return list(PROFILS_EXEMPLE.keys())
 
 
-# ---------------------------------------------------------------------------
+
 # Test rapide si le fichier est exécuté directement
-# ---------------------------------------------------------------------------
+
 if __name__ == "__main__":
     for pid, profil in PROFILS_EXEMPLE.items():
         print(f"--- {pid} ---")
