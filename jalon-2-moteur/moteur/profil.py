@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 profil_exemple001 = {
     "secteur": "Généraliste",
     "nb_employes": "moins de 10",
@@ -71,20 +65,7 @@ PROFILS_EXEMPLE = {
 
 
 def get_profil(profil_id: str) -> dict:
-    """
-    Retourne le dictionnaire de réponses d'un profil donné.
-
-    Exemple :
-        get_profil("exemple002")
-        -> {
-            "secteur": "E-commerce",
-            "nb_employes": "10 à 50",
-            "site_web": "Oui",
-            "personne_it": "Non",
-            "employes_nomades": "Non",
-            "donnees_personnelles": "Oui"
-        }
-    """
+    
     if profil_id not in PROFILS_EXEMPLE:
         raise ValueError(f"Profil inconnu : {profil_id}")
     return PROFILS_EXEMPLE[profil_id]
