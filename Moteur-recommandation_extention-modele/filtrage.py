@@ -28,10 +28,6 @@ CHAMPS_PROFIL_REQUIS = [
     "risques_principaux",
 ]
 
-# Mots-cles d'infrastructure reconnus dans les secteurs_prioritaires du
-# type "tous avec X", mis en correspondance avec les libelles pouvant
-# apparaitre dans profil.infrastructure_it.outils. A completer au fil de
-# l'eau si de nouvelles regles introduisent d'autres conditions.
 MOTS_CLES_INFRASTRUCTURE = {
     "tous avec site web": ["site web", "site e-commerce", "e-commerce"],
     "tous avec paiement en ligne": ["paiement en ligne", "paiement", "e-commerce"],
@@ -49,9 +45,6 @@ _FICHIERS_ATTENDUS = [
 
 
 def _trouver_fichier(dossier: Path, prefixe: str) -> Path:
-    """Trouve un fichier JSON par prefixe, tolerant aux suffixes ajoutes
-    par des telechargements/exports successifs (ex: '__1_', ' (1)').
-    """
     candidats = sorted(dossier.glob(f"{prefixe}*.json"))
     if not candidats:
         raise FichierSourceIntrouvableError(
@@ -67,17 +60,6 @@ def _trouver_fichier(dossier: Path, prefixe: str) -> Path:
 
 
 def charger_donnees(dossier: str | Path) -> Dict[str, Any]:
-    """Charge les 5 fichiers JSON de l'architecture depuis un dossier.
-
-    Args:
-        dossier: chemin vers le dossier contenant les 5 fichiers.
-
-    Returns:
-        dict avec les cles : risques, solutions, profils, matrice, regles
-
-    Raises:
-        FichierSourceIntrouvableError: si un des 5 fichiers est absent.
-    """
     dossier = Path(dossier)
     resultat: Dict[str, Any] = {}
 
@@ -103,12 +85,6 @@ def get_risques_profil(
     profil: Dict[str, Any],
     risques_db: Dict[str, Any],
 ) -> List[Dict[str, Any]]:
-    """Retourne les risques pertinents pour un profil.
-
-    Base : le champ `risques_principaux` du profil, deja cure en amont
-    (voir 03_profils_pme.json). On recupere les objets risque complets
-    correspondants.
-    """
     risques_ids = profil.get("risques_principaux", [])
     risques = []
     for rid in risques_ids:
