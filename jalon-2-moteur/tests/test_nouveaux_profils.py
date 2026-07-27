@@ -1,21 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-test_nouveaux_profils.py — Jour 8 : Test avec 2-3 nouveaux profils fictifs
-============================================================================
 
-Contrairement a test_profils_exemple.py (qui verifie des totaux connus
-a l'avance), ce script sert a tester la ROBUSTESSE du moteur sur des
-profils qu'on n'avait pas prevus au depart. Le but n'est pas de
-verifier un chiffre precis, mais de VERIFIER A L'OEIL que chaque
-recommandation qui sort a bien un sens pour le profil concerne.
-
-On ajoute quand meme quelques verifications automatiques simples
-(assert) sur des cas evidents : par exemple, un profil sans site web
-ne doit jamais recevoir une recommandation liee au site web.
-"""
 
 import sys
 import os
+sys.stdout.reconfigure(encoding="utf-8")
 
 DOSSIER_TESTS = os.path.dirname(os.path.abspath(__file__))
 RACINE_JALON2 = os.path.dirname(DOSSIER_TESTS)
@@ -56,11 +44,7 @@ NOUVEAUX_PROFILS = {
 
 
 def verifications_de_bon_sens(profil_id, profil, resultats):
-    """
-    Quelques verifications automatiques simples, pour attraper les
-    incoherences les plus evidentes sans avoir a tout relire a l'oeil.
-    Retourne la liste des problemes trouves (vide si tout va bien).
-    """
+   
     problemes = []
     noms_recommandations = [r["solution_nom"] for r in resultats]
 
@@ -111,6 +95,6 @@ if __name__ == "__main__":
     print("\n" + "=" * 60)
     if tous_ok:
         print("Resultat global : aucune incoherence automatique detectee.")
-        print("Relire quand meme les recommandations ci-dessus a l'oeil avant le J9.")
+        print("Relire quand meme les recommandations ci-dessus .")
     else:
-        print("Resultat global : des incoherences ont ete detectees, a corriger au J9.")
+        print("Resultat global : des incoherences ont ete detectees.")
