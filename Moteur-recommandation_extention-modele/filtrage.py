@@ -1,51 +1,3 @@
-"""
-Module 1 de l'architecture — Filtrage profil -> risques -> regles -> solutions.
-
-Role dans le pipeline :
-    Etant donne un profil PME, ce module determine :
-      1) quels risques (parmi les 95 de 01_risques.json) le concernent,
-      2) quelles regles de recommandation (parmi les 95 de
-         05_regles_recommandation.json) s'appliquent a ces risques et a
-         son secteur,
-      3) quelles solutions (parmi les 119 de 02_solutions.json) en
-         decoulent.
-    La sortie sert d'entree a exposition.py (Module 2 : Exposition), qui
-    n'aura ainsi a calculer l'exposition que sur les risques reellement
-    pertinents pour chaque profil, et le scoring que sur les solutions
-    reellement eligibles.
-
-Changements par rapport a l'ebauche S1-2 (J2) :
-    - charger_donnees() ne depend plus de noms de fichiers exacts
-      (les exports/telechargements successifs ajoutent des suffixes du
-      type "__1_", "(1)", etc.) : elle recherche par prefixe numerique.
-    - secteur_correspond() resout le cas "tous avec <condition
-      d'infrastructure>" en croisant avec infrastructure_it.outils du
-      profil, au lieu de l'exclure par defaut.
-    - Ajout de filtrer_tous_profils() : le pipeline traite l'ensemble
-      des profils PME avant l'etape d'exposition, pas un profil isole ;
-      c'est ce point d'entree que l'orchestrateur appellera.
-    - Les diagnostics passent par le module `logging` (niveau WARNING)
-      plutot que `print`, pour rester silencieux par defaut une fois
-      integre a un pipeline appele par un autre script.
-    - Ajout d'une fonction d'export JSON (exporter_resultats) pour
-      materialiser la sortie du Module 1 sur disque, au format attendu
-      en entree par exposition.py.
-
-Fichiers sources attendus (format des livrables S1-2 / architecture v2) :
-    01_risques.json                    -> {"risques": {"r001": {...}, ...}}
-    02_solutions.json                  -> {"solutions": {"sol001": {...}, ...}}
-    03_profils_pme.json                -> {"profils_pme": {"pme001": {...}, ...}}
-    04_matrice_risques_solutions.json  -> {"matrice_risques_solutions": {...}}
-    05_regles_recommandation.json      -> {"regles_recommandation": {...}, "meta": {...}}
-
-Note sur 04_matrice_risques_solutions.json :
-    Ce module ne l'utilise pas directement : les regles de
-    05_regles_recommandation.json en sont deja derivees (voir meta.
-    methodologie) et contiennent risques_cibles + solutions_associees,
-    ce qui suffit pour filtrer. La matrice reste disponible si on veut
-    un jour court-circuiter les regles et raisonner risque -> solutions
-    directement.
-"""
 
 from __future__ import annotations
 
@@ -55,7 +7,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
-
 
 class ProfilInvalideError(Exception):
     """Levee quand le profil PME ne contient pas les champs minimums requis."""
@@ -86,10 +37,6 @@ MOTS_CLES_INFRASTRUCTURE = {
     "tous avec paiement en ligne": ["paiement en ligne", "paiement", "e-commerce"],
 }
 
-
-# ---------------------------------------------------------------------------
-# Chargement des donnees
-# ---------------------------------------------------------------------------
 
 # (prefixe attendu, cle racine dans le JSON, cle de sortie dans le dict retourne)
 _FICHIERS_ATTENDUS = [
@@ -145,12 +92,6 @@ def charger_donnees(dossier: str | Path) -> Dict[str, Any]:
         resultat[cle_sortie] = contenu[cle_json]
 
     return resultat
-
-
-# ---------------------------------------------------------------------------
-# Validation
-# ---------------------------------------------------------------------------
-
 def valider_profil(profil: Dict[str, Any]) -> None:
     """Verifie que le profil contient les champs minimums necessaires au filtrage."""
     champs_manquants = [c for c in CHAMPS_PROFIL_REQUIS if c not in profil]
@@ -158,12 +99,6 @@ def valider_profil(profil: Dict[str, Any]) -> None:
         raise ProfilInvalideError(
             f"Champs manquants dans le profil '{profil.get('nom', '?')}' : {champs_manquants}"
         )
-
-
-# ---------------------------------------------------------------------------
-# Etape 1 : risques pertinents pour le profil
-# ---------------------------------------------------------------------------
-
 def get_risques_profil(
     profil: Dict[str, Any],
     risques_db: Dict[str, Any],
@@ -187,26 +122,12 @@ def get_risques_profil(
         risques.append(risque)
     return risques
 
-
-# ---------------------------------------------------------------------------
-# Etape 2 : correspondance sectorielle
-# ---------------------------------------------------------------------------
-
 def secteur_correspond(
     secteur_profil: str,
     secteurs_cibles: List[str],
     outils_infrastructure: Optional[List[str]] = None,
 ) -> bool:
-    """Determine si le profil est couvert par une liste de secteurs cibles.
-
-    Regles (voir secteurs_affectes des risques / secteurs_prioritaires des regles) :
-      - "tous" dans la liste -> s'applique a tout le monde.
-      - correspondance exacte (insensible a la casse) -> ok.
-      - "tous avec <condition d'infrastructure>" (ex: "tous avec site
-        web") -> resolue en croisant avec profil.infrastructure_it.outils
-        (voir MOTS_CLES_INFRASTRUCTURE). Comportement conservateur si
-        l'information n'est pas disponible : exclusion.
-    """
+    
     secteurs_cibles_norm = [s.strip().lower() for s in secteurs_cibles]
     outils_norm = [o.strip().lower() for o in (outils_infrastructure or [])]
 
@@ -231,24 +152,12 @@ def secteur_correspond(
 
     return False
 
-
-# ---------------------------------------------------------------------------
-# Etape 3 : regles applicables
-# ---------------------------------------------------------------------------
-
 def filtrer_regles(
     profil: Dict[str, Any],
     risques_profil_ids: List[str],
     regles_db: Dict[str, Any],
 ) -> List[Dict[str, Any]]:
-    """Selectionne les regles de recommandation applicables au profil.
-
-    Une regle s'applique si :
-      - au moins un de ses `risques_cibles` fait partie des risques
-        pertinents du profil, ET
-      - son secteur (`secteurs_prioritaires`) correspond au profil
-        (voir secteur_correspond, y compris les conditions d'infrastructure).
-    """
+    
     secteur_profil = profil.get("secteur", "")
     outils_infrastructure = profil.get("infrastructure_it", {}).get("outils", [])
     regles_applicables = []
@@ -267,23 +176,11 @@ def filtrer_regles(
 
     return regles_applicables
 
-
-# ---------------------------------------------------------------------------
-# Etape 4 : solutions eligibles
-# ---------------------------------------------------------------------------
-
 def extraire_solutions_eligibles(
     regles_applicables: List[Dict[str, Any]],
     solutions_db: Dict[str, Any],
 ) -> List[Dict[str, Any]]:
-    """Deduplique et enrichit les solutions issues des regles applicables.
-
-    Chaque solution retournee contient les champs de 02_solutions.json,
-    plus des metadonnees utiles a exposition.py / scoring.py :
-      - regles_sources : ids des regles qui l'ont amenee
-      - priorite_max : priorite la plus haute parmi ses regles sources
-      - phases_associees : phases suggerees par ses regles sources
-    """
+    
     ordre_priorite = {"Critique": 3, "Haute": 2, "Moyenne": 1, "Basse": 0}
     solutions_par_id: Dict[str, Dict[str, Any]] = {}
 
@@ -323,30 +220,7 @@ def extraire_solutions_eligibles(
 
     return resultat
 
-
-# ---------------------------------------------------------------------------
-# Point d'entree principal du module (un profil)
-# ---------------------------------------------------------------------------
-
 def filtrer(profil: Dict[str, Any], data: Dict[str, Any]) -> Dict[str, Any]:
-    """Filtre un profil unique.
-
-    Args:
-        profil: un profil PME (dict issu de 03_profils_pme.json).
-        data: dict retourne par charger_donnees() (risques, solutions, regles...).
-
-    Returns:
-        dict pret a etre transmis a exposition.py :
-        {
-            "profil_id": ...,
-            "risques_pertinents": [ {risque complet}, ... ],
-            "regles_applicables": [ {regle complete}, ... ],
-            "solutions_eligibles": [ {solution enrichie}, ... ],
-        }
-
-    Raises:
-        ProfilInvalideError: si le profil ne contient pas les champs requis.
-    """
     valider_profil(profil)
 
     risques_pertinents = get_risques_profil(profil, data["risques"])
@@ -368,24 +242,7 @@ def filtrer(profil: Dict[str, Any], data: Dict[str, Any]) -> Dict[str, Any]:
         "solutions_eligibles": solutions_eligibles,
     }
 
-
-# ---------------------------------------------------------------------------
-# Point d'entree du pipeline (tous les profils)
-# ---------------------------------------------------------------------------
-
 def filtrer_tous_profils(data: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
-    """Applique filtrer() a tous les profils de data["profils"].
-
-    C'est ce point d'entree que l'orchestrateur du pipeline appelle avant
-    d'invoquer exposition.py : celui-ci n'a alors plus qu'a iterer sur
-    resultats[profil_id]["risques_pertinents"] / ["solutions_eligibles"].
-
-    Un profil invalide n'interrompt pas le traitement des autres : il est
-    journalise et ignore (le pipeline global decide comment reagir).
-
-    Returns:
-        dict {profil_id: resultat_filtrage}
-    """
     resultats: Dict[str, Dict[str, Any]] = {}
     for profil_id, profil in data["profils"].items():
         try:
@@ -396,15 +253,7 @@ def filtrer_tous_profils(data: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
 
 
 def exporter_resultats(resultats: Dict[str, Dict[str, Any]], chemin_sortie: str | Path) -> Path:
-    """Serialise la sortie du Module 1 en JSON pour exposition.py.
-
-    Args:
-        resultats: sortie de filtrer_tous_profils().
-        chemin_sortie: fichier .json a ecrire.
-
-    Returns:
-        le Path du fichier ecrit.
-    """
+    
     chemin_sortie = Path(chemin_sortie)
     chemin_sortie.parent.mkdir(parents=True, exist_ok=True)
     with open(chemin_sortie, "w", encoding="utf-8") as f:
