@@ -1,60 +1,3 @@
-"""
-Algorithme 2 — Scoring multi-criteres.
-
-Role dans le pipeline :
-    Filtrage (Module 1)  ->  Exposition (Algorithme 1)  ->  Scoring (Algorithme 2)
-
-    Prend en entree :
-      - la sortie de filtrage.filtrer(profil, data)   -> solutions_eligibles, regles_applicables
-      - la sortie de exposition.calculer_exposition()  -> score d'exposition par risque (0-1)
-    et calcule pour chaque solution un score global 0-100 permettant de les
-    classer, en tenant compte de l'exposition reelle des risques qu'elle traite.
-
-Formule :
-    score_brut = 0.40 * efficacite
-               + 0.25 * faisabilite_budgetaire
-               + 0.15 * facilite_implementation
-               + 0.10 * infrastructure
-               + 0.10 * roi
-    score_final = clamp(score_brut - malus_complexite, 0, 100)
-
-    Chaque sous-critere est calcule sur une echelle 0-100 avant ponderation.
-
-Compatibilite avec la sortie reelle d'exposition.py (Aymane, J-quelque) :
-    calculer_exposition() retourne une LISTE (pas un dict enveloppe) :
-        [{"risque_id": "r002", "risque_nom": ..., "severite": ...,
-          "probabilite": ..., "score_exposition": 0.62, "classification": "CRITIQUE"}, ...]
-    Le score_exposition est sur une echelle 0-1 (produit de trois facteurs
-    0-1 x un multiplicateur d'impact PME). Ce module le remet a l'echelle
-    0-100 (x100, borne a 100 car le multiplicateur d'impact peut depasser 1)
-    avant de le combiner avec les sous-scores 0-100 des autres criteres.
-
-HYPOTHESES RESTANTES SUR 02_solutions.json / 03_profils_pme.json (a confirmer -
-aucun fichier reel recu pour ces deux-la, contrairement a filtrage.py et
-exposition.py qui sont maintenant les vrais fichiers du projet) :
-
-    Solution (02_solutions.json) :
-        - cout_estimation           : nombre (cout de mise en oeuvre)
-        - efficacite                : 0-100 (efficacite intrinseque contre
-                                       les risques qu'elle traite)
-        - facilite_implementation   : 0-100 (100 = tres facile)
-        - prerequis_infrastructure  : liste de str
-        - roi_estime                : 0-100
-        - complexite                : "Faible" | "Moyenne" | "Elevee" | "Tres_elevee"
-
-    Profil (03_profils_pme.json) :
-        - budget_disponible         : nombre
-        - infrastructure_it.outils  : liste de str (deja utilisee par filtrage.py)
-
-Pourquoi le critere "efficacite" reutilise la sortie d'Exposition :
-    Une solution efficace a 90% contre un risque qui expose peu la PME est
-    moins prioritaire, en contexte, qu'une solution efficace a 70% contre un
-    risque qui l'expose fortement (score_exposition eleve, potentiellement
-    classe CRITIQUE par exposition.py). L'efficacite retenue ici est donc un
-    melange entre l'efficacite intrinseque de la solution et l'exposition
-    moyenne des risques qu'elle couvre (ponderation
-    EFFICACITE_INTRINSEQUE_POIDS / EFFICACITE_EXPOSITION_POIDS ci-dessous).
-"""
 
 from __future__ import annotations
 
@@ -62,11 +5,6 @@ import logging
 from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
-
-
-# ---------------------------------------------------------------------------
-# Ponderation des criteres (doit sommer a 1.0)
-# ---------------------------------------------------------------------------
 
 POIDS_EFFICACITE = 0.40
 POIDS_FAISABILITE_BUDGETAIRE = 0.25
@@ -79,9 +17,6 @@ assert abs(
     + POIDS_INFRASTRUCTURE + POIDS_ROI - 1.0
 ) < 1e-9, "Les poids des criteres doivent sommer a 1.0"
 
-# Part de l'efficacite intrinseque de la solution vs. part de l'exposition
-# moyenne (remise a l'echelle 0-100) des risques couverts, dans le calcul
-# du sous-score "efficacite".
 EFFICACITE_INTRINSEQUE_POIDS = 0.6
 EFFICACITE_EXPOSITION_POIDS = 0.4
 
@@ -93,19 +28,11 @@ MALUS_COMPLEXITE = {
     "tres_elevee": 20,
 }
 
-# Valeur neutre utilisee quand une donnee attendue est absente, pour ne pas
-# faire planter le scoring sur un enregistrement incomplet (log un warning
-# a la place).
 VALEUR_PAR_DEFAUT = 50.0
 
 
 def _clamp(valeur: float, mini: float = 0.0, maxi: float = 100.0) -> float:
     return max(mini, min(maxi, valeur))
-
-
-# ---------------------------------------------------------------------------
-# Sous-critere 1 : efficacite (40%)
-# ---------------------------------------------------------------------------
 
 def _risques_couverts_par_solution(
     solution: Dict[str, Any],
@@ -160,12 +87,6 @@ def score_efficacite(
         + EFFICACITE_EXPOSITION_POIDS * exposition_moyenne
     )
     return _clamp(score)
-
-
-# ---------------------------------------------------------------------------
-# Sous-critere 2 : faisabilite budgetaire (25%)
-# ---------------------------------------------------------------------------
-
 def score_faisabilite_budgetaire(solution: Dict[str, Any], budget_disponible) -> float:
     """100 si le cout est nul ou le budget non contraint, decroit lineairement
     jusqu'a 0 quand le cout atteint le budget disponible, puis reste a 0
@@ -189,11 +110,6 @@ def score_faisabilite_budgetaire(solution: Dict[str, Any], budget_disponible) ->
     ratio = cout / budget_disponible
     return _clamp(100.0 * (1 - ratio))
 
-
-# ---------------------------------------------------------------------------
-# Sous-critere 3 : facilite d'implementation (15%)
-# ---------------------------------------------------------------------------
-
 def score_facilite_implementation(solution: Dict[str, Any]) -> float:
     """Lecture directe du champ 0-100 fourni par la base solutions."""
     valeur = solution.get("facilite_implementation")
@@ -204,11 +120,6 @@ def score_facilite_implementation(solution: Dict[str, Any]) -> float:
         )
         return VALEUR_PAR_DEFAUT
     return _clamp(valeur)
-
-
-# ---------------------------------------------------------------------------
-# Sous-critere 4 : infrastructure (10%)
-# ---------------------------------------------------------------------------
 
 def score_infrastructure(solution: Dict[str, Any], profil: Dict[str, Any]) -> float:
     """Part des prerequis d'infrastructure de la solution deja couverte par
@@ -230,11 +141,6 @@ def score_infrastructure(solution: Dict[str, Any], profil: Dict[str, Any]) -> fl
 
     return _clamp(100.0 * nb_couverts / len(prerequis))
 
-
-# ---------------------------------------------------------------------------
-# Sous-critere 5 : ROI (10%)
-# ---------------------------------------------------------------------------
-
 def score_roi(solution: Dict[str, Any]) -> float:
     """Lecture directe du champ 0-100 fourni par la base solutions."""
     valeur = solution.get("roi_estime")
@@ -245,12 +151,6 @@ def score_roi(solution: Dict[str, Any]) -> float:
         )
         return VALEUR_PAR_DEFAUT
     return _clamp(valeur)
-
-
-# ---------------------------------------------------------------------------
-# Malus de complexite (applique apres ponderation)
-# ---------------------------------------------------------------------------
-
 def malus_complexite(solution: Dict[str, Any]) -> float:
     complexite = str(solution.get("complexite", "")).strip().lower()
     if complexite not in MALUS_COMPLEXITE:
@@ -261,23 +161,13 @@ def malus_complexite(solution: Dict[str, Any]) -> float:
         return 0.0
     return MALUS_COMPLEXITE[complexite]
 
-
-# ---------------------------------------------------------------------------
-# Scoring d'une solution
-# ---------------------------------------------------------------------------
-
 def scorer_solution(
     solution: Dict[str, Any],
     profil: Dict[str, Any],
     regles_applicables: List[Dict[str, Any]],
     exposition_par_risque: Dict[str, float],
 ) -> Dict[str, Any]:
-    """Calcule le detail des sous-scores et le score final 0-100 pour une solution.
-
-    Args:
-        exposition_par_risque: dict {risque_id: score_exposition_0_1},
-            obtenu via _exposition_par_risque(exposition.calculer_exposition(...)).
-    """
+    
     risques_couverts = _risques_couverts_par_solution(solution, regles_applicables)
 
     sous_scores = {
@@ -311,15 +201,7 @@ def scorer_solution(
         "risques_couverts": risques_couverts,
     }
 
-
-# ---------------------------------------------------------------------------
-# Point d'entree : scorer toutes les solutions eligibles d'un profil
-# ---------------------------------------------------------------------------
-
 def _exposition_par_risque(expositions: List[Dict[str, Any]]) -> Dict[str, float]:
-    """Convertit la LISTE retournee par exposition.calculer_exposition()
-    en dict {risque_id: score_exposition} pour un acces O(1) par risque.
-    """
     return {e["risque_id"]: e["score_exposition"] for e in expositions}
 
 
@@ -328,17 +210,6 @@ def scorer_solutions_profil(
     expositions: List[Dict[str, Any]],
     profil: Dict[str, Any],
 ) -> List[Dict[str, Any]]:
-    """Point d'entree du Module 3 pour un profil.
-
-    Args:
-        resultat_filtrage: sortie de filtrage.filtrer() pour ce profil.
-        expositions: sortie de exposition.calculer_exposition() pour ce
-            meme profil (liste, score 0-1 - format reel du module).
-        profil: le profil PME complet (pour budget_disponible, infrastructure_it).
-
-    Returns:
-        liste des solutions scorees, triee par score_final decroissant.
-    """
     exposition_par_risque = _exposition_par_risque(expositions)
 
     resultats = [
