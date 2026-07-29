@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import logging
@@ -232,6 +231,7 @@ if __name__ == "__main__":
 
     from filtrage import charger_donnees, filtrer_tous_profils
     from exposition import calculer_exposition
+    from estimations import enrichir_solutions, enrichir_profils
 
     parser = argparse.ArgumentParser(description="Algorithme 2 - Scoring multi-criteres des solutions")
     parser.add_argument("--dossier", default="data",
@@ -244,6 +244,11 @@ if __name__ == "__main__":
                          format="[scoring] %(levelname)s: %(message)s")
 
     data = charger_donnees(args.dossier)
+
+   
+    data["solutions"] = enrichir_solutions(data["solutions"], data["matrice"])
+    data["profils"] = enrichir_profils(data["profils"])
+
     resultats_filtrage = filtrer_tous_profils(data)
 
     tous_les_scores = {}
