@@ -109,7 +109,7 @@ def verifications_de_bon_sens(profil_id, profil, resultats):
 if __name__ == "__main__":
     donnees = charger_donnees()
 
-    print("=== Test avec des profils fictifs supplémentaires (Jour 8, version enrichie J9) ===")
+    print("=== Test avec des profils fictifs supplémentaires  ===")
 
     tous_ok = True
     for profil_id, contenu in NOUVEAUX_PROFILS.items():
