@@ -5,7 +5,7 @@ from typing import Any, Dict, List
 logger = logging.getLogger(__name__)
 
 """
-estimations.py — Module d'enrichissement des données (pas un des 6 algorithmes)
+estimations.py — Module d'enrichissement des données 
 =================================================================================
 
 Rôle dans le pipeline :
@@ -196,16 +196,21 @@ def enrichir_solutions(solutions_db: Dict[str, Any], matrice: Dict[str, Any]) ->
 # ------------------------------------------------------------------
 
 def _capacite_budgetaire_base(nb_employes: int) -> float:
+    """Échelle volontairement plus large que celle de cout_estimation (0-100) :
+    un budget doit pouvoir couvrir PLUSIEURS solutions sur une phase, pas une
+    seule. Recalibré après test réel sur allocation_phases.py — la première
+    version (0-100, même échelle que le coût) plaçait presque tout en
+    hors_budget dès qu'une seule solution coûtait plus que 40% du budget."""
     if nb_employes < 15:
-        return 40.0
+        return 150.0
     if nb_employes <= 50:
-        return 55.0
+        return 220.0
     if nb_employes <= 100:
-        return 70.0
-    return 85.0
+        return 300.0
+    return 380.0
 
 
-FACTEUR_SANS_BUDGET_DEDIE = 0.4  # réduction si budget_cyber_dedie est False
+FACTEUR_SANS_BUDGET_DEDIE = 0.35  # réduction si budget_cyber_dedie est False
 
 
 def _estimer_budget_disponible(profil: Dict[str, Any]) -> float:
