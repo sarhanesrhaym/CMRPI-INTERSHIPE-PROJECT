@@ -58,7 +58,6 @@ def _decrire_risques_couverts(
             f"{expo['risque_nom']} (exposition {expo['classification'].lower()}, "
             f"score {expo['score_exposition']:.2f})"
         )
-
     if not descriptions:
         return "un ou plusieurs risques identifies pour votre profil"
 
