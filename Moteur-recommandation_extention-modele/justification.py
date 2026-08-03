@@ -1,13 +1,9 @@
 
-
 from __future__ import annotations
-
 import logging
 from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
-
-
 POIDS_CRITERES = {
     "efficacite": 0.40,
     "faisabilite_budgetaire": 0.25,
