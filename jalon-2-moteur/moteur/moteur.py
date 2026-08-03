@@ -7,15 +7,12 @@ ORDRE_PRIORITE = {"Haute": 0, "Moyenne": 1, "Basse": 2}
 
 
 def recommander(profil, donnees=None):
-   
     if donnees is None:
         donnees = charger_donnees()
-
     recommandations = []
     recommandations += regles_universelles(donnees)
     recommandations += regles_site_web_et_mobilite(donnees, profil)
     recommandations += regles_it_donnees_secteur(donnees, profil)
-
     recommandations_triees = sorted(
         recommandations,
         key=lambda reco: ORDRE_PRIORITE.get(reco["priorite"], 99),
@@ -24,44 +21,45 @@ def recommander(profil, donnees=None):
 
 
 def grouper_par_solution(recommandations):
- 
     groupes = {}
     ordre_apparition = []
-
     for reco in recommandations:
         sid = reco["solution_id"]
         if sid not in groupes:
             groupes[sid] = {
                 "solution_nom": reco["solution_nom"],
+                "solution_description": reco.get("solution_description", ""),
                 "priorite": reco["priorite"],
                 "risques_couverts": [],
+                "notes_adaptation": set(),
             }
             ordre_apparition.append(sid)
         groupes[sid]["risques_couverts"].append(reco["risque_nom"])
-
+        if reco.get("note_adaptation"):
+            groupes[sid]["notes_adaptation"].add(reco["note_adaptation"])
     return [groupes[sid] for sid in ordre_apparition]
 
 
 def afficher_recommandations(recommandations, titre="Recommandations pour ce profil"):
     groupees = grouper_par_solution(recommandations)
-
     print(f"\n{titre}")
-    print(f"({len(groupees)} solution(s) distincte(s) — {len(recommandations)} lien(s) risque/solution au total) :")
-
+    print(f"({len(groupees)} solution(s) distincte(s) — {len(recommandations)} lien(s) risque/solution au total)")
+    print("-" * 70)
     if not groupees:
         print("  (aucune recommandation ne s'applique)")
-
     for g in groupees:
         risques_str = ", ".join(g["risques_couverts"])
-        print(f"  [{g['priorite']}] {g['solution_nom']}")
-        print(f"      -> couvre : {risques_str}")
+        print(f"\n[{g['priorite']}] {g['solution_nom']}")
+        if g["solution_description"]:
+            print(f"    Pourquoi : {g['solution_description']}")
+        print(f"    Risque(s) couvert(s) : {risques_str}")
+        for note in g["notes_adaptation"]:
+            print(f"    Note : {note}")
 
 
 if __name__ == "__main__":
     from profil import PROFILS_EXEMPLE
-
     donnees = charger_donnees()
-
     profil_demo = PROFILS_EXEMPLE["exemple002"]
     resultats = recommander(profil_demo, donnees=donnees)
-    afficher_recommandations(resultats, titre="Démonstration (profil exemple002)")
+    afficher_recommandations(resultats, titre="Démonstration (profil exemple002 - E-commerce)")
