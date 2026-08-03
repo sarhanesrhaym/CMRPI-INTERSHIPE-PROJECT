@@ -8,9 +8,6 @@ logger = logging.getLogger(__name__)
 
 ORDRE_PRIORITE = {"Critique": 3, "Haute": 2, "Moyenne": 1, "Basse": 0}
 
-# Niveau de priorite minimum (voir ORDRE_PRIORITE) requis pour qu'une
-# solution soit retenue nativement dans chaque plan. Les dependances sont
-# ajoutees en plus, quel que soit leur propre niveau (voir docstring).
 SEUILS_PRIORITE_PAR_PLAN = {
     "Minimal": ORDRE_PRIORITE["Critique"],
     "Balanced": ORDRE_PRIORITE["Haute"],
