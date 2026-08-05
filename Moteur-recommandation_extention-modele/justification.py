@@ -96,27 +96,20 @@ def justifier_solution(
 
     phrases = []
 
-    if ajoutee_par_dependance:
+    # Justification principale
+    phrases.append(
+        f"{solution_scoree['nom']} est recommandee pour traiter : {risques_texte}."
+    )
+    if dominant["critere"] is not None:
         phrases.append(
-            f"{solution_scoree['nom']} n'est pas prioritaire en elle-meme pour votre profil, "
-            f"mais elle est indispensable comme prerequis technique d'une autre solution retenue "
-            f"dans le plan."
+            f"Elle obtient un score de pertinence de {solution_scoree.get('score_final', '?')}/100 "
+            f"pour votre profil, tire principalement par {LIBELLES_CRITERES.get(dominant['critere'], dominant['critere'])} "
+            f"({dominant['valeur']}/100)."
         )
-    else:
-        phrases.append(
-            f"{solution_scoree['nom']} est recommandee pour traiter : {risques_texte}."
-        )
-        if dominant["critere"] is not None:
-            phrases.append(
-                f"Elle obtient un score de pertinence de {solution_scoree.get('score_final', '?')}/100 "
-                f"pour votre profil, tire principalement par {LIBELLES_CRITERES.get(dominant['critere'], dominant['critere'])} "
-                f"({dominant['valeur']}/100)."
-            )
 
     if dependances_texte:
         phrases.append(dependances_texte)
 
-    avertissement_budget = sous_scores.get("faisabilite_budgetaire", 100) < SEUIL_BUDGET_TENDU
     if avertissement_budget:
         phrases.append(
             "Attention : le cout de cette solution represente une part importante du budget disponible."
