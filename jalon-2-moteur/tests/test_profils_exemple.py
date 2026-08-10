@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import sys
 import os
 
@@ -13,17 +14,18 @@ from moteur import recommander
 from profil import PROFILS_EXEMPLE
 
 
+
 TOTAUX_ATTENDUS = {
-    "exemple001": 11,  # profil minimal 
-    "exemple002": 18,  # E-commerce 
-    "exemple003": 19,  # Finance 
-    "exemple004": 13,  # Sante 
-    "exemple005": 22,  # Industrie
+    "exemple001": 11,  # profil minimal : universelles seules
+    "exemple002": 18,  # E-commerce : universelles + site web + donnees + secteur
+    "exemple003": 19,  # Finance : universelles + mobilite + IT + donnees + secteur
+    "exemple004": 13,  # Sante : universelles + donnees personnelles
+    "exemple005": 22,  # Industrie : toutes les conditions reunies
 }
 
 
 def tester_un_profil(profil_id, profil, donnees):
-   
+    """Teste un profil et affiche PASS ou ECHEC selon le total attendu."""
     resultats = recommander(profil, donnees=donnees)
     total_obtenu = len(resultats)
     total_attendu = TOTAUX_ATTENDUS.get(profil_id)
