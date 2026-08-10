@@ -16,11 +16,11 @@ from profil import PROFILS_EXEMPLE
 
 
 TOTAUX_ATTENDUS = {
-    "exemple001": 11,  # profil minimal : universelles seules
-    "exemple002": 18,  # E-commerce : universelles + site web + donnees + secteur
-    "exemple003": 19,  # Finance : universelles + mobilite + IT + donnees + secteur
-    "exemple004": 13,  # Sante : universelles + donnees personnelles
-    "exemple005": 22,  # Industrie : toutes les conditions reunies
+   "exemple001": 11,
+    "exemple002": 21,  
+    "exemple003": 19,
+    "exemple004": 16,  
+    "exemple005": 22,
 }
 
 
