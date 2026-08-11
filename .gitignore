@@ -1,0 +1,20 @@
+# Fichiers Python compilés — jamais à suivre, se régénèrent automatiquement
+__pycache__/
+*.pyc
+*.pyo
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+
+# Streamlit
+.streamlit/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
