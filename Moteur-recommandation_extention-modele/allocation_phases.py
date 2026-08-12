@@ -4,39 +4,19 @@ from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
-"""
-allocation_phases.py — Algorithme 4 : Allocation par phases
-================================================================
-
-Rôle dans le pipeline :
-    Prend la sortie de dependances.ordonner_solutions() (déjà triée en
-    respectant les prérequis internes + le score_final) et répartit les
-    solutions dans 4 phases budgétaires :
-        Phase 0 : solutions gratuites/à très faible coût — toujours
-                  faisables immédiatement, indépendamment du budget.
-        Phase 1 : 40% du budget disponible
-        Phase 2 : 40% du budget disponible
-        Phase 3 : 20% du budget disponible restant
-
-    Une solution ne peut jamais être placée dans une phase antérieure à
-    celle de son prérequis interne (cohérence avec l'ordre de
-    dependances.py) — même si elle est gratuite, elle attend son
-    prérequis payant si besoin.
-
-    Si aucune phase ne peut absorber le coût restant d'une solution,
-    elle est placée dans "hors_budget" et SIGNALÉE, jamais supprimée
-    silencieusement (cas limite prévu au J7 : budget insuffisant).
-
-IMPORTANT — budget_disponible et cout_estimation viennent de
-estimations.py : ce sont des ESTIMATIONS sur une échelle abstraite
-0-100, pas des montants en MAD. Les pourcentages 40/40/20 sont la
-répartition demandée par l'architecture du moteur, pas une donnée
-sourcée non plus.
-"""
 
 REPARTITION_PHASES = {1: 0.40, 2: 0.40, 3: 0.20}
 SEUIL_GRATUIT = 20.0  # cout_estimation <= ce seuil => solution consideree "gratuite" (cf. estimations.py, tier "Faible" = 15)
 COUT_PAR_DEFAUT = 45.0  # si cout_estimation absent (ne devrait pas arriver apres estimations.enrichir_solutions)
+
+# Requis par strategies.py (Algo 5) pour itérer/afficher les phases dans un ordre stable.
+PHASES_ORDRE = [0, 1, 2, 3]
+LIBELLES_PHASES = {
+    0: "Phase 0 (gratuite)",
+    1: "Phase 1 (40% du budget)",
+    2: "Phase 2 (40% du budget)",
+    3: "Phase 3 (20% du budget)",
+}
 
 
 def _phase_min_autorisee(sid: str, sous_graphe: Dict[str, List[str]], phase_assignee: Dict[str, int]) -> int:
@@ -52,30 +32,7 @@ def allouer_par_phases(
     budget_disponible: float,
     sous_graphe: Optional[Dict[str, List[str]]] = None,
 ) -> Dict[str, Any]:
-    """
-    Point d'entrée principal.
-
-    Paramètres :
-        ordre_solutions : liste de solutions scorées, DÉJÀ ordonnée par
-            dependances.ordonner_solutions() (clé "ordre" de son retour).
-        solutions_db : dict complet des solutions ENRICHIES (sortie de
-            estimations.enrichir_solutions), pour retrouver cout_estimation.
-        budget_disponible : budget du profil (estimations.enrichir_profils),
-            échelle abstraite 0-100.
-        sous_graphe : dépendances internes au plan (sortie de
-            dependances.construire_sous_graphe), pour respecter l'ordre
-            même entre phases. Si None, recalculé à partir de
-            dependances.DEPENDANCES (import paresseux pour éviter un
-            couplage circulaire si ce module est utilisé isolément).
-
-    Retourne :
-        {
-            "phases": {0: [...], 1: [...], 2: [...], 3: [...]},
-            "hors_budget": [...],   # solutions n'ayant trouvé aucune phase
-            "budget_par_phase": {1: .., 2: .., 3: ..},
-            "depense_par_phase": {0: .., 1: .., 2: .., 3: ..},
-        }
-    """
+    
     if sous_graphe is None:
         from dependances import construire_sous_graphe
         solution_ids = [s["solution_id"] for s in ordre_solutions]
