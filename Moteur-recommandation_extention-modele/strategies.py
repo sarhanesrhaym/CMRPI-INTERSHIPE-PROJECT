@@ -1,9 +1,9 @@
-
 from __future__ import annotations
 import logging
 from typing import Any, Dict, List, Optional
 
 from allocation_phases import PHASES_ORDRE, LIBELLES_PHASES
+from dependances import DEPENDANCES
 logger = logging.getLogger(__name__)
 
 ORDRE_PRIORITE = {"Critique": 3, "Haute": 2, "Moyenne": 1, "Basse": 0}
@@ -28,13 +28,17 @@ def _fermeture_dependances(
     ids_retenus: set,
     solutions_db: Dict[str, Any],
 ) -> set:
+    """Étend ids_retenus avec tous les prérequis transitifs, en s'appuyant sur
+    la table DEPENDANCES de dependances.py (source de vérité unique pour les
+    dépendances entre solutions — pas un champ 'dependances' sur les solutions,
+    qui n'existe pas dans 02_solutions.json)."""
     ids_complets = set(ids_retenus)
     a_traiter = list(ids_retenus)
 
     while a_traiter:
         sol_id = a_traiter.pop()
-        for dep_id in solutions_db.get(sol_id, {}).get("dependances", []):
-            if dep_id not in ids_complets:
+        for dep_id in DEPENDANCES.get(sol_id, []):
+            if dep_id in solutions_db and dep_id not in ids_complets:
                 ids_complets.add(dep_id)
                 a_traiter.append(dep_id)
 
@@ -146,9 +150,10 @@ if __name__ == "__main__":
 
     from filtrage import charger_donnees, filtrer_tous_profils
     from exposition import calculer_exposition
+    from estimations import enrichir_solutions, enrichir_profils
     from scoring import scorer_solutions_profil
-    from dependances import resoudre_dependances, DependanceCirculaireError
-    from allocation_phases import allouer_phases
+    from dependances import ordonner_solutions, CycleDependanceError
+    from allocation_phases import allouer_par_phases
 
     parser = argparse.ArgumentParser(description="Algorithme 5 - Generation de 3 strategies")
     parser.add_argument("--dossier", default="data")
@@ -159,6 +164,8 @@ if __name__ == "__main__":
                          format="[strategies] %(levelname)s: %(message)s")
 
     data = charger_donnees(args.dossier)
+    data["solutions"] = enrichir_solutions(data["solutions"], data["matrice"])
+    data["profils"] = enrichir_profils(data["profils"])
     resultats_filtrage = filtrer_tous_profils(data)
 
     for profil_id, resultat_filtrage in resultats_filtrage.items():
@@ -167,14 +174,13 @@ if __name__ == "__main__":
         scores = scorer_solutions_profil(resultat_filtrage, expositions, profil)
 
         print(f"\n{'=' * 60}\n{profil['nom']} — budget disponible : {profil.get('budget_disponible')}\n{'=' * 60}")
-        try:
-            resultat_deps = resoudre_dependances(scores, data["solutions"])
-        except DependanceCirculaireError as e:
-            print(f"  ERREUR : {e}")
+        resultat_deps = ordonner_solutions(scores, data["solutions"])
+        if resultat_deps["cycle_detecte"]:
+            print(f"  ERREUR : cycle de dépendances détecté : {resultat_deps['cycle_detecte']}")
             continue
 
-        resultat_phases = allouer_phases(
-            resultat_deps["ordre_implementation"], resultat_filtrage, data["solutions"]
+        resultat_phases = allouer_par_phases(
+            resultat_deps["ordre"], data["solutions"], profil["budget_disponible"]
         )
         strategies = generer_strategies(resultat_phases, resultat_filtrage, data["solutions"], profil)
 
