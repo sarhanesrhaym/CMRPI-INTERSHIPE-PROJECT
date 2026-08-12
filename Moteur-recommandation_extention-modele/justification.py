@@ -1,7 +1,8 @@
-
 from __future__ import annotations
 import logging
 from typing import Any, Dict, List, Optional
+
+from dependances import DEPENDANCES
 
 logger = logging.getLogger(__name__)
 POIDS_CRITERES = {
@@ -71,7 +72,9 @@ def _decrire_dependances(
     solutions_db: Dict[str, Any],
     noms_par_id: Dict[str, str],
 ) -> Optional[str]:
-    dependances_ids = solutions_db.get(solution_id, {}).get("dependances", [])
+    """S'appuie sur la table DEPENDANCES de dependances.py (source de vérité
+    unique), pas sur un champ 'dependances' des solutions qui n'existe pas."""
+    dependances_ids = DEPENDANCES.get(solution_id, [])
     if not dependances_ids:
         return None
     noms = [noms_par_id.get(did, did) for did in dependances_ids]
@@ -110,6 +113,7 @@ def justifier_solution(
     if dependances_texte:
         phrases.append(dependances_texte)
 
+    avertissement_budget = sous_scores.get("faisabilite_budgetaire", 100) < SEUIL_BUDGET_TENDU
     if avertissement_budget:
         phrases.append(
             "Attention : le cout de cette solution represente une part importante du budget disponible."
@@ -153,8 +157,9 @@ if __name__ == "__main__":
 
     from filtrage import charger_donnees, filtrer_tous_profils
     from exposition import calculer_exposition
+    from estimations import enrichir_solutions, enrichir_profils
     from scoring import scorer_solutions_profil
-    from dependances import resoudre_dependances, DependanceCirculaireError
+    from dependances import ordonner_solutions, CycleDependanceError
 
     parser = argparse.ArgumentParser(description="Algorithme de justification")
     parser.add_argument("--dossier", default="data")
@@ -165,6 +170,8 @@ if __name__ == "__main__":
                          format="[justification] %(levelname)s: %(message)s")
 
     data = charger_donnees(args.dossier)
+    data["solutions"] = enrichir_solutions(data["solutions"], data["matrice"])
+    data["profils"] = enrichir_profils(data["profils"])
     resultats_filtrage = filtrer_tous_profils(data)
 
     for profil_id, resultat_filtrage in resultats_filtrage.items():
@@ -173,14 +180,13 @@ if __name__ == "__main__":
         scores = scorer_solutions_profil(resultat_filtrage, expositions, profil)
 
         print(f"\n{'=' * 70}\n{profil['nom']}\n{'=' * 70}")
-        try:
-            resultat_deps = resoudre_dependances(scores, data["solutions"])
-        except DependanceCirculaireError as e:
-            print(f"  ERREUR : {e}")
+        resultat_deps = ordonner_solutions(scores, data["solutions"])
+        if resultat_deps["cycle_detecte"]:
+            print(f"  ERREUR : cycle de dépendances détecté : {resultat_deps['cycle_detecte']}")
             continue
 
         justifications = justifier_plan(
-            resultat_deps["ordre_implementation"], expositions, data["solutions"]
+            resultat_deps["ordre"], expositions, data["solutions"]
         )
         for j in justifications:
             print(f"\n>> {j['nom']}")
