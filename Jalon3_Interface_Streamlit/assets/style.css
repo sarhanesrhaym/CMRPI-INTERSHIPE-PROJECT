@@ -1,0 +1,1431 @@
+/* =======================================================================
+   style.css — CMRPI · Cyber-Résilience PME
+   =======================================================================
+   Premium cybersecurity SaaS visual system.
+   Structure conservée — Passe d'atmosphère et de profondeur visuelle.
+
+   Palette :
+     --navy        #0B1736  primaire navy (structure)
+     --navy-deep   #101F45  navy profond
+     --blue        #1D4ED8  bleu primaire (interaction)
+     --blue-bright #2563EB  bleu vif
+     --cyan        #0EA5E9  accent cyan (subtile)
+     --bg          #F3F6FB  fond page
+     --surface     #FFFFFF  surfaces
+     --text        #0F172A  texte principal
+     --text-2      #64748B  texte secondaire
+     --border      #D8E1EF  bordures
+     --high        #DC2626  priorité haute
+     --medium      #D97706  priorité moyenne
+     --low         #059669  priorité basse
+   ======================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --navy:        #0B1736;
+    --navy-deep:   #101F45;
+    --navy-mid:    #16295C;
+    --blue:        #1D4ED8;
+    --blue-bright: #2563EB;
+    --cyan:        #0EA5E9;
+    --blue-tint:   #EFF4FF;
+    --cyan-tint:   #E8F6FE;
+
+    --bg:          #F3F6FB;
+    --bg-subtle:   #EDF2F9;
+    --surface:     #FFFFFF;
+    --surface-2:   #EAF2FF;
+    --text:        #0F172A;
+    --text-2:      #64748B;
+    --text-3:      #94A3B8;
+    --border:      #D8E1EF;
+    --border-2:    #B6C4DC;
+
+    --high:        #DC2626;
+    --medium:      #D97706;
+    --low:         #059669;
+
+    --high-tint:   rgba(220, 38, 38, 0.05);
+    --medium-tint: rgba(217, 119, 6, 0.05);
+    --low-tint:    rgba(5, 150, 105, 0.05);
+
+    --high-glow:   0 6px 28px rgba(220, 38, 38, 0.12);
+    --medium-glow: 0 6px 28px rgba(217, 119, 6, 0.12);
+    --low-glow:    0 6px 28px rgba(5, 150, 105, 0.12);
+
+    --r:          10px;
+    --r-sm:       6px;
+    --r-lg:       16px;
+    --r-xl:       20px;
+
+    --shadow-sm:  0 1px 3px rgba(11, 23, 54, 0.05),
+                  0 2px 6px rgba(11, 23, 54, 0.06);
+    --shadow:     0 3px 8px rgba(11, 23, 54, 0.07),
+                  0 6px 20px rgba(11, 23, 54, 0.10);
+    --shadow-md:  0 6px 16px rgba(11, 23, 54, 0.10),
+                  0 12px 32px rgba(11, 23, 54, 0.14);
+    --shadow-lg:  0 12px 28px rgba(11, 23, 54, 0.14),
+                  0 24px 56px rgba(11, 23, 54, 0.20);
+
+    --font:       'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* --- Base --------------------------------------------------------------- */
+
+html, body, [class*="css"] {
+    font-family: var(--font);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* --- Streamlit container cleanup (neutralize default chrome) ---------------- */
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+[data-testid="stToolbar"] {
+    display: none;
+}
+
+[data-testid="stDecoration"] {
+    display: none;
+}
+
+[data-testid="stStatusWidget"] {
+    display: none;
+}
+
+[data-testid="stAppDeployButton"] {
+    display: none;
+}
+
+[data-testid="stAppViewContainer"] {
+    border: none;
+}
+
+[data-testid="stVerticalBlock"] {
+    gap: 0.25rem;
+}
+
+[data-testid="stMain"] > div {
+    outline: none;
+}
+
+/* =======================================================================
+   PAGE BACKGROUND — layered enterprise cybersecurity atmosphere
+   ======================================================================= */
+
+.stApp,
+[data-testid="stAppViewContainer"] {
+    background:
+        /* Deep navy gradient wash — top of page */
+        linear-gradient(180deg, rgba(11, 23, 54, 0.06) 0%, rgba(11, 23, 54, 0) 18%),
+        /* Radial atmosphere glows */
+        radial-gradient(ellipse at 6% 10%, rgba(29, 78, 216, 0.12) 0%, transparent 42%),
+        radial-gradient(ellipse at 94% 6%, rgba(14, 165, 233, 0.10) 0%, transparent 38%),
+        radial-gradient(ellipse at 90% 55%, rgba(29, 78, 216, 0.07) 0%, transparent 40%),
+        radial-gradient(ellipse at 12% 70%, rgba(14, 165, 233, 0.06) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 120%, rgba(29, 78, 216, 0.10) 0%, transparent 50%),
+        var(--bg);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, auto;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Layer 1 — Technical grid (visible, masked to fade at edges) */
+[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(29, 78, 216, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29, 78, 216, 0.05) 1px, transparent 1px);
+    background-size: 26px 26px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at 50% 20%, black 0%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 20%, black 0%, transparent 78%);
+}
+
+/* Layer 2 — Circuit-board inspired diagonal traces */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        /* Diagonal circuit traces — top-right */
+        repeating-linear-gradient(45deg,
+            transparent 0px,
+            transparent 36px,
+            rgba(14, 165, 233, 0.018) 36px,
+            rgba(14, 165, 233, 0.018) 38px,
+            transparent 38px,
+            transparent 72px),
+        repeating-linear-gradient(-45deg,
+            transparent 0px,
+            transparent 52px,
+            rgba(29, 78, 216, 0.014) 52px,
+            rgba(29, 78, 216, 0.014) 53px,
+            transparent 53px,
+            transparent 104px);
+    background-size: 100% 100%, 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 1;
+}
+
+/* Layer 3 — Network node dots in upper region */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle, rgba(29, 78, 216, 0.10) 1.2px, transparent 1.6px);
+    background-size: 52px 52px;
+    background-position: 0 0, 0 0;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at 85% 12%, black 0%, transparent 55%);
+    -webkit-mask-image: radial-gradient(ellipse at 85% 12%, black 0%, transparent 55%);
+}
+
+/* Ambient floating glow orbs via fixed pseudo elements of main containers */
+[data-testid="stAppViewContainer"] > div:first-of-type::after {
+    content: "";
+    position: fixed;
+    top: 22%;
+    right: -60px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.055) 0%, transparent 62%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+[data-testid="stAppViewContainer"] > div:first-of-type::before {
+    content: "";
+    position: fixed;
+    top: 12%;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.06) 0%, transparent 58%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Content surface — transparent, sections carry their own surface */
+.block-container {
+    max-width: 1120px;
+    padding-top: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+#MainMenu, footer {
+    visibility: hidden;
+}
+
+/* =======================================================================
+   HEADER — dark navy corporate bar with refined depth
+   ======================================================================= */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.9rem 1.5rem;
+    background:
+        radial-gradient(ellipse at 85% 20%, rgba(14, 165, 233, 0.10) 0%, transparent 45%),
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.app-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.5), transparent);
+}
+
+.app-header::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.header-side {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 0 0 auto;
+    min-width: 120px;
+    position: relative;
+    z-index: 1;
+}
+
+.header-side.right {
+    justify-content: flex-end;
+}
+
+.logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+
+.header-logo-text {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 0.7rem;
+    background: rgba(255, 255, 255, 0.10);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--r-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.header-center {
+    flex: 1 1 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.header-subtitle {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.05em;
+    margin-top: 0.1rem;
+}
+
+/* =======================================================================
+   HERO — premium navy section with layered atmosphere
+   ======================================================================= */
+
+.hero-section {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 2.5rem 2.5rem 2.25rem;
+    background:
+        /* Top cyan light */
+        radial-gradient(ellipse at 80% 0%, rgba(14, 165, 233, 0.18) 0%, transparent 45%),
+        /* Left blue light */
+        radial-gradient(ellipse at 8% 25%, rgba(29, 78, 216, 0.38) 0%, transparent 50%),
+        /* Bottom center glow */
+        radial-gradient(ellipse at 50% 110%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+        /* Base deep navy */
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 55%, #0D1B3E 100%);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Technical micro-grid inside hero — masked radial fade */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at 60% 30%, black 0%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at 60% 30%, black 0%, transparent 80%);
+}
+
+/* Soft radial light behind title */
+.hero-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-inner::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 320px;
+    height: 220px;
+    background: radial-gradient(ellipse, rgba(29, 78, 216, 0.12) 0%, transparent 55%);
+    pointer-events: none;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.9rem;
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 100px;
+    color: #7DD3FC;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 0 12px rgba(14, 165, 233, 0.08);
+}
+
+.hero-badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+    flex: 0 0 auto;
+}
+
+.hero-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin: 0 0 0.6rem 0;
+    line-height: 1.15;
+    text-shadow: 0 2px 24px rgba(11, 23, 54, 0.5);
+}
+
+.hero-title .hero-accent {
+    color: #7DD3FC;
+    text-shadow: 0 0 30px rgba(14, 165, 233, 0.25);
+}
+
+.hero-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    max-width: 38rem;
+    line-height: 1.6;
+}
+
+.hero-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(14, 165, 233, 0.45), rgba(14, 165, 233, 0.05) 60%, transparent);
+    margin: 1.5rem 0 0;
+}
+
+/* =======================================================================
+   STEPPER — elevated with soft ambient depth
+   ======================================================================= */
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 1.75rem;
+    padding: 0.9rem 1.25rem;
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+.step {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.3rem 0.5rem;
+    color: var(--text-2);
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    transition: color 0.2s ease;
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--text-3);
+    background: var(--surface);
+    border: 2px solid var(--border-2);
+    border-radius: 50%;
+    z-index: 3;
+    transition: all 0.25s ease;
+    flex: 0 0 auto;
+}
+
+.step.active {
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.step.active .step-num {
+    color: #FFFFFF;
+    border-color: var(--blue);
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-bright) 100%);
+    box-shadow: 0 2px 12px rgba(29, 78, 216, 0.4), 0 0 24px rgba(29, 78, 216, 0.15);
+}
+
+.step-line {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    margin: 0 0.4rem;
+    z-index: 1;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.step.active + .step-line {
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+/* =======================================================================
+   SECTION TITLES — refined
+   ======================================================================= */
+
+.section-head {
+    margin: 0 0 1.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.section-accent {
+    width: 4px;
+    height: 1.6rem;
+    background: linear-gradient(180deg, var(--blue) 0%, var(--cyan) 100%);
+    border-radius: 2px;
+    flex: 0 0 auto;
+    box-shadow: 0 0 8px rgba(29, 78, 216, 0.25);
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0;
+    line-height: 1.25;
+}
+
+.section-legend {
+    font-size: 0.85rem;
+    color: var(--text-2);
+    margin: 0.2rem 0 0 0;
+    line-height: 1.5;
+    flex-basis: 100%;
+    padding-left: 0.7rem;
+}
+
+/* =======================================================================
+   FORM — structured panels with richer depth
+   ======================================================================= */
+
+.form-shell {
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-shell::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--navy), var(--blue), var(--cyan));
+}
+
+/* Subtle corner light */
+.form-shell::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.form-head {
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-title::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 1.1rem;
+    background: var(--blue);
+    border-radius: 2px;
+}
+
+.form-desc {
+    font-size: 0.82rem;
+    color: var(--text-2);
+    margin: 0.25rem 0 0 0;
+    line-height: 1.5;
+}
+
+/* Form group sections — numbered panels with layered depth */
+.form-group {
+    margin: 1.25rem 0 0.5rem;
+    padding: 1.1rem 1.25rem;
+    background: linear-gradient(180deg, var(--bg) 0%, #F6F9FD 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    position: relative;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.form-group:first-of-type {
+    margin-top: 1rem;
+}
+
+.form-group-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+}
+
+.form-group-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-bright) 100%);
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 0.68rem;
+    font-weight: 700;
+    flex: 0 0 auto;
+    box-shadow: 0 2px 6px rgba(29, 78, 216, 0.3);
+}
+
+.form-group-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 0;
+}
+
+.form-group-desc {
+    font-size: 0.75rem;
+    color: var(--text-2);
+    margin: 0.1rem 0 0 0;
+    line-height: 1.4;
+}
+
+div[data-testid="stForm"] {
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+[data-testid="stWidgetLabel"] p {
+    color: var(--navy) !important;
+    font-weight: 500 !important;
+    font-size: 0.82rem !important;
+    margin-bottom: 0.35rem !important;
+    line-height: 1.4 !important;
+}
+
+div[data-testid="stForm"] div[data-testid="stVerticalBlock"] > div {
+    margin-bottom: 0.15rem;
+}
+
+/* Selectbox — refined SaaS control with glow */
+div[data-baseweb="select"] > div {
+    background-color: var(--surface) !important;
+    color: var(--text) !important;
+    border: 1.5px solid var(--border-2) !important;
+    border-radius: var(--r) !important;
+    min-height: 40px;
+    box-shadow: inset 0 1px 2px rgba(11, 23, 54, 0.03);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+div[data-baseweb="select"] > div:hover {
+    border-color: var(--blue) !important;
+}
+
+div[data-baseweb="select"] > div:focus-within {
+    border-color: var(--blue) !important;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15), inset 0 1px 2px rgba(11, 23, 54, 0.03) !important;
+}
+
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div[value] {
+    color: var(--text) !important;
+    font-size: 0.85rem;
+}
+
+/* Radio — segmented buttons (same layout, richer micro-state) */
+div[role="radiogroup"] {
+    gap: 0.5rem;
+    padding-top: 0.1rem;
+    min-height: 40px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div[role="radiogroup"] label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
+
+div[role="radiogroup"] label p {
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    color: var(--text) !important;
+    margin: 0 !important;
+}
+
+div[role="radiogroup"] label > div:first-child {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+div[role="radiogroup"] label {
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    border: 1.5px solid var(--border-2);
+    border-radius: var(--r);
+    padding: 0.45rem 1.1rem;
+    transition: all 0.2s ease;
+    min-height: 38px;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+div[role="radiogroup"] label:hover {
+    border-color: var(--blue);
+    background: var(--blue-tint);
+    transform: translateY(-1px);
+}
+
+/* Selected state */
+div[role="radiogroup"] label:has(input:checked) {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-bright) 100%);
+    border-color: var(--blue);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+div[role="radiogroup"] label:has(input:checked) p {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+/* =======================================================================
+   CTA — premium primary action
+   ======================================================================= */
+
+div[data-testid="stFormSubmitButton"] {
+    margin-top: 1.25rem;
+}
+
+div[data-testid="stFormSubmitButton"] button {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--r) !important;
+    height: 46px;
+    padding: 0 2.5rem !important;
+    font-family: var(--font) !important;
+    font-weight: 600 !important;
+    font-size: 0.92rem !important;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 4px 12px rgba(11, 23, 54, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
+    width: 100%;
+}
+
+div[data-testid="stFormSubmitButton"] button:hover {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--blue-bright) 100%) !important;
+    box-shadow: 0 8px 24px rgba(11, 23, 54, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+    transform: translateY(-2px) !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:active {
+    transform: translateY(0) scale(0.99) !important;
+    box-shadow: 0 2px 8px rgba(11, 23, 54, 0.3) !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:focus {
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.35), 0 4px 12px rgba(11, 23, 54, 0.25) !important;
+}
+
+/* Bouton PDF secondaire */
+.btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    height: 40px;
+    padding: 0 1.25rem;
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    color: var(--blue);
+    border: 1.5px solid var(--border-2);
+    border-radius: var(--r);
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 0.82rem;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.btn-pdf:hover {
+    background: var(--blue-tint);
+    border-color: var(--blue);
+    color: var(--navy);
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.18);
+    transform: translateY(-1px);
+}
+
+.btn-pdf:active {
+    transform: translateY(0) scale(0.99);
+}
+
+.btn-pdf:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
+}
+
+.btn-pdf svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+    stroke: currentColor;
+}
+
+/* =======================================================================
+   RESULTS — assessment report transition
+   ======================================================================= */
+
+.results-section {
+    margin-top: 1.5rem;
+    padding: 1.75rem 1.75rem 1.5rem;
+    background: linear-gradient(180deg, rgba(234, 242, 255, 0.5) 0%, rgba(248, 250, 253, 0.3) 60%, transparent 100%);
+    border-top: 2px solid var(--border);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    position: relative;
+}
+
+.results-section::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+/* =======================================================================
+   KPI / SUMMARY — premium priority cards with atmosphere
+   ======================================================================= */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-card {
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    text-align: center;
+    transition: all 0.22s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.summary-card::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.summary-card.high::before   { background: linear-gradient(90deg, var(--high), rgba(220, 38, 38, 0.2)); }
+.summary-card.medium::before { background: linear-gradient(90deg, var(--medium), rgba(217, 119, 6, 0.2)); }
+.summary-card.low::before    { background: linear-gradient(90deg, var(--low), rgba(5, 150, 105, 0.2)); }
+
+.summary-card.high::after   { background: radial-gradient(circle, rgba(220, 38, 38, 0.10) 0%, transparent 70%); }
+.summary-card.medium::after { background: radial-gradient(circle, rgba(217, 119, 6, 0.10) 0%, transparent 70%); }
+.summary-card.low::after    { background: radial-gradient(circle, rgba(5, 150, 105, 0.10) 0%, transparent 70%); }
+
+.summary-card.high   { background: linear-gradient(165deg, var(--high-tint) 0%, var(--surface) 55%, #FBFDFF 100%); }
+.summary-card.medium { background: linear-gradient(165deg, var(--medium-tint) 0%, var(--surface) 55%, #FBFDFF 100%); }
+.summary-card.low    { background: linear-gradient(165deg, var(--low-tint) 0%, var(--surface) 55%, #FBFDFF 100%); }
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.summary-card.high:hover::after   { opacity: 1; }
+.summary-card.medium:hover::after { opacity: 1; }
+.summary-card.low:hover::after    { opacity: 1; }
+
+.summary-card.high:hover   { border-color: rgba(220, 38, 38, 0.35); box-shadow: var(--high-glow), var(--shadow-sm); }
+.summary-card.medium:hover { border-color: rgba(217, 119, 6, 0.35); box-shadow: var(--medium-glow), var(--shadow-sm); }
+.summary-card.low:hover    { border-color: rgba(5, 150, 105, 0.35); box-shadow: var(--low-glow), var(--shadow-sm); }
+
+.summary-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-2);
+}
+
+.summary-number {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.summary-card.high   .summary-number { color: var(--high); }
+.summary-card.medium .summary-number { color: var(--medium); }
+.summary-card.low    .summary-number { color: var(--low); }
+
+.summary-unit {
+    font-size: 0.72rem;
+    color: var(--text-2);
+    white-space: nowrap;
+}
+
+/* =======================================================================
+   RECAP BAR — refined
+   ======================================================================= */
+
+.recap-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    padding: 0.7rem 1.1rem;
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--cyan-tint) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+.recap-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--blue);
+    text-transform: uppercase;
+}
+
+.recap-text {
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+.recap-text strong {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+/* =======================================================================
+   RECOMMENDATION CARDS — same layout, enriched depth
+   ======================================================================= */
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: stretch;
+}
+
+.solution-card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    padding: 1.25rem;
+    height: 100%;
+    min-width: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+/* Ambient corner glow per priority */
+.solution-card::after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.solution-card.high::before   { background: linear-gradient(180deg, var(--high), rgba(220, 38, 38, 0.35)); }
+.solution-card.medium::before { background: linear-gradient(180deg, var(--medium), rgba(217, 119, 6, 0.35)); }
+.solution-card.low::before    { background: linear-gradient(180deg, var(--low), rgba(5, 150, 105, 0.35)); }
+
+.solution-card.high::after   { background: radial-gradient(circle, rgba(220, 38, 38, 0.12) 0%, transparent 70%); }
+.solution-card.medium::after { background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, transparent 70%); }
+.solution-card.low::after    { background: radial-gradient(circle, rgba(5, 150, 105, 0.12) 0%, transparent 70%); }
+
+.solution-card.high   { background: linear-gradient(135deg, var(--high-tint) 0%, var(--surface) 40%, #FBFDFF 100%); }
+.solution-card.medium { background: linear-gradient(135deg, var(--medium-tint) 0%, var(--surface) 40%, #FBFDFF 100%); }
+.solution-card.low    { background: linear-gradient(135deg, var(--low-tint) 0%, var(--surface) 40%, #FBFDFF 100%); }
+
+.solution-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.solution-card:hover::after {
+    opacity: 1;
+}
+
+.solution-card.high:hover   { border-color: rgba(220, 38, 38, 0.25); box-shadow: var(--high-glow), var(--shadow-sm); }
+.solution-card.medium:hover { border-color: rgba(217, 119, 6, 0.25); box-shadow: var(--medium-glow), var(--shadow-sm); }
+.solution-card.low:hover    { border-color: rgba(5, 150, 105, 0.25); box-shadow: var(--low-glow), var(--shadow-sm); }
+
+.priority-label {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.priority-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    box-shadow: 0 0 6px currentColor;
+}
+
+.solution-card.high   .priority-label .priority-dot { background: var(--high); color: var(--high); }
+.solution-card.medium .priority-label .priority-dot { background: var(--medium); color: var(--medium); }
+.solution-card.low    .priority-label .priority-dot { background: var(--low); color: var(--low); }
+
+.solution-card.high   .priority-label { color: var(--high); }
+.solution-card.medium .priority-label { color: var(--medium); }
+.solution-card.low    .priority-label { color: var(--low); }
+
+.solution-title {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 0.4rem 0;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+.solution-desc {
+    font-size: 0.82rem;
+    color: var(--text-2);
+    line-height: 1.55;
+    margin: 0 0 0.8rem 0;
+    flex: 1 1 auto;
+    overflow-wrap: break-word;
+}
+
+.risk-label {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin: 0 0 0.35rem 0;
+    padding-top: 0.55rem;
+    border-top: 1px solid var(--border);
+}
+
+.risk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.risk-tag {
+    display: inline-block;
+    padding: 0.18rem 0.5rem;
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    transition: all 0.15s ease;
+}
+
+.risk-tag:hover {
+    border-color: var(--border-2);
+}
+
+.solution-note {
+    margin-top: 0.6rem;
+    padding: 0.45rem 0.65rem;
+    background: linear-gradient(180deg, var(--bg) 0%, #F6F9FD 100%);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    font-size: 0.73rem;
+    color: var(--text-2);
+    line-height: 1.45;
+}
+
+/* =======================================================================
+   SOUTIEN INSTITUTIONNEL — dark navy corporate panel
+   ======================================================================= */
+
+.help-section {
+    margin-top: 2rem;
+    padding: 2rem 2rem 1.75rem;
+    background:
+        radial-gradient(ellipse at 10% 0%, rgba(29, 78, 216, 0.30) 0%, transparent 45%),
+        radial-gradient(ellipse at 90% 90%, rgba(14, 165, 233, 0.16) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 115%, rgba(29, 78, 216, 0.20) 0%, transparent 50%),
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Circuit traces inside support */
+.help-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 34px 34px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at 30% 40%, black 0%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 30% 40%, black 0%, transparent 75%);
+}
+
+.help-section::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: -30px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.help-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.help-title::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 1.2rem;
+    background: var(--cyan);
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.4);
+}
+
+.help-left,
+.help-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 40rem;
+    position: relative;
+    z-index: 1;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.1rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+.help-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.25rem;
+    padding-left: 1.25rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.help-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+    padding: 0.6rem 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--r);
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.help-item:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(14, 165, 233, 0.35);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(11, 23, 54, 0.25);
+}
+
+.help-item-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(125, 211, 252, 0.8);
+}
+
+.help-item-value {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    overflow-wrap: break-word;
+}
+
+/* =======================================================================
+   PIED DE PAGE
+   ======================================================================= */
+
+.app-footer {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(180deg, var(--surface) 0%, #FBFDFF 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    font-size: 0.74rem;
+    color: var(--text-2);
+    text-align: center;
+    line-height: 1.5;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* =======================================================================
+   RESPONSIVE
+   ======================================================================= */
+
+@media (max-width: 1024px) {
+    .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .block-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .app-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .header-side,
+    .header-side.right {
+        justify-content: center;
+        min-width: 0;
+    }
+
+    .hero-section {
+        padding: 1.75rem 1.25rem 1.5rem;
+    }
+
+    .hero-title { font-size: 1.5rem; }
+
+    .stepper { flex-wrap: wrap; gap: 0.4rem; }
+    .step-line { display: none; }
+
+    .summary-grid { grid-template-columns: 1fr; }
+    .solutions-grid { grid-template-columns: 1fr; }
+
+    .form-shell { padding: 1.2rem 1rem; }
+    .form-group { padding: 0.9rem 0.9rem; }
+
+    .results-section { padding: 1.25rem 1rem 1.25rem; }
+
+    .help-grid { grid-template-columns: 1fr; }
+    .help-right {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+        border-left: none;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .help-section {
+        padding: 1.5rem 1.25rem 1.25rem;
+    }
+}
